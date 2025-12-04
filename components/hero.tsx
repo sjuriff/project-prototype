@@ -3,6 +3,13 @@ import { Plane } from 'lucide-react';
 import heroImg from '@/public/images/beam-phone.jpg';
 
 export default function Hero() {
+  const popularDestinations = [
+    { name: 'USA', code: 'USA', flag: '🇺🇸' },
+    { name: 'Thailand', code: 'THA', flag: '🇹🇭' },
+    { name: 'Japan', code: 'JPN', flag: '🇯🇵' },
+    { name: 'Tyrkia', code: 'TUR', flag: '🇹🇷' },
+    { name: 'Vietnam', code: 'VNM', flag: '🇻🇳' },
+  ]
   return (
     <div className=" w-full" >
       <div className="bg-secondary px-6 py-16 md:py-24">
@@ -21,28 +28,38 @@ export default function Hero() {
               </p>
 
               {/* Search Input */}
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Plane className="h-5 w-5 text-secondary-text" />
-                </div>
+              <div className="relative group focus-within:bg-primary">
+
                 <input
                   type="text"
                   placeholder="Hvor skal du reise?"
-                  className="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-secondary-text bg-surface-dim shadow-sm text-secondary-text focus:text-primary-text focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent"
+                  className=" w-full pl-12 pr-4 py-4 rounded-xl border-2 border-secondary-text bg-surface-dim shadow-sm text-secondary-text focus:text-primary-text focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent"
                 />
+
+                <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
+                  {/* Circle must be the direct peer target */}
+                  <div className="rounded-full p-2 bg-transparent transition-colors duration-200 group-focus-within:bg-primary ">
+                    <Plane className="h-5 w-5 text-secondary-text" />
+                  </div>
+                </div>
+
               </div>
 
               <div className="flex font-body text-secondary-text flex-wrap gap-3 pt-2">
-                <span className="px-4 py-2 bg-surface rounded-full text-sm">🇺🇸 USA</span>
-                <span className="px-4 py-2 bg-white rounded-full text-sm">🇬🇧 England</span>
-                <span className="px-4 py-2 bg-white rounded-full text-sm">🇯🇵 Japan</span>
-                <span className="px-4 py-2 bg-white rounded-full text-sm">🇫🇷 Frankrike</span>
+                {popularDestinations.map((destination) => (
+                  <span
+                    key={destination.code}
+                    className="px-4 py-2 bg-white rounded-full text-sm"
+                  >
+                    {destination.flag} {' '} {destination.name}
+                  </span>
+                ))}
               </div>
             </div>
 
             {/* Image */}
             <div className="relative h-[500px] md:h-[600px]">
-              
+
 
               {/* Main image */}
               <div className="relative z-10 h-full">
