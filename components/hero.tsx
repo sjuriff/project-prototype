@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { Plane } from 'lucide-react';
 import heroImg from '@/public/images/beam-phone.jpg';
+import VippsIcon from './vipps-logo';
+import KlarnaIcon from './klarna-logo';
 
 export default function Hero() {
   const popularDestinations = [
@@ -74,6 +76,13 @@ export default function Hero() {
                     {destination.flag} {' '} {destination.name}
                   </span>
                 ))}
+              </div>
+              <div className='flex items-center justify-start  '>
+                <p className='font-heading text-secondary-text'>Betal enkelt med</p>
+              <VippsIcon  height={100} width={100} />
+                <p className='font-heading text-secondary-text'>eller</p>
+              <KlarnaIcon height={70} width={70} />
+
               </div>
             </div>
 
