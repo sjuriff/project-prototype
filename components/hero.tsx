@@ -26,20 +26,40 @@ export default function Hero() {
               <p className="text-lg md:text-xl font-body text-secondary-text">
                 Dropp fysiske SIM-kort og dyre datapakker. Velg et lokalt eSIM, aktiver på få sekunder og surf trygt så snart du lander.
               </p>
-
               {/* Search Input */}
-              <div className="relative group focus-within:bg-primary">
+              <div className="relative rounded-xl group focus-within:ring-2 focus-within:ring-tertiary transition">
 
+                {/* Input */}
                 <input
                   type="text"
                   placeholder="Hvor skal du reise?"
-                  className=" w-full pl-12 pr-4 py-4 rounded-xl border-2 border-secondary-text bg-surface-dim shadow-sm text-secondary-text focus:text-primary-text focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent"
+                  className="
+      w-full pl-12 pr-4 py-4
+      rounded-xl border-2 border-secondary-text
+      bg-surface-dim shadow-sm
+      text-secondary-text
+      focus:text-primary-text
+      focus:outline-none
+      focus:border-transparent
+    "
                 />
 
-                <div className="absolute inset-y-0 left-0 pl-2 flex items-center pointer-events-none">
-                  {/* Circle must be the direct peer target */}
-                  <div className="rounded-full p-2 bg-transparent transition-colors duration-200 group-focus-within:bg-primary ">
-                    <Plane className="h-5 w-5 text-secondary-text" />
+                {/* Icon + sliding circle */}
+                <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none overflow-hidden">
+                  <div className="relative flex items-center justify-center w-8 h-8">
+                    {/* Circle that slides in */}
+                    <div
+                      className="
+          absolute
+          w-8 h-8 rounded-full
+          bg-primary
+          -translate-x-[200%]
+          group-focus-within:translate-x-0
+          transition-transform duration-300 ease-out
+        "
+                    />
+                    {/* Plane stays fixed on top */}
+                    <Plane className="relative h-4 w-4 text-secondary-text z-10" />
                   </div>
                 </div>
 
@@ -49,7 +69,7 @@ export default function Hero() {
                 {popularDestinations.map((destination) => (
                   <span
                     key={destination.code}
-                    className="px-4 py-2 bg-white rounded-full text-sm"
+                    className="px-4 py-2 hover:scale-105 hover:cursor-pointer transition-transform duration-200 ease-in-out bg-white rounded-full text-sm"
                   >
                     {destination.flag} {' '} {destination.name}
                   </span>
