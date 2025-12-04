@@ -19,16 +19,18 @@ import { EsimPolaroidCard } from "@/components/polaroid-product-card";
 export default function Home() {
   return (
     <main className="bg-surface  flex flex-col  2xl:gap-0">
-      <section className="w-full bg-surface   flex items-center justify-center">
+      <section className="w-full bg-surface relative   flex items-center justify-center">
+        <h1 className="absolute z-20 left-10 top-10 text-tertiary-heading text-4xl font-heading">Hero 1</h1>
         <Hero />
 
       </section>
 
 
 
-      <section className="w-full  xl:px-8 2xl:px-0  bg-gradient-to-b from-secondary to-surface-dim gap-8    min-h-screen 2xl:min-h-[30vh]  flex flex-col items-center justify-center">
-        <div className="2xl:w-4/5 bg-surface rounded-3xl  w-full h-full flex flex-col items-center justify-center  ">
-          <div className="flex flex-col items-center gap-2 p-4">
+      <section className="w-full   xl:px-8 2xl:px-0  bg-gradient-to-b from-secondary to-surface-dim gap-8    min-h-screen 2xl:min-h-[30vh]  flex flex-col items-center justify-center">
+        <div className="2xl:w-4/5 relative bg-surface rounded-3xl  w-full h-full flex flex-col items-center justify-center  ">
+          <h1 className="absolute z-20 left-10 top-10 text-tertiary-heading text-4xl font-heading">Produkt seksjon</h1>
+          <div className="flex  flex-col items-center gap-2 p-4">
             <div className="bg-primary h-16 w-16 flex items-center justify-center rounded-full">
               <Earth className="w-8 h-8 text-primary-text" />
             </div>
@@ -39,7 +41,7 @@ export default function Home() {
           </div>
 
           <div className="grid  py-8 mx-auto gap-8 grid-cols-12  justify-items-center  ">
-         {/*    <EsimPolaroidCard country="France" region="Europe" gb="5GB" validity="1 month" price="49" imageUrl={franceImage} />
+            {/*    <EsimPolaroidCard country="France" region="Europe" gb="5GB" validity="1 month" price="49" imageUrl={franceImage} />
             <EsimPolaroidCard country="France" region="Europe" gb="5GB" validity="1 month" price="49" imageUrl={franceImage} />
             <EsimPolaroidCard country="France" region="Europe" gb="5GB" validity="1 month" price="49" imageUrl={franceImage} />
             <EsimPolaroidCard country="France" region="Europe" gb="5GB" validity="1 month" price="49" imageUrl={franceImage} /> */}
@@ -48,7 +50,7 @@ export default function Home() {
             <ProductCard imageUrl={franceImage} title="France" region="Europe" data="5GB" validity="1 month" price="49" currency="NOK" />
             <ProductCard imageUrl={franceImage} title="France" region="Europe" data="5GB" validity="1 month" price="49" currency="NOK" />
             <ProductCard imageUrl={franceImage} title="France" region="Europe" data="5GB" validity="1 month" price="49" currency="NOK" />
-          {/*   <ProductCardTwo imageUrl={franceImage} title="France" region="Europe" data="5GB" validity="1 month" price="49" currency="NOK" />
+            {/*   <ProductCardTwo imageUrl={franceImage} title="France" region="Europe" data="5GB" validity="1 month" price="49" currency="NOK" />
             <ProductCardTwo imageUrl={franceImage} title="France" region="Europe" data="5GB" validity="1 month" price="49" currency="NOK" />
             <ProductCardTwo imageUrl={franceImage} title="France" region="Europe" data="5GB" validity="1 month" price="49" currency="NOK" />
             <ProductCardTwo imageUrl={franceImage} title="France" region="Europe" data="5GB" validity="1 month" price="49" currency="NOK" />
@@ -60,25 +62,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full bg-surface  min-h-screen  flex items-center justify-center">
+      <section className="w-full relative bg-surface  min-h-screen  flex items-center justify-center">
+        <h1 className="absolute z-20 left-10 top-10 text-tertiary-heading text-4xl font-heading">3-step component</h1>
         <EsimStepHero />
 
       </section>
 
-      <section className="w-full bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
+      <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
+        <h1 className="absolute z-20 left-10 top-10 text-tertiary-heading text-4xl font-heading">Hero 2</h1>
         <TravelHero />
       </section>
 
 
-      <section className="w-full bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
+      <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
+        <h1 className="absolute z-20 left-10 top-10 text-tertiary-heading text-4xl font-heading">E-sim fordeler component</h1>
         <CompareCard />
       </section>
 
-      <section className="w-full bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
+      <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
+        <h1 className="absolute z-20 left-10 top-10 text-tertiary-heading text-4xl font-heading">Hero 3</h1>
         <CreativeHero />
       </section>
 
-      <section className="w-full bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
+      <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
+        <h1 className="absolute z-20 left-10 top-10 text-tertiary-heading text-4xl font-heading">FAQ component</h1>
         <Faq />
       </section>
 
