@@ -87,7 +87,7 @@ export default function CompareCard() {
             <p className="text-[#030213]/60 mb-8 max-w-md mx-auto">
               Bli en del av millionene som har gått over til eSIM.
             </p>
-            <button className="px-10 py-4 bg-[#008093] text-white rounded-full hover:bg-[#008093]/90 transition-all">
+            <button className="px-10 py-4 bg-[#008093] text-white rounded-xl hover:bg-[#008093]/90 transition-all">
               Kjøp eSIM
             </button>
           </div>

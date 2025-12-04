@@ -179,7 +179,7 @@ export default function EsimStepHero() {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <button className="px-8 py-4 rounded-full transition-all hover:scale-105" style={{
+          <button className="px-8 py-4 rounded-xl transition-all hover:scale-105" style={{
             backgroundColor: 'var(--color-tertiary)',
             color: 'var(--color-tertiary-text)',
             fontFamily: 'var(--font-heading)'

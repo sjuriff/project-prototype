@@ -5,9 +5,9 @@ export default function ProductSortBar() {
   const [sort, setSort] = useState("popular");
 
   const tabs = [
-    { key: "popular", label: "Popular" },
+    { key: "popular", label: "Populær" },
     { key: "region", label: "Region" },
-    { key: "all", label: "All" },
+    { key: "all", label: "Alle" },
   ];
 
   return (
@@ -17,7 +17,7 @@ export default function ProductSortBar() {
           key={key}
           onClick={() => setSort(key)}
           className={`px-4 py-2 text-sm font-medium transition
-            ${sort === key ? "bg-tertiary text-tertiary-text" : " hover:text-tertiary hover:pointer-cursor"}`}
+            ${sort === key ? "bg-tertiary text-tertiary-text" : " hover:text-tertiary hover:cursor-pointer"}`}
         >
           {label}
         </button>

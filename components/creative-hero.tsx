@@ -41,7 +41,7 @@ export function CreativeHero() {
             {/* CTA Button */}
             <div className=' flex items-center  ml-8  w-full'>
               <button
-                className="px-8 w-1/2 py-4 bg-primary font-heading text-primary-text rounded-full transition-all hover:shadow-lg"
+                className="px-8 w-1/2 py-4 bg-primary font-heading text-primary-text rounded-xl transition-all hover:shadow-lg"
 
               >
                 Start Nå
