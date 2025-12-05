@@ -1,9 +1,28 @@
-import { CardSim, TabletSmartphone, BadgeQuestionMark } from "lucide-react";
+import { CardSim, TabletSmartphone, BadgeQuestionMark, CircleChevronRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import img from '@/public/images/beam-suitcase.jpg'
 
 
+const FaqCard = ({ question, index }: { question: string, index: number }) => {
+  return (
+    <div className={`flex pl-4 shadow-md hover:cursor-pointer hover:shadow-lg hover:cursor-pointer group hover:scale-y-105 ${index % 2 === 0 ? "hover:bg-secondary" : "hover:bg-primary"} ${index % 2 === 0 ? "hover:-translate-x-2" : "hover:translate-x-2"} transition-transform pr-4  ${index % 2 === 0 ? "bg-secondary/50" : "bg-primary/50"} rounded-r-2xl py-4 lg:w-full 2xl:w-1/2  items-center justify-between  gap-4`}>
+      <h2 className="text-2xl font-heading text-primary-text">{question}</h2>
+      <ChevronRight className="w-6 h-6" />
+    </div>
+  )
+}
+
+
 export default function Faq() {
+
+  const faqs = [
+    'Hvordan installerer jeg Beam eSIM på iOS?',
+    'Hvordan installerer jeg Beam eSIM på Android?',
+    'Kan jeg fortsatt ringe og sende SMS med mitt vanlige telefonnummer?',
+    'Hvordan aktiverer jeg Beam eSIM?',
+    'Hvordan fungerer eSIM?'
+  ]
+
   return (
     <div className=" z-10 relative min-h-[50vh]  w-full py-16 px-4 sm:px-6 lg:px-8">
       <div className="flex mb-8 flex-col gap-4 items-center">
@@ -28,6 +47,11 @@ export default function Faq() {
             <p className="font-body text-balance leading-relaxed">For at eSIM skal fungere må telefonen din støtte eSIM-teknologi. De fleste nyere smarttelefoner fra Apple, Samsung og Google har støtte. Du kan vanligvis se dette i telefonens innstillinger eller på produsentens nettside. Kontakt også mobiloperatøren din for å sikre at de tilbyr eSIM til din modell.</p>
           </div>
         </div>
+      </div>
+      <div className="flex   mt-16 flex-col gap-4 items-center">
+        {faqs.map((faq, index) => (
+          <FaqCard key={index} index={index} question={faq} />
+        ))}
       </div>
     </div>
   );
