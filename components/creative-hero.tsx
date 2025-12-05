@@ -13,17 +13,17 @@ export function CreativeHero() {
             <div className="space-y-4">
               <h1 className="text-5xl font-heading text-pretty   lg:text-7xl " style={{ color: 'var(--color-primary-text)' }}>
                 Utforsk verden.{' '}
-                <span className='text-primary text-pretty [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]' >Vi holder deg tilkoblet</span>
+                <span className='text-primary text-pretty [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]' >Vi sørger for at du er online</span>
               </h1>
               <p className="text-xl text-balance" style={{ color: 'var(--color-secondary-text)' }}>
-                Velg en datapakke som passer reisen din, bytt land med ett klikk og behold kontrollen over forbruket ditt — hvor som helst i verden.
+                Velg en datapakke som passer reisen din og bytt land med et klikk. Du har alltid kontroll over din mobildata – uansett hvor du reiser.
               </p>
             </div>
 
             {/* Feature Pills */}
             <div className="flex  gap-3">
               {[
-                { icon: Zap, label: 'Instant aktivering' },
+                { icon: Zap, label: 'Umiddelbar aktivering' },
                 { icon: Globe, label: '190+ land' },
                 { icon: Smartphone, label: 'Behold ditt telefonnummer' },
               ].map((feature) => (
@@ -41,7 +41,7 @@ export function CreativeHero() {
             {/* CTA Button */}
             <div className=' flex items-center  ml-8  w-full'>
               <button
-                className="px-8 w-1/2 py-4 bg-primary font-heading text-primary-text rounded-xl transition-all hover:shadow-lg"
+                className="px-8 hover:cursor-pointer w-1/2 py-4 bg-primary font-heading text-primary-text rounded-xl transition-all hover:shadow-lg"
 
               >
                 Start Nå

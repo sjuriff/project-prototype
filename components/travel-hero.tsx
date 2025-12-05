@@ -10,17 +10,17 @@ export function TravelHero() {
           {/* Text Content */}
           <div className="space-y-6">
             <h1 className="text-4xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-balance md:text-5xl lg:text-6xl">
-              Full kontroll på data direkte fra mobilen
+              Alltid tilgang til rask mobildata når du er på reise
             </h1>
             <p className="text-lg md:text-xl opacity-90">
-              Med vårt eSIM får du pålitelig data i over 190 land. Ingen bytte av SIM-kort, ingen ventetid. Bare aktiver, reis og hold deg produktiv.
+              Reis uten å bekymre deg for dyre datapakker. Med <span className='text-primary'>Beam</span> eSIM får du ingen uventede kostnader og alltid tilgang til mobildata i over 190 land.
             </p>
 
             <div className="flex font-heading flex-wrap gap-4 pt-4">
-              <button className="bg-[#f9f871] text-[#1d1d1d] px-8 py-3 rounded-lg hover:bg-[#f3e44c] transition-colors">
+              <button className="bg-[#f9f871] text-[#1d1d1d] px-8 py-3 hover:cursor-pointer rounded-lg hover:bg-[#f3e44c] transition-colors">
                 Kom i gang
               </button>
-              <button className="border-2 border-[#ffffff] text-[#ffffff] px-8 py-3 rounded-lg hover:bg-[#ffffff] hover:text-[#008093] transition-colors">
+              <button className="border-2 border-[#ffffff] text-[#ffffff] px-8 py-3 rounded-lg  hover:cursor-pointer hover:scale-101 transition-transform">
                 Lær mer
               </button>
             </div>
@@ -29,15 +29,15 @@ export function TravelHero() {
             <div className="grid grid-cols-3 gap-6 pt-8">
               <div className="flex flex-col items-center text-center">
                 <Globe className="w-10 h-10 mb-2" />
-                <p className="text-sm [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">190+ Land</p>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <Signal className="w-10 h-10 mb-2" />
-                <p className="text-sm [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Instant Aktivering</p>
+                <p className="text-sm [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">190+ land</p>
               </div>
               <div className="flex flex-col items-center text-center">
                 <Smartphone className="w-10 h-10 mb-2" />
                 <p className="text-sm [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Enkel installering</p>
+              </div>
+              <div className="flex flex-col items-center text-center">
+                <Signal className="w-10 h-10 mb-2" />
+                <p className="text-sm [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Umiddelbar aktivering</p>
               </div>
             </div>
           </div>

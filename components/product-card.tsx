@@ -21,7 +21,7 @@ export function ProductCard({
   currency = "NOK"
 }: ProductCardProps) {
   return (
-    <div className="w-[320px] xl:col-span-4 2xl:col-span-3 bg-tertiary rounded-2xl overflow-hidden shadow-lg">
+    <div className="w-[320px]  xl:col-span-4 2xl:col-span-3 bg-tertiary rounded-2xl overflow-hidden shadow-md">
       {/* Product Image Section */}
       <div className="p-6 pb-2 ">
         <div className="bg-white rounded-xl overflow-hidden aspect-[4/3] mb-4">
@@ -72,7 +72,7 @@ export function ProductCard({
         </div>
         <div className='flex flex-col'>
           <button className="w-full font-heading mt-4 bg-primary hover:bg-primary/90 hover:cursor-pointer text-primary-text py-3 px-4 rounded-lg transition-colors">
-            Kjøp Nå
+            Kjøp nå
           </button>
           <button className="w-full font-heading mt-4 bg-transparent border-primary border hover:scale-102 hover:cursor-pointer  text-tertiary-text py-3 px-4 rounded-lg transition-all ease-in-out">
             Les mer

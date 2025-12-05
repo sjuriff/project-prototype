@@ -5,7 +5,7 @@ export default function ProductSortBar() {
   const [sort, setSort] = useState("popular");
 
   const tabs = [
-    { key: "popular", label: "Populær" },
+    { key: "popular", label: "Populært" },
     { key: "region", label: "Region" },
     { key: "all", label: "Alle" },
   ];

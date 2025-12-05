@@ -23,10 +23,10 @@ export default function Hero() {
                 className="text-4xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] md:text-5xl lg:text-6xl font-heading text-balance text-primary-text"
 
               >
-                Reis fritt. Nettet følger deg
+                Rimelig mobildata på reise
               </h1>
               <p className="text-lg md:text-xl font-body text-secondary-text">
-                Dropp fysiske SIM-kort og dyre datapakker. Velg et lokalt eSIM, aktiver på få sekunder og surf trygt så snart du lander.
+                Dropp dyre datapakker. Aktiver eSIM nå. Raskt, enkelt & dekning i 190+ land.
               </p>
               {/* Search Input */}
               <div className="relative rounded-xl group focus-within:ring-2 focus-within:ring-tertiary transition">
