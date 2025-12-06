@@ -1,8 +1,29 @@
 import Image from 'next/image';
 import { Wifi, Globe, Calendar, Shield } from 'lucide-react';
-import parisImage from '@/public/images/paris.jpg';
+import { StaticImageData } from 'next/image';
+import PrimaryButton from './buttons/primary-button';
+import Link from 'next/link';
+import paths from '@/paths';
 
-export default function ProductDetailV2() {
+interface ProductDetailCardProps {
+  id: string;
+  image: StaticImageData;
+  title: string;
+  description: string;
+  price: string;
+  data: string;
+  validity: string;
+}
+
+export default function ProductDetailV2({
+  id,
+  image,
+  title,
+  description,
+  price,
+  data,
+  validity,
+}: ProductDetailCardProps) {
   return (
     <div className="min-h-screen flex items-center justify-center  py-12 px-4">
       <div className="max-w-6xl mx-auto">
@@ -25,13 +46,13 @@ export default function ProductDetailV2() {
               }}
               >
                 <Image
-                  src={parisImage}
+                  src={image}
                   alt="Paris, France"
                   className="w-full rounded-xl h-80 object-cover"
-                 
+
                 />
                 <div className="mt-4 text-center font-heading text-primary-text">
-                  Paris, Frankrike
+                  {title}
                 </div>
               </div>
             </div>
@@ -42,33 +63,33 @@ export default function ProductDetailV2() {
                 Populær
               </div>
 
-              <h1 className="mb-2 text-2xl text-tertiary  font-heading " >Frankrike eSIM Data Plan</h1>
+              <h1 className="mb-2 text-2xl text-tertiary  font-heading " >{title} eSIM Data Plan</h1>
               <p className="mb-6 text-secondary-text font-body" >
-                Hold deg tilkoblet gjennom hele reisen din i Frankrike med vårt høyhastighets eSIM-dataabonnement
+                Hold deg tilkoblet gjennom hele reisen din i med vårt høyhastighets eSIM-dataabonnement
               </p>
 
               <div className="flex font-body items-baseline gap-2 mb-8">
-                <span className="text-4xl text-primary-text" >100 kr</span>
+                <span className="text-4xl text-primary-text" >{price} kr</span>
                 <span className="text-sm text-secondary-text" >engangsbetaling</span>
               </div>
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
                   <div className="mt-1 p-2 rounded-lg bg-tertiary" >
-                    <Wifi className="w-5 h-5 text-tertiary-text"  />
+                    <Wifi className="w-5 h-5 text-tertiary-text" />
                   </div>
                   <div className=' font-body text-secondary-text'>
-                    <p >10 GB High-Speed Data</p>
-                    <p >4G/5G-dekning i hele Frankrike</p>
+                    <p >{data} GB High-Speed Data</p>
+                    <p >4G/5G-dekning i hele {title}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <div className="mt-1 p-2 rounded-lg bg-primary" >
-                    <Globe className="w-5 h-5 text-primary-text"  />
+                    <Globe className="w-5 h-5 text-primary-text" />
                   </div>
                   <div className='text-secondary-text font-body'>
-                    <p >Frankrike dekning</p>
+                    <p >{title} dekning</p>
                     <p >
                       Fungerer i alle større byer og regioner</p>
                   </div>
@@ -79,7 +100,7 @@ export default function ProductDetailV2() {
                     <Calendar className="w-5 h-5 text-secondary-text" />
                   </div>
                   <div className='text-secondary-text font-body'>
-                    <p >30 dagers gyldighet</p>
+                    <p >{validity} dagers gyldighet</p>
                     <p >
                       Aktiveres ved første tilkobling</p>
                   </div>
@@ -87,7 +108,7 @@ export default function ProductDetailV2() {
 
                 <div className="flex items-start gap-3">
                   <div className="mt-1 bg-tertiary p-2 rounded-lg" >
-                    <Shield className="w-5 h-5 text-tertiary-text"  />
+                    <Shield className="w-5 h-5 text-tertiary-text" />
                   </div>
                   <div className='text-secondary-text'>
                     <p>Øyeblikkelig Levering</p>
@@ -96,11 +117,14 @@ export default function ProductDetailV2() {
                 </div>
               </div>
 
-              <div className="space-y-3">
-                <button className="w-full font-heading py-3 font-bold px-6  bg-primary rounded-lg transition-colors text-primary-text"  >
-                  Kjøp Nå
-                </button>
-                <button className="w-full font-heading py-3 px-6 border-2 border-tertiary text-secondary-text font-bold rounded-lg transition-colors"   >
+              <div className="flex flex-col gap-4">
+                <Link href={paths.checkout(id)}>
+                  <PrimaryButton fullWidth  >
+
+                    Kjøp Nå
+                  </PrimaryButton>
+                </Link>
+                <button className="w-full font-heading py-3 px-6 border-2 border-tertiary text-secondary-text hover:cursor-pointer  rounded-lg transition-transform duration-300 hover:scale-102"   >
                   Legg til handlekurv
                 </button>
               </div>
@@ -116,6 +140,6 @@ export default function ProductDetailV2() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }

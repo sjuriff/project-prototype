@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Globe, Signal, Smartphone } from 'lucide-react';
 import heroImg from '@/public/images/beam-family.jpg';
+import PrimaryButton from './buttons/primary-button';
 
 export function TravelHero() {
   return (
@@ -17,9 +18,9 @@ export function TravelHero() {
             </p>
 
             <div className="flex font-heading flex-wrap gap-4 pt-4">
-              <button className="bg-[#f9f871] text-[#1d1d1d] px-8 py-3 hover:cursor-pointer rounded-lg hover:bg-[#f3e44c] transition-colors">
+              <PrimaryButton >
                 Kom i gang
-              </button>
+              </PrimaryButton>
               <button className="border-2 border-[#ffffff] text-[#ffffff] px-8 py-3 rounded-lg  hover:cursor-pointer hover:scale-101 transition-transform">
                 Lær mer
               </button>

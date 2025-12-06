@@ -20,10 +20,11 @@ import thailandImage from '@/public/images/thailand.jpg'
 import japanImage from '@/public/images/japan.jpg'
 import turkeyImage from '@/public/images/turkey.jpg'
 import vietnamImage from '@/public/images/vietnam.jpg'
+import canadaImage from '@/public/images/canada.jpeg'
 import { EsimPolaroidCard } from "@/components/polaroid-product-card";
 
 interface Product {
-  id: number;
+  id: string;
   imageUrl: StaticImageData;
   title: string;
   data: string;
@@ -35,48 +36,57 @@ interface Product {
 export default function Home() {
   const popularDestinations: Product[] = [
     {
-      id: 1,
+      id: '1',
       imageUrl: USAImage,
       title: "USA",
       data: "5GB",
       validity: "30 dager",
-      price: "200",
+      price: "199",
       currency: "kr",
     },
     {
-      id: 2,
+      id: '2',
       imageUrl: thailandImage,
       title: "Thailand",
       data: "5GB",
       validity: "30 dager",
-      price: "200",
+      price: "199",
       currency: "kr",
     },
     {
-      id: 3,
+      id: '3',
       imageUrl: japanImage,
       title: "Japan",
       data: "5GB",
       validity: "30 dager",
-      price: "200",
+      price: "199",
       currency: "kr",
     },
     {
-      id: 4,
+      id: '4',
       imageUrl: turkeyImage,
       title: "Tyrkia",
       data: "5GB",
       validity: "30 dager",
-      price: "230",
+      price: "229",
       currency: "kr",
     },
     {
-      id: 5,
+      id: '5',
       imageUrl: vietnamImage,
       title: "Vietnam",
       data: "5GB",
       validity: "30 dager",
-      price: "200",
+      price: "199",
+      currency: "kr",
+    },
+    {
+      id: '6',
+      imageUrl: canadaImage,
+      title: "Canada",
+      data: "5GB",
+      validity: "30 dager",
+      price: "249",
       currency: "kr",
     },
 
@@ -115,6 +125,7 @@ export default function Home() {
 
               {popularDestinations.map((product) => (
                 <ProductCard
+                  id={product.id}
                   key={product.id}
                   imageUrl={product.imageUrl}
                   title={product.title}

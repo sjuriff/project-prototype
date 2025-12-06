@@ -5,7 +5,7 @@ import { ShoppingCart, ArrowLeft, CreditCard } from "lucide-react";
 
 interface CartItemData {
   id: string;
-  region: string;
+  title: string;
   data: string;
   duration: string;
   price: number;
@@ -16,7 +16,7 @@ export default function ShoppingCartPage() {
   const [cartItems, setCartItems] = useState<CartItemData[]>([
     {
       id: "1",
-      region: "Europe",
+      title: "Europe",
       data: "5GB",
       duration: "30 days",
       price: 100,
@@ -24,7 +24,7 @@ export default function ShoppingCartPage() {
     },
     {
       id: "2",
-      region: "USA & Canada",
+      title: "USA & Canada",
       data: "3GB",
       duration: "14 days",
       price: 50,
@@ -32,7 +32,7 @@ export default function ShoppingCartPage() {
     },
     {
       id: "3",
-      region: "Asia Pacific",
+      title: "Asia Pacific",
       data: "10GB",
       duration: "30 days",
       price: 150,
