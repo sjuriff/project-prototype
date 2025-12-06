@@ -2,7 +2,7 @@ import { Minus, Plus, X, Globe } from "lucide-react";
 
 interface CartItemProps {
   id: string;
-  region: string;
+  title: string;
   data: string;
   duration: string;
   price: number;
@@ -13,8 +13,8 @@ interface CartItemProps {
 
 export function CartItem({
   id,
-  region,
   data,
+  title,
   duration,
   price,
   quantity,
@@ -29,7 +29,7 @@ export function CartItem({
 
       <div className="flex-1 min-w-0">
         <h3 className="mb-1" style={{ color: 'var(--color-primary-text)' }}>
-          {region}
+          {title}
         </h3>
         <div className="flex gap-3 mb-2">
           <span className="inline-flex items-center px-2 py-0.5 rounded-md" style={{ 

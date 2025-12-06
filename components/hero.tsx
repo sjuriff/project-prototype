@@ -11,6 +11,7 @@ export default function Hero() {
     { name: 'Japan', code: 'JPN', flag: '🇯🇵' },
     { name: 'Tyrkia', code: 'TUR', flag: '🇹🇷' },
     { name: 'Vietnam', code: 'VNM', flag: '🇻🇳' },
+    { name: 'Canada', code: 'CAN', flag: '🇨🇦' },
   ]
   return (
     <div className=" w-full" >
@@ -77,11 +78,15 @@ export default function Hero() {
                   </span>
                 ))}
               </div>
-              <div className='flex items-center justify-start  '>
+              <div className='flex items-center gap-2 justify-start  '>
                 <p className='font-heading text-secondary-text'>Betal enkelt med</p>
-              <VippsIcon  height={100} width={100} />
+                <div className=' h-8 flex items-center justify-center'>
+                  <VippsIcon height={70} width={70} />
+                </div>
                 <p className='font-heading text-secondary-text'>eller</p>
-              <KlarnaIcon height={70} width={70} />
+                <div className=' mb-1 h-8 flex items-center justify-center'>
+                  <KlarnaIcon height={70} width={70} />
+                </div>
 
               </div>
             </div>

@@ -1,9 +1,13 @@
 import Image from 'next/image';
 import { Globe, Zap } from 'lucide-react';
 import { StaticImageData } from 'next/image';
+import PrimaryButton from './buttons/primary-button';
 import primaryLine from '@/public/images/primary-line.png';
+import Link from 'next/link';
+import paths from '@/paths';
 
 interface ProductCardProps {
+  id: string;
   imageUrl: StaticImageData;
   title: string;
   data: string;
@@ -13,6 +17,7 @@ interface ProductCardProps {
 }
 
 export function ProductCard({
+  id,
   imageUrl,
   title,
   data,
@@ -20,6 +25,7 @@ export function ProductCard({
   price,
   currency = "NOK"
 }: ProductCardProps) {
+  console.log("id", id)
   return (
     <div className="w-[320px]  xl:col-span-4 2xl:col-span-3 bg-tertiary rounded-2xl overflow-hidden shadow-md">
       {/* Product Image Section */}
@@ -66,19 +72,26 @@ export function ProductCard({
             <span className="text-tertiary-text/80 text-sm">Pris</span>
             <div className="flex items-baseline gap-1">
               <span className="text-tertiary-text text-2xl"><span className='text-xl'>{currency}</span> {price}</span>
-         
+
             </div>
           </div>
         </div>
-        <div className='flex flex-col'>
-          <button className="w-full font-heading mt-4 bg-primary hover:bg-primary/90 hover:cursor-pointer text-primary-text py-3 px-4 rounded-lg transition-colors">
-            Kjøp nå
-          </button>
-          <button className="w-full font-heading mt-4 bg-transparent border-primary border hover:scale-102 hover:cursor-pointer  text-tertiary-text py-3 px-4 rounded-lg transition-all ease-in-out">
-            Les mer
-          </button>
+        <div className='flex mt-4 flex-col'>
+
+          <Link className='w-full ' href={paths.checkout(id)}>
+            <PrimaryButton fullWidth >
+              Kjøp nå
+            </PrimaryButton>
+
+          </Link>
+
+          <Link href={paths.product(id)}>
+            <button className="w-full font-heading mt-4 bg-transparent border-primary border hover:scale-102 hover:cursor-pointer  text-tertiary-text py-3 px-4 rounded-lg transition-all ease-in-out">
+              Les mer
+            </button>
+          </Link>
         </div>
       </div>
-    </div>
+    </div >
   );
 }

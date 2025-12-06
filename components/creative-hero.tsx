@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Globe, Smartphone, Zap } from 'lucide-react';
 import heroImg from '@/public/images/beam-backpack.jpg';
+import PrimaryButton from './buttons/primary-button';
 
 export function CreativeHero() {
   return (
@@ -40,12 +41,15 @@ export function CreativeHero() {
 
             {/* CTA Button */}
             <div className=' flex items-center  ml-8  w-full'>
-              <button
-                className="px-8 hover:cursor-pointer w-1/2 py-4 bg-primary font-heading text-primary-text rounded-xl transition-all hover:shadow-lg"
+              <div className='w-96'>
+                <PrimaryButton
+                fullWidth
 
-              >
-                Start Nå
-              </button>
+
+                >
+                  Start Nå
+                </PrimaryButton>
+              </div>
             </div>
           </div>
 

@@ -3,13 +3,13 @@ import { Mail, User } from "lucide-react";
 export default function CustomerForm() {
   return (
     <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
-      <h2 className="font-heading text-tertiary-heading mb-6">Contact Information</h2>
+      <h2 className="font-heading text-tertiary-heading mb-6">Kontakt informasjon</h2>
       
       <form className="space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label htmlFor="firstName" className="block text-sm text-primary-text font-body mb-2">
-              First Name
+              Fornavn
             </label>
             <div className="relative">
               <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-secondary-text" />
@@ -24,7 +24,7 @@ export default function CustomerForm() {
 
           <div>
             <label htmlFor="lastName" className="block text-sm text-primary-text font-body mb-2">
-              Last Name
+              Etternavn
             </label>
             <div className="relative">
               <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-secondary-text" />
@@ -40,7 +40,7 @@ export default function CustomerForm() {
 
         <div>
           <label htmlFor="email" className="block text-sm text-primary-text font-body mb-2">
-            Email Address
+            Email 
           </label>
           <div className="relative">
             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-secondary-text" />
@@ -52,7 +52,7 @@ export default function CustomerForm() {
             />
           </div>
           <p className="mt-2 text-xs text-secondary-text">
-            Your eSIM QR code will be sent to this email
+            Din eSIM QR-kode vil bli sendt til denne emailen
           </p>
         </div>
       </form>

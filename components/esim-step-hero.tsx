@@ -1,5 +1,6 @@
 import { Smartphone, QrCode, CheckCircle2, Wifi } from 'lucide-react';
 import Link from 'next/link';
+import TertiaryButton from './buttons/tertiary-button';
 
 export default function EsimStepHero() {
   const steps = [
@@ -121,7 +122,7 @@ export default function EsimStepHero() {
                   <h4 style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-primary-text)' }}>
                     Din mobil må ha eSIM
                   </h4>
-                  <p style={{ color: 'var(--color-secondary-text)' }}>
+                  <p className='text-sm' style={{ color: 'var(--color-secondary-text)' }}>
                     eSIM er et innebygd digitalt SIM-kort, som de fleste moderne smarttelefoner har.
                   </p>
                 </div>
@@ -137,7 +138,7 @@ export default function EsimStepHero() {
                   <h4 style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-primary-text)' }}>
                     Kjapp installeringsguide
                   </h4>
-                  <p style={{ color: 'var(--color-secondary-text)' }}>
+                  <p className='text-sm' style={{ color: 'var(--color-secondary-text)' }}>
                     Se hvordan du installerer eSIM på <Link className='underline' href={''}>iPhone</Link> og <Link className='underline' href={''}>Android </Link>
                   </p>
                 </div>
@@ -153,7 +154,7 @@ export default function EsimStepHero() {
                   <h4 style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-primary-text)' }}>
                     Stabilt internett
                   </h4>
-                  <p style={{ color: 'var(--color-secondary-text)' }}>
+                  <p className='text-sm' style={{ color: 'var(--color-secondary-text)' }}>
                     Du trenger WiFi for å aktivere ditt eSIM fra Beam.
                   </p>
                 </div>
@@ -169,8 +170,8 @@ export default function EsimStepHero() {
                   <h4 style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-primary-text)' }}>
                     Installer før avreise
                   </h4>
-                  <p style={{ color: 'var(--color-secondary-text)' }}>
-                    
+                  <p className='text-sm' style={{ color: 'var(--color-secondary-text)' }}>
+                    Du kan aktivere ditt eSIM når som helst, datapakken skrus på automatisk når du lander.
                   </p>
                 </div>
               </div>
@@ -179,14 +180,20 @@ export default function EsimStepHero() {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
-          <button className="px-8 py-4 rounded-xl hover:cursor-pointer transition-all hover:scale-105" style={{
+
+        {/* <button className="px-8 py-4 rounded-xl hover:cursor-pointer transition-all hover:scale-105" style={{
             backgroundColor: 'var(--color-tertiary)',
             color: 'var(--color-tertiary-text)',
             fontFamily: 'var(--font-heading)'
           }}>
-            Kjør eSIM nå
-          </button>
+            Kjøp eSIM nå
+          </button> */}
+        <div className="flex justify-center mt-12">
+          <TertiaryButton>
+            Kjøp eSIM nå
+          </TertiaryButton>
+
+
         </div>
       </div>
     </div>

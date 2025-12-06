@@ -1,20 +1,21 @@
 import { CreditCard, Lock } from "lucide-react";
+import RadioExample from "./buttons/payment-radio-buttons";
 
 export default function PaymentForm() {
   return (
     <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="font-heading text-tertiary-heading">Payment Details</h2>
+        <h2 className="font-heading text-tertiary-heading">Betalings detaljer</h2>
         <div className="flex items-center gap-2 text-secondary-text">
           <Lock className="w-4 h-4" />
-          <span className="text-xs">Secure</span>
+          <span className="text-xs">Sikker</span>
         </div>
       </div>
       
       <form className="space-y-4">
-        <div>
+        {/*<div>
           <label htmlFor="cardNumber" className="block text-sm text-primary-text font-body mb-2">
-            Card Number
+            Kortnummer
           </label>
           <div className="relative">
             <CreditCard className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-secondary-text" />
@@ -31,7 +32,7 @@ export default function PaymentForm() {
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label htmlFor="expiry" className="block text-sm text-primary-text font-body mb-2">
-              Expiry Date
+              Utløpsdato
             </label>
             <input
               type="text"
@@ -58,7 +59,7 @@ export default function PaymentForm() {
 
         <div>
           <label htmlFor="cardName" className="block text-sm text-primary-text font-body mb-2">
-            Cardholder Name
+            Kortholders Navn
           </label>
           <input
             type="text"
@@ -66,7 +67,10 @@ export default function PaymentForm() {
             placeholder="John Doe"
             className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent font-body text-primary-text"
           />
-        </div>
+        </div> */}
+
+        
+        <RadioExample />
 
         {/* Payment Methods */}
    {/*      <div className="pt-4 flex items-center justify-between">
