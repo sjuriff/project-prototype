@@ -36,7 +36,10 @@ export default function Header() {
       </Link>
       <div className={"flex items-center gap-4"}>
         <div className="flex gap-2">
-          <PrimaryButton Icon={User}>Logg inn</PrimaryButton>
+         {/*  <PrimaryButton Icon={User}>Logg inn</PrimaryButton> */}
+          <button className={`border-2 flex items-center  border-[#ffffff]  text-tertiary-text px-8 py-3 rounded-lg  hover:cursor-pointer hover:scale-101 transition-transform`}>
+            <User className="mr-2" /> Logg inn
+          </button>
           <button className={`border-2  border-[#ffffff]  text-tertiary-text px-8 py-3 rounded-lg  hover:cursor-pointer hover:scale-101 transition-transform`}>
             Registrer deg
           </button>

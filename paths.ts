@@ -1,5 +1,6 @@
 const paths = {
   home: "/",
+  support: "/support",
   product(id: string){
     return `/product/${id}`
   },
