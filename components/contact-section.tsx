@@ -28,9 +28,9 @@ export default function ContactSection() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
       <div className="text-center mb-12">
-        <h2 className="mb-3 text-[#1d1d1d]">Get in Touch</h2>
+        <h2 className="mb-3 text-[#1d1d1d]">Kontakt oss</h2>
         <p className="text-[#4a4a4a]">
-          Our support team is available 24/7
+          Vårt team er tilgjengelig 24/7 for hjelp. Vennligst kontakt oss via e-post, telefon eller live chat.
         </p>
       </div>
 
