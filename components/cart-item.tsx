@@ -4,7 +4,7 @@ interface CartItemProps {
   id: string;
   title: string;
   data: string;
-  duration: string;
+  vadility: string;
   price: number;
   quantity: number;
   onUpdateQuantity: (id: string, quantity: number) => void;
@@ -15,7 +15,7 @@ export function CartItem({
   id,
   data,
   title,
-  duration,
+  validity,
   price,
   quantity,
   onUpdateQuantity,
@@ -44,7 +44,7 @@ export function CartItem({
             color: 'var(--color-secondary-text)',
             fontSize: '0.875rem'
           }}>
-            {duration}
+            {validity}
           </span>
         </div>
         <p style={{ color: 'var(--color-primary-text)', fontSize: '1.125rem' }}>
