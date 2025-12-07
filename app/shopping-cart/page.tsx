@@ -73,7 +73,7 @@ export default function ShoppingCartPage() {
                     <CartItem
                       key={item.id}
                       {...item}
-                      vadility={item.validity}
+                      validity={item.validity}
                       onUpdateQuantity={updateQuantity}
                       onRemove={removeItem}
                     />
