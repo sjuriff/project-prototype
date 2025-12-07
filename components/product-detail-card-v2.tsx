@@ -1,9 +1,12 @@
+'use client'
 import Image from 'next/image';
 import { Wifi, Globe, Calendar, Shield } from 'lucide-react';
 import { StaticImageData } from 'next/image';
 import PrimaryButton from './buttons/primary-button';
 import Link from 'next/link';
 import paths from '@/paths';
+import { useCart } from '@/hooks/use-cart';
+import { useRouter } from 'next/navigation';
 
 interface ProductDetailCardProps {
   id: string;
@@ -24,6 +27,26 @@ export default function ProductDetailV2({
   data,
   validity,
 }: ProductDetailCardProps) {
+
+  const {addItem} = useCart()
+  const router = useRouter()
+
+  const handleAddToCartClick = (id: string, title: string, price: string, data: string, vadility: string) =>{
+
+    addItem({
+      id: id,
+      title: title,
+      data: data,
+      validity: vadility,
+      price: parseInt(price),
+      quantity: 1,
+    })
+
+    router.push(paths.cart)
+
+
+
+  }
   return (
     <div className="min-h-screen flex items-center justify-center  py-12 px-4">
       <div className="max-w-6xl mx-auto">
@@ -124,7 +147,7 @@ export default function ProductDetailV2({
                     Kjøp Nå
                   </PrimaryButton>
                 </Link>
-                <button className="w-full font-heading py-3 px-6 border-2 border-tertiary text-secondary-text hover:cursor-pointer  rounded-lg transition-transform duration-300 hover:scale-102"   >
+                <button onClick={() =>handleAddToCartClick(id, title, price, validity, data)} className="w-full font-heading py-3 px-6 border-2 border-tertiary text-secondary-text hover:cursor-pointer  rounded-lg transition-transform duration-300 hover:scale-102"   >
                   Legg til handlekurv
                 </button>
               </div>

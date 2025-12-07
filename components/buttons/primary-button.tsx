@@ -4,16 +4,21 @@ interface PrimaryButtonProps {
   children: React.ReactNode;
   Icon?: LucideIcon
   fullWidth?: boolean
+  disabled?: boolean
 }
 
-export default function PrimaryButton({ children, Icon, fullWidth }: PrimaryButtonProps) {
+export default function PrimaryButton({ children, Icon, fullWidth, disabled }: PrimaryButtonProps) {
   return (
     <button
+    disabled={disabled}
       className={`
     group
     relative overflow-hidden
     px-6 py-3 
     ${fullWidth ? "w-full" : ""}
+    disabled:opacity-50 
+    disabled:cursor-not-allowed
+    disabled:pointer-events-none
     rounded-lg 
     flex items-center gap-2
     justify-center
