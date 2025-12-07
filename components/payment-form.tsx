@@ -13,7 +13,7 @@ export default function PaymentForm() {
       </div>
       
       <form className="space-y-4">
-        {/*<div>
+        <div>
           <label htmlFor="cardNumber" className="block text-sm text-primary-text font-body mb-2">
             Kortnummer
           </label>
@@ -67,7 +67,9 @@ export default function PaymentForm() {
             placeholder="John Doe"
             className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent font-body text-primary-text"
           />
-        </div> */}
+        </div>
+
+        <p className="text-primary-text mt-8 font-heading">Eller</p>
 
         
         <RadioExample />

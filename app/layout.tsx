@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html  className={`${workSans.variable} ${inter.variable}`} lang="en">
       <body
-        className={` antialiased`}
+        className={`overflow-x-hidden antialiased`}
       >
         <Header />
         {children}
