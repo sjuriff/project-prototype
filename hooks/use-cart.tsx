@@ -30,6 +30,7 @@ export function useCart() {
   useEffect(() => {
     if (hydrated) {
       localStorage.setItem("cart", JSON.stringify(items))
+      window.dispatchEvent(new Event("cart-updated"))
     }
   }, [items, hydrated])
 
