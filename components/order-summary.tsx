@@ -55,11 +55,11 @@ export function OrderSummary({ product }: OrderSummaryProps) {
       {/* Price Breakdown */}
       <div className="space-y-3 mb-6">
         <div className="flex justify-between text-secondary-text font-body">
-          <span>Subtotal</span>
+          <span>Delsum</span>
           <span>{product.price} kr</span>
         </div>
         <div className="flex justify-between text-secondary-text font-body">
-          <span>Tax</span>
+          <span>MVA</span>
           <span>0.00</span>
         </div>
       </div>

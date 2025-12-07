@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <header
       id="header"
-      className={`absolute bg-primary-text    ${scrollDirection === 'down' ? '-top-20' : 'top-0'}   sticky left-0  z-50 flex h-20 w-full items-center justify-between  px-4 py-4 font-roboto transition-all duration-300 ease-in-out lg:h-20  `}
+      className={`absolute bg-primary-text     ${scrollDirection === 'down' ? '-top-20' : 'top-0'}   sticky left-0  z-50 flex h-20 w-full items-center justify-between  px-4 py-4 font-roboto transition-all duration-300 ease-in-out lg:h-20  `}
     >
       <Link
         href={'/'}
