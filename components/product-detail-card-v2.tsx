@@ -125,13 +125,13 @@ export default function ProductDetailV2({
 
               <div className='grid grid-cols-12'>
               {tiers.map((item) => (
-                <div onClick={() => handleTierClick(item)} key={item.data} className={`${item.price === tier.price ? 'bg-secondary/90' : 'bg-surface'} flex hover:cursor-pointer hover:shadow-md col-span-6  px-8 py-2 w-fit  rounded-full items-center justify-center gap-3 mb-4`}>
-                  <div className={`mt-1 p-2 rounded-lg ${item.price === tier.price ? 'bg-primary text-primary-text' : ' bg-transparent text-secondary-text '} `} >
+                <div onClick={() => handleTierClick(item)} key={item.data} className={`${item.price === tier.price ? 'bg-tertiary text-tertiary-text' : 'hover:bg-surface-dark hover:shadow-md transition-all duration-300 ease-in-out '} flex hover:cursor-pointer col-span-6  px-4 py-2 w-fit  rounded-xl items-center justify-center gap-3 mb-4`}>
+                  <div className={`mt-1 p-2 rounded-lg ${item.price === tier.price ? 'bg-primary text-primary-text' : ' bg-tertiary text-tertiary-text '} `} >
                     <Radio className="w-5 h-5 " />
 
                   </div>
-                  <div className=' font-body flex flex-col text-secondary-text'>
-                    <p className='text-primary-text/80 font-heading text-sm' >{item.validity}</p>
+                  <div className={` font-body flex flex-col ${item.price === tier.price ? 'text-tertiary-text' : 'text-secondary-text'} `}>
+                    <p className=' font-heading text-sm' >{item.validity}</p>
                     <p >{item.data}</p>
                   </div>
 
