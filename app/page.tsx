@@ -236,7 +236,6 @@ export default function Home() {
   return (
     <main className="bg-surface  flex flex-col  2xl:gap-0">
       <section className="w-full bg-surface relative   flex items-center justify-center">
-        <h1 className="absolute z-20 left-10 top-10 text-tertiary-heading text-4xl font-heading">Hero 1</h1>
         <Hero />
 
       </section>
@@ -245,7 +244,6 @@ export default function Home() {
 
       <section className="w-full   xl:px-8 2xl:px-0  bg-gradient-to-b from-secondary to-surface-dim gap-8    min-h-screen 2xl:min-h-[30vh]  flex flex-col items-center justify-center">
         <div className="2xl:w-4/5 relative bg-surface rounded-3xl  w-full h-full flex flex-col items-center justify-center  ">
-          <h1 className="absolute z-20 left-10 top-10 text-tertiary-heading text-4xl font-heading">Produkt seksjon</h1>
           <div className="flex  flex-col items-center gap-2 p-4">
             <div className="bg-primary h-16 w-16 flex items-center justify-center rounded-full">
               <Earth className="w-8 h-8 text-primary-text" />
@@ -259,11 +257,8 @@ export default function Home() {
             <div className="ml-4">
               <SortSelector />
             </div>
-            <div className="grid    py-8 mx-auto gap-8 grid-cols-12  justify-items-center  ">
-              {/*    <EsimPolaroidCard country="France" region="Europe" gb="5GB" validity="1 month" price="49" imageUrl={franceImage} />
-            <EsimPolaroidCard country="France" region="Europe" gb="5GB" validity="1 month" price="49" imageUrl={franceImage} />
-            <EsimPolaroidCard country="France" region="Europe" gb="5GB" validity="1 month" price="49" imageUrl={franceImage} />
-            <EsimPolaroidCard country="France" region="Europe" gb="5GB" validity="1 month" price="49" imageUrl={franceImage} /> */}
+            <div className="grid    py-8 mx-auto gap-24 grid-cols-12  justify-items-center  ">
+
 
               {popularDestinations.map((product) => (
                 <ProductCard
@@ -277,46 +272,30 @@ export default function Home() {
                   currency={product.currency}
                 />
               ))}
-
-
-
-              {/*   <ProductCardTwo imageUrl={franceImage} title="France" region="Europe" data="5GB" validity="1 month" price="49" currency="NOK" />
-            <ProductCardTwo imageUrl={franceImage} title="France" region="Europe" data="5GB" validity="1 month" price="49" currency="NOK" />
-            <ProductCardTwo imageUrl={franceImage} title="France" region="Europe" data="5GB" validity="1 month" price="49" currency="NOK" />
-            <ProductCardTwo imageUrl={franceImage} title="France" region="Europe" data="5GB" validity="1 month" price="49" currency="NOK" />
-            <ProductCardThree imageUrl={franceImage} title="France" region="Europe" data="5GB" validity="1 month" price="49" currency="NOK" />
-            <ProductCardFour imageUrl={franceImage} title="France" region="Europe" data="5GB" validity="1 month" price="49" currency="NOK" />
-            <ProductCardThree imageUrl={franceImage} title="France" region="Europe" data="5GB" validity="1 month" price="49" currency="NOK" />
-            <ProductCardFour imageUrl={franceImage} title="France" region="Europe" data="5GB" validity="1 month" price="49" currency="NOK" /> */}
             </div>
           </div>
         </div>
       </section>
 
       <section className="w-full relative bg-surface  min-h-[50vh]  flex items-center justify-center">
-        <h1 className="absolute z-20 left-10 top-10 text-tertiary-heading text-4xl font-heading">3-step component</h1>
         <EsimStepHero />
 
       </section>
 
       <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
-        <h1 className="absolute z-20 left-10 top-10 text-tertiary-heading text-4xl font-heading">Hero 2</h1>
         <TravelHero />
       </section>
 
 
       <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
-        <h1 className="absolute z-20 left-10 top-10 text-tertiary-heading text-4xl font-heading">E-sim fordeler component</h1>
         <CompareCard />
       </section>
 
       <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
-        <h1 className="absolute z-20 left-10 top-10 text-tertiary-heading text-4xl font-heading">Hero 3</h1>
         <CreativeHero />
       </section>
 
       <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
-        <h1 className="absolute z-20 left-10 top-10 text-tertiary-heading text-4xl font-heading">FAQ component</h1>
         <Faq />
       </section>
 

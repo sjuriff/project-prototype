@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Globe, Smartphone, Zap } from 'lucide-react';
-import heroImg from '@/public/images/beam-backpack.jpg';
+import heroImg from '@/public/images/beam-green.jpg';
 import PrimaryButton from './buttons/primary-button';
 
 export function CreativeHero() {
