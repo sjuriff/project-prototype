@@ -1,6 +1,9 @@
+import { info } from "console"
+
 const paths = {
   home: "/",
   support: "/support",
+  info: "/info",
   product(id: string){
     return `/product/${id}`
   },

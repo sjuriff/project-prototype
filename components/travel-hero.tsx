@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { Globe, Signal, Smartphone } from 'lucide-react';
 import heroImg from '@/public/images/beam-family.jpg';
 import PrimaryButton from './buttons/primary-button';
+import paths from '@/paths';
+import Link from 'next/link';
 
 export function TravelHero() {
   return (
@@ -21,9 +23,11 @@ export function TravelHero() {
               <PrimaryButton >
                 Kom i gang
               </PrimaryButton>
-              <button className="border-2 border-[#ffffff] text-[#ffffff] px-8 py-3 rounded-lg  hover:cursor-pointer hover:scale-101 transition-transform">
-                Lær mer
-              </button>
+              <Link href={paths.info}>
+                <button className="border-2 border-[#ffffff] text-[#ffffff] px-8 py-3 rounded-lg  hover:cursor-pointer hover:scale-101 transition-transform">
+                  Lær mer
+                </button>
+              </Link>
             </div>
 
             {/* Features */}
