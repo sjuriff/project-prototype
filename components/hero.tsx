@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Plane } from 'lucide-react';
-import heroImg from '@/public/images/beam-phone.jpg';
+import heroImg from '@/public/images/beam-green-two.jpg';
 import VippsIcon from './vipps-logo';
 import KlarnaIcon from './klarna-logo';
 

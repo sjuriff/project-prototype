@@ -47,7 +47,7 @@ export function Step1() {
       <div className="flex-1 bg-gray-50">
         <div className="bg-white mt-2">
           <SettingItem
-            icon={<Wifi className="w-5 h-5 text-secondary" />}
+            icon={<Wifi className="w-5 h-5 text-secondary-text" />}
             title="Nettverk og internett"
             subtitle="Wi-Fi, mobil, databruk, hotspot"
             highlighted
