@@ -2,6 +2,7 @@ import PaymentForm from "@/components/payment-form";
 import { OrderSummary } from "@/components/order-summary";
 import CustomerForm from "@/components/customer-form";
 import BackButton from "@/components/buttons/back-button";
+import { CreditCard } from "lucide-react";
 interface Product {
   id: string;
   title: string;
@@ -90,7 +91,10 @@ export default async function CheckoutPage({ params }: CheckoutPageProps) {
         <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-tertiary-heading text-4xl font-heading mb-2">Checkout</h1>
+            <div className="flex gap-2 mb-2 items-center">
+              <h1 className="text-tertiary-heading text-4xl font-heading ">Kasse</h1>
+              <CreditCard className="w-6 h-6 text-tertiary" />
+            </div>
             <p className="text-secondary-text font-body">Fullfør ditt eSIM kjøp</p>
           </div>
 

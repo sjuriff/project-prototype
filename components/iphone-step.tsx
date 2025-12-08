@@ -1,4 +1,4 @@
-import { ChevronRight, Wifi, Radio,  ChevronLeft, Signal, Battery, Globe, Lock, Bell, User, QrCode, Smartphone } from 'lucide-react';
+import { ChevronRight, Wifi, Radio, ChevronLeft, Signal, Battery, Globe, Lock, Bell, User, QrCode, Smartphone } from 'lucide-react';
 
 interface IPhoneScreenProps {
   step: number;
@@ -9,7 +9,8 @@ export default function IPhoneScreen({ step }: IPhoneScreenProps) {
     switch (step) {
       case 1:
         return {
-          title: 'Steg 1: Åpne innstillinger',
+          title: ' Åpne innstillinger',
+          subtitle: "Gå til Innstillinger på telefonen din og velg 'Mobilnett'",
           header: 'Innstillinger',
           content: (
             <>
@@ -72,8 +73,9 @@ export default function IPhoneScreen({ step }: IPhoneScreenProps) {
         };
       case 2:
         return {
-          title: 'Steg 2: Gå til mobilnett',
+          title: 'Gå til mobilnett',
           header: 'Mobilnett',
+          subtitle: "Inne på mobilnett velger du 'Legg til eSIM'",
           backButton: true,
           content: (
             <>
@@ -111,14 +113,15 @@ export default function IPhoneScreen({ step }: IPhoneScreenProps) {
         };
       case 3:
         return {
-          title: 'Steg 3: Legg til eSIM',
+          title: 'Legg til eSIM',
+          subtitle: "Velg Bruk 'QR-kode', og scan QR-koden med din telefon",
           header: 'Konfigurer mobildata',
           backButton: false,
           content: (
             <div className="flex flex-col h-full">
               <div className="flex-1 flex flex-col items-center justify-center  pb-4">
 
-                <SettingsGroup>
+                <SettingsGroup subtitle='dnjnfwnfwijf'>
                   <SettingsItem
                     icon={<div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--color-tertiary)' }}>
                       <Smartphone className="w-4 h-4" style={{ color: 'var(--color-tertiary-text)' }} />
@@ -160,9 +163,12 @@ export default function IPhoneScreen({ step }: IPhoneScreenProps) {
           <span className="text-sm" style={{ color: 'var(--color-primary-text)' }}>{step}</span>
         </div>
       </div>
-      <h3 className="mb-6 text-center" style={{ color: 'var(--color-tertiary-heading)' }}>
-        {stepContent.title}
-      </h3>
+      <div className='mb-6 h-16 flex-flex-col justify-center items-center gap-2' >
+        <h3 className=" text-center text-lg" style={{ color: 'var(--color-tertiary-heading)' }}>
+          {stepContent.title}
+        </h3>
+        <p className='text-secondary-text text-sm text-center'>{stepContent.subtitle}</p>
+      </div>
 
       {/* iPhone Mockup */}
       <div className="relative w-full max-w-[320px] mx-auto">
@@ -212,17 +218,26 @@ export default function IPhoneScreen({ step }: IPhoneScreenProps) {
 
 interface SettingsGroupProps {
   title?: string;
+  subtitle?: string;
   children: React.ReactNode;
 }
 
-function SettingsGroup({ title, children }: SettingsGroupProps) {
+function SettingsGroup({ title, subtitle, children }: SettingsGroupProps) {
   return (
     <div className="mb-6 first:mt-0">
-      {title && (
+      {(title || subtitle) && (
         <div className="px-5 mb-2">
-          <span className="text-[11px] uppercase tracking-wide" style={{ color: '#6d6d72' }}>
-            {title}
-          </span>
+          {title && (
+            <span className="text-[11px] uppercase tracking-wide" style={{ color: '#6d6d72' }}>
+              {title}
+            </span>
+          )}
+
+          {subtitle && (
+            <span className="text-[11px] text-secondary-text ml-2" style={{ color: '#6d6d72' }}>
+              {subtitle}
+            </span>
+          )}
         </div>
       )}
       <div className="bg-white rounded-xl mx-4 overflow-hidden">
