@@ -23,6 +23,12 @@ import vietnamImage from '@/public/images/vietnam.jpg'
 import canadaImage from '@/public/images/canada.jpeg'
 import { EsimPolaroidCard } from "@/components/polaroid-product-card";
 
+interface Tier {
+  data: string;
+  validity: string;
+  price: string;
+}
+
 interface Product {
   id: string;
   imageUrl: StaticImageData;
@@ -31,7 +37,10 @@ interface Product {
   validity: string;
   price: string;
   currency?: string;
+  tiers: Tier[]
 }
+
+
 
 export default function Home() {
   const popularDestinations: Product[] = [
@@ -43,6 +52,28 @@ export default function Home() {
       validity: "30 dager",
       price: "199",
       currency: "kr",
+      tiers: [
+        {
+          data: "2GB",
+          validity: "15 dager",
+          price: "119",
+        },
+        {
+          data: "5GB",
+          validity: "30 dager",
+          price: "199",
+        },
+        {
+          data: "10GB",
+          validity: "30 dager",
+          price: "339",
+        },
+        {
+          data: "20GB",
+          validity: "30 dager",
+          price: "569",
+        },
+      ]
     },
     {
       id: '2',
@@ -52,6 +83,28 @@ export default function Home() {
       validity: "30 dager",
       price: "199",
       currency: "kr",
+      tiers: [
+        {
+          data: "2GB",
+          validity: "15 dager",
+          price: "119",
+        },
+        {
+          data: "5GB",
+          validity: "30 dager",
+          price: "199",
+        },
+        {
+          data: "10GB",
+          validity: "30 dager",
+          price: "339",
+        },
+        {
+          data: "20GB",
+          validity: "30 dager",
+          price: "569",
+        },
+      ]
     },
     {
       id: '3',
@@ -61,6 +114,28 @@ export default function Home() {
       validity: "30 dager",
       price: "199",
       currency: "kr",
+      tiers: [
+        {
+          data: "2GB",
+          validity: "15 dager",
+          price: "119",
+        },
+        {
+          data: "5GB",
+          validity: "30 dager",
+          price: "199",
+        },
+        {
+          data: "10GB",
+          validity: "30 dager",
+          price: "349",
+        },
+        {
+          data: "20GB",
+          validity: "30 dager",
+          price: "599",
+        },
+      ]
     },
     {
       id: '4',
@@ -70,6 +145,28 @@ export default function Home() {
       validity: "30 dager",
       price: "229",
       currency: "kr",
+      tiers: [
+        {
+          data: "2GB",
+          validity: "15 dager",
+          price: "139",
+        },
+        {
+          data: "5GB",
+          validity: "30 dager",
+          price: "229",
+        },
+        {
+          data: "10GB",
+          validity: "30 dager",
+          price: "409",
+        },
+        {
+          data: "20GB",
+          validity: "30 dager",
+          price: "529",
+        },
+      ]
     },
     {
       id: '5',
@@ -79,6 +176,28 @@ export default function Home() {
       validity: "30 dager",
       price: "199",
       currency: "kr",
+      tiers: [
+        {
+          data: "2GB",
+          validity: "15 dager",
+          price: "119",
+        },
+        {
+          data: "5GB",
+          validity: "30 dager",
+          price: "199",
+        },
+        {
+          data: "10GB",
+          validity: "30 dager",
+          price: "349",
+        },
+        {
+          data: "20GB",
+          validity: "30 dager",
+          price: "599",
+        },
+      ]
     },
     {
       id: '6',
@@ -88,6 +207,29 @@ export default function Home() {
       validity: "30 dager",
       price: "249",
       currency: "kr",
+      tiers: [
+        {
+          data: "2GB",
+          validity: "15 dager",
+          price: "149",
+        },
+        {
+          data: "5GB",
+          validity: "30 dager",
+          price: "249",
+        },
+        {
+          data: "10GB",
+          validity: "30 dager",
+          price: "429",
+        },
+        {
+          data: "20GB",
+          validity: "30 dager",
+          price: "729",
+        },
+      ]
+    
     },
 
   ]

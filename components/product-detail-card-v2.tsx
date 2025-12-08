@@ -1,12 +1,14 @@
 'use client'
 import Image from 'next/image';
-import { Wifi, Globe, Calendar, Shield } from 'lucide-react';
+import { Wifi, Globe, Radio, Calendar, Shield } from 'lucide-react';
 import { StaticImageData } from 'next/image';
 import PrimaryButton from './buttons/primary-button';
 import Link from 'next/link';
 import paths from '@/paths';
 import { useCart } from '@/hooks/use-cart';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { constants } from 'node:crypto';
 
 interface ProductDetailCardProps {
   id: string;
@@ -16,6 +18,13 @@ interface ProductDetailCardProps {
   price: string;
   data: string;
   validity: string;
+  tiers: Tier[]
+}
+
+interface Tier {
+  data: string;
+  validity: string;
+  price: string
 }
 
 export default function ProductDetailV2({
@@ -26,19 +35,36 @@ export default function ProductDetailV2({
   price,
   data,
   validity,
+  tiers
 }: ProductDetailCardProps) {
 
-  const {addItem} = useCart()
+
+  const [tier, setTier] = useState<Tier>({
+    data: data,
+    validity: validity,
+    price: price
+  })
+  const { addItem } = useCart()
   const router = useRouter()
 
-  const handleAddToCartClick = (id: string, title: string, price: string, data: string, vadility: string) =>{
+
+  const handleTierClick = (tier: Tier) => {
+
+    setTier(tier)
+  }
+
+
+
+  console.log("tiers", tiers)
+
+  const handleAddToCartClick = (id: string, title: string) => {
 
     addItem({
       id: id,
       title: title,
-      data: data,
-      validity: vadility,
-      price: parseInt(price),
+      data: tier.data,
+      validity: tier.validity,
+      price: parseInt(tier.price),
       quantity: 1,
     })
 
@@ -92,9 +118,28 @@ export default function ProductDetailV2({
               </p>
 
               <div className="flex font-body items-baseline gap-2 mb-8">
-                <span className="text-4xl text-primary-text" >{price} kr</span>
+                <span className="text-4xl text-primary-text" >{tier?.price} kr</span>
                 <span className="text-sm text-secondary-text" >engangsbetaling</span>
               </div>
+
+
+
+              {tiers.map((item) => (
+                <div onClick={() => handleTierClick(item)} key={item.data} className={`${item.price === tier.price ? 'bg-secondary/90' : 'bg-surface'} flex hover:cursor-pointer hover:shadow-md  px-8 py-2 w-fit  rounded-full items-center justify-center gap-3 mb-4`}>
+                  <div className={`mt-1 p-2 rounded-lg ${item.price === tier.price ? 'bg-primary text-primary-text' : ' bg-transparent text-secondary-text '} `} >
+                    <Radio className="w-5 h-5 " />
+
+                  </div>
+                  <div className=' font-body flex flex-col text-secondary-text'>
+                    <p className='text-primary-text/80 font-heading text-sm' >{item.validity}</p>
+                    <p >{item.data}</p>
+                  </div>
+
+
+
+
+                </div>
+              ))}
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
@@ -102,11 +147,11 @@ export default function ProductDetailV2({
                     <Wifi className="w-5 h-5 text-tertiary-text" />
                   </div>
                   <div className=' font-body text-secondary-text'>
-                    <p >{data} GB High-Speed Data</p>
+                    <p > High-Speed Data</p>
                     <p >4G/5G-dekning i hele {title}</p>
                   </div>
                 </div>
-
+                {/* 
                 <div className="flex items-start gap-3">
                   <div className="mt-1 p-2 rounded-lg bg-primary" >
                     <Globe className="w-5 h-5 text-primary-text" />
@@ -116,14 +161,14 @@ export default function ProductDetailV2({
                     <p >
                       Fungerer i alle større byer og regioner</p>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="flex  items-start gap-3">
                   <div className="mt-1 bg-secondary p-2 rounded-lg" >
                     <Calendar className="w-5 h-5 text-secondary-text" />
                   </div>
                   <div className='text-secondary-text font-body'>
-                    <p >{validity} dagers gyldighet</p>
+                    <p >{tier?.validity} dagers gyldighet</p>
                     <p >
                       Aktiveres ved første tilkobling</p>
                   </div>
@@ -147,11 +192,10 @@ export default function ProductDetailV2({
                     Kjøp Nå
                   </PrimaryButton>
                 </Link>
-                <button onClick={() =>handleAddToCartClick(id, title, price, validity, data)} className="w-full font-heading py-3 px-6 border-2 border-tertiary text-secondary-text hover:cursor-pointer  rounded-lg transition-transform duration-300 hover:scale-102"   >
+                <button onClick={() => handleAddToCartClick(id, title)} className="w-full font-heading py-3 px-6 border-2 border-tertiary text-secondary-text hover:cursor-pointer  rounded-lg transition-transform duration-300 hover:scale-102"   >
                   Legg til handlekurv
                 </button>
               </div>
-
               <div className="mt-6 p-4 rounded-lg bg-[#005A66] " >
                 <p className='text-tertiary-text font-body' >
                   ✓ Ingen kontrakter eller abonnementer<br />
