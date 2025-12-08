@@ -41,7 +41,7 @@ export default function DropInMenu({ scrollDirection, scrollTop }: { scrollDirec
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
-          className={`fixed inset-0  ${scrollDirection === 'up' ? 'top-20' : 'top-0'}  bg-black/10 backdrop-blur-sm transition-opacity z-10`}
+          className={`fixed inset-0  ${scrollDirection === 'up' ? 'top-20' : 'top-0'} overflow-hidden  bg-black/10 backdrop-blur-xs transition-opacity z-10`}
         />
       )}
 

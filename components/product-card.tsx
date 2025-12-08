@@ -27,7 +27,7 @@ export function ProductCard({
 }: ProductCardProps) {
   console.log("id", id)
   return (
-    <div className="w-[320px]  xl:col-span-4 2xl:col-span-3 bg-tertiary rounded-2xl overflow-hidden shadow-md">
+    <div className="w-[320px]  xl:col-span-4 2xl:col-span-4 bg-tertiary rounded-2xl overflow-hidden shadow-md">
       {/* Product Image Section */}
       <div className="p-6 pb-2 ">
         <div className="bg-white rounded-xl overflow-hidden aspect-[4/3] mb-4">
