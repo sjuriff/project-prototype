@@ -80,7 +80,7 @@ export default function ProductDetailV2({
           <div className="grid md:grid-cols-2">
             {/* Left side - Polaroid Image */}
             <div className="flex  justify-center items-center p-8 md:p-12 bg-secondary">
-              <div className="p-6 border rounded-xl shadow-2xl rotate-[-2deg] hover:rotate-0 transition-transform duration-300" style={{
+              <div className="p-6 border w-full rounded-xl shadow-2xl rotate-[-2deg] hover:rotate-0 transition-transform duration-300" style={{
                 backgroundColor: '#d6cfc3', // warm paper
                 backgroundImage: "url('/images/polaroid-texture.avif')", // repeating grain
                 backgroundRepeat: 'repeat',
@@ -123,9 +123,9 @@ export default function ProductDetailV2({
               </div>
 
 
-
+              <div className='grid grid-cols-12'>
               {tiers.map((item) => (
-                <div onClick={() => handleTierClick(item)} key={item.data} className={`${item.price === tier.price ? 'bg-secondary/90' : 'bg-surface'} flex hover:cursor-pointer hover:shadow-md  px-8 py-2 w-fit  rounded-full items-center justify-center gap-3 mb-4`}>
+                <div onClick={() => handleTierClick(item)} key={item.data} className={`${item.price === tier.price ? 'bg-secondary/90' : 'bg-surface'} flex hover:cursor-pointer hover:shadow-md col-span-6  px-8 py-2 w-fit  rounded-full items-center justify-center gap-3 mb-4`}>
                   <div className={`mt-1 p-2 rounded-lg ${item.price === tier.price ? 'bg-primary text-primary-text' : ' bg-transparent text-secondary-text '} `} >
                     <Radio className="w-5 h-5 " />
 
@@ -140,6 +140,7 @@ export default function ProductDetailV2({
 
                 </div>
               ))}
+              </div>
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
