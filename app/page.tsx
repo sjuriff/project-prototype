@@ -293,7 +293,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full relative bg-surface  min-h-screen  flex items-center justify-center">
+      <section className="w-full relative bg-surface  min-h-[50vh]  flex items-center justify-center">
         <h1 className="absolute z-20 left-10 top-10 text-tertiary-heading text-4xl font-heading">3-step component</h1>
         <EsimStepHero />
 

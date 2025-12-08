@@ -27,7 +27,7 @@ export default function Hero() {
                 Rimelig mobildata på reise
               </h1>
               <p className="text-lg md:text-xl font-body text-secondary-text">
-                Dropp dyre datapakker. Aktiver eSIM nå. Raskt, enkelt & dekning i 190+ land.
+                Dropp dyre datapakker. Aktiver eSIM på 2 minutter. Raskt, enkelt & dekning i 190+ land.
               </p>
               {/* Search Input */}
               <div className="relative rounded-xl group focus-within:ring-2 focus-within:ring-tertiary transition">

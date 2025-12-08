@@ -28,7 +28,7 @@ export default function EsimStepHero() {
   ];
 
   return (
-    <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8" style={{
+    <div className="min-h-[50vh] mt-16 py-16 px-4 sm:px-6 lg:px-8" style={{
       backgroundColor: 'var(--color-surface)',
       fontFamily: 'var(--font-body)'
     }}>
@@ -66,7 +66,7 @@ export default function EsimStepHero() {
                   <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-gray-300" />
                 )}
 
-                <div className="relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow h-full">
+                <div className="relative bg-primary-text rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow h-full">
                   {/* Step Number Badge */}
                   <div className="inline-flex items-center justify-center w-14 h-14 rounded-full mb-6" style={{
                     backgroundColor: bgColor
@@ -84,14 +84,14 @@ export default function EsimStepHero() {
                   </div>
 
                   {/* Content */}
-                  <h3 className="mb-3" style={{
+                  <h3 className="mb-3 text-tertiary-text" style={{
                     fontFamily: 'var(--font-heading)',
-                    color: 'var(--color-primary-text)'
+
                   }}>
                     {step.title}
                   </h3>
                   <p className='text-balance' style={{
-                    color: 'var(--color-primary-text)'
+                    color: 'var(--color-tertiary-text)'
                   }}>
                     {step.description}
                   </p>
@@ -102,82 +102,7 @@ export default function EsimStepHero() {
         </div>
 
         {/* Additional Info */}
-        <div className="bg-white rounded-2xl p-8 shadow-sm">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="mb-6 text-center" style={{
-              fontFamily: 'var(--font-heading)',
-              color: 'var(--color-primary-text)'
-            }}>
-              Hva er eSIM
-            </h2>
-
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-1" style={{
-                  backgroundColor: 'var(--color-primary)'
-                }}>
-                  <CheckCircle2 className="w-4 h-4" style={{ color: 'var(--color-primary-text)' }} />
-                </div>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-primary-text)' }}>
-                    Din mobil må ha eSIM
-                  </h4>
-                  <p className='text-sm' style={{ color: 'var(--color-secondary-text)' }}>
-                    eSIM er et innebygd digitalt SIM-kort, som de fleste moderne smarttelefoner har.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-1" style={{
-                  backgroundColor: 'var(--color-primary)'
-                }}>
-                  <CheckCircle2 className="w-4 h-4" style={{ color: 'var(--color-primary-text)' }} />
-                </div>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-primary-text)' }}>
-                    Kjapp installeringsguide
-                  </h4>
-                  <p className='text-sm' style={{ color: 'var(--color-secondary-text)' }}>
-                    Se hvordan du installerer eSIM på <Link className='underline' href={''}>iPhone</Link> og <Link className='underline' href={''}>Android </Link>
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-1" style={{
-                  backgroundColor: 'var(--color-primary)'
-                }}>
-                  <CheckCircle2 className="w-4 h-4" style={{ color: 'var(--color-primary-text)' }} />
-                </div>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-primary-text)' }}>
-                    Stabilt internett
-                  </h4>
-                  <p className='text-sm' style={{ color: 'var(--color-secondary-text)' }}>
-                    Du trenger WiFi for å aktivere ditt eSIM fra Beam.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-1" style={{
-                  backgroundColor: 'var(--color-primary)'
-                }}>
-                  <CheckCircle2 className="w-4 h-4" style={{ color: 'var(--color-primary-text)' }} />
-                </div>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-primary-text)' }}>
-                    Installer før avreise
-                  </h4>
-                  <p className='text-sm' style={{ color: 'var(--color-secondary-text)' }}>
-                    Du kan aktivere ditt eSIM når som helst, datapakken skrus på automatisk når du lander.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
         {/* CTA */}
 
