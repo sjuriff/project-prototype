@@ -4,20 +4,20 @@ const steps = [
   {
     icon: Download,
     number: "01",
-    title: "Kjøp en plan",
-    description: "Velg en eSIM-plan som passer dine behov fra din operatør eller leverandør."
+    title: "Kjøp eSIM",
+    description: "Velg land og kjøp datapakke. Etter betaling får du en QR-kode."
   },
   {
     icon: Scan,
     number: "02",
-    title: "Skann QR-kode",
-    description: "Motta en QR-kode og skann den med enheten for å laste ned eSIM-profilen."
+    title: "Legg til eSIM",
+    description: "Gå til mobilinnstillinger, velg «Legg til eSIM» og skann QR-koden."
   },
   {
     icon: CheckCircle,
     number: "03",
-    title: "Ta i bruk",
-    description: "Aktiver din nye eSIM og du er klar til å koble deg på med én gang."
+    title: "Aktiver og surf i vei",
+    description: "Aktiver eSIM og velg det som hovedlinje for mobildata. Du er på nett med en gang du lander!"
   }
 ];
 
@@ -42,7 +42,7 @@ export default function HowItWorksSection() {
             color: 'var(--color-secondary-text)'
           }}
         >
-          Å komme i gang med eSIM er enkelt og tar bare noen minutter.
+          Det tar kun 2 minutter å komme i gang med eSIM
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
@@ -52,14 +52,10 @@ export default function HowItWorksSection() {
                 className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-6"
                 style={{ backgroundColor: 'var(--color-primary)' }}
               >
-                <step.icon className="w-10 h-10 text-primary-text"  />
+                <step.icon className="w-10 h-10 text-primary-text" />
               </div>
 
-              <div
-                className="mb-3  font-heading text-secondary-text"
-              >
-                {step.number}
-              </div>
+             
 
               <h3
                 className="mb-3 text-lg"

@@ -13,10 +13,10 @@ export function TravelHero() {
           {/* Text Content */}
           <div className="space-y-6">
             <h1 className="text-4xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-balance md:text-5xl lg:text-6xl">
-              Alltid tilgang til rask mobildata når du er på reise
+              Smarthack mobilregningen din
             </h1>
-            <p className="text-lg md:text-xl opacity-90">
-              Reis uten å bekymre deg for dyre datapakker. Med <span className='text-primary'>Beam</span> eSIM får du ingen uventede kostnader og alltid tilgang til mobildata i over 190 land.
+            <p className="text-lg md:text-xl text-pretty leading-relaxed opacity-90">
+             Det kan fort bli dyrt med mobildata utenfor Europa. Med <span className='text-primary'>Beam</span> eSIM har du alltid kontroll.
             </p>
 
             <div className="flex font-heading flex-wrap gap-4 pt-4">

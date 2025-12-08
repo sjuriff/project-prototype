@@ -9,12 +9,15 @@ export default function SupportHero() {
   return (
     <div className="bg-secondary text-white py-20 px-6">
       <div className="max-w-3xl mx-auto text-center">
-        <div className='flex items-center gap-2 mb-3 justify-center'>
+        <div className='flex flex-col items-center gap-2 mb-3 justify-center'>
+          <div className='bg-primary p-4 rounded-full'>
+            <HeartHandshake className="w-6 h-6 text-primary-text" />
+          </div>
           <h1 className=" text-secondary-text text-3xl font-heading">Support </h1>
-          <HeartHandshake className="w-6 h-6 text-secondary-heading" />
+
         </div>
         <p className="mb-10 text-secondary-text">
-          Finn svar og få hjelp  med ditt eSIM
+          Her finner du svar og får hjelp
         </p>
 
         <div className="max-w-2xl mx-auto relative">

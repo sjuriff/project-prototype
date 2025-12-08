@@ -1,4 +1,4 @@
-import { ChevronRight, Wifi, ChevronLeft, Signal, Battery, Globe, Lock, Bell, User, QrCode, Smartphone } from 'lucide-react';
+import { ChevronRight, Wifi, Radio,  ChevronLeft, Signal, Battery, Globe, Lock, Bell, User, QrCode, Smartphone } from 'lucide-react';
 
 interface IPhoneScreenProps {
   step: number;
@@ -9,7 +9,7 @@ export default function IPhoneScreen({ step }: IPhoneScreenProps) {
     switch (step) {
       case 1:
         return {
-          title: 'Steg 1: Åpne Instillinger',
+          title: 'Steg 1: Åpne innstillinger',
           header: 'Innstillinger',
           content: (
             <>
@@ -26,7 +26,7 @@ export default function IPhoneScreen({ step }: IPhoneScreenProps) {
               <SettingsGroup>
                 <SettingsItem
                   icon={<div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--color-tertiary)' }}>
-                    <Wifi className="w-4 h-4" style={{ color: 'var(--color-tertiary-text)' }} />
+                    <Radio className="w-4 h-4" style={{ color: 'var(--color-tertiary-text)' }} />
                   </div>}
                   label="Mobilnett"
                   showChevron
