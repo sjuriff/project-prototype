@@ -86,6 +86,7 @@ export default function ProductDetailV2({
                 backgroundRepeat: 'repeat',
                 backgroundBlendMode: "overlay",
                 backgroundSize: '200px 200px',
+                backgroundPosition: 'bottom right',
                 border: '1px solid #e6e1d4',
                 boxShadow: `
       0 12px 25px rgba(0,0,0,0.20),

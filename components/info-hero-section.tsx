@@ -1,9 +1,11 @@
 import { Smartphone, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import BackButton from "./buttons/back-button";
 
 export default function HeroSection() {
   return (
-    <section className="py-16 px-6 bg-secondary md:py-24">
+    <section className="py-16 relative px-6 bg-secondary md:py-24">
+      <div className="absolute left-8 top-8"><BackButton /></div>
       <div className="max-w-4xl mx-auto text-center">
         <div
           className="inline-flex bg-primary items-center justify-center w-20 h-20 rounded-full mb-8"
@@ -34,7 +36,7 @@ export default function HeroSection() {
                         </div>
                         <div className="text-left">
                           <h4 className="text-left" style={{ fontFamily: 'var(--font-heading)', color: 'var(--color-primary-text)' }}>
-                            Din mobil må ha eSIM
+                            Din mobil må ha støtte eSIM
                           </h4>
                           <p className='text-sm' style={{ color: 'var(--color-secondary-text)' }}>
                             eSIM er et innebygd digitalt SIM-kort, som de fleste moderne smarttelefoner har.
