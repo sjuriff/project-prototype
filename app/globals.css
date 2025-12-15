@@ -4,13 +4,12 @@
 @theme {
   /* colors */
   --color-primary: #f9f871;
-  --color-secondary: #d6e3ff;
-  --color-tertiary: #008093;
+  --color-secondary: #c8d7ff;
+  --color-tertiary: #5346d6 ;
 
   --color-primary-text: #1d1d1d;
   --color-secondary-text: #4a4a4a;
   --color-tertiary-text: #ffffff;
-
 
   --color-primary-heading: #f3e44c;
   --color-secondary-heading: #7aa8ff;
@@ -20,11 +19,13 @@
   --color-surface-dim: #f7f9fc;
   --color-surface-dark: #e2e8f0;
 
+  --color-old-teal: #008093
+
+  --color-test: #5b3fdc;
+
   /* fonts - connected to `next/font` variables */
   --font-body: var(--font-inter);
-  --font-heading: var(--font-work-sans);
-
- 
+  --font-heading: var(--font-nunito-sans);
 }
 
 :root {
