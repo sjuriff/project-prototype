@@ -1,18 +1,13 @@
 
-import ProductDetailV2 from "@/components/product-detail-card-v2";
 import EsimStepHero from "@/components/esim-step-hero";
 import { CreativeHero } from "@/components/creative-hero";
 import { TravelHero } from "@/components/travel-hero";
 import Faq from "@/components/FAQ";
 import CompareCard from "@/components/compare-card";
 import { StaticImageData } from "next/image";
-
 import Hero from "@/components/hero";
 import { ProductCard } from "@/components/product-card";
-import { ProductCardTwo } from "@/components/product-card-v2";
-import { ProductCardThree } from "@/components/product-card-V3";
-import { ProductCardFour } from "@/components/product-card-V4";
-import franceImage from '@/public/images/paris.jpg';
+
 import SortSelector from "@/components/radio-buttons";
 import { Earth } from "lucide-react";
 import USAImage from '@/public/images/new-york.jpg'
@@ -21,7 +16,9 @@ import japanImage from '@/public/images/japan.jpg'
 import turkeyImage from '@/public/images/turkey.jpg'
 import vietnamImage from '@/public/images/vietnam.jpg'
 import canadaImage from '@/public/images/canada.jpeg'
-import { EsimPolaroidCard } from "@/components/polaroid-product-card";
+import ImageHero from "@/components/image-hero";
+import heroImage from '@/public/images/beam-green-two.jpg'
+
 
 interface Tier {
   data: string;
@@ -236,7 +233,8 @@ export default function Home() {
   return (
     <main className="bg-surface  flex flex-col  2xl:gap-0">
       <section className="w-full bg-surface relative   flex items-center justify-center">
-        <Hero />
+       {/*  <Hero /> */}
+       <ImageHero imgData={heroImage} imgAlt="hero" title="Dekning over hele verden"/>
 
       </section>
 

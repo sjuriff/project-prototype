@@ -21,7 +21,7 @@ export default function Hero() {
             {/* Text Content */}
             <div className="space-y-6">
               <h1
-                className="text-4xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] md:text-5xl lg:text-6xl font-heading text-balance text-primary-text"
+                className="text-4xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] md:text-5xl lg:text-6xl xl:text-7xl font-heading text-balance text-primary-text"
 
               >
                 Rimelig mobildata på reise

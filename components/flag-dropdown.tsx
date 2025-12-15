@@ -11,6 +11,7 @@ const flags = [
   { code: "no", label: "Norsk", flag: "🇳🇴" },
   { code: "se", label: "Svenska", flag: "🇸🇪" },
   { code: "dk", label: "Dansk", flag: "🇩🇰" },
+  { code: "en", label: "English", flag: "🇬🇧" }
 ]
 
 export default function LanguageSelector({ scrollDirection, scrollTop }: { scrollDirection: string, scrollTop: number }) {
