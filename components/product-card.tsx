@@ -42,7 +42,7 @@ export function ProductCard({
 
  
   return (
-    <div className="w-[320px]  xl:col-span-4 2xl:col-span-4 bg-tertiary rounded-2xl overflow-hidden shadow-md">
+    <div className="w-[320px]  xl:col-span-4 2xl:col-span-4 bg-gradient-to-t from-tertiary to-tertiary/80 rounded-2xl overflow-hidden shadow-lg">
       {/* Product Image Section */}
       <div className="p-6 pb-2 ">
         <div className="bg-white rounded-xl overflow-hidden aspect-[4/3] mb-4">

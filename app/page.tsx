@@ -232,7 +232,7 @@ export default function Home() {
   ]
   return (
     <main className="bg-surface  flex flex-col  2xl:gap-0">
-      <section className="w-full bg-surface relative   flex items-center justify-center">
+      <section className="w-full z-0 bg-gradient-to-b from-surface to-secondary relative   flex items-center justify-center">
        {/*  <Hero /> */}
        <ImageHero imgData={heroImage} imgAlt="hero" title="Dekning over hele verden"/>
 
@@ -240,13 +240,13 @@ export default function Home() {
 
 
 
-      <section className="w-full   xl:px-8 2xl:px-0  bg-gradient-to-b from-secondary to-surface-dim gap-8    min-h-screen 2xl:min-h-[30vh]  flex flex-col items-center justify-center">
-        <div className="2xl:w-4/5 relative bg-surface rounded-3xl  w-full h-full flex flex-col items-center justify-center  ">
+      <section className="w-full z-10   xl:px-8 2xl:px-0  bg-gradient-to-b from-secondary to-surface-dim gap-8    min-h-screen 2xl:min-h-[30vh]  flex flex-col items-center justify-center">
+        <div className="2xl:w-4/5 2xl:-mt-32 xl:-mt-16  relative bg-surface rounded-3xl  w-full h-full flex flex-col items-center justify-center  ">
           <div className="flex  flex-col items-center gap-2 p-4">
             <div className="bg-primary h-16 w-16 flex items-center justify-center rounded-full">
               <Earth className="w-8 h-8 text-primary-text" />
             </div>
-            <h1 className="text-3xl font-heading   text-tertiary [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Dekning over hele verden</h1>
+            <h1 className="text-5xl font-heading   text-tertiary [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Dekning over hele verden</h1>
             <p className="text-xl font-body text-secondary-text">Velg din destinasjon</p>
 
 

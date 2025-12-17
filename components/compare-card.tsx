@@ -21,8 +21,8 @@ export default function CompareCard() {
           <span className='bg-primary w-16 h-16 flex items-center justify-center rounded-full  '>
             <Star className="w-8 h-8 text-primary-text" />
           </span>
-          <h1 className="mb-4  text-3xl font-heading text-tertiary-heading">Fordeler med eSIM</h1>
-          <p className="text-[#717182] max-w-xl mx-auto">
+          <h1 className="mb-4  text-5xl font-heading text-tertiary">Fordeler med eSIM</h1>
+          <p className="text-primary-text max-w-xl mx-auto">
             Null stress, med eSIM kan du kjøpe og aktivere lokale datapakker før du reiser, slik at du er online når du lander.
           </p>
         </div>
@@ -33,9 +33,9 @@ export default function CompareCard() {
             {/* eSIM Column */}
             <div className="p-10  md:p-12 lg:p-14">
               <div className="mb-10 flex items-center gap-3">
-                <Smartphone className="w-6 h-6 text-[#008093]" strokeWidth={2} />
+                <Smartphone className="w-6 h-6 text-tertiary" strokeWidth={2} />
                 <div>
-                  <h2 className="text-[#008093] mb-1">eSIM</h2>
+                  <h2 className="text-tertiary text-xl font-heading mb-1">eSIM</h2>
                 </div>
               </div>
 

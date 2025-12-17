@@ -31,7 +31,7 @@ export default function ImageHero(props: HeroProps) {
     gsap.fromTo(textContainerRef.current, { x: '-120%' }, { x: 0, duration: 0.5, ease: "back.out(1.1)" })
   }, [])
   return (
-    <div className="relative  w-full h-screen">
+    <div className="relative 2xl:w-4/5 2xl:h-[750px] w-full h-screen">
       <div className='absolute w-full h-full z-0'>
         <Image
           src={props.imgData}
@@ -46,8 +46,8 @@ export default function ImageHero(props: HeroProps) {
 
 
       {/* Text Card */}
-      <div ref={textContainerRef} className="pt-12 pb-12 flex  ml-16 z-50  -translate-x-[120%]   w-1/2 justify-center items-center">
-        <div className=" z-50 flex flex-col gap-4 px-12 pt-6 shadow-md pb-8 bg-secondary/70  py-4 rounded-xl">
+      <div ref={textContainerRef} className="xl:pt-12 2xl:pt-68    flex  ml-16 z-50  -translate-x-[120%]   w-1/2 justify-center items-center">
+        <div className=" z-50 flex flex-col gap-4 px-12 pt-6 shadow-md pb-8 bg-secondary  py-4 rounded-xl">
           <h1
             className="text-4xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] md:text-5xl lg:text-6xl xl:text-7xl font-heading text-balance text-primary-text"
 
