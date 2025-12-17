@@ -17,7 +17,7 @@ import turkeyImage from '@/public/images/turkey.jpg'
 import vietnamImage from '@/public/images/vietnam.jpg'
 import canadaImage from '@/public/images/canada.jpeg'
 import ImageHero from "@/components/image-hero";
-import heroImage from '@/public/images/beam-green-two.jpg'
+import heroImage from '@/public/images/beam-wide-hero.jpeg'
 
 
 interface Tier {

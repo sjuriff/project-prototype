@@ -32,24 +32,22 @@ export default function ImageHero(props: HeroProps) {
   }, [])
   return (
     <div className="relative  w-full h-screen">
-      <div className='absolute left-55 w-full h-full z-0'>
+      <div className='absolute w-full h-full z-0'>
         <Image
           src={props.imgData}
           alt={props.imgAlt}
           fill
-          className="-scale-x-100 object-top-right object-cover"
+          className="-scale-x-100 object-top object-cover"
         />
 
       </div>
-      <div className="absolute bottom-0 h-full  w-55 bg-secondary from-secondary via-secondary to-transparent">
 
-      </div>
-      <div className="absolute bottom-0 h-full left-45  w-24 bg-gradient-to-r from-secondary via-secondary to-transparent">
 
-      </div>
+
+
       {/* Text Card */}
-      <div ref={textContainerRef} className="pt-12 flex  ml-16 z-50  -translate-x-[120%]   w-1/2 justify-center items-center">
-        <div className=" z-50 flex flex-col gap-4 px-12 bg-secondary/70  py-4 rounded-xl">
+      <div ref={textContainerRef} className="pt-12 pb-12 flex  ml-16 z-50  -translate-x-[120%]   w-1/2 justify-center items-center">
+        <div className=" z-50 flex flex-col gap-4 px-12 pt-6 shadow-md pb-8 bg-secondary/70  py-4 rounded-xl">
           <h1
             className="text-4xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] md:text-5xl lg:text-6xl xl:text-7xl font-heading text-balance text-primary-text"
 
@@ -103,7 +101,7 @@ export default function ImageHero(props: HeroProps) {
                 key={destination.code}
                 className="  hover:cursor-pointer group flex  items-center justify-center gap-2 duration-200 text-sm"
               >
-                <span className="text-xl group-hover:border-2 transition-all ease-in-out border-primary group-hover:border bg-white h-10 w-10 flex items-center justify-center rounded-full">{destination.flag}</span> {' '} <span> {destination.name}</span>
+                <span className="text-xl bg-surface/80 group-hover:border-2 transition-all ease-in-out border-primary group-hover:border  h-10 w-10 flex items-center justify-center rounded-full">{destination.flag}</span> {' '} <span> {destination.name}</span>
               </span>
             ))}
 
