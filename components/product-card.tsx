@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image';
 import { Globe, Zap } from 'lucide-react';
 import { StaticImageData } from 'next/image';
@@ -5,12 +6,21 @@ import PrimaryButton from './buttons/primary-button';
 import primaryLine from '@/public/images/primary-line.png';
 import Link from 'next/link';
 import paths from '@/paths';
+import { useState } from 'react';
+import { CustomDropdown } from './custom-dropdown';
+
+interface Tier {
+  data: string;
+  validity: string;
+  price: string;
+}
 
 interface ProductCardProps {
   id: string;
   imageUrl: StaticImageData;
   title: string;
   data: string;
+  tirers: Tier[];
   validity: string;
   price: string;
   currency?: string;
@@ -22,10 +32,15 @@ export function ProductCard({
   title,
   data,
   validity,
+  tirers,
   price,
   currency = "NOK"
 }: ProductCardProps) {
-  console.log("id", id)
+
+   const [selectedTier, setSelectedTier] = useState<Tier>(tirers[1]);
+
+
+ 
   return (
     <div className="w-[320px]  xl:col-span-4 2xl:col-span-4 bg-tertiary rounded-2xl overflow-hidden shadow-md">
       {/* Product Image Section */}
@@ -50,12 +65,12 @@ export function ProductCard({
       {/* Product Details Section */}
       <div className="p-6  pt-6">
         <div className="flex font-body  items-center justify-around mb-4">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center justify-center">
             <div className="flex items-center gap-2 mb-3">
               <Globe className="w-4 h-4 text-primary" />
               <span className="text-tertiary-text text-sm">Data</span>
             </div>
-            <p className="text-tertiary-text">{data}</p>
+            <CustomDropdown options={tirers} value={selectedTier.data} onChange={(value) => setSelectedTier(tirers.find((tier) => tier.data === value) || tirers[0])} placeholder={selectedTier.data} className='' />
           </div>
 
           <div className="flex flex-col font-body items-center">
@@ -63,7 +78,7 @@ export function ProductCard({
               <Zap className="w-4 h-4 text-primary" />
               <span className="text-tertiary-text text-sm">Gyldig i</span>
             </div>
-            <p className="text-tertiary-text">{validity}</p>
+            <p className="text-tertiary-text">{selectedTier.validity}</p>
           </div>
         </div>
 
@@ -71,7 +86,7 @@ export function ProductCard({
           <div className="flex items-end justify-between">
             <span className="text-tertiary-text/80 text-sm">Pris</span>
             <div className="flex items-baseline gap-1">
-              <span className="text-tertiary-text text-2xl"><span className='text-xl'>{currency}</span> {price}</span>
+              <span className="text-tertiary-text text-2xl"><span className='text-xl'>{currency}</span> {selectedTier.price}</span>
 
             </div>
           </div>
