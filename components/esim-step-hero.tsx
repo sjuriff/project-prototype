@@ -40,7 +40,7 @@ export default function EsimStepHero() {
           }}>
             <Wifi className="w-8 h-8" style={{ color: 'var(--color-primary-text)' }} />
           </div>
-          <h1 className="mb-4 text-3xl font-heading text-tertiary-heading " >
+          <h1 className="mb-4 text-5xl font-heading text-tertiary " >
             Slik fungerer eSIM
           </h1>
           <p className="max-w-2xl text-balance mx-auto" style={{
@@ -66,7 +66,7 @@ export default function EsimStepHero() {
                   <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-gray-300" />
                 )}
 
-                <div className="relative bg-primary-text rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow h-full">
+                <div className="relative bg-surface-dim rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow h-full">
                   {/* Step Number Badge */}
                   <div className="inline-flex items-center justify-center w-14 h-14 rounded-full mb-6" style={{
                     backgroundColor: bgColor
@@ -84,14 +84,14 @@ export default function EsimStepHero() {
                   </div>
 
                   {/* Content */}
-                  <h3 className="mb-3 text-tertiary-text" style={{
+                  <h3 className="mb-3 text-primary-text" style={{
                     fontFamily: 'var(--font-heading)',
 
                   }}>
                     {step.title}
                   </h3>
                   <p className='text-balance' style={{
-                    color: 'var(--color-tertiary-text)'
+                    color: 'var(--color-primary-text)'
                   }}>
                     {step.description}
                   </p>

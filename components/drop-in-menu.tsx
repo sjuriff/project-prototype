@@ -46,7 +46,7 @@ export default function DropInMenu({ scrollDirection, scrollTop }: { scrollDirec
       )}
 
 
-      <div ref={menuRef} className={`absolute translate-x-[200%] top-20 z-20 right-0  w-100 h-screen bg-tertiary  shadow-lg`}>
+      <div ref={menuRef} className={`absolute translate-x-[200%] top-20 z-20 right-0  w-100 h-screen bg-gradient-to-b from-primary-text to-tertiary  shadow-lg`}>
         <ul className="py-2 text-tertiary-text font-heading">
           <li className="px-4 py-2 text-base text-tertiary-text">Item 1</li>
           <li className="px-4 py-2 text-base text-tertiary-text">Item 2</li>
