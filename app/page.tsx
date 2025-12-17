@@ -267,6 +267,7 @@ export default function Home() {
                   data={product.data}
                   validity={product.validity}
                   price={product.price}
+                  tirers={product.tiers}
                   currency={product.currency}
                 />
               ))}
