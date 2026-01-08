@@ -28,7 +28,7 @@ interface Tier {
 
 interface Product {
   id: string;
-  imageUrl: StaticImageData;
+  imageUrl: string;
   title: string;
   data: string;
   validity: string;
@@ -40,195 +40,97 @@ interface Product {
 
 
 export default function Home() {
-  const popularDestinations: Product[] = [
+    const popularDestinations: Product[] = [
     {
-      id: '1',
-      imageUrl: USAImage,
+      id: "1",
+      imageUrl: "/images/new-york.jpg",
       title: "USA",
       data: "5GB",
       validity: "30 dager",
       price: "199",
       currency: "kr",
       tiers: [
-        {
-          data: "2GB",
-          validity: "15 dager",
-          price: "119",
-        },
-        {
-          data: "5GB",
-          validity: "30 dager",
-          price: "199",
-        },
-        {
-          data: "10GB",
-          validity: "30 dager",
-          price: "339",
-        },
-        {
-          data: "20GB",
-          validity: "30 dager",
-          price: "569",
-        },
-      ]
+        { data: "2GB", validity: "15 dager", price: "119" },
+        { data: "5GB", validity: "30 dager", price: "199" },
+        { data: "10GB", validity: "30 dager", price: "339" },
+        { data: "20GB", validity: "30 dager", price: "569" },
+      ],
     },
     {
-      id: '2',
-      imageUrl: thailandImage,
+      id: "2",
+      imageUrl: "/images/thailand.jpg",
       title: "Thailand",
       data: "5GB",
       validity: "30 dager",
       price: "199",
       currency: "kr",
       tiers: [
-        {
-          data: "2GB",
-          validity: "15 dager",
-          price: "119",
-        },
-        {
-          data: "5GB",
-          validity: "30 dager",
-          price: "199",
-        },
-        {
-          data: "10GB",
-          validity: "30 dager",
-          price: "339",
-        },
-        {
-          data: "20GB",
-          validity: "30 dager",
-          price: "569",
-        },
-      ]
+        { data: "2GB", validity: "15 dager", price: "119" },
+        { data: "5GB", validity: "30 dager", price: "199" },
+        { data: "10GB", validity: "30 dager", price: "339" },
+        { data: "20GB", validity: "30 dager", price: "569" },
+      ],
     },
     {
-      id: '3',
-      imageUrl: japanImage,
+      id: "3",
+      imageUrl: "/images/japan.jpg",
       title: "Japan",
       data: "5GB",
       validity: "30 dager",
       price: "199",
       currency: "kr",
       tiers: [
-        {
-          data: "2GB",
-          validity: "15 dager",
-          price: "119",
-        },
-        {
-          data: "5GB",
-          validity: "30 dager",
-          price: "199",
-        },
-        {
-          data: "10GB",
-          validity: "30 dager",
-          price: "349",
-        },
-        {
-          data: "20GB",
-          validity: "30 dager",
-          price: "599",
-        },
-      ]
+        { data: "2GB", validity: "15 dager", price: "119" },
+        { data: "5GB", validity: "30 dager", price: "199" },
+        { data: "10GB", validity: "30 dager", price: "349" },
+        { data: "20GB", validity: "30 dager", price: "599" },
+      ],
     },
     {
-      id: '4',
-      imageUrl: turkeyImage,
+      id: "4",
+      imageUrl: "/images/turkey.jpg",
       title: "Tyrkia",
       data: "5GB",
       validity: "30 dager",
       price: "229",
       currency: "kr",
       tiers: [
-        {
-          data: "2GB",
-          validity: "15 dager",
-          price: "139",
-        },
-        {
-          data: "5GB",
-          validity: "30 dager",
-          price: "229",
-        },
-        {
-          data: "10GB",
-          validity: "30 dager",
-          price: "409",
-        },
-        {
-          data: "20GB",
-          validity: "30 dager",
-          price: "529",
-        },
-      ]
+        { data: "2GB", validity: "15 dager", price: "139" },
+        { data: "5GB", validity: "30 dager", price: "229" },
+        { data: "10GB", validity: "30 dager", price: "409" },
+        { data: "20GB", validity: "30 dager", price: "529" },
+      ],
     },
     {
-      id: '5',
-      imageUrl: vietnamImage,
+      id: "5",
+      imageUrl: "/images/vietnam.jpg",
       title: "Vietnam",
       data: "5GB",
       validity: "30 dager",
       price: "199",
       currency: "kr",
       tiers: [
-        {
-          data: "2GB",
-          validity: "15 dager",
-          price: "119",
-        },
-        {
-          data: "5GB",
-          validity: "30 dager",
-          price: "199",
-        },
-        {
-          data: "10GB",
-          validity: "30 dager",
-          price: "349",
-        },
-        {
-          data: "20GB",
-          validity: "30 dager",
-          price: "599",
-        },
-      ]
+        { data: "2GB", validity: "15 dager", price: "119" },
+        { data: "5GB", validity: "30 dager", price: "199" },
+        { data: "10GB", validity: "30 dager", price: "349" },
+        { data: "20GB", validity: "30 dager", price: "599" },
+      ],
     },
     {
-      id: '6',
-      imageUrl: canadaImage,
+      id: "6",
+      imageUrl: "/images/canada.jpeg",
       title: "Canada",
       data: "5GB",
       validity: "30 dager",
       price: "249",
       currency: "kr",
       tiers: [
-        {
-          data: "2GB",
-          validity: "15 dager",
-          price: "149",
-        },
-        {
-          data: "5GB",
-          validity: "30 dager",
-          price: "249",
-        },
-        {
-          data: "10GB",
-          validity: "30 dager",
-          price: "429",
-        },
-        {
-          data: "20GB",
-          validity: "30 dager",
-          price: "729",
-        },
-      ]
-    
+        { data: "2GB", validity: "15 dager", price: "149" },
+        { data: "5GB", validity: "30 dager", price: "249" },
+        { data: "10GB", validity: "30 dager", price: "429" },
+        { data: "20GB", validity: "30 dager", price: "729" },
+      ],
     },
-
   ]
   return (
     <main className="bg-surface  flex flex-col  2xl:gap-0">

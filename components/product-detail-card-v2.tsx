@@ -9,10 +9,11 @@ import { useCart } from '@/hooks/use-cart';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { constants } from 'node:crypto';
+import { usePersistedProduct } from '@/hooks/use-persisted-product';
 
 interface ProductDetailCardProps {
   id: string;
-  image: StaticImageData;
+  image: string;
   title: string;
   description: string;
   price: string;
@@ -45,7 +46,10 @@ export default function ProductDetailV2({
     price: price
   })
   const { addItem } = useCart()
+  const { persistProduct } = usePersistedProduct()
   const router = useRouter()
+
+  console.log("image", image)
 
 
   const handleTierClick = (tier: Tier) => {
@@ -73,6 +77,22 @@ export default function ProductDetailV2({
 
 
   }
+
+  const handleBuyClick = () => {
+    persistProduct({
+      id,
+      imageUrl: image,
+      title,
+      data: tier.data,
+      validity: tier.validity,
+      price: tier.price,
+      currency: "NOK",
+      tiers: tiers,
+    });
+
+    router.push(paths.checkout(id));
+  }
+  
   return (
     <div className="min-h-screen flex items-center justify-center  py-12 px-4">
       <div className="max-w-6xl mx-auto">
@@ -99,6 +119,8 @@ export default function ProductDetailV2({
                   src={image}
                   alt="Paris, France"
                   className="w-full rounded-xl h-80 object-cover"
+                  width={1000}
+                  height={1000}
 
                 />
                 <div className="mt-4 text-center font-heading text-primary-text">
@@ -188,12 +210,12 @@ export default function ProductDetailV2({
               </div>
 
               <div className="flex flex-col gap-4">
-                <Link href={paths.checkout(id)}>
-                  <PrimaryButton fullWidth  >
+                {/* <Link href={paths.checkout(id)}> */}
+                  <PrimaryButton onClick={handleBuyClick} fullWidth  >
 
                     Kjøp Nå
                   </PrimaryButton>
-                </Link>
+               {/*  </Link> */}
                 <button onClick={() => handleAddToCartClick(id, title)} className="w-full font-heading py-3 px-6 border-2 border-tertiary text-secondary-text hover:cursor-pointer  rounded-lg transition-transform duration-300 hover:scale-102"   >
                   Legg til handlekurv
                 </button>

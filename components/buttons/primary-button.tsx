@@ -1,3 +1,4 @@
+'use client'
 import type { LucideIcon } from "lucide-react";
 
 interface PrimaryButtonProps {
@@ -5,11 +6,13 @@ interface PrimaryButtonProps {
   Icon?: LucideIcon
   fullWidth?: boolean
   disabled?: boolean
+  onClick?: () => void
 }
 
-export default function PrimaryButton({ children, Icon, fullWidth, disabled }: PrimaryButtonProps) {
+export default function PrimaryButton({ children, Icon, onClick, fullWidth, disabled }: PrimaryButtonProps) {
   return (
     <button
+    onClick={onClick}
     disabled={disabled}
       className={`
     group
