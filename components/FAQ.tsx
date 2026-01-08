@@ -55,7 +55,7 @@ export default function Faq() {
           <BadgeQuestionMark className="w-8 h-8" />
         </span>
 
-        <h1 className="text-4xl text-center font-heading text-primary-text">Frequently Asked Questions</h1>
+        <h1 className="text-5xl text-center font-heading text-primary-text">Frequently Asked Questions</h1>
       </div>
       <div className="flex lg:gap-8 2xl:gap-0 h-full">
         <div className="w-1/2 flex h-80 2xl:h-90  items-center justify-center   text-secondary-text">

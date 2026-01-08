@@ -2,7 +2,7 @@ import { Contact } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative z-[5] bg-primary-text font-roboto text-onSurface">
+    <footer className="relative z-[5] bg-primary-text bg-tertiary font-roboto text-onSurface">
       <div className="mx-auto w-full max-w-screen-xl gap-20 p-4 md:flex md:flex-col md:items-center md:justify-between">
         <div className="flex h-full w-full flex-col items-center justify-between gap-8 lg:flex-row lg:items-start">
           <div className="flex flex-col gap-2">

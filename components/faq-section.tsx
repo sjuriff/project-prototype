@@ -39,7 +39,7 @@ export default function FAQSection() {
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-16">
-      <h2 className="text-center mb-12 text-[#1d1d1d]">Frequently Asked Questions</h2>
+      <h2 className="text-center mb-12 text-3xl font-heading text-primary-text">Frequently Asked Questions</h2>
 
       <div className="space-y-3">
         {faqs.map((faq, index) => (

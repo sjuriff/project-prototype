@@ -35,7 +35,7 @@ export default function TroubleShootingSection() {
   return (
     <div className="bg-[#f8fafc] py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-center text-lg mb-12 text-tertiary-heading">Feilsøking</h2>
+        <h2 className="text-center text-3xl font-heading  mb-12 text-primary-text">Feilsøking</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {troubleshootingGuides.map((guide, index) => (
@@ -44,7 +44,7 @@ export default function TroubleShootingSection() {
               <ul className="space-y-4">
                 {guide.steps.map((step, stepIndex) => (
                   <li key={stepIndex} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[#008093] flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-tertiary flex-shrink-0 mt-0.5" />
                     <span className="text-[#4a4a4a] leading-relaxed">{step}</span>
                   </li>
                 ))}

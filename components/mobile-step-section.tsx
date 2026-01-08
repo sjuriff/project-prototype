@@ -18,7 +18,7 @@ export default function MobileStepSection() {
 
   return (
     <div className="max-w-7xl pb-24 pt-16   mx-auto">
-      <h1 className="text-center font-heading text-lg mb-12" style={{ color: 'var(--color-tertiary-heading)' }}>
+      <h1 className="text-center font-heading text-3xl text-primary-text mb-12">
         Hvordan aktiverer jeg Beam eSIM
       </h1>
 

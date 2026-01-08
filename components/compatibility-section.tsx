@@ -31,7 +31,7 @@ export default function CompatibilitySection() {
     >
       <div className="max-w-6xl mx-auto">
         <h2
-          className="text-center mb-4 font-heading text-lg text-tertiary-heading"
+          className="text-center mb-4 font-heading text-3xl text-primary-text"
 
         >
           Støttede enheter
@@ -54,8 +54,8 @@ export default function CompatibilitySection() {
               className="bg-white shadow-md rounded-2xl p-6 text-center"
             >
               <div
-                className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4"
-                style={{ backgroundColor: 'var(--color-secondary)' }}
+                className="inline-flex items-center bg-primary justify-center w-16 h-16 rounded-full mb-4"
+               
               >
                 <device.icon className="w-8 h-8" style={{ color: 'var(--color-tertiary)' }} />
               </div>
@@ -85,10 +85,10 @@ export default function CompatibilitySection() {
         </div>
 
         <div
-          className="mt-8 p-6 rounded-xl text-center bg-secondary"
+          className="mt-8 p-6 rounded-xl text-center bg-tertiary"
          
         >
-          <p className="font-body text-secondary-text">
+          <p className="font-body text-tertiary-text">
           
             Sjekk enhetsinnstillingene under Mobilnett for å bekrefte om enheten støtter eSIM
           </p>

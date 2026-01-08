@@ -163,8 +163,8 @@ export default function IPhoneScreen({ step }: IPhoneScreenProps) {
           <span className="text-sm" style={{ color: 'var(--color-primary-text)' }}>{step}</span>
         </div>
       </div>
-      <div className='mb-6 h-16 flex-flex-col justify-center items-center gap-2' >
-        <h3 className=" text-center text-lg" style={{ color: 'var(--color-tertiary-heading)' }}>
+      <div className='mb-6 h-16 flex-flex-col text-primary-text font-heading justify-center items-center gap-2' >
+        <h3 className=" text-center font-body text-lg" >
           {stepContent.title}
         </h3>
         <p className='text-secondary-text text-sm text-center'>{stepContent.subtitle}</p>

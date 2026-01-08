@@ -31,7 +31,7 @@ export default function BenefitsSection() {
     >
       <div className="max-w-6xl mx-auto">
         <h2
-          className="text-center text-lg mb-12 font-heading text-tertiary-heading"
+          className="text-center text-3xl mb-12 font-heading text-primary-text"
          
         >
           Fordeler med eSIM
@@ -44,10 +44,10 @@ export default function BenefitsSection() {
               className="bg-white shadow-md rounded-2xl p-8 transition-transform hover:-translate-y-1"
             >
               <div
-                className="inline-flex items-center justify-center w-14 h-14 rounded-full mb-4"
-                style={{ backgroundColor: 'var(--color-secondary)' }}
+                className="inline-flex bg-primary items-center justify-center w-14 h-14 rounded-full mb-4"
+               
               >
-                <benefit.icon className="w-7 h-7" style={{ color: 'var(--color-tertiary)' }} />
+                <benefit.icon className="w-7 h-7 text-primary-text"  />
               </div>
 
               <h3
