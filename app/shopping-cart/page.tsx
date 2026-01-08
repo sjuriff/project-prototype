@@ -5,6 +5,7 @@ import { useCart } from "@/hooks/use-cart";
 import PrimaryButton from "@/components/buttons/primary-button";
 import Link from "next/link";
 import paths from "@/paths";
+import { useRouter } from "next/navigation";
 interface CartItemData {
   id: string;
   title: string;
@@ -25,12 +26,20 @@ export default function ShoppingCartPage() {
 
   if (!hydrated) return null // or loading skeleton
 
+  const router = useRouter()
+
   const subtotal = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   )
   const tax = subtotal * 0.1
   const total = subtotal + tax
+
+  const handleCheckout = () => {
+    router.push(paths.checkout("1"))
+  }
+
+  
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: 'var(--color-surface)' }}>
@@ -116,6 +125,7 @@ export default function ShoppingCartPage() {
               <PrimaryButton
                 Icon={CreditCard}
                 fullWidth
+                onClick={handleCheckout}
 
 
                 disabled={cartItems.length === 0}

@@ -1,8 +1,12 @@
+'use client'
+
 import PaymentForm from "@/components/payment-form";
 import { OrderSummary } from "@/components/order-summary";
 import CustomerForm from "@/components/customer-form";
 import BackButton from "@/components/buttons/back-button";
 import { CreditCard } from "lucide-react";
+import { usePersistedProduct } from "@/hooks/use-persisted-product";
+import { useCart } from "@/hooks/use-cart";
 interface Product {
   id: string;
   title: string;
@@ -17,67 +21,21 @@ interface CheckoutPageProps {
     id: string;
   };
 }
+//Needs to be an asycn function when we fetch real data
+export default  function CheckoutPage({ params }: CheckoutPageProps) {
 
-export default async function CheckoutPage({ params }: CheckoutPageProps) {
+  const {  getProduct, clearProduct} = usePersistedProduct()
 
-  const { id } = await params
+  const {items} = useCart()
+
+  const cartItems = items
 
 
-  const popularDestinations: Product[] = [
-    {
-      id: '1',
-      title: "USA",
-      data: "5GB",
-      validity: "30 dager",
-      price: "199",
-      currency: "kr",
-    },
-    {
-      id: '2',
-      title: "Thailand",
-      data: "5GB",
-      validity: "30 dager",
-      price: "199",
-      currency: "kr",
-    },
-    {
-      id: '3',
-      title: "Japan",
-      data: "5GB",
-      validity: "30 dager",
-      price: "199",
-      currency: "kr",
-    },
-    {
-      id: '4',
-      title: "Tyrkia",
-      data: "5GB",
-      validity: "30 dager",
-      price: "229",
-      currency: "kr",
-    },
-    {
-      id: '5',
+  const product = getProduct()
 
-      title: "Vietnam",
-      data: "5GB",
-      validity: "30 dager",
-      price: "199",
-      currency: "kr",
-    },
-    {
-      id: '6',
 
-      title: "Canada",
-      data: "5GB",
-      validity: "30 dager",
-      price: "249",
-      currency: "kr",
-    },
 
-  ]
-
-  const product = popularDestinations.find((product) => product.id === id);
+  
   if (!product) {
     console.error("Product not found");
 
@@ -86,7 +44,7 @@ export default async function CheckoutPage({ params }: CheckoutPageProps) {
     <main className="bg-surface border border-black flex items-center justify-center  flex flex-col  ">
       <section className="w-full relative  bg-surface  min-h-screen flex items-center justify-center">
         <div className="absolute top-4 left-4 2xl:top-16 2xl:left-16">
-          <BackButton />
+          <BackButton  />
         </div>
         <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
           {/* Header */}
@@ -108,7 +66,7 @@ export default async function CheckoutPage({ params }: CheckoutPageProps) {
 
             {/* Right Column - Order Summary */}
             <div className="lg:col-span-1">
-              <OrderSummary product={product!} />
+              <OrderSummary products={items.length > 0 ? cartItems : [product!]} />
             </div>
           </div>
         </div>

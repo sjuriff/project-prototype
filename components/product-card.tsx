@@ -8,6 +8,8 @@ import Link from 'next/link';
 import paths from '@/paths';
 import { useState } from 'react';
 import { CustomDropdown } from './custom-dropdown';
+import { useRouter } from 'next/navigation';
+import {usePersistedProduct} from '@/hooks/use-persisted-product';
 
 interface Tier {
   data: string;
@@ -17,7 +19,7 @@ interface Tier {
 
 interface ProductCardProps {
   id: string;
-  imageUrl: StaticImageData;
+  imageUrl: string;
   title: string;
   data: string;
   tirers: Tier[];
@@ -39,6 +41,41 @@ export function ProductCard({
 
    const [selectedTier, setSelectedTier] = useState<Tier>(tirers[1]);
 
+   const { persistProduct } = usePersistedProduct();
+
+   const router = useRouter();
+
+   const handleBuyClick = () => {
+    persistProduct({
+      id,
+      imageUrl,
+      title,
+      data: selectedTier.data,
+      validity,
+      price: selectedTier.price,
+      currency,
+      tiers: tirers,
+    });
+
+    router.push(paths.checkout(id));
+  };
+
+  const handleReadMoreClick = () =>{
+    persistProduct({
+      id,
+      imageUrl,
+      title,
+      data: selectedTier.data,
+      validity,
+      price: selectedTier.price,
+      currency,
+      tiers: tirers,
+    });
+
+    router.push(paths.product(id));
+
+  }
+
 
  
   return (
@@ -49,6 +86,8 @@ export function ProductCard({
           <Image
             src={imageUrl}
             alt={title}
+            width={1000}
+            height={1000}
             className="w-full h-full object-cover"
           />
         </div>
@@ -93,18 +132,18 @@ export function ProductCard({
         </div>
         <div className='flex mt-4 flex-col'>
 
-          <Link className='w-full ' href={paths.checkout(id)}>
-            <PrimaryButton fullWidth >
+         
+            <PrimaryButton onClick={handleBuyClick} fullWidth >
               Kjøp nå
             </PrimaryButton>
 
-          </Link>
+         
 
-          <Link href={paths.product(id)}>
-            <button className="w-full font-heading mt-4 bg-transparent border-primary border hover:scale-102 hover:cursor-pointer  text-tertiary-text py-3 px-4 rounded-lg transition-all ease-in-out">
+          
+            <button onClick={handleReadMoreClick} className="w-full font-heading mt-4 bg-transparent border-primary border hover:scale-102 hover:cursor-pointer  text-tertiary-text py-3 px-4 rounded-lg transition-all ease-in-out">
               Les mer
             </button>
-          </Link>
+        
         </div>
       </div>
     </div >
