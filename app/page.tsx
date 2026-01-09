@@ -18,6 +18,7 @@ import vietnamImage from '@/public/images/vietnam.jpg'
 import canadaImage from '@/public/images/canada.jpeg'
 import ImageHero from "@/components/image-hero";
 import heroImage from '@/public/images/beam-wide-hero.jpeg'
+import ESimInfoHero from "@/components/esim-info-hero";
 
 
 interface Tier {
@@ -40,7 +41,7 @@ interface Product {
 
 
 export default function Home() {
-    const popularDestinations: Product[] = [
+  const popularDestinations: Product[] = [
     {
       id: "1",
       imageUrl: "/images/new-york.jpg",
@@ -135,15 +136,27 @@ export default function Home() {
   return (
     <main className="bg-surface  flex flex-col  2xl:gap-0">
       <section className="w-full z-0 bg-gradient-to-b from-surface to-secondary relative   flex items-center justify-center">
-       {/*  <Hero /> */}
-       <ImageHero imgData={heroImage} imgAlt="hero" title="Dekning over hele verden"/>
+        {/*  <Hero /> */}
+        <ImageHero imgData={heroImage} imgAlt="hero" title="Dekning over hele verden" />
+
+      </section>
+
+      <section className="w-full">
+        <ESimInfoHero />
 
       </section>
 
 
 
+
+
+      <section className="w-full relative bg-surface  min-h-[50vh]  flex items-center justify-center">
+        <EsimStepHero />
+
+      </section>
+
       <section className="w-full z-10   xl:px-8 2xl:px-0  bg-gradient-to-b from-secondary to-surface-dim gap-8    min-h-screen 2xl:min-h-[30vh]  flex flex-col items-center justify-center">
-        <div className="2xl:w-4/5 2xl:-mt-32 xl:-mt-16  relative bg-surface rounded-3xl  w-full h-full flex flex-col items-center justify-center  ">
+        <div className="2xl:w-4/5 mt-12 relative bg-surface rounded-3xl  w-full h-full flex flex-col items-center justify-center  ">
           <div className="flex  flex-col items-center gap-2 p-4">
             <div className="bg-primary h-16 w-16 flex items-center justify-center rounded-full">
               <Earth className="w-8 h-8 text-primary-text" />
@@ -176,11 +189,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
-
-      <section className="w-full relative bg-surface  min-h-[50vh]  flex items-center justify-center">
-        <EsimStepHero />
-
       </section>
 
       <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
