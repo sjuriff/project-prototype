@@ -148,7 +148,7 @@ export default function Home() {
             <div className="bg-primary h-16 w-16 flex items-center justify-center rounded-full">
               <Earth className="w-8 h-8 text-primary-text" />
             </div>
-            <h1 className="text-5xl font-heading   text-tertiary [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Dekning over hele verden</h1>
+            <h1 className="text-5xl font-heading   text-primary-text [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Dekning over hele verden</h1>
             <p className="text-xl font-body text-secondary-text">Velg din destinasjon</p>
 
 

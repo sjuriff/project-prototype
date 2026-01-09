@@ -40,7 +40,7 @@ export default function EsimStepHero() {
           }}>
             <Wifi className="w-8 h-8" style={{ color: 'var(--color-primary-text)' }} />
           </div>
-          <h1 className="mb-4 text-5xl font-heading text-tertiary " >
+          <h1 className="mb-4 text-5xl font-heading text-primary-text " >
             Slik fungerer eSIM
           </h1>
           <p className="max-w-2xl text-balance mx-auto" style={{

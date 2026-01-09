@@ -32,7 +32,7 @@ export default function QuickLinksSection() {
             key={index}
             className="bg-[#f8fafc] p-8 rounded-lg hover:bg-[#d6e3ff] transition-colors text-left group"
           >
-            <link.icon className="w-10 h-10 text-[#008093] mb-4 group-hover:scale-110 transition-transform" />
+            <link.icon className="w-10 h-10 text-tertiary mb-4 group-hover:scale-110 transition-transform" />
             <h3 className="mb-2 text-[#1d1d1d]">{link.title}</h3>
             <p className="text-[#4a4a4a]">{link.description}</p>
           </button>

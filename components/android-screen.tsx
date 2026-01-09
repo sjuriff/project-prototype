@@ -9,7 +9,7 @@ export function PhoneFrame({ children, step, title, description }: { children: R
         <div className="inline-block px-4 py-2 bg-primary text-primary-text rounded-full mb-3">
           {step}
         </div>
-        <h3 className="mb-2 font-heading text-lg text-tertiary-heading">{title}</h3>
+        <h3 className="mb-2 font-heading text-lg text-primary-text">{title}</h3>
         <p className="text-sm text-secondary-text font-body">{description}</p>
       </div>
       

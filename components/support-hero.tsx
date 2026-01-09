@@ -13,7 +13,7 @@ export default function SupportHero() {
           <div className='bg-primary p-4 rounded-full'>
             <HeartHandshake className="w-6 h-6 text-primary-text" />
           </div>
-          <h1 className=" text-secondary-text text-3xl font-heading">Support </h1>
+          <h1 className=" text-primary-text text-5xl font-heading">Support </h1>
 
         </div>
         <p className="mb-10 text-secondary-text">

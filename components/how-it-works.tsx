@@ -26,11 +26,8 @@ export default function HowItWorksSection() {
     <section className="py-16 shadow-md px-6 md:py-24">
       <div className="max-w-6xl mx-auto">
         <h2
-          className="text-center text-lg mb-4"
-          style={{
-            fontFamily: 'var(--font-heading)',
-            color: 'var(--color-tertiary-heading)'
-          }}
+          className="text-center font-heading text-3xl font-heading mb-4"
+         
         >
           Slik fungerer det
         </h2>
