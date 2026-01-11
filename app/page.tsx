@@ -7,6 +7,7 @@ import CompareCard from "@/components/compare-card";
 import { StaticImageData } from "next/image";
 import Hero from "@/components/hero";
 import { ProductCard } from "@/components/product-card";
+import ReversedHero from "@/components/reversed-hero";
 
 import SortSelector from "@/components/radio-buttons";
 import { Earth } from "lucide-react";
@@ -191,9 +192,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
-        <TravelHero />
+      <section className="w-full relative pt-28 bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
+        <ReversedHero />
       </section>
+
+    {/*   <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
+        <TravelHero />
+      </section> */}
 
 
       <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
