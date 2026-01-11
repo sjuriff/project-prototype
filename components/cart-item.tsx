@@ -26,7 +26,6 @@ export function CartItem({
       <div className="flex items-center justify-center w-16 h-16 bg-[var(--color-secondary)] rounded-lg flex-shrink-0">
         <Globe className="w-8 h-8 text-secondary-text" />
       </div>
-
       <div className="flex-1 min-w-0">
         <h3 className="mb-1" style={{ color: 'var(--color-primary-text)' }}>
           {title}
