@@ -31,7 +31,7 @@ export function TravelHero() {
             </div>
 
             {/* Features */}
-            <div className="grid grid-cols-3 gap-6 pt-8">
+            <div className="grid grid-cols-3 text-tertiary-text gap-6 pt-8">
               <div className="flex flex-col items-center text-center">
                 <Globe className="w-10 h-10 mb-2" />
                 <p className="text-sm [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">190+ land</p>
