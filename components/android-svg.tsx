@@ -38,7 +38,7 @@ const AndroidSvgIcon = ({
 
   const viewBoxSize = 44 + (padding * 2);
   const viewBoxOffset = -padding;
-  const viewBox = `${viewBoxOffset} ${viewBoxOffset} ${viewBoxSize} ${viewBoxSize}`;
+  const viewBox = `${2} ${1} ${viewBoxSize} ${viewBoxSize}`;
 
   return (
     <svg
@@ -53,6 +53,7 @@ const AndroidSvgIcon = ({
       strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
+      className=' flex items-center justify-center'
       style={{
         opacity,
         transform: transforms.join(' ') || undefined,

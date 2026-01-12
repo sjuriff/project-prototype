@@ -147,10 +147,6 @@ export default function Home() {
 
       </section>
 
-
-
-
-
       <section className="w-full relative bg-surface  min-h-[50vh]  flex items-center justify-center">
         <EsimStepHero />
 
@@ -164,16 +160,12 @@ export default function Home() {
             </div>
             <h1 className="text-5xl font-heading   text-primary-text [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Dekning over hele verden</h1>
             <p className="text-xl font-body text-secondary-text">Velg din destinasjon</p>
-
-
           </div>
           <div>
             <div className="ml-4">
               <SortSelector />
             </div>
             <div className="grid    py-8 mx-auto gap-24 grid-cols-12  justify-items-center  ">
-
-
               {popularDestinations.map((product) => (
                 <ProductCard
                   id={product.id}
@@ -196,7 +188,7 @@ export default function Home() {
         <ReversedHero />
       </section>
 
-    {/*   <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
+      {/*   <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
         <TravelHero />
       </section> */}
 
@@ -212,12 +204,6 @@ export default function Home() {
       <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
         <Faq />
       </section>
-
-
-
-
-
-
     </main>
   );
 }

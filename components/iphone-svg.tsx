@@ -11,7 +11,7 @@ interface IphoneSvgIconProps {
   flipHorizontal?: boolean;
   flipVertical?: boolean;
   padding?: number;
-  ref: React.Ref<SVGSVGElement>;
+  ref?: React.Ref<SVGSVGElement>;
 }
 
 const IphoneSvgIcon = ({
