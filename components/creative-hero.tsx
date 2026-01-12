@@ -5,7 +5,7 @@ import PrimaryButton from './buttons/primary-button';
 
 export function CreativeHero() {
   return (
-    <section className="relative flex items-center min-h-screen w-full rounded-3xl 2xl:min-h-[50vh] overflow-hidden" style={{ backgroundColor: 'var(--color-secondary)' }}>
+    <section className="relative flex items-center min-h-screen w-full xl:rounded-none 2xl:rounded-3xl  2xl:min-h-[50vh] overflow-hidden" style={{ backgroundColor: 'var(--color-secondary)' }}>
       <div className="container relative mx-auto px-6 py-20  z-10 relative">
         <div className="grid  lg:grid-cols-2 gap-20 items-center">
           {/* Left Content */}

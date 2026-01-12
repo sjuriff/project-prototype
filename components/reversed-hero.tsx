@@ -8,7 +8,7 @@ import Link from 'next/link';
 export default function ReversedHero() {
   return (
     <section
-      className="relative bg-tertiary flex items-center min-h-screen w-full xl:rounded-none rounded-3xl 2xl:min-h-[50vh] overflow-hidden"
+      className="relative bg-tertiary flex items-center min-h-screen w-full xl:rounded-none 2xl:rounded-3xl 2xl:min-h-[50vh] overflow-hidden"
 
     >
       <div className="container relative mx-auto px-6 py-20 z-10">

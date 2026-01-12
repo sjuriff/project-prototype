@@ -31,7 +31,7 @@ export default function ImageHero(props: HeroProps) {
     gsap.fromTo(textContainerRef.current, { x: '-120%' }, { x: 0, duration: 0.5, ease: "back.out(1.1)" })
   }, [])
   return (
-    <div className="relative 2xl:w-4/5 2xl:h-[750px] w-full h-screen">
+    <div className="relative 2xl:w-4/5 2xl:h-[750px] overflow-hidden w-full h-screen">
       <div className='absolute w-full h-full z-0'>
         <Image
           src={props.imgData}
@@ -109,6 +109,7 @@ export default function ImageHero(props: HeroProps) {
         </div>
 
       </div>
+      <div className="absolute -bottom-32 -right-32 w-72 h-72 bg-primary rounded-full opacity-70 z-30"></div>
 
     </div>
   );
