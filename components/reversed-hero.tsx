@@ -81,7 +81,7 @@ export default function ReversedHero() {
         <Image
           src={heroImg}
           alt="Mobile phone connectivity"
-          className="w-full h-full object-right object-cover"
+          className="w-full h-full  object-[75%_50%] object-cover"
         />
       </div>
 

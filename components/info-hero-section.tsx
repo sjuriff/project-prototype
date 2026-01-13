@@ -1,11 +1,11 @@
 import { Smartphone, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
-import BackButton from "./buttons/back-button";
+
 
 export default function HeroSection() {
   return (
     <section className="py-16 relative px-6 bg-secondary md:py-24">
-      <div className="absolute left-8 top-8"><BackButton /></div>
+    
       <div className="max-w-4xl mx-auto text-center">
         <div
           className="inline-flex bg-primary items-center justify-center w-20 h-20 rounded-full mb-8"

@@ -8,6 +8,7 @@ import { StaticImageData } from "next/image";
 import Hero from "@/components/hero";
 import { ProductCard } from "@/components/product-card";
 import ReversedHero from "@/components/reversed-hero";
+import HowItWorksSection from "@/components/how-it-works";
 
 import SortSelector from "@/components/radio-buttons";
 import { Earth } from "lucide-react";
@@ -147,13 +148,15 @@ export default function Home() {
 
       </section>
 
-      <section className="w-full relative bg-surface  min-h-[50vh]  flex items-center justify-center">
+      <HowItWorksSection/>
+
+      {/* <section className="w-full relative bg-surface  min-h-[50vh]  flex items-center justify-center">
         <EsimStepHero />
 
-      </section>
+      </section> */}
 
       <section className="w-full z-10   xl:px-8 2xl:px-0  bg-gradient-to-b from-secondary to-surface-dim gap-8    min-h-screen 2xl:min-h-[30vh]  flex flex-col items-center justify-center">
-        <div className="2xl:w-4/5 mt-12 relative bg-surface rounded-3xl  w-full h-full flex flex-col items-center justify-center  ">
+        <div className="2xl:w-4/5 mt-28 relative bg-surface rounded-3xl  w-full h-full flex flex-col items-center justify-center  ">
           <div className="flex  flex-col items-center gap-2 p-4">
             <div className="bg-primary h-16 w-16 flex items-center justify-center rounded-full">
               <Earth className="w-8 h-8 text-primary-text" />
