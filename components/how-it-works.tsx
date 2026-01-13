@@ -1,4 +1,4 @@
-import { Download, Scan, CheckCircle } from "lucide-react";
+import { Download, Scan, CheckCircle, QrCode } from "lucide-react";
 
 const steps = [
   {
@@ -8,7 +8,7 @@ const steps = [
     description: "Velg land og kjøp datapakke. Etter betaling får du en QR-kode."
   },
   {
-    icon: Scan,
+    icon: QrCode,
     number: "02",
     title: "Legg til eSIM",
     description: "Gå til mobilinnstillinger, velg «Legg til eSIM» og skann QR-koden."
@@ -26,7 +26,7 @@ export default function HowItWorksSection() {
     <section className="py-16 shadow-md px-6 md:py-24">
       <div className="max-w-6xl mx-auto">
         <h2
-          className="text-center font-heading text-3xl font-heading mb-4"
+          className="text-center font-heading text-5xl font-heading mb-4"
          
         >
           Slik fungerer det

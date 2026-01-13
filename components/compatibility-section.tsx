@@ -51,31 +51,38 @@ export default function CompatibilitySection() {
           {deviceTypes.map((device, index) => (
             <div
               key={index}
-              className="bg-white shadow-md rounded-2xl p-6 text-center"
+              className="bg-white overflow-hidden relative shadow-md rounded-2xl p-6 text-center"
             >
-              <div
-                className="inline-flex items-center bg-primary justify-center w-16 h-16 rounded-full mb-4"
-               
-              >
-                <device.icon className="w-8 h-8" style={{ color: 'var(--color-tertiary)' }} />
-              </div>
 
-              <h3
-                className="mb-3"
-                style={{
-                  fontFamily: 'var(--font-heading)',
-                  color: 'var(--color-primary-text)'
-                }}
-              >
-                {device.name}
-              </h3>
+              <span className="bg-primary flex  items-center justify-center z-0  h-16 w-16 rounded-full absolute -top-4  -left-4">
+                 <device.icon className="w-8 absolute top-5 left-5   h-8" style={{ color: 'var(--color-tertiary)' }} />
+
+              </span>
+
+                
+               {/*    <device.icon className="w-8 absolute top-2 left-4  h-8" style={{ color: 'var(--color-tertiary)' }} /> */}
+              
+               
+
+            
+               
+
+                <h3
+                  className=" text-base z-10 font-heading "
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    color: 'var(--color-primary-text)'
+                  }}
+                >
+                  {device.name}
+                </h3>
+             
 
               <p
-                className="leading-relaxed"
+                className="leading-relaxed z-10 text-xs"
                 style={{
                   fontFamily: 'var(--font-body)',
                   color: 'var(--color-secondary-text)',
-                  fontSize: '0.875rem'
                 }}
               >
                 {device.examples}
@@ -85,11 +92,11 @@ export default function CompatibilitySection() {
         </div>
 
         <div
-          className="mt-8 p-6 rounded-xl text-center bg-tertiary"
-         
+          className="mt-8 p-6 rounded-xl text-center shadow-md bg-white"
+
         >
-          <p className="font-body text-tertiary-text">
-          
+          <p className="font-body text-primary-text ">
+
             Sjekk enhetsinnstillingene under Mobilnett for å bekrefte om enheten støtter eSIM
           </p>
         </div>

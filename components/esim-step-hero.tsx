@@ -1,6 +1,7 @@
-import { Smartphone, QrCode, CheckCircle2, Wifi } from 'lucide-react';
+import { Smartphone, QrCode, CheckCircle2, Wifi, CardSim, ShoppingCart } from 'lucide-react';
 import Link from 'next/link';
 import TertiaryButton from './buttons/tertiary-button';
+import PrimaryButton from './buttons/primary-button';
 
 export default function EsimStepHero() {
   const steps = [
@@ -8,7 +9,7 @@ export default function EsimStepHero() {
       number: 1,
       title: "Kjøp eSIM",
       description: "Velg landet du skal reise til og kjøp datapakken som passer deg. Når du har betalt får du umiddelbart en QR-kode.",
-      icon: Smartphone,
+      icon: ShoppingCart,
       color: "primary"
     },
     {
@@ -28,24 +29,19 @@ export default function EsimStepHero() {
   ];
 
   return (
-    <div className="min-h-[50vh] mt-16 py-16 px-4 sm:px-6 lg:px-8" style={{
-      backgroundColor: 'var(--color-surface)',
-      fontFamily: 'var(--font-body)'
-    }}>
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-[50vh]  bg-secondary font-body  py-16 px-4 sm:px-6 lg:px-8" >
+      <div className="max-w-6xl  mx-auto">
         {/* Hero Header */}
-        <div className="text-center mb-16">
+        <div className="text-center  mx-auto  rounded-2xl p-8 mb-16">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6" style={{
             backgroundColor: 'var(--color-primary)'
           }}>
-            <Wifi className="w-8 h-8" style={{ color: 'var(--color-primary-text)' }} />
+            <CardSim className="w-8 h-8" style={{ color: 'var(--color-primary-text)' }} />
           </div>
-          <h1 className="mb-4 text-5xl font-heading text-primary-text " >
+          <h1 className="mb-4 text-5xl font-heading text-secondary-text " >
             Slik fungerer eSIM
           </h1>
-          <p className="max-w-2xl text-balance mx-auto" style={{
-            color: 'var(--color-secondary-text)'
-          }}>
+          <p className="max-w-2xl text-primary-text text-balance mx-auto" >
             På noen få tastetrykk er du klar til å surfe. Ikke bekymre deg – du kan fortsatt ringe og sende meldinger med ditt vanlige nummer. Telefonen din har eSIM innebygd, så du slipper å bytte nummer eller fjerne SIM-kortet.
           </p>
         </div>
@@ -114,9 +110,9 @@ export default function EsimStepHero() {
             Kjøp eSIM nå
           </button> */}
         <div className="flex justify-center mt-12">
-          <TertiaryButton>
+          <PrimaryButton>
             Kjøp eSIM nå
-          </TertiaryButton>
+          </PrimaryButton>
 
 
         </div>
