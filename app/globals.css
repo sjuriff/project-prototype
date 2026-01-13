@@ -26,6 +26,7 @@
   /* fonts - connected to `next/font` variables */
   --font-body: var(--font-inter);
   --font-heading: var(--font-nunito-sans);
+  --font-logo: var(--font-museo-moderno);
 }
 
 :root {
