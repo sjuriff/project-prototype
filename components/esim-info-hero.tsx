@@ -122,7 +122,7 @@ export default function ESimInfoHero() {
             <div className="p-8 relative col-span-12 bg-tertiary  flex flex-col items-center   rounded-2xl shadow-lg border border-tertiary space-y-4 relative overflow-hidden">
               <div
                 className="absolute top-0 right-0 w-64 h-64 rounded-full bg-primary/20 -translate-y-1/2 translate-x-1/2"
-              
+
               />
 
               <div className="flex relative  items-center justify-center  ">
@@ -150,7 +150,7 @@ export default function ESimInfoHero() {
 
           {/* Key Benefits */}
           <div className="grid grid-cols-6  w-full mx-auto items-center justify-center gap-6">
-            <div className="p-6 shadow-md  col-span-2 h-[200px] bg-card  space-y-4  rounded-xl border border-primary-text">
+            <div className="p-6   col-span-2 h-[200px] bg-card  space-y-4  rounded-xl bg-secondary">
               <div className="w-10 h-10 relative rounded-full  bg-primary flex items-center justify-center">
                 <Smartphone className="w-5 h-5 text-primary-text" />
               </div>
@@ -159,17 +159,19 @@ export default function ESimInfoHero() {
                 eSIM er et innebygd digitalt SIM-kort, som de fleste moderne smarttelefoner har
               </p>
             </div>
-            <div className="p-6 shadow-md  col-span-2 h-[200px] bg-card  space-y-4  rounded-xl border border-primary-text ">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+            <div className="p-6 overflow-hidden bg-secondary relative  relative  col-span-2 h-[200px]   space-y-4  rounded-xl  ">
+     
+              <div className="w-10 relative h-10 z-10  rounded-full bg-primary flex items-center justify-center">
                 <Wifi className="w-5 h-5 text-primary-text" />
               </div>
-              <h3 className="text-primary-text font-heading">Stabilt internett</h3>
-              <p className="text-primary-text/90 font-body text-sm">
+              <h3 className="text-primary-text relative font-heading z-10">Stabilt internett</h3>
+              <p className="text-primary-text/90 relative z-10 font-body text-sm">
                 Du trenger WiFi for å aktivere ditt eSIM fra Beam.
               </p>
+            {/*   <span className="absolute z-0 -top-12 -left-8 bg-secondary h-34 w-34 rounded-full"></span> */}
             </div>
 
-            <div className="p-6 shadow-md col-span-2 h-[200px] rounded-xl border border-primary-text space-y-4 ">
+            <div className="p-6  col-span-2 h-[200px] bg-secondary rounded-xl  space-y-4 ">
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
                 <CloudDownload className="w-5 h-5 text-primary-text" />
               </div>
