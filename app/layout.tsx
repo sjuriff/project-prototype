@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Work_Sans, Inter, Nunito_Sans } from "next/font/google";
+import { Work_Sans, Inter, Nunito_Sans, MuseoModerno } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -15,6 +15,12 @@ const workSans = Work_Sans({
   variable: "--font-work-sans",
   subsets: ["latin"],
 
+});
+
+const museoModerno = MuseoModerno({
+  variable: "--font-museo-moderno",
+  subsets: ["latin"],
+  weight: '200',
 });
 
 const nunitoSans = Nunito_Sans({
@@ -33,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={`${nunitoSans.variable} ${inter.variable} `} lang="en">
+    <html className={`${nunitoSans.variable} ${inter.variable} ${museoModerno.variable} `} lang="en">
       <body
         className={`overflow-x-hidden antialiased`}
       >
