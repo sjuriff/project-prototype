@@ -196,7 +196,7 @@ export default function Home() {
       </section> */}
 
 
-      <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
+      <section className="w-full relative bg-surface xl:px-8 2xl:px-28 2xl:py-28   flex items-center justify-center">
         <CompareCard />
       </section>
 
