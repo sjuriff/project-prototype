@@ -74,15 +74,17 @@ export default function ReversedHero() {
       <div
         className="absolute top-0 left-0 w-[53%] h-full overflow-hidden hidden lg:block"
         style={{
-          // mirrored from your original
+
           clipPath: "polygon(0 0, 80% 0, 100% 100%, 0 100%)",
         }}
       >
-        <Image
-          src={heroImg}
-          alt="Mobile phone connectivity"
-          className="w-full h-full  object-[75%_50%] object-cover"
-        />
+        <div className="relative w-full h-full overflow-hidden ">
+          <Image
+            src={heroImg}
+            alt="Mobile phone connectivity"
+            className="absolute inset-0 w-full -translate-y-2 h-full rotate-[-3deg] scale-[1.15]  object-[75%_80%] object-cover"
+          />
+        </div>
       </div>
 
       {/* Mobile image (unchanged) */}
