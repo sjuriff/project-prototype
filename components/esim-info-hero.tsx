@@ -97,9 +97,9 @@ export default function ESimInfoHero() {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-6 py-16">
       <div className="max-w-5xl w-full">
-        <div className="space-y-16">
+        <div className="space-y-8">
           {/* Header Section */}
-          <div className="space-y-8 text-center">
+          <div className="space-y-8 text-center mb-16">
             <div className="inline-flex items-center gap-3 p-4 bg-primary rounded-full">
               <BadgeQuestionMark className="w-8 h-8 text-secondary-foreground" />
             </div>
@@ -121,21 +121,23 @@ export default function ESimInfoHero() {
             {/* eSIM */}
             <div className="p-8 relative col-span-12 bg-tertiary  flex flex-col items-center   rounded-2xl shadow-lg border border-tertiary space-y-4 relative overflow-hidden">
               <div
-                className="absolute top-0 right-0 w-64 h-64 rounded-full bg-primary/20 -translate-y-1/2 translate-x-1/2"
+                className="absolute  top-0 right-0 w-64 h-64 rounded-full bg-primary/20 -translate-y-1/2 translate-x-1/2"
 
-              />
+              >
+
+              </div>
+              <Zap className="h-10 w-10 absolute right-7 top-7 text-primary" />
 
               <div className="flex relative  items-center justify-center  ">
                 <div className="flex flex-col  gap-1 items-center">
-                  <IphoneSvgIcon ref={iPhoneRef} size={70} color={'#ffff'} />
+                  <IphoneSvgIcon ref={iPhoneRef} size={100} color={'#ffff'} />
                   <p id="iphone" className={` opacity-0 font-body text-center text-sm text-tertiary-text`}>iPhone</p>
                 </div>
-                <div className="w-12 h-12 z-10 absolute -top-6 left-1/2 transform -translate-x-1/2  bg-primary rounded-full  flex items-center justify-center">
-                  <Zap className="w-6 h-6 text-primary-text" />
 
-                </div>
+
+
                 <div className="flex   flex-col gap-1 justify-center items-center">
-                  <AndroidSvgIcon ref={androidRef} screenColor="#5346d6" size={70} color={androidColor} />
+                  <AndroidSvgIcon ref={androidRef} screenColor="#5346d6" size={100} color={androidColor} />
                   <p id="android" className="opacity-0 font-body text-sm text-center text-tertiary-text">Android</p>
                 </div>
 
@@ -149,33 +151,33 @@ export default function ESimInfoHero() {
           </div>
 
           {/* Key Benefits */}
-          <div className="grid grid-cols-6  w-full mx-auto items-center justify-center gap-6">
+          <div className="grid grid-cols-6  w-full mx-auto items-center justify-center gap-4">
             <div className="p-6   col-span-2 h-[200px] bg-card  space-y-4  rounded-xl bg-secondary">
               <div className="w-10 h-10 relative rounded-full  bg-primary flex items-center justify-center">
                 <Smartphone className="w-5 h-5 text-primary-text" />
               </div>
-              <h3 className="text-primary-text font-heading">Din mobil må ha støtte eSIM</h3>
+              <h3 className="text-secondary-text font-heading">Din mobil må ha støtte eSIM</h3>
               <p className="text-primary-text/90 font-body text-sm">
                 eSIM er et innebygd digitalt SIM-kort, som de fleste moderne smarttelefoner har
               </p>
             </div>
             <div className="p-6 overflow-hidden bg-secondary relative  relative  col-span-2 h-[200px]   space-y-4  rounded-xl  ">
-     
+
               <div className="w-10 relative h-10 z-10  rounded-full bg-primary flex items-center justify-center">
                 <Wifi className="w-5 h-5 text-primary-text" />
               </div>
-              <h3 className="text-primary-text relative font-heading z-10">Stabilt internett</h3>
+              <h3 className="text-secondary-text relative font-heading z-10">Stabilt internett</h3>
               <p className="text-primary-text/90 relative z-10 font-body text-sm">
                 Du trenger WiFi for å aktivere ditt eSIM fra Beam.
               </p>
-            {/*   <span className="absolute z-0 -top-12 -left-8 bg-secondary h-34 w-34 rounded-full"></span> */}
+              {/*   <span className="absolute z-0 -top-12 -left-8 bg-secondary h-34 w-34 rounded-full"></span> */}
             </div>
 
             <div className="p-6  col-span-2 h-[200px] bg-secondary rounded-xl  space-y-4 ">
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
                 <CloudDownload className="w-5 h-5 text-primary-text" />
               </div>
-              <h3 className="text-primary-text font-heading"> Installer før avreise</h3>
+              <h3 className="text-secondary-text font-heading"> Installer før avreise</h3>
               <p className="text-primary-text/90 font-body text-sm">
                 Du kan aktivere ditt eSIM når som helst, datapakken skrus på automatisk når du lander.
               </p>
@@ -185,7 +187,7 @@ export default function ESimInfoHero() {
           </div>
 
         </div>
-        <div className="w-full mt-12 flex items-center justify-center">
+        <div className="w-full mt-8 flex items-center justify-center">
           <Link href={paths.info}>
             <PrimaryButton>
               Les mer om eSIM
