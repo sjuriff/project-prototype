@@ -3,7 +3,7 @@ import { Mail, User } from "lucide-react";
 export default function CustomerForm() {
   return (
     <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
-      <h2 className="font-heading text-tertiary-heading mb-6">Kontakt informasjon</h2>
+      <h2 className="font-heading text-xl text-primary-text mb-6">Kontakt informasjon</h2>
       
       <form className="space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

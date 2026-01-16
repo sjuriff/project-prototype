@@ -38,7 +38,7 @@ export function OrderSummary({ products }: OrderSummaryProps) {
 
   return (
     <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 sticky top-8">
-      <h2 className="font-heading text-tertiary-heading mb-6">Din ordre</h2>
+      <h2 className="font-heading text-xl text-primary-text mb-6">Din ordre</h2>
 
       {/* Items */}
       {products.map((item) => {
@@ -116,10 +116,6 @@ export function OrderSummary({ products }: OrderSummaryProps) {
           <span className="font-heading text-primary-text">Total</span>
           <span className="font-heading text-primary-text">{subtotal} kr</span>
         </div>
-
-        <button className="w-full bg-primary hover:scale-105 text-primary-text font-body py-3 px-4 rounded-lg transition-all">
-          Fullfør kjøp
-        </button>
       </div>
 
       {/* Trust Indicators */}

@@ -4,9 +4,11 @@ import PaymentForm from "@/components/payment-form";
 import { OrderSummary } from "@/components/order-summary";
 import CustomerForm from "@/components/customer-form";
 import BackButton from "@/components/buttons/back-button";
-import { CreditCard } from "lucide-react";
+import { CreditCard, ReceiptText } from "lucide-react";
 import { usePersistedProduct } from "@/hooks/use-persisted-product";
 import { useCart } from "@/hooks/use-cart";
+import PaymentMethods from "@/components/payment-methods";
+import PaymentSection from "@/components/payment-section";
 interface Product {
   id: string;
   title: string;
@@ -22,11 +24,11 @@ interface CheckoutPageProps {
   };
 }
 //Needs to be an asycn function when we fetch real data
-export default  function CheckoutPage({ params }: CheckoutPageProps) {
+export default function CheckoutPage({ params }: CheckoutPageProps) {
 
-  const {  getProduct, clearProduct} = usePersistedProduct()
+  const { getProduct, clearProduct } = usePersistedProduct()
 
-  const {items} = useCart()
+  const { items } = useCart()
 
   const cartItems = items
 
@@ -35,7 +37,7 @@ export default  function CheckoutPage({ params }: CheckoutPageProps) {
 
 
 
-  
+
   if (!product) {
     console.error("Product not found");
 
@@ -44,14 +46,16 @@ export default  function CheckoutPage({ params }: CheckoutPageProps) {
     <main className="bg-surface border border-black flex items-center justify-center  flex flex-col  ">
       <section className="w-full relative  bg-surface  min-h-screen flex items-center justify-center">
         <div className="absolute top-4 left-4 2xl:top-16 2xl:left-16">
-          <BackButton  />
+          <BackButton />
         </div>
         <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-8">
             <div className="flex gap-2 mb-2 items-center">
-              <h1 className="text-tertiary-heading text-4xl font-heading ">Kasse</h1>
-              <CreditCard className="w-6 h-6 text-tertiary" />
+              <h1 className="text-primary-text text-4xl font-heading ">Kasse</h1>
+              <div className="bg-primary rounded-full h-12 w-12 flex items-center justify-center">
+                <ReceiptText className="w-6 h-6 text-primary-text" />
+              </div>
             </div>
             <p className="text-secondary-text font-body">Fullfør ditt eSIM kjøp</p>
           </div>
@@ -59,10 +63,8 @@ export default  function CheckoutPage({ params }: CheckoutPageProps) {
           {/* Main Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left Column - Forms */}
-            <div className="lg:col-span-2 space-y-6">
-              <CustomerForm />
-              <PaymentForm />
-            </div>
+            <PaymentSection />
+            
 
             {/* Right Column - Order Summary */}
             <div className="lg:col-span-1">
