@@ -6,6 +6,7 @@ import PrimaryButton from "@/components/buttons/primary-button";
 import Link from "next/link";
 import paths from "@/paths";
 import { useRouter } from "next/navigation";
+import BackButton from "@/components/buttons/back-button";
 interface CartItemData {
   id: string;
   title: string;
@@ -46,13 +47,8 @@ export default function ShoppingCartPage() {
       {/* Header */}
       <header className="bg-white border-b" style={{ borderColor: '#e5e7eb' }}>
         <div className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href={paths.home}>
-            <button className="flex hover:cursor-pointer text-secondary-text group items-center gap-2 hover:opacity-70 transition-opacity" >
-              <ArrowLeft className="w-5 h-5 group-hover:translate-x-[-2px] transition-transform" />
-              <span className="font-heading">Fortsett å handle</span>
-            </button>
-          </Link>
-          <h1 className="font-heading text-lg text-tertiary-heading">Handlevogn</h1>
+          <BackButton/>
+          <h1 className="font-heading text-2xl text-primary-text">Handlevogn</h1>
           <div className="w-[140px]"></div> {/* Spacer for alignment */}
         </div>
       </header>
