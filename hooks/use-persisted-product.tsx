@@ -11,6 +11,7 @@ export interface Tier {
   data: string
   validity: string
   price: string
+  popular?: boolean
 }
 
 export interface Product {
