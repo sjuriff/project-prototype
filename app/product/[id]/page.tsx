@@ -22,6 +22,7 @@ interface Tier {
   data: string;
   validity: string;
   price: string;
+  popular?: boolean
 }
 
 
@@ -60,7 +61,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   } else {
     return (
       <main className="bg-surface   flex items-center justify-center  flex flex-col  ">
-        <section className="w-full relative   bg-surface  min-h-screen flex items-center justify-center">
+        <section className="w-full relative   bg-surface  min-h-screen  px-8 flex items-center justify-center">
           <div className="absolute top-4 left-4 2xl:top-16 2xl:left-16">
             <BackButton />
           </div>

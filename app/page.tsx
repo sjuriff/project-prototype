@@ -27,6 +27,7 @@ interface Tier {
   data: string;
   validity: string;
   price: string;
+  popular?: boolean
 }
 
 interface Product {
@@ -53,10 +54,10 @@ export default function Home() {
       price: "199",
       currency: "kr",
       tiers: [
-        { data: "2GB", validity: "15 dager", price: "119" },
-        { data: "5GB", validity: "30 dager", price: "199" },
-        { data: "10GB", validity: "30 dager", price: "339" },
-        { data: "20GB", validity: "30 dager", price: "569" },
+        { data: "2GB", popular:false, validity: "15 dager", price: "119" },
+        { data: "5GB", popular: false, validity: "30 dager", price: "199" },
+        { data: "10GB", popular: true, validity: "30 dager", price: "339" },
+        { data: "20GB", popular: false, validity: "30 dager", price: "569" },
       ],
     },
     {
@@ -68,10 +69,10 @@ export default function Home() {
       price: "199",
       currency: "kr",
       tiers: [
-        { data: "2GB", validity: "15 dager", price: "119" },
-        { data: "5GB", validity: "30 dager", price: "199" },
-        { data: "10GB", validity: "30 dager", price: "339" },
-        { data: "20GB", validity: "30 dager", price: "569" },
+        { data: "2GB", popular: false, validity: "15 dager", price: "119" },
+        { data: "5GB", popular: false, validity: "30 dager", price: "199" },
+        { data: "10GB", popular: true, validity: "30 dager", price: "339" },
+        { data: "20GB", popular: false, validity: "30 dager", price: "569" },
       ],
     },
     {
@@ -83,10 +84,10 @@ export default function Home() {
       price: "199",
       currency: "kr",
       tiers: [
-        { data: "2GB", validity: "15 dager", price: "119" },
-        { data: "5GB", validity: "30 dager", price: "199" },
-        { data: "10GB", validity: "30 dager", price: "349" },
-        { data: "20GB", validity: "30 dager", price: "599" },
+        { data: "2GB", popular: false, validity: "15 dager", price: "119" },
+        { data: "5GB", popular: false, validity: "30 dager", price: "199" },
+        { data: "10GB", popular: true, validity: "30 dager", price: "349" },
+        { data: "20GB", popular: false, validity: "30 dager", price: "599" },
       ],
     },
     {
@@ -98,10 +99,10 @@ export default function Home() {
       price: "229",
       currency: "kr",
       tiers: [
-        { data: "2GB", validity: "15 dager", price: "139" },
-        { data: "5GB", validity: "30 dager", price: "229" },
-        { data: "10GB", validity: "30 dager", price: "409" },
-        { data: "20GB", validity: "30 dager", price: "529" },
+        { data: "2GB", popular: false, validity: "15 dager", price: "139" },
+        { data: "5GB", popular: false, validity: "30 dager", price: "229" },
+        { data: "10GB", popular: true, validity: "30 dager", price: "409" },
+        { data: "20GB", popular: false, validity: "30 dager", price: "529" },
       ],
     },
     {
@@ -113,10 +114,10 @@ export default function Home() {
       price: "199",
       currency: "kr",
       tiers: [
-        { data: "2GB", validity: "15 dager", price: "119" },
-        { data: "5GB", validity: "30 dager", price: "199" },
-        { data: "10GB", validity: "30 dager", price: "349" },
-        { data: "20GB", validity: "30 dager", price: "599" },
+        { data: "2GB", popular: false, validity: "15 dager", price: "119" },
+        { data: "5GB", popular: false, validity: "30 dager", price: "199" },
+        { data: "10GB", popular: true, validity: "30 dager", price: "349" },
+        { data: "20GB", popular: false, validity: "30 dager", price: "599" },
       ],
     },
     {
@@ -128,10 +129,10 @@ export default function Home() {
       price: "249",
       currency: "kr",
       tiers: [
-        { data: "2GB", validity: "15 dager", price: "149" },
-        { data: "5GB", validity: "30 dager", price: "249" },
-        { data: "10GB", validity: "30 dager", price: "429" },
-        { data: "20GB", validity: "30 dager", price: "729" },
+        { data: "2GB", popular: false, validity: "15 dager", price: "149" },
+        { data: "5GB", popular: false, validity: "30 dager", price: "249" },
+        { data: "10GB", popular: true, validity: "30 dager", price: "429" },
+        { data: "20GB", popular: false, validity: "30 dager", price: "729" },
       ],
     },
   ]

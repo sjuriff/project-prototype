@@ -108,7 +108,8 @@ export default function Hero() {
                   />
                 </div>
 
-                {/* circle */}
+                {/* circle 
+                Betal enkelt med vipps i sdirkel*/}
                 <div className="absolute top-20 -left-16 w-28 h-28 bg-primary rounded-full opacity-70 z-30"></div>
               </div>
             </div>
