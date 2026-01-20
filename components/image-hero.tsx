@@ -6,6 +6,9 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
+import VippsIcon from "./vipps-logo";
+import KlarnaIcon from "./klarna-logo";
+import VippsPayIcon from "./vipps-pay-icon";
 
 gsap.registerPlugin(useGSAP);
 interface HeroProps {
@@ -109,7 +112,39 @@ export default function ImageHero(props: HeroProps) {
         </div>
 
       </div>
-      <div className="absolute -bottom-32 -right-32 w-72 h-72 bg-primary rounded-full opacity-70 z-30"></div>
+
+      <div className="absolute -bottom-32 -right-32 w-80 h-80 z-30">
+        <div className="absolute top-20 left-22">
+          <VippsPayIcon height={80} width={80} />
+        </div>
+        <svg viewBox="0 0 200 200" className="w-full h-full">
+          {/* Circle background */}
+          <circle
+            cx="100"
+            cy="100"
+            r="100"
+            className="fill-primary opacity-70"
+          />
+
+          <defs>
+            {/* LEFT arc, reversed direction so text reads upright */}
+            <path id="leftArc" d="M100,180 A80,80 0 0,1 100,20" />
+          </defs>
+
+          <text className="fill-primary-text">
+            <textPath
+              href="#leftArc"
+              startOffset="78%"
+              textAnchor="middle"
+              className="font-heading text-[10px] tracking-wide"
+            >
+              Betal enkelt med Vipps
+            </textPath>
+          </text>
+        </svg>
+      </div>
+
+
 
     </div>
   );

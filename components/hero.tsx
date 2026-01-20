@@ -3,6 +3,7 @@ import { Plane } from 'lucide-react';
 import heroImg from '@/public/images/beam-green-two.jpg';
 import VippsIcon from './vipps-logo';
 import KlarnaIcon from './klarna-logo';
+import VippsPayIcon from './vipps-pay-icon';
 
 export default function Hero() {
   const popularDestinations = [
@@ -110,7 +111,12 @@ export default function Hero() {
 
                 {/* circle 
                 Betal enkelt med vipps i sdirkel*/}
-                <div className="absolute top-20 -left-16 w-28 h-28 bg-primary rounded-full opacity-70 z-30"></div>
+                <div className="absolute top-20 -left-16 w-28 h-28 bg-primary rounded-full opacity-70 z-30">
+                  <div className=' absolute z-30 flex gap-2  top-0 left-0'>
+                    <p className='text-primary-text font-heading'>Betal enkelt med</p>
+                    <VippsPayIcon height={50} width={50} />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

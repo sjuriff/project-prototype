@@ -198,10 +198,6 @@ export default function ProductDetailV2({
                       <p className=' font-heading text-sm' >{item.validity}</p>
                       <p >{item.data}</p>
                     </div>
-
-
-
-
                   </div>
                 ))}
               </div>
