@@ -7,6 +7,9 @@ import PrimaryButton from "./buttons/primary-button";
 import { useState } from "react";
 import Link from "next/link";
 import paths from "@/paths";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(useGSAP);
 
 
 const FaqCard = ({ question, index }: { question: string, index: number }) => {
@@ -48,6 +51,33 @@ export default function Faq() {
 
   ];
 
+  useGSAP(() => {
+    gsap.from("#card-left", {
+      scrollTrigger: {
+        trigger: "#card-left",
+        start: "-50% center",
+        end: "bottom center",
+        scrub: true,
+      },
+      x: '-110%',
+      y: -100,
+    
+      
+    })
+    gsap.from("#card-right", {
+      scrollTrigger: {
+        trigger: "#card-right",
+        start: "-50% center",
+        end: "bottom center",
+        scrub: true,
+        markers: true
+      },
+      x: '110%',
+      y: -100,
+      
+    })
+  }, [])
+
   return (
     <div className=" z-10 relative min-h-[50vh]  w-full py-16 px-4 sm:px-6 lg:px-8">
       <div className="flex mb-8 flex-col gap-4 items-center">
@@ -58,18 +88,19 @@ export default function Faq() {
         <h1 className="text-5xl text-center font-heading text-primary-text">Frequently Asked Questions</h1>
       </div>
       <div className="flex lg:gap-8 2xl:gap-0 h-full">
-        <div className="w-1/2 flex h-80 2xl:h-90  items-center justify-center   text-secondary-text">
+        <div id="card-left" className="w-1/2 flex h-85 2xl:h-90  items-center justify-center   text-secondary-text">
           <div className="w-full z-10 shadow-lg h-full flex flex-col gap-4 rounded-2xl p-8 bg-secondary 2xl:w-1/2">
             <CardSim className=" w-10 h-10" />
             <h1 className="text-4xl font-heading ">Hva er eSIM?</h1>
             <p className="font-body text-balance leading-relaxed">En eSIM (innebygd SIM) er et digitalt SIM-kort som er innebygd direkte i enheten din, som en smarttelefon eller smartklokke. I stedet for et fysisk, flyttbart plastkort, fungerer en eSIM digitalt, og du kan aktivere et mobilabonnement ved å laste ned en profil fra din mobiloperatør.</p>
           </div>
         </div>
-        <div className="w-1/2  h-80 2xl:h-90 flex  items-center justify-center ">
+        <div id="card-right" className="w-1/2  h-85 2xl:h-90 flex  items-center justify-center ">
           <div className="w-full z-10 shadow-lg flex h-full flex-col gap-4 rounded-2xl p-8 bg-primary 2xl:w-1/2">
             <TabletSmartphone className=" w-10 h-10" />
             <h1 className="text-4xl font-heading text-primary-text">Fungerer eSIM på min telefon?</h1>
             <p className="font-body text-balance leading-relaxed">For at eSIM skal fungere må telefonen din støtte eSIM-teknologi. De fleste nyere smarttelefoner fra Apple, Samsung og Google har støtte. Du kan vanligvis se dette i telefonens innstillinger eller på produsentens nettside. Kontakt også mobiloperatøren din for å sikre at de tilbyr eSIM til din modell.</p>
+            <p className="font-body text-balance leading-relaxed text-xs">Tast inn *#06# (som om du skulle ringt til den koden). Da får du opp bl.a. IMEI-nummer og annet. Får du en linje som heter eID, betyr det at mobilen støtter eSIM</p>
           </div>
         </div>
       </div>
