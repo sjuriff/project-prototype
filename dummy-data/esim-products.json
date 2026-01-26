@@ -1,0 +1,1128 @@
+{
+  "popular": [
+    {
+      "id": "1",
+      "imageUrl": "/images/new-york.jpg",
+      "title": "USA",
+      "data": "5GB",
+      "validity": "30 dager",
+      "price": "199",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "119"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "199"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "339"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "569"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "imageUrl": "/images/thailand.jpg",
+      "title": "Thailand",
+      "data": "5GB",
+      "validity": "30 dager",
+      "price": "199",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "119"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "199"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "339"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "569"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "imageUrl": "/images/japan.jpg",
+      "title": "Japan",
+      "data": "5GB",
+      "validity": "30 dager",
+      "price": "199",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "119"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "199"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "349"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "599"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "imageUrl": "/images/turkey.jpg",
+      "title": "Tyrkia",
+      "data": "5GB",
+      "validity": "30 dager",
+      "price": "229",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "139"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "229"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "409"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "529"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "imageUrl": "/images/vietnam.jpg",
+      "title": "Vietnam",
+      "data": "5GB",
+      "validity": "30 dager",
+      "price": "199",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "119"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "199"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "349"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "599"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "imageUrl": "/images/canada.jpeg",
+      "title": "Canada",
+      "data": "5GB",
+      "validity": "30 dager",
+      "price": "249",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "149"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "249"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "429"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "729"
+        }
+      ]
+    }
+  ],
+  "countries": [
+    {
+      "id": "CA",
+      "title": "Canada",
+      "imageUrl": "/images/ca.jpg",
+      "data": "5GB",
+      "validity": "30 dager",
+      "price": "249",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "50"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "90"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "140"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "220"
+        }
+      ]
+    },
+    {
+      "id": "FR",
+      "title": "France",
+      "imageUrl": "/images/fr.jpg",
+      "data": "5GB",
+      "validity": "30 dager",
+      "price": "249",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "30"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "40"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "60"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "100"
+        }
+      ]
+    },
+    {
+      "id": "DE",
+      "title": "Germany",
+      "imageUrl": "/images/de.jpg",
+      "validity": "30 dager",
+      "data"    : "5GB",
+      "price": "249",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "30"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "50"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "70"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "110"
+        }
+      ]
+    },
+    {
+      "id": "IT",
+      "title": "Italy",
+      "imageUrl": "/images/it.jpg",
+      "validity": "30 dager",
+      "price": "249",
+      "currency": "kr",
+      "data": "5GB",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "30"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "40"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "60"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "100"
+        }
+      ]
+    },
+    {
+      "id": "JP",
+      "title": "Japan",
+      "imageUrl": "/images/jp.jpg",
+      "validity": "30 dager",
+      "price": "249",
+      "currency": "kr",
+      "data": "5GB",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "40"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "70"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "110"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "170"
+        }
+      ]
+    },
+    {
+      "id": "ES",
+      "title": "Spain",
+      "imageUrl": "/images/es.jpg",
+      "currency": "kr",
+      "validity": "30 dager",
+      "data": "5GB",
+      "price": "249",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "30"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "50"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "70"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "110"
+        }
+      ]
+    },
+    {
+      "id": "TH",
+      "title": "Thailand",
+      "imageUrl": "/images/th.jpg",
+      "currency": "kr",
+      "data": "5GB",
+      "validity": "30 dager",
+      "price": "249",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "40"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "70"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "110"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "180"
+        }
+      ]
+    },
+    {
+      "id": "TR",
+      "title": "Turkey",
+      "imageUrl": "/images/tr.jpg",
+      "currency": "kr",
+      "data": "5GB",
+      "validity": "30 dager",
+      "price": "249",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "30"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "50"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "70"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "110"
+        }
+      ]
+    },
+    {
+      "id": "AE",
+      "title": "United Arab Emirates",
+      "imageUrl": "/images/ae.jpg",
+      "validity": "30 dager",
+      "data": "5GB",
+      "price": "249",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "50"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "80"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "130"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "190"
+        }
+      ]
+    },
+    {
+      "id": "GB",
+      "title": "United Kingdom",
+      "imageUrl": "/images/gb.jpg",
+      "data": "5GB",
+      "validity": "30 dager",
+      "price": "249",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "30"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "50"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "70"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "110"
+        }
+      ]
+    },
+    {
+      "id": "US",
+      "title": "United States of America",
+      "imageUrl": "/images/us.jpg",
+      "validity": "30 dager",
+      "price": "249",
+      "data": "5GB",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "40"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "60"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "100"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "150"
+        }
+      ]
+    },
+    {
+      "id": "VN",
+      "title": "VietNam",
+      "imageUrl": "/images/vn.jpg",
+      "validity": "30 dager",
+      "price": "249",
+      "data": "5GB",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "40"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "60"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "100"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "150"
+        }
+      ]
+    },
+    {
+      "id": "AR",
+      "title": "Argentina",
+      "imageUrl": "/images/ar.jpg",
+      "validity": "30 dager",
+      "price": "249",
+      "data": "5GB",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "70"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "120"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "190"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "300"
+        }
+      ]
+    },
+    {
+      "id": "AU",
+      "title": "Australia",
+      "imageUrl": "/images/au.jpg",
+      "validity": "30 dager",
+      "price": "249",
+      "data": "5GB",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "30"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "50"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "80"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "130"
+        }
+      ]
+    },
+    {
+      "id": "BR",
+      "title": "Brazil",
+      "imageUrl": "/images/br.jpg",
+      "validity": "30 dager",
+      "price": "249",
+      "data": "5GB",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "70"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "120"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "190"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "300"
+        }
+      ]
+    },
+    {
+      "id": "ID",
+      "title": "Indonesia",
+      "imageUrl": "/images/id.jpg",
+      "validity": "30 dager",
+      "price": "249",
+      "data": "5GB",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "40"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "70"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "110"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "180"
+        }
+      ]
+    },
+    {
+      "id": "KR",
+      "title": "Korea-Republic of",
+      "imageUrl": "/images/kr.jpg",
+      "validity": "30 dager",
+      "price": "249",
+      "currency": "kr",
+      "data": "5GB",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "60"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "100"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "160"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "260"
+        }
+      ]
+    },
+    {
+      "id": "MY",
+      "title": "Malaysia",
+      "imageUrl": "/images/my.jpg",
+      "validity": "30 dager",
+      "price": "249",
+      "data": "5GB",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "60"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "100"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "150"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "230"
+        }
+      ]
+    },
+    {
+      "id": "MX",
+      "title": "Mexico",
+      "imageUrl": "/images/mx.jpg",
+      "validity": "30 dager",
+      "price": "249",
+      "data": "5GB",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "40"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "70"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "120"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "180"
+        }
+      ]
+    },
+    {
+      "id": "NZ",
+      "title": "New Zealand",
+      "imageUrl": "/images/nz.jpg",
+      "validity": "30 dager",
+      "price": "249",
+      "data": "5GB",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "30"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "60"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "90"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "130"
+        }
+      ]
+    },
+    {
+      "id": "SG",
+      "title": "Singapore",
+      "imageUrl": "/images/sg.jpg",
+      "validity": "30 dager",
+      "price": "249",
+      "data": "5GB",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "40"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "70"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "110"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "180"
+        }
+      ]
+    },
+    {
+      "id": "ZA",
+      "title": "South Africa",
+      "imageUrl": "/images/za.jpg",
+      "validity": "30 dager",
+      "price": "249",
+      "data": "5GB",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "70"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "110"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "180"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "280"
+        }
+      ]
+    }
+  ],
+  "regions": [
+    {
+      "id": "7",
+      "imageUrl": "/images/vietnam.jpg",
+      "title": "Africa",
+      "data": "5GB",
+      "validity": "30 dager",
+      "price": "729",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "439"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "729"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "1269"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "2159"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "imageUrl": "/images/new-york.jpg",
+      "title": "USA",
+      "data": "5GB",
+      "validity": "30 dager",
+      "price": "339",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "199"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "339"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "589"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "999"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "imageUrl": "/images/japan.jpg",
+      "title": "Asia",
+      "data": "5GB",
+      "validity": "30 dager",
+      "price": "289",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "179"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "289"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "499"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "849"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "imageUrl": "/images/paris.jpg",
+      "title": "Europe",
+      "data": "5GB",
+      "validity": "30 dager",
+      "price": "159",
+      "currency": "kr",
+      "tiers": [
+        {
+          "data": "2GB",
+          "popular": false,
+          "validity": "15 dager",
+          "price": "99"
+        },
+        {
+          "data": "5GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "159"
+        },
+        {
+          "data": "10GB",
+          "popular": true,
+          "validity": "30 dager",
+          "price": "279"
+        },
+        {
+          "data": "20GB",
+          "popular": false,
+          "validity": "30 dager",
+          "price": "479"
+        }
+      ]
+    }
+  ]
+}

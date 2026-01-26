@@ -9,6 +9,7 @@ import IphoneSvgIcon from "./iphone-svg"
 import AndroidSvgIcon from "./android-svg"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
+import HowItWorksSection from "./how-it-works"
 
 const PHONE_HOVER_COLOR = '#f9f871'
 
@@ -111,8 +112,10 @@ export default function ESimInfoHero() {
             </p>
           </div>
 
+          <HowItWorksSection />
+
           {/* Visual Cards Grid */}
-          <div className="grid md:grid-cols-12 gap-6">
+          <div className="grid mt-16 md:grid-cols-12 gap-6">
             {/* Traditional SIM Card */}
 
 
