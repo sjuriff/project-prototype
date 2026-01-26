@@ -23,20 +23,20 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section className="py-16 shadow-md px-6 md:py-24">
+    <section className="py-16  px-6 md:py-0">
       <div className="max-w-6xl mx-auto">
-        <h2
-          className="text-center font-heading text-5xl font-heading mb-4"
+        {/* <h2
+          className="text-center font-heading text-3xl font-heading mb-4"
          
         >
           Slik fungerer det
-        </h2>
+        </h2> */}
 
         <p
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center text-lg text-primary-text max-w-2xl mx-auto mb-16"
           style={{
             fontFamily: 'var(--font-body)',
-            color: 'var(--color-secondary-text)'
+         
           }}
         >
           Det tar kun 2 minutter å komme i gang med eSIM

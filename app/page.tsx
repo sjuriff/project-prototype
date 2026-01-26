@@ -1,23 +1,14 @@
 
-import EsimStepHero from "@/components/esim-step-hero";
 import { CreativeHero } from "@/components/creative-hero";
-import { TravelHero } from "@/components/travel-hero";
+
+import ProductSection from "@/components/product-section";
 import Faq from "@/components/FAQ";
 import CompareCard from "@/components/compare-card";
-import { StaticImageData } from "next/image";
-import Hero from "@/components/hero";
-import { ProductCard } from "@/components/product-card";
+
 import ReversedHero from "@/components/reversed-hero";
 import HowItWorksSection from "@/components/how-it-works";
 
-import SortSelector from "@/components/radio-buttons";
-import { Earth } from "lucide-react";
-import USAImage from '@/public/images/new-york.jpg'
-import thailandImage from '@/public/images/thailand.jpg'
-import japanImage from '@/public/images/japan.jpg'
-import turkeyImage from '@/public/images/turkey.jpg'
-import vietnamImage from '@/public/images/vietnam.jpg'
-import canadaImage from '@/public/images/canada.jpeg'
+
 import ImageHero from "@/components/image-hero";
 import heroImage from '@/public/images/beam-wide-hero.jpeg'
 import ESimInfoHero from "@/components/esim-info-hero";
@@ -44,98 +35,7 @@ interface Product {
 
 
 export default function Home() {
-  const popularDestinations: Product[] = [
-    {
-      id: "1",
-      imageUrl: "/images/new-york.jpg",
-      title: "USA",
-      data: "5GB",
-      validity: "30 dager",
-      price: "199",
-      currency: "kr",
-      tiers: [
-        { data: "2GB", popular:false, validity: "15 dager", price: "119" },
-        { data: "5GB", popular: false, validity: "30 dager", price: "199" },
-        { data: "10GB", popular: true, validity: "30 dager", price: "339" },
-        { data: "20GB", popular: false, validity: "30 dager", price: "569" },
-      ],
-    },
-    {
-      id: "2",
-      imageUrl: "/images/thailand.jpg",
-      title: "Thailand",
-      data: "5GB",
-      validity: "30 dager",
-      price: "199",
-      currency: "kr",
-      tiers: [
-        { data: "2GB", popular: false, validity: "15 dager", price: "119" },
-        { data: "5GB", popular: false, validity: "30 dager", price: "199" },
-        { data: "10GB", popular: true, validity: "30 dager", price: "339" },
-        { data: "20GB", popular: false, validity: "30 dager", price: "569" },
-      ],
-    },
-    {
-      id: "3",
-      imageUrl: "/images/japan.jpg",
-      title: "Japan",
-      data: "5GB",
-      validity: "30 dager",
-      price: "199",
-      currency: "kr",
-      tiers: [
-        { data: "2GB", popular: false, validity: "15 dager", price: "119" },
-        { data: "5GB", popular: false, validity: "30 dager", price: "199" },
-        { data: "10GB", popular: true, validity: "30 dager", price: "349" },
-        { data: "20GB", popular: false, validity: "30 dager", price: "599" },
-      ],
-    },
-    {
-      id: "4",
-      imageUrl: "/images/turkey.jpg",
-      title: "Tyrkia",
-      data: "5GB",
-      validity: "30 dager",
-      price: "229",
-      currency: "kr",
-      tiers: [
-        { data: "2GB", popular: false, validity: "15 dager", price: "139" },
-        { data: "5GB", popular: false, validity: "30 dager", price: "229" },
-        { data: "10GB", popular: true, validity: "30 dager", price: "409" },
-        { data: "20GB", popular: false, validity: "30 dager", price: "529" },
-      ],
-    },
-    {
-      id: "5",
-      imageUrl: "/images/vietnam.jpg",
-      title: "Vietnam",
-      data: "5GB",
-      validity: "30 dager",
-      price: "199",
-      currency: "kr",
-      tiers: [
-        { data: "2GB", popular: false, validity: "15 dager", price: "119" },
-        { data: "5GB", popular: false, validity: "30 dager", price: "199" },
-        { data: "10GB", popular: true, validity: "30 dager", price: "349" },
-        { data: "20GB", popular: false, validity: "30 dager", price: "599" },
-      ],
-    },
-    {
-      id: "6",
-      imageUrl: "/images/canada.jpeg",
-      title: "Canada",
-      data: "5GB",
-      validity: "30 dager",
-      price: "249",
-      currency: "kr",
-      tiers: [
-        { data: "2GB", popular: false, validity: "15 dager", price: "149" },
-        { data: "5GB", popular: false, validity: "30 dager", price: "249" },
-        { data: "10GB", popular: true, validity: "30 dager", price: "429" },
-        { data: "20GB", popular: false, validity: "30 dager", price: "729" },
-      ],
-    },
-  ]
+
   return (
     <main className="bg-surface  flex flex-col  2xl:gap-0">
       <section className="w-full z-0 bg-gradient-to-b from-surface to-secondary relative   flex items-center justify-center">
@@ -149,44 +49,13 @@ export default function Home() {
 
       </section>
 
-      <HowItWorksSection/>
 
       {/* <section className="w-full relative bg-surface  min-h-[50vh]  flex items-center justify-center">
         <EsimStepHero />
 
       </section> */}
 
-      <section className="w-full z-10   xl:px-8 2xl:px-0  bg-gradient-to-b from-secondary to-surface-dim gap-8    min-h-screen 2xl:min-h-[30vh]  flex flex-col items-center justify-center">
-        <div className="2xl:w-4/5 mt-28 relative bg-surface rounded-3xl  w-full h-full flex flex-col items-center justify-center  ">
-          <div className="flex  flex-col items-center gap-2 p-4">
-            <div className="bg-primary h-16 w-16 flex items-center justify-center rounded-full">
-              <Earth className="w-8 h-8 text-primary-text" />
-            </div>
-            <h1 className="text-5xl font-heading   text-primary-text [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Dekning over hele verden</h1>
-            <p className="text-xl font-body text-secondary-text">Velg din destinasjon</p>
-          </div>
-          <div>
-            <div className="ml-4">
-              <SortSelector />
-            </div>
-            <div className="grid    py-8 mx-auto gap-24 grid-cols-12  justify-items-center  ">
-              {popularDestinations.map((product) => (
-                <ProductCard
-                  id={product.id}
-                  key={product.id}
-                  imageUrl={product.imageUrl}
-                  title={product.title}
-                  data={product.data}
-                  validity={product.validity}
-                  price={product.price}
-                  tirers={product.tiers}
-                  currency={product.currency}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProductSection />
 
       <section className="w-full relative pt-28 bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
         <ReversedHero />
