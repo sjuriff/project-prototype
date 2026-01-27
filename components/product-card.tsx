@@ -10,18 +10,16 @@ import { useState } from 'react';
 import { CustomDropdown } from './custom-dropdown';
 import { useRouter } from 'next/navigation';
 import {usePersistedProduct} from '@/hooks/use-persisted-product';
+import { Tier } from '@/types/product';
 
-interface Tier {
-  data: string;
-  validity: string;
-  price: string;
-}
+
 
 interface ProductCardProps {
   id: string;
-  imageUrl: string;
+  imageUrl: string | null;
   title: string;
   data: string;
+  countryCode: string;
   tirers: Tier[];
   validity: string;
   price: string;
@@ -33,6 +31,7 @@ export function ProductCard({
   imageUrl,
   title,
   data,
+  countryCode,
   validity,
   tirers,
   price,
@@ -50,6 +49,7 @@ export function ProductCard({
       id,
       imageUrl,
       title,
+      countryCode,
       data: selectedTier.data,
       validity,
       price: selectedTier.price,
@@ -67,6 +67,7 @@ export function ProductCard({
       title,
       data: selectedTier.data,
       validity,
+      countryCode,
       price: selectedTier.price,
       currency,
       tiers: tirers,
@@ -77,14 +78,20 @@ export function ProductCard({
   }
 
 
+
+  const flagImage: string = 'https://flagcdn.com/w320/' + countryCode.toLowerCase() + '.png'
+
  
+
+
+
   return (
     <div className="w-[320px]  xl:col-span-4 2xl:col-span-4 bg-gradient-to-t from-tertiary to-tertiary/80 rounded-2xl overflow-hidden shadow-lg">
       {/* Product Image Section */}
       <div className="p-6 pb-2 ">
         <div className="bg-white rounded-xl overflow-hidden aspect-[4/3] mb-4">
           <Image
-            src={imageUrl}
+            src={imageUrl? imageUrl : flagImage}
             alt={title}
             width={1000}
             height={1000}

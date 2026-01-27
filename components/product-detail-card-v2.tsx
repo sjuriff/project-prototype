@@ -10,30 +10,28 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { constants } from 'node:crypto';
 import { usePersistedProduct } from '@/hooks/use-persisted-product';
+import { Tier } from '@/types/product';
 
 interface ProductDetailCardProps {
   id: string;
-  image: string;
+  image: string | null;
   title: string;
   description: string;
   price: string;
+  countryCode: string; 
   data: string;
   validity: string;
   tiers: Tier[]
 }
 
-interface Tier {
-  data: string;
-  validity: string;
-  price: string
-  popular?: boolean
-}
+
 
 export default function ProductDetailV2({
   id,
   image,
   title,
   description,
+  countryCode,
   price,
   data,
   validity,
@@ -50,7 +48,10 @@ export default function ProductDetailV2({
   const { persistProduct } = usePersistedProduct()
   const router = useRouter()
 
-  console.log("image", image)
+
+  const flagImage = 'https://flagcdn.com/w320/' + countryCode.toLowerCase() + '.png'
+
+
 
 
   const handleTierClick = (tier: Tier) => {
@@ -62,12 +63,13 @@ export default function ProductDetailV2({
 
   console.log("tiers", tiers)
 
-  const handleAddToCartClick = (id: string, title: string) => {
+  const handleAddToCartClick = (id: string, title: string, countryCode: string) => {
 
     addItem({
       id: id,
       title: title,
       data: tier.data,
+      countryCode: countryCode,
       validity: tier.validity,
       price: parseInt(tier.price),
       quantity: 1,
@@ -84,6 +86,7 @@ export default function ProductDetailV2({
       id,
       imageUrl: image,
       title,
+      countryCode,
       data: tier.data,
       validity: tier.validity,
       price: tier.price,
@@ -118,7 +121,7 @@ export default function ProductDetailV2({
                 <div className="relative h-[90%] w-full overflow-hidden rounded-sm">
 
                   <Image
-                    src={image}
+                    src={image ? image : flagImage}
                     alt="Paris, France"
                     className="w-full  rounded-sm shadow-inner h-full opacity-95
     contrast-95
@@ -219,7 +222,7 @@ export default function ProductDetailV2({
                   </PrimaryButton>
                 </div>
                 {/*  </Link> */}
-                <button onClick={() => handleAddToCartClick(id, title)} className="w-full font-heading py-3 px-6 border-2 border-tertiary text-secondary-text hover:cursor-pointer  rounded-lg transition-transform duration-300 hover:scale-102"   >
+                <button onClick={() => handleAddToCartClick(id, title, countryCode)} className="w-full font-heading py-3 px-6 border-2 border-tertiary text-secondary-text hover:cursor-pointer  rounded-lg transition-transform duration-300 hover:scale-102"   >
                   Legg til handlekurv
                 </button>
               </div>

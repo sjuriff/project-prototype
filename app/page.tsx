@@ -14,23 +14,7 @@ import heroImage from '@/public/images/beam-wide-hero.jpeg'
 import ESimInfoHero from "@/components/esim-info-hero";
 
 
-interface Tier {
-  data: string;
-  validity: string;
-  price: string;
-  popular?: boolean
-}
 
-interface Product {
-  id: string;
-  imageUrl: string;
-  title: string;
-  data: string;
-  validity: string;
-  price: string;
-  currency?: string;
-  tiers: Tier[]
-}
 
 
 

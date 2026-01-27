@@ -9,7 +9,7 @@ import { useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import esimData from "@/dummy-data/esim-products.json";
 import { usePersistedProduct } from "@/hooks/use-persisted-product";
-import { Product } from "@/hooks/use-persisted-product";
+
 
 import VippsPayIcon from "./vipps-pay-icon";
 
@@ -89,6 +89,7 @@ export default function ImageHero(props: HeroProps) {
       validity: chosenCountry?.tiers[1].validity ?? "",
       price: chosenCountry?.tiers[1].price ?? "",
       currency: chosenCountry?.currency ?? "",
+      countryCode: chosenCountry?.countryCode ?? "",
       tiers: chosenCountry?.tiers ?? [],
     });
     // ✅ change this if your route differs
@@ -104,6 +105,7 @@ export default function ImageHero(props: HeroProps) {
       data: chosenCountry?.tiers[1].data ?? "",
       validity: chosenCountry?.tiers[1].validity ?? "",
       price: chosenCountry?.tiers[1].price ?? "",
+      countryCode: chosenCountry?.countryCode ?? "",
       currency: chosenCountry?.currency ?? "",
       tiers: chosenCountry?.tiers ?? [],
     });

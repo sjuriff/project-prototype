@@ -1,15 +1,23 @@
-import { Check } from "lucide-react";
+import { Check, Globe } from "lucide-react";
 import { CartItemData } from "@/hooks/use-cart";
+import { Product } from "@/types/product";
+import Image from "next/image";
 
-interface Product {
-  id: string;
-  title: string;
-  data: string;
-  validity: string;
-  price: string;
-  currency?: string;
+
+export const REGION_CODES = [
+  "EU", // Europa
+  "AS", // Asia
+  "AF", // Afrika
+  "NA", // Nord-Amerika
+  "SA", // Sør-Amerika
+  "OC", // Oseania
+  "ME", // Midtøsten (valgfri, men veldig vanlig i eSIM)
+  "WW"  // Worldwide / Global (valgfri)
+]
+
+export function isRegion(code: string) {
+  return REGION_CODES.includes(code);
 }
-
 type OrderItem = CartItemData | Product
 
 interface OrderSummaryProps {
@@ -30,6 +38,8 @@ function getItemPrice(item: OrderItem): number {
 
 
 export function OrderSummary({ products }: OrderSummaryProps) {
+
+
   const subtotal = products.reduce((sum, item) => {
     const price = getItemPrice(item)
     const qty = hasQuantity(item) ? item.quantity : 1
@@ -44,6 +54,7 @@ export function OrderSummary({ products }: OrderSummaryProps) {
       {products.map((item) => {
         const price = getItemPrice(item)
         const quantity = hasQuantity(item) ? item.quantity : 1
+        const flagImageUrl = `https://flagcdn.com/w320/` + item.countryCode.toLowerCase() + `.png`
 
         return (
           <div
@@ -51,7 +62,17 @@ export function OrderSummary({ products }: OrderSummaryProps) {
             className="mb-6 pb-6 border-b border-gray-100 last:border-b-0"
           >
             <div className="flex flex-col">
-              <div className="flex justify-between items-start mb-4">
+              <div className="flex gap-4 mb-4">
+                <div className="flex items-center justify-center gap-2 h-12 w-12 bg-secondary rounded-lg">
+                  {isRegion(item.countryCode) ? (
+                    <Globe className="w-8 h-8 text-secondary-text" />
+                  ) : (
+                    <Image src={flagImageUrl} width={32} height={32} alt={item.countryCode} />
+                  )
+                  }
+
+
+                </div>
                 <div>
                   <h3 className="font-body text-primary-text mb-1">
                     {item.title} eSIM – {item.validity} dager
@@ -65,13 +86,11 @@ export function OrderSummary({ products }: OrderSummaryProps) {
                     </div>
                   )}
                 </div>
-
-
               </div>
 
               <p className="font-body text-primary-text">
                 {price} kr
-                {quantity > 1 && ` × ${quantity} = ${price * quantity} kr`}
+                {quantity > 1 && ` × ${quantity}`}
               </p>
             </div>
 

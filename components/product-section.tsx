@@ -5,33 +5,17 @@ import { Earth } from "lucide-react";
 import { useState } from "react";
 
 import SortSelector from "@/components/radio-buttons";
+import {Product, Tier} from '@/types/product'
 
 
-interface Tier {
-  data: string;
-  validity: string;
-  price: string;
-  popular?: boolean
-}
 
-interface Product {
-  id: string;
-  imageUrl: string;
-  title: string;
-  data: string;
-  validity: string;
-  price: string;
-  currency?: string;
-  tiers: Tier[]
-}
 
 
 export default function ProductSection() {
   const [shownProducts, setShownProducts] = useState<Product[]>(eSIMProducts.popular);
   const [sort, setSort] = useState("popular");
 
-  console.log("shownProducts", shownProducts)
-  console.log("sort", sort)
+ 
 
   const handleSortChange = (value: string) => {
     setSort(value);
@@ -65,6 +49,7 @@ export default function ProductSection() {
                   id={product.id}
                   key={product.id}
                   imageUrl={product.imageUrl}
+                  countryCode={product.countryCode}
                   title={product.title}
                   data={product.data}
                   validity={product.validity}

@@ -2,28 +2,13 @@
 
 import { useEffect, useState } from "react"
 import type { StaticImageData } from "next/image"
+import { Product } from "@/types/product"
 
 /* =========================
    Types (inline)
    ========================= */
 
-export interface Tier {
-  data: string
-  validity: string
-  price: string
-  popular?: boolean
-}
 
-export interface Product {
-  id: string
-  imageUrl: string
-  title: string
-  data: string
-  validity: string
-  price: string
-  currency?: string
-  tiers: Tier[]
-}
 
 /* =========================
    Stored (JSON-safe) shape
