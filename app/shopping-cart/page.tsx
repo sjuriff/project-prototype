@@ -7,14 +7,7 @@ import Link from "next/link";
 import paths from "@/paths";
 import { useRouter } from "next/navigation";
 import BackButton from "@/components/buttons/back-button";
-interface CartItemData {
-  id: string;
-  title: string;
-  data: string;
-  validity: string;
-  price: number;
-  quantity: number;
-}
+
 
 
 export default function ShoppingCartPage() {

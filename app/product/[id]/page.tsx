@@ -18,24 +18,7 @@ interface ProductDetailPageProps {
   }
 }
 
-interface Tier {
-  data: string;
-  validity: string;
-  price: string;
-  popular?: boolean
-}
 
-
-interface Product {
-  id: string;
-  imageUrl: StaticImageData;
-  title: string;
-  data: string;
-  validity: string;
-  price: string;
-  currency?: string;
-  tiers: Tier[];
-}
 //Needs to be an asycn function when we fetch real data, also needs to be a server component
 export default function ProductDetailPage({ params }: ProductDetailPageProps) {
 
@@ -65,7 +48,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
           <div className="absolute top-4 left-4 2xl:top-16 2xl:left-16">
             <BackButton />
           </div>
-          <ProductDetailV2 id={showProduct.id} tiers={showProduct.tiers} title={showProduct.title} image={showProduct.imageUrl} description={showProduct.title} price={showProduct.price} data={showProduct.data} validity={showProduct.validity} />
+          <ProductDetailV2 id={showProduct.id} countryCode={showProduct.countryCode} tiers={showProduct.tiers} title={showProduct.title} image={showProduct.imageUrl} description={showProduct.title} price={showProduct.price} data={showProduct.data} validity={showProduct.validity} />
         </section>
       </main>
     );

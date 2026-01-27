@@ -9,14 +9,7 @@ import { usePersistedProduct } from "@/hooks/use-persisted-product";
 import { useCart } from "@/hooks/use-cart";
 import PaymentMethods from "@/components/payment-methods";
 import PaymentSection from "@/components/payment-section";
-interface Product {
-  id: string;
-  title: string;
-  data: string;
-  validity: string;
-  price: string;
-  currency?: string;
-}
+
 
 interface CheckoutPageProps {
   params: {

@@ -1,14 +1,31 @@
 import { Minus, Plus, X, Globe } from "lucide-react";
+import Image from "next/image";
 
 interface CartItemProps {
   id: string;
   title: string;
   data: string;
+  countryCode: string;
   validity: string;
   price: number;
   quantity: number;
   onUpdateQuantity: (id: string, quantity: number) => void;
   onRemove: (id: string) => void;
+}
+
+export const REGION_CODES = [
+  "EU", // Europa
+  "AS", // Asia
+  "AF", // Afrika
+  "NA", // Nord-Amerika
+  "SA", // Sør-Amerika
+  "OC", // Oseania
+  "ME", // Midtøsten (valgfri, men veldig vanlig i eSIM)
+  "WW"  // Worldwide / Global (valgfri)
+]
+
+export function isRegion(code: string) {
+  return REGION_CODES.includes(code);
 }
 
 export function CartItem({
@@ -18,28 +35,41 @@ export function CartItem({
   validity,
   price,
   quantity,
+  countryCode,
   onUpdateQuantity,
   onRemove,
 }: CartItemProps) {
+
+  console.log('countryCode', countryCode)
+
+  const flagImageUrl = 'https://flagcdn.com/w320/' + countryCode.toLowerCase() + '.png'
   return (
     <div className="flex items-start gap-4 py-6 border-b border-[#e5e7eb]">
       <div className="flex items-center justify-center w-16 h-16 bg-[var(--color-secondary)] rounded-lg flex-shrink-0">
-        <Globe className="w-8 h-8 text-secondary-text" />
+        {isRegion(countryCode) ? (
+          <Globe className="w-8 h-8 text-secondary-text" />
+        ) : (
+          <div className="w-12 h-12 flex items-center justify-center">
+
+            <Image src={flagImageUrl} width={100} height={100} alt={countryCode} className="object-cover w-full" />
+          </div>
+        )
+        }
       </div>
       <div className="flex-1 min-w-0">
         <h3 className="mb-1" style={{ color: 'var(--color-primary-text)' }}>
           {title}
         </h3>
         <div className="flex gap-3 mb-2">
-          <span className="inline-flex items-center px-2 py-0.5 rounded-md" style={{ 
-            backgroundColor: 'var(--color-surface-dim)', 
+          <span className="inline-flex items-center px-2 py-0.5 rounded-md" style={{
+            backgroundColor: 'var(--color-surface-dim)',
             color: 'var(--color-secondary-text)',
             fontSize: '0.875rem'
           }}>
             {data}
           </span>
-          <span className="inline-flex items-center px-2 py-0.5 rounded-md" style={{ 
-            backgroundColor: 'var(--color-surface-dim)', 
+          <span className="inline-flex items-center px-2 py-0.5 rounded-md" style={{
+            backgroundColor: 'var(--color-surface-dim)',
             color: 'var(--color-secondary-text)',
             fontSize: '0.875rem'
           }}>

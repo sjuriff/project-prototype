@@ -6,6 +6,7 @@ export interface CartItemData {
   id: string
   title: string
   data: string
+  countryCode: string
   validity: string
   price: number
   quantity: number
