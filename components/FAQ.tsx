@@ -4,12 +4,14 @@ import { CardSim, TabletSmartphone, BadgeQuestionMark, HeartHandshake, ChevronRi
 import Image from "next/image";
 import img from '@/public/images/beam-suitcase.jpg'
 import PrimaryButton from "./buttons/primary-button";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import paths from "@/paths";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 
 const FaqCard = ({ question, index }: { question: string, index: number }) => {
@@ -25,6 +27,8 @@ const FaqCard = ({ question, index }: { question: string, index: number }) => {
 export default function Faq() {
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const containerRef = useRef<HTMLDivElement>(null)
 
   const faqs = [
 
@@ -54,9 +58,9 @@ export default function Faq() {
   useGSAP(() => {
     gsap.from("#card-left", {
       scrollTrigger: {
-        trigger: "#card-left",
-        start: "-50% center",
-        end: "bottom center",
+        trigger: containerRef.current,
+        start: "-10% center",
+        end: "20% center",
         scrub: true,
       },
       x: '-110%',
@@ -66,20 +70,19 @@ export default function Faq() {
     })
     gsap.from("#card-right", {
       scrollTrigger: {
-        trigger: "#card-right",
-        start: "-50% center",
-        end: "bottom center",
+        trigger: containerRef.current,
+        start: "-10% center",
+        end: "20% center",
         scrub: true,
-        markers: true
       },
       x: '110%',
       y: -100,
       
     })
-  }, [])
+  }, {scope: containerRef})
 
   return (
-    <div className=" z-10 relative min-h-[50vh]  w-full py-16 px-4 sm:px-6 lg:px-8">
+    <div ref={containerRef} className=" z-10 relative min-h-[50vh]  w-full py-16 px-4 sm:px-6 lg:px-8">
       <div className="flex mb-8 flex-col gap-4 items-center">
         <span className="h-16 w-16 bg-primary flex items-center justify-center rounded-full">
           <BadgeQuestionMark className="w-8 h-8" />
@@ -87,7 +90,7 @@ export default function Faq() {
 
         <h1 className="text-5xl text-center font-heading text-primary-text">Frequently Asked Questions</h1>
       </div>
-      <div className="flex lg:gap-8 2xl:gap-0 h-full">
+      <div  className="flex lg:gap-8 2xl:gap-0 h-full">
         <div id="card-left" className="w-1/2 flex h-85 2xl:h-90  items-center justify-center   text-secondary-text">
           <div className="w-full z-10 shadow-lg h-full flex flex-col gap-4 rounded-2xl p-8 bg-secondary 2xl:w-1/2">
             <CardSim className=" w-10 h-10" />

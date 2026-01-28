@@ -2,7 +2,9 @@
 import { ProductCard } from "./product-card";
 import  eSIMProducts  from "@/dummy-data/esim-products.json";
 import { Earth } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef, use } from "react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
 
 import SortSelector from "@/components/radio-buttons";
 import {Product, Tier} from '@/types/product'
@@ -14,6 +16,21 @@ import {Product, Tier} from '@/types/product'
 export default function ProductSection() {
   const [shownProducts, setShownProducts] = useState<Product[]>(eSIMProducts.popular);
   const [sort, setSort] = useState("popular");
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+
+
+useEffect(() => {
+  const resizeObserver = new ResizeObserver(() => {
+    ScrollTrigger.refresh();
+  })
+
+  resizeObserver.observe(containerRef.current!);
+  return () => {
+    resizeObserver.disconnect();
+  }
+  
+}, [])
 
  
 
@@ -43,7 +60,7 @@ export default function ProductSection() {
             <div className="ml-4">
               <SortSelector sort={sort} onSortChange={handleSortChange} />
             </div>
-            <div className="grid    py-8 mx-auto gap-24 grid-cols-12  justify-items-center  ">
+            <div ref={containerRef} className="grid    py-8 mx-auto gap-24 grid-cols-12  justify-items-center  ">
               {shownProducts.map((product) => (
                 <ProductCard
                   id={product.id}
