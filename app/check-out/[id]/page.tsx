@@ -10,7 +10,7 @@ import { useCart } from "@/hooks/use-cart";
 import PaymentMethods from "@/components/payment-methods";
 import PaymentSection from "@/components/payment-section";
 
-
+//TODO! Sjekk ut forskjell på UI fra forskjellige land etter implementasjon av flag-api, pågrunn av lengde på navn, må håndteres
 interface CheckoutPageProps {
   params: {
     id: string;
