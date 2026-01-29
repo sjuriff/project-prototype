@@ -9,6 +9,7 @@ import { useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import esimData from "@/dummy-data/esim-products.json";
 import { usePersistedProduct } from "@/hooks/use-persisted-product";
+import { useCountrySearch } from "@/hooks/use-country-search";
 
 
 import VippsPayIcon from "./vipps-pay-icon";
@@ -66,20 +67,10 @@ export default function ImageHero(props: HeroProps) {
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
 
-  const results = useMemo(() => {
-    const q = normalize(query);
-    if (!q) return [];
+  const results = useCountrySearch(countries, query, 8);
 
-    return countries
-      .filter((c) => {
-        const title = normalize(c.title ?? "");
-        const iso = normalize(c.id ?? "");
-        return title.includes(q) || iso.includes(q);
-      })
-      .slice(0, 8);
-  }, [query]);
 
-  function goToPopularCountry (title: string) {
+  function goToPopularCountry(title: string) {
     const chosenCountry = popularContries.find((c) => c.title === title);
     persistProduct({
       id: chosenCountry?.id ?? "",
@@ -184,18 +175,25 @@ export default function ImageHero(props: HeroProps) {
             {/* Dropdown */}
             {open && results.length > 0 && (
               <div className="absolute z-50 mt-2 w-full overflow-hidden rounded-xl border border-secondary-text bg-white shadow-lg">
-                {results.map((c) => (
-                  <button
-                    key={c.id}
-                    type="button"
-                    onMouseDown={(e) => e.preventDefault()} // prevents blur before click
-                    onClick={() => goToCountry(c.id, c.title)}
-                    className="w-full text-left px-4 py-3 hover:bg-surface-dim flex items-center justify-between"
-                  >
-                    <span className="font-body text-primary-text">{c.title}</span>
-                    <span className="text-xs opacity-70">{c.id}</span>
-                  </button>
-                ))}
+                {results.map((c) => {
+                  const flagImageUrl = `https://flagcdn.com/w320/` + c.countryCode.toLowerCase() + `.png`
+
+                  return (
+                    <button
+                      key={c.id}
+                      type="button"
+                      onMouseDown={(e) => e.preventDefault()} // prevents blur before click
+                      onClick={() => goToCountry(c.id, c.title)}
+                      className="w-full text-left px-4 py-3 hover:bg-surface-dim flex items-center justify-between"
+                    >
+                      <span className="font-body text-primary-text">{c.title}</span>
+                      <div className=" w-8  flex items-center justify-center">
+                      <Image className="object-cover " src={flagImageUrl} alt={c.title} width={32} height={32} />
+                      </div>
+
+                    </button>
+                  )
+                })}
               </div>
             )}
           </div>
