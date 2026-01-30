@@ -1,36 +1,68 @@
 export function normalizeNo(s: string) {
   return s
     .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/æ/g, "ae")
-    .replace(/ø/g, "o")
-    .replace(/å/g, "a")
-    .replace(/[^a-z0-9\s-]/g, "")
-    .replace(/\s+/g, " ")
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/æ/g, 'ae')
+    .replace(/ø/g, 'o')
+    .replace(/å/g, 'a')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, ' ')
     .trim();
 }
+//SHOULD BE ALIAS TO ID
+const ALIAS_TO_TITLE_NO: Record<string, string> = {
+  // United Kingdom / Storbritannia
+  uk: 'Storbritannia',
+  england: 'Storbritannia',
+  skotland: 'Storbritannia',
+  wales: 'Storbritannia',
+  'forente kongerike': 'Storbritannia',
+  storbritannia: 'Storbritannia',
+  'great britain': 'Storbritannia',
 
+  // USA
+  usa: 'USA',
+  amerika: 'USA',
+  'forente stater': 'USA',
+  'de forente stater': 'USA',
 
-const ALIASES_NO: Record<string, string[]> = {
-  uk: ["storbritannia", "forente kongerike", "england"],
-  usa: ["de forente stater", "forente stater", "amerika"],
-  uae: ["de forente arabiske emirater", "emiratene"],
+  // UAE
+  uae: 'De forente arabiske emirater',
+  emiratene: 'De forente arabiske emirater',
+  'de forente arabiske emirater': 'De forente arabiske emirater',
 };
+
+function buildAliasIndex(map: Record<string, string>) {
+  const out: Record<string, string> = {};
+  for (const [k, v] of Object.entries(map)) {
+    out[normalizeNo(k)] = normalizeNo(v);
+  }
+  return out;
+}
+
+const ALIAS_TO_TITLE_NO_N = buildAliasIndex(ALIAS_TO_TITLE_NO);
 
 export function expandedQueriesNo(qRaw: string) {
   const q = normalizeNo(qRaw);
   if (!q) return [];
-  const extra = ALIASES_NO[q] ?? [];
-  return [q, ...extra.map(normalizeNo)];
+
+  const mappedId = ALIAS_TO_TITLE_NO_N[q]; // already normalized
+  if (!mappedId) return [q];
+
+  // include both: mapped canonical id + original query
+  // (so "uk" can still match "uk" if you ever store it anywhere)
+  return Array.from(new Set([mappedId, q]));
 }
+
+
+
 
 export type SearchableCountry<T> = T & {
   _nTitle: string;
   _nId: string;
   _words: string[];
 };
-
 
 function scoreAgainstQuery<T>(c: SearchableCountry<T>, q: string) {
   const t = c._nTitle;
@@ -52,11 +84,11 @@ function scoreAgainstQuery<T>(c: SearchableCountry<T>, q: string) {
 }
 
 export function preprocessCountries<T extends { title?: string; id?: string }>(
-  countries: T[]
+  countries: T[],
 ): SearchableCountry<T>[] {
   return countries.map((c) => {
-    const nTitle = normalizeNo(c.title ?? "");
-    const nId = normalizeNo(c.id ?? "");
+    const nTitle = normalizeNo(c.title ?? '');
+    const nId = normalizeNo(c.id ?? '');
     const words = nTitle.split(/\s+/).filter(Boolean);
     return { ...c, _nTitle: nTitle, _nId: nId, _words: words };
   });
@@ -65,7 +97,7 @@ export function preprocessCountries<T extends { title?: string; id?: string }>(
 export function searchCountries<T>(
   normalizedCountries: SearchableCountry<T>[],
   query: string,
-  limit = 8
+  limit = 8,
 ): T[] {
   const qs = expandedQueriesNo(query);
   if (!qs.length) return [];
