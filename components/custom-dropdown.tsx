@@ -93,13 +93,13 @@ export function CustomDropdown({
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-28 group  flex items-center justify-center rounded-xl  transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-tertiary-text shadow-sm hover:shadow-md"
+        className="w-28 group  flex items-center justify-center rounded-xl  transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-primary shadow-sm hover:shadow-md"
       >
-        <span className={selectedOption ? 'text-tertiary-text font-body' : 'text-tertiary-text font-body'}>
+        <span className={selectedOption ? 'text-secondary-text font-body' : 'text-secondary-text font-body'}>
           {selectedOption ? selectedOption.data : placeholder}
         </span>
         <div ref={chevronRef} className="ml-3">
-          <ChevronDown className="size-5 group-hover:scale-105 text-tertiary-text" strokeWidth={2.5} />
+          <ChevronDown className="size-5 group-hover:scale-105 text-secondary-text" strokeWidth={2.5} />
         </div>
       </button>
 

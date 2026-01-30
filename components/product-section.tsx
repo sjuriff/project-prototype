@@ -8,7 +8,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 
 import SortSelector from "@/components/radio-buttons";
-import {Product, Tier} from '@/types/product'
+import {Product, } from '@/types/product'
 
 
 
@@ -61,7 +61,7 @@ useEffect(() => {
             <div className="ml-4">
               <SortSelector sort={sort} onSortChange={handleSortChange} />
             </div>
-            <div ref={containerRef} className="grid    py-8 mx-auto gap-24 grid-cols-12  justify-items-center  ">
+            <div ref={containerRef} className="grid  py-8 mx-auto gap-10 grid-cols-12  justify-items-center  ">
               {shownProducts.map((product) => (
                 <ProductCard
                   id={product.id}

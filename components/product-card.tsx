@@ -9,7 +9,7 @@ import paths from '@/paths';
 import { useState } from 'react';
 import { CustomDropdown } from './custom-dropdown';
 import { useRouter } from 'next/navigation';
-import {usePersistedProduct} from '@/hooks/use-persisted-product';
+import { usePersistedProduct } from '@/hooks/use-persisted-product';
 import { Tier } from '@/types/product';
 
 
@@ -38,13 +38,13 @@ export function ProductCard({
   currency = "NOK"
 }: ProductCardProps) {
 
-   const [selectedTier, setSelectedTier] = useState<Tier>(tirers[1]);
+  const [selectedTier, setSelectedTier] = useState<Tier>(tirers[1]);
 
-   const { persistProduct } = usePersistedProduct();
+  const { persistProduct } = usePersistedProduct();
 
-   const router = useRouter();
+  const router = useRouter();
 
-   const handleBuyClick = () => {
+  const handleBuyClick = () => {
     persistProduct({
       id,
       imageUrl,
@@ -60,7 +60,7 @@ export function ProductCard({
     router.push(paths.checkout(id));
   };
 
-  const handleReadMoreClick = () =>{
+  const handleReadMoreClick = () => {
     persistProduct({
       id,
       imageUrl,
@@ -81,40 +81,55 @@ export function ProductCard({
 
   const flagImage: string = 'https://flagcdn.com/w320/' + countryCode.toLowerCase() + '.png'
 
- 
+
 
 
 
   return (
-    <div className="w-[320px]  xl:col-span-4 2xl:col-span-4 bg-gradient-to-t from-tertiary to-tertiary/80 rounded-2xl overflow-hidden shadow-lg">
+    <div className="w-[300px] relative z-0  xl:col-span-3 2xl:col-span-4 bg-secondary rounded-2xl overflow-hidden shadow-lg">
       {/* Product Image Section */}
-      <div className="p-6 pb-2 ">
-        <div className="bg-white rounded-xl overflow-hidden aspect-[4/3] mb-4">
+      <div className="">
+        <div className="bg-white relative rounded-t-2xl overflow-hidden aspect-[4/3] ">
           <Image
-            src={imageUrl? imageUrl : flagImage}
+            src={imageUrl ? imageUrl : flagImage}
             alt={title}
             width={1000}
             height={1000}
             className="w-full h-full object-cover"
           />
+          <span className='h-32 absolute -top-10 -right-10 w-32 rounded-full bg-primary/80'></span>
+
         </div>
-        <h3 className="text-tertiary-text font-heading mb-1">{title}</h3>
+
       </div>
 
-      {/* Separator with dots and line */}
-      <div className="flex px-5 items-center gap-2">
-        <div className="w-5 rounded-l-lg h-[10px] bg-primary"></div>
-        <div className="w-5 h-[10px] bg-primary"></div>
-        <div className="flex-1 h-[10px] bg-gradient-to-r from-primary via-primary to-transparent"></div>
+
+      <div className=' z-0 mt-4'>
+        <h3 className="text-primary-text ml-4 font-heading mb-1">{title}</h3>
+        <div className="w-full pl-4  right-0 -top-1 z-10">
+          <div className="flex w-full  items-center gap-2">
+            <div className="w-5 rounded-l-lg h-[10px] bg-primary"></div>
+            <div className="w-5 h-[10px] bg-primary"></div>
+            <div className="flex-1 h-[10px] bg-gradient-to-r from-primary via-primary to-transparent"></div>
+          </div>
+        </div>
       </div>
+
+
+
+
+
+
 
       {/* Product Details Section */}
-      <div className="p-6  pt-6">
+      <div className="p-6 relative z-0 w-full   pt-6">
+
+
         <div className="flex font-body  items-center justify-around mb-4">
           <div className="flex flex-col items-center justify-center">
             <div className="flex items-center gap-2 mb-3">
               <Globe className="w-4 h-4 text-primary" />
-              <span className="text-tertiary-text text-sm">Data</span>
+              <span className="text-secondary-text text-sm">Data</span>
             </div>
             <CustomDropdown options={tirers} value={selectedTier.data} onChange={(value) => setSelectedTier(tirers.find((tier) => tier.data === value) || tirers[0])} placeholder={selectedTier.data} className='' />
           </div>
@@ -122,35 +137,35 @@ export function ProductCard({
           <div className="flex flex-col font-body items-center">
             <div className="flex items-center gap-2 mb-3">
               <Zap className="w-4 h-4 text-primary" />
-              <span className="text-tertiary-text text-sm">Gyldig i</span>
+              <span className="text-secondary-text text-sm">Gyldig i</span>
             </div>
-            <p className="text-tertiary-text">{selectedTier.validity}</p>
+            <p className="text-secondary-text">{selectedTier.validity}</p>
           </div>
         </div>
 
         <div className="pt-4 border-t font-body border-tertiary-text/20">
           <div className="flex items-end justify-between">
-            <span className="text-tertiary-text/80 text-sm">Pris</span>
+            <span className="text-secondary-text text-sm">Pris</span>
             <div className="flex items-baseline gap-1">
-              <span className="text-tertiary-text text-2xl"><span className='text-xl'>{currency}</span> {selectedTier.price}</span>
+              <span className="text-secondary-text text-2xl"><span className='text-xl'>{currency}</span> {selectedTier.price}</span>
 
             </div>
           </div>
         </div>
         <div className='flex mt-4 flex-col'>
 
-         
-            <PrimaryButton onClick={handleBuyClick} fullWidth >
-              Kjøp nå
-            </PrimaryButton>
 
-         
+          <PrimaryButton onClick={handleBuyClick} fullWidth >
+            Kjøp nå
+          </PrimaryButton>
 
-          
-            <button onClick={handleReadMoreClick} className="w-full font-heading mt-4 bg-transparent border-primary border hover:scale-102 hover:cursor-pointer  text-tertiary-text py-3 px-4 rounded-lg transition-all ease-in-out">
-              Les mer
-            </button>
-        
+
+
+
+          <button onClick={handleReadMoreClick} className="w-full font-heading mt-4 bg-transparent border-tertiary border hover:scale-102 hover:cursor-pointer  text-secondary-text py-3 px-4 rounded-lg transition-all ease-in-out">
+            Les mer
+          </button>
+
         </div>
       </div>
     </div >
