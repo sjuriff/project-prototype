@@ -97,10 +97,7 @@ export function ProductCard({
             height={1000}
             className="w-full h-full object-cover"
           />
-          <span className='h-32 absolute -top-10 -right-10 w-32 rounded-full bg-primary/80'></span>
-
         </div>
-
       </div>
 
 
