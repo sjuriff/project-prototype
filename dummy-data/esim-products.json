@@ -143,78 +143,6 @@
           "price": "529"
         }
       ]
-    },
-    {
-      "id": "5",
-      "countryCode": "VN",
-      "imageUrl": "/images/vietnam.jpg",
-      "title": "Vietnam",
-      "data": "5GB",
-      "validity": "30 dager",
-      "price": "199",
-      "currency": "kr",
-      "tiers": [
-        {
-          "data": "2GB",
-          "popular": false,
-          "validity": "15 dager",
-          "price": "119"
-        },
-        {
-          "data": "5GB",
-          "popular": false,
-          "validity": "30 dager",
-          "price": "199"
-        },
-        {
-          "data": "10GB",
-          "popular": true,
-          "validity": "30 dager",
-          "price": "349"
-        },
-        {
-          "data": "20GB",
-          "popular": false,
-          "validity": "30 dager",
-          "price": "599"
-        }
-      ]
-    },
-    {
-      "id": "6",
-      "countryCode": "CA",
-      "imageUrl": "/images/canada.jpeg",
-      "title": "Canada",
-      "data": "5GB",
-      "validity": "30 dager",
-      "price": "249",
-      "currency": "kr",
-      "tiers": [
-        {
-          "data": "2GB",
-          "popular": false,
-          "validity": "15 dager",
-          "price": "149"
-        },
-        {
-          "data": "5GB",
-          "popular": false,
-          "validity": "30 dager",
-          "price": "249"
-        },
-        {
-          "data": "10GB",
-          "popular": true,
-          "validity": "30 dager",
-          "price": "429"
-        },
-        {
-          "data": "20GB",
-          "popular": false,
-          "validity": "30 dager",
-          "price": "729"
-        }
-      ]
     }
   ],
   "countries": [
@@ -765,3 +693,4 @@
     }
   ]
 }
+ 
