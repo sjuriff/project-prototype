@@ -100,13 +100,15 @@ export default function ESimInfoHero() {
       <div className="max-w-5xl w-full">
         <div className="space-y-8">
           {/* Header Section */}
-          <div className="space-y-8 text-center mb-16">
-            <div className="inline-flex items-center gap-3 p-4 bg-primary rounded-full">
-              <BadgeQuestionMark className="w-8 h-8 text-secondary-foreground" />
+          <div className=" space-y-8 text-center mb-16">
+            <div className="  relative w-fit mx-auto " >
+              <div className="absolute z-0 -top-10 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
+                <BadgeQuestionMark className="w-8 h-8 z-0 text-secondary-foreground" />
+              </div>
+              <h1 className="text-5xl z-10 relative font-heading md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] tracking-tight text-primary-text">
+                Hva er eSIM?
+              </h1>
             </div>
-            <h1 className="text-5xl font-heading md:text-6xl tracking-tight text-primary-text">
-              Hva er eSIM?
-            </h1>
             <p className="text-lg text-muted-foreground font-body max-w-3xl mx-auto leading-relaxed">
               eSIM sørger for at du slipper høye roamingkostnader når du er på reise. Du vet hvor mye surfingen din vil koste allerede før du reiser. Et eSIM fungerer som et fysisk SIM-kort, bare digitalt. Det er forhåndsbetalt, krever ikke et eget abonnement og du får forutsigbare kostnader. Du kan ha både en eSIM og ditt vanlige SIM-kort på telefonen samtidig. Med Beam eSIM kan du kjøpe datapakker og spare penger mens du er på reise!
             </p>

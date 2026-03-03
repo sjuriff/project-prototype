@@ -27,23 +27,17 @@ export default function CompareCard() {
   const lineRef = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {
-    const tl = gsap.timeline({scrollTrigger: {
-      trigger: cointainerRef.current,
-      start: "-20% top",
-      end: "top top",
-      scrub: false,
-      toggleActions: "play none none reverse",
-      markers: false
-    }})
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: cointainerRef.current,
+        start: "center bottom",
+        end: "center bottom",
+        scrub: false,
+        toggleActions: "play none none reverse",
+        markers: false
+      }
+    })
 
-    const tl2 = gsap.timeline({scrollTrigger: {
-      trigger: cointainerRef.current,
-      start: "top top",
-      end: "20% top",
-      scrub: false,
-      toggleActions: "play none none reverse",
-      markers: false
-    }})
 
     for (let i = 0; i < esimBenefits.length; i++) {
       tl.fromTo(`#benefit-${i}`, { opacity: 0, x: -50 }, { opacity: 1, x: 0, ease: "expo.out", duration: 0.2, delay: 0.1 })
@@ -52,21 +46,23 @@ export default function CompareCard() {
 
     tl.fromTo(dotOneRef.current, { opacity: 0, scaleX: 0, y: 5, transformOrigin: "left center" }, { opacity: 1, y: 0, ease: "expo.out", delay: 0.3, duration: 0.3, scaleX: 1, })
     tl.fromTo(dotTwoRef.current, { opacity: 0, scaleX: 0, transformOrigin: "left center" }, { opacity: 1, ease: "expo.out", duration: 0.3, scaleX: 1, })
-    tl.fromTo(lineRef.current, { opacity: 0, scaleX: 0, transformOrigin: "left center" }, { opacity: 1, scaleX: 1,  ease: "linear", duration: 0.5, })
+    tl.fromTo(lineRef.current, { opacity: 0, scaleX: 0, transformOrigin: "left center" }, { opacity: 1, scaleX: 1, ease: "linear", duration: 0.5, })
 
-  }, )
+  },)
 
 
 
   return (
-    <div ref={cointainerRef} className="min-h-screen bg-surface-dim w-full flex items-center justify-center  md:py-12 lg:py-16">
+    <div ref={cointainerRef} className="max-h-screen  bg-surface-dim w-full flex items-center justify-center  md:py-12 lg:py-16">
       <div className="w-full ">
         {/* Header */}
         <div className="text-center flex flex-col items-center gap-2 mb-8 md:mb-20">
-          <span className='bg-primary w-16 h-16 flex items-center justify-center rounded-full  '>
-            <Star className="w-8 h-8 text-primary-text" />
-          </span>
-          <h1 className="mb-4  text-5xl font-heading text-primary-text">Fordeler med eSIM</h1>
+          <div className='relative '>
+            <span className='bg-primary z-0 absolute w-16 h-16 -top-11 -right-8   flex items-center justify-center rounded-full  '>
+              <Star className="w-8 h-8 text-primary-text" />
+            </span>
+            <h1 className="mb-4 z-10 relative  text-5xl font-heading text-primary-text [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Fordeler med eSIM</h1>
+          </div>
           <p className="text-primary-text max-w-xl mx-auto">
             Null stress, med eSIM kan du kjøpe og aktivere lokale datapakker før du reiser, slik at du er online når du lander.
           </p>

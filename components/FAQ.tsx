@@ -65,8 +65,8 @@ export default function Faq() {
       },
       x: '-110%',
       y: -100,
-    
-      
+
+
     })
     gsap.from("#card-right", {
       scrollTrigger: {
@@ -77,20 +77,19 @@ export default function Faq() {
       },
       x: '110%',
       y: -100,
-      
+
     })
-  }, {scope: containerRef})
+  }, { scope: containerRef })
 
   return (
     <div ref={containerRef} className=" z-10 relative min-h-[50vh]  w-full py-16 px-4 sm:px-6 lg:px-8">
-      <div className="flex mb-8 flex-col gap-4 items-center">
-        <span className="h-16 w-16 bg-primary flex items-center justify-center rounded-full">
+      <div className="relative mb-8   w-fit mx-auto">
+        <h1 className="text-5xl relative z-10 text-center font-heading [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-primary-text">Frequently Asked Questions</h1>
+        <span className="h-16 absolute -top-8 -right-8 z-0 w-16 bg-primary flex items-center justify-center rounded-full">
           <BadgeQuestionMark className="w-8 h-8" />
         </span>
-
-        <h1 className="text-5xl text-center font-heading text-primary-text">Frequently Asked Questions</h1>
       </div>
-      <div  className="flex lg:gap-8 2xl:gap-0 h-full">
+      <div className="flex lg:gap-8 2xl:gap-0 h-full">
         <div id="card-left" className="w-1/2 flex h-85 2xl:h-90  items-center justify-center   text-secondary-text">
           <div className="w-full z-10 shadow-lg h-full flex flex-col gap-4 rounded-2xl p-8 bg-secondary 2xl:w-1/2">
             <CardSim className=" w-10 h-10" />
