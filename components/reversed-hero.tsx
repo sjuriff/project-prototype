@@ -82,7 +82,7 @@ export default function ReversedHero() {
           <Image
             src={heroImg}
             alt="Mobile phone connectivity"
-            className="absolute inset-0 w-full -translate-y-2 h-full rotate-[-3deg] scale-[1.15]  object-[75%_80%] object-cover"
+            className="absolute inset-0 w-full translate-x-[1.4%] -translate-y-2 h-full rotate-[-3deg] scale-[1.08]  object-[75%_80%] object-cover"
           />
         </div>
       </div>
