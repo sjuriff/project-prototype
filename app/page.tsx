@@ -30,7 +30,7 @@ export default function Home() {
 
       <ProductSection />
 
-      <section className="w-full">
+      <section className="w-full ">
         <ESimInfoHero />
 
       </section>
@@ -43,7 +43,7 @@ export default function Home() {
 
 
 
-      <section className="w-full relative pt-28 bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
+      <section className="w-full relative pt-0 bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
         <ReversedHero />
       </section>
 
