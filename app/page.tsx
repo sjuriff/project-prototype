@@ -10,7 +10,7 @@ import HowItWorksSection from "@/components/how-it-works";
 
 
 import ImageHero from "@/components/image-hero";
-import heroImage from '@/public/images/beam-wide-hero.jpeg'
+import heroImage from '@/public/images/beam-wide-hero_two.png'
 import ESimInfoHero from "@/components/esim-info-hero";
 
 
