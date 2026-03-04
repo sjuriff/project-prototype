@@ -5,6 +5,7 @@ import { useState } from "react"
 import { useMemo } from "react"
 import { useEffect } from "react"
 import { usePathname } from "next/navigation"
+import { WifiCog } from "lucide-react"
 export default function MobileStepSection() {
   const [phoneType, setPhoneType] = useState<'iphone' | 'android'>('iphone');
 
@@ -47,9 +48,16 @@ export default function MobileStepSection() {
 
   return (
     <div id="mobile-steps" className="max-w-7xl pb-24 pt-16   mx-auto">
-      <h1 className="text-center font-heading text-3xl text-primary-text mb-12">
-        Hvordan aktiverer jeg Beam eSIM
-      </h1>
+      <div className="relative w-fit mx-auto">
+
+        <div className="absolute z-0 -top-10 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
+          <WifiCog className="w-8 h-8 z-0 text-secondary-foreground" />
+        </div>
+
+        <h1 className="text-center relative z-10 [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] font-heading text-5xl text-primary-text mb-12">
+          Hvordan aktiverer jeg Beam eSIM
+        </h1>
+      </div>
 
       <div className="flex justify-center mb-12">
         <button
@@ -64,9 +72,7 @@ export default function MobileStepSection() {
         >
           Android
         </button>
-
       </div>
-
       {content}
     </div>
 

@@ -1,4 +1,4 @@
-import { Mail, MessageCircle, Phone } from 'lucide-react';
+import { Mail, MessageCircle, Phone, Send } from 'lucide-react';
 
 const contactMethods = [
   {
@@ -28,7 +28,12 @@ export default function ContactSection() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
       <div className="text-center mb-12">
-        <h2 className="mb-3 text-3xl font-heading text-primary-text">Kontakt oss</h2>
+        <div className='mb-3 relative w-fit mx-auto'>
+          <div className="absolute z-0 -top-8 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
+            <Send className="w-8 h-8 z-0 text-secondary-foreground" />
+          </div>
+          <h2 className=" relative z-10 text-5xl font-heading text-primary-text">Kontakt oss</h2>
+        </div>
         <p className="text-[#4a4a4a]">
           Vårt team er tilgjengelig 24/7 for hjelp. Vennligst kontakt oss via e-post, telefon eller live chat.
         </p>

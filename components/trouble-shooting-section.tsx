@@ -1,4 +1,4 @@
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, SearchX } from 'lucide-react';
 
 const troubleshootingGuides = [
   {
@@ -35,7 +35,12 @@ export default function TroubleShootingSection() {
   return (
     <div className="bg-[#f8fafc] py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-center text-3xl font-heading  mb-12 text-primary-text">Feilsøking</h2>
+        <div className='relative mx-auto w-fit mb-12'>
+          <div className="absolute z-0 -top-8 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
+            <SearchX className="w-8 h-8 z-0 text-secondary-foreground" />
+          </div>
+          <h2 className="text-center relative z-10 text-5xl font-heading [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]   text-primary-text">Feilsøking</h2>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {troubleshootingGuides.map((guide, index) => (
