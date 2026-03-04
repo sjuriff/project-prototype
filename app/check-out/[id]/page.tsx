@@ -36,18 +36,18 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
 
   }
   return (
-    <main className="bg-surface border border-black flex items-center justify-center  flex flex-col  ">
+    <main className="bg-surface  flex items-center justify-center  flex flex-col  ">
       <section className="w-full relative  bg-surface  min-h-screen flex items-center justify-center">
         <div className="absolute top-4 left-4 2xl:top-16 2xl:left-16">
           <BackButton />
         </div>
         <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="mb-8">
-            <div className="flex gap-2 mb-2 items-center">
-              <h1 className="text-primary-text text-4xl font-heading ">Kasse</h1>
-              <div className="bg-primary rounded-full h-12 w-12 flex items-center justify-center">
-                <ReceiptText className="w-6 h-6 text-primary-text" />
+          <div className="mb-8 mt-4">
+            <div className="relative w-fit">
+              <h1 className="text-primary-text relative z-10   md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] font-heading ">Kasse</h1>
+              <div className="absolute z-0 -top-8 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
+                <ReceiptText className="w-8 h-8 text-primary-text" />
               </div>
             </div>
             <p className="text-secondary-text font-body">Fullfør ditt eSIM kjøp</p>
@@ -57,7 +57,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left Column - Forms */}
             <PaymentSection />
-            
+
 
             {/* Right Column - Order Summary */}
             <div className="lg:col-span-1">

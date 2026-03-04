@@ -1,6 +1,6 @@
 'use client'
 
-import { Smartphone, Check, BadgeQuestionMark, QrCode, Zap, Globe, CloudDownload, FileCog, Settings, Wifi } from "lucide-react"
+import { Smartphone, Check, BadgeQuestionMark, QrCode, Zap, Globe, Lightbulb, CloudDownload, FileCog, Settings, Wifi } from "lucide-react"
 import { useState, useRef } from "react"
 import Link from "next/link"
 import PrimaryButton from "./buttons/primary-button"
@@ -102,8 +102,8 @@ export default function ESimInfoHero() {
           {/* Header Section */}
           <div className=" space-y-8 text-center mb-16">
             <div className="  relative w-fit mx-auto " >
-              <div className="absolute z-0 -top-10 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
-                <BadgeQuestionMark className="w-8 h-8 z-0 text-secondary-foreground" />
+              <div className="absolute z-0 -top-11 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
+                <Lightbulb className="w-8 h-8 z-0 text-secondary-foreground" />
               </div>
               <h1 className="text-5xl z-10 relative font-heading md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] tracking-tight text-primary-text">
                 Hva er eSIM?

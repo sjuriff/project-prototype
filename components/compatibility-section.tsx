@@ -1,4 +1,4 @@
-import { Smartphone, Tablet, Watch, Laptop } from "lucide-react";
+import { Smartphone, Tablet, Watch, Laptop, LaptopMinimalCheck } from "lucide-react";
 
 const deviceTypes = [
   {
@@ -30,12 +30,17 @@ export default function CompatibilitySection() {
       style={{ backgroundColor: 'var(--color-surface)' }}
     >
       <div className="max-w-6xl mx-auto">
-        <h2
-          className="text-center mb-4 font-heading text-3xl text-primary-text"
+        <div className="relative  w-fit mb-4 mx-auto">
+          <div className="absolute z-0 -top-10 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
+            <LaptopMinimalCheck className="w-8 h-8 z-0 text-secondary-foreground" />
+          </div>
+          <h2
+            className="text-center relative z-10 [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]  font-heading text-5xl text-primary-text"
 
-        >
-          Støttede enheter
-        </h2>
+          >
+            Støttede enheter
+          </h2>
+        </div>
 
         <p
           className="text-center max-w-2xl mx-auto mb-12"
@@ -55,28 +60,28 @@ export default function CompatibilitySection() {
             >
 
               <span className="bg-primary flex  items-center justify-center z-0  h-16 w-16 rounded-full absolute -top-4  -left-4">
-                 <device.icon className="w-8 absolute top-5 left-5   h-8" style={{ color: 'var(--color-tertiary)' }} />
+                <device.icon className="w-8 absolute top-5 left-5   h-8" style={{ color: 'var(--color-tertiary)' }} />
 
               </span>
 
-                
-               {/*    <device.icon className="w-8 absolute top-2 left-4  h-8" style={{ color: 'var(--color-tertiary)' }} /> */}
-              
-               
 
-            
-               
+              {/*    <device.icon className="w-8 absolute top-2 left-4  h-8" style={{ color: 'var(--color-tertiary)' }} /> */}
 
-                <h3
-                  className=" text-base z-10 font-heading "
-                  style={{
-                    fontFamily: 'var(--font-heading)',
-                    color: 'var(--color-primary-text)'
-                  }}
-                >
-                  {device.name}
-                </h3>
-             
+
+
+
+
+
+              <h3
+                className=" text-base z-10 font-heading "
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  color: 'var(--color-primary-text)'
+                }}
+              >
+                {device.name}
+              </h3>
+
 
               <p
                 className="leading-relaxed z-10 text-xs"

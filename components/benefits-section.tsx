@@ -1,4 +1,4 @@
-import { Globe, Zap, Shield, Wifi } from "lucide-react";
+import { Globe, Zap, Shield, Wifi, Sparkles } from "lucide-react";
 
 const benefits = [
   {
@@ -27,15 +27,20 @@ export default function BenefitsSection() {
   return (
     <section
       className="py-16 px-6 bg-surface"
-      
+
     >
       <div className="max-w-6xl mx-auto">
-        <h2
-          className="text-center text-3xl mb-12 font-heading text-primary-text"
-         
-        >
-          Fordeler med eSIM
-        </h2>
+        <div className="relative  w-fit mb-12 mx-auto">
+          <div className="absolute z-0 -top-11 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
+            <Sparkles className="w-8 h-8 z-0 text-secondary-foreground" />
+          </div>
+          <h2
+            className="text-center relative z-10 [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-5xl font-heading text-primary-text"
+
+          >
+            Fordeler med eSIM
+          </h2>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {benefits.map((benefit, index) => (
@@ -45,9 +50,9 @@ export default function BenefitsSection() {
             >
               <div
                 className="inline-flex bg-primary items-center justify-center w-14 h-14 rounded-full mb-4"
-               
+
               >
-                <benefit.icon className="w-7 h-7 text-primary-text"  />
+                <benefit.icon className="w-7 h-7 text-primary-text" />
               </div>
 
               <h3
@@ -61,7 +66,7 @@ export default function BenefitsSection() {
               </h3>
 
               <p
-              className="text-sm"
+                className="text-sm"
                 style={{
                   fontFamily: 'var(--font-body)',
                   color: 'var(--color-secondary-text)'

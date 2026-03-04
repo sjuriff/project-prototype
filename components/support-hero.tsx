@@ -9,11 +9,11 @@ export default function SupportHero() {
   return (
     <div className="bg-secondary text-white py-20 px-6">
       <div className="max-w-3xl mx-auto text-center">
-        <div className='flex flex-col items-center gap-2 mb-3 justify-center'>
-          <div className='bg-primary p-4 rounded-full'>
-            <HeartHandshake className="w-6 h-6 text-primary-text" />
+        <div className='relative w-fit mx-auto '>
+          <div className='absolute z-0 -top-10 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full'>
+            <HeartHandshake className="w-8 h-8 text-primary-text" />
           </div>
-          <h1 className=" text-primary-text text-5xl font-heading">Support </h1>
+          <h1 className=" text-primary-text relative z-10 [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-5xl font-heading">Support </h1>
 
         </div>
         <p className="mb-10 text-secondary-text">

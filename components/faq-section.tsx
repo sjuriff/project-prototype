@@ -1,5 +1,5 @@
 'use client'
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, BadgeQuestionMark } from 'lucide-react';
 import { useState } from 'react';
 
 const faqs = [
@@ -39,7 +39,12 @@ export default function FAQSection() {
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-16">
-      <h2 className="text-center mb-12 text-3xl font-heading text-primary-text">Frequently Asked Questions</h2>
+      <div className="relative mb-8   w-fit mx-auto">
+        <h1 className="text-5xl relative z-10 text-center font-heading [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-primary-text">Frequently Asked Questions</h1>
+        <span className="h-16 absolute -top-8 -right-8 z-0 w-16 bg-primary flex items-center justify-center rounded-full">
+          <BadgeQuestionMark className="w-8 h-8" />
+        </span>
+      </div>
 
       <div className="space-y-3">
         {faqs.map((faq, index) => (

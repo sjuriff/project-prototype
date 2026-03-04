@@ -32,15 +32,17 @@ export default function EsimStepHero() {
     <div className="min-h-[50vh]  bg-secondary font-body  py-16 px-4 sm:px-6 lg:px-8" >
       <div className="max-w-6xl  mx-auto">
         {/* Hero Header */}
-        <div className="text-center  mx-auto  rounded-2xl p-8 mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-6" style={{
-            backgroundColor: 'var(--color-primary)'
-          }}>
-            <CardSim className="w-8 h-8" style={{ color: 'var(--color-primary-text)' }} />
+        <div className="text-center   mx-auto  rounded-2xl p-8 mb-16">
+          <div className='relative  w-fit mx-auto'>
+            <div className="flex z-0 absolute -top-11 -right-8  items-center justify-center w-16 h-16 rounded-full mb-6" style={{
+              backgroundColor: 'var(--color-primary)'
+            }}>
+              <CardSim className="w-8 h-8" style={{ color: 'var(--color-primary-text)' }} />
+            </div>
+            <h1 className="mb-4 relative z-10 text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] font-heading text-secondary-text " >
+              Slik fungerer eSIM
+            </h1>
           </div>
-          <h1 className="mb-4 text-5xl font-heading text-secondary-text " >
-            Slik fungerer eSIM
-          </h1>
           <p className="max-w-2xl text-primary-text text-balance mx-auto" >
             På noen få tastetrykk er du klar til å surfe. Ikke bekymre deg – du kan fortsatt ringe og sende meldinger med ditt vanlige nummer. Telefonen din har eSIM innebygd, så du slipper å bytte nummer eller fjerne SIM-kortet.
           </p>
@@ -98,7 +100,7 @@ export default function EsimStepHero() {
         </div>
 
         {/* Additional Info */}
-        
+
 
         {/* CTA */}
 
