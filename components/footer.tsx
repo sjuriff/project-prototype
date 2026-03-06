@@ -1,74 +1,122 @@
-import { Contact } from "lucide-react";
+import { FaTiktok, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import Link from "next/link";
+import BeamFooterLogo from "./beam-logo-footer";
+
+const footerLinks = [
+
+  {
+    title: "Info",
+    links: [
+      { href: "#", label: "Link 1" },
+      { href: "#", label: "Link 2" },
+      { href: "#", label: "Link 3" },
+    ],
+  },
+
+
+  {
+    title: "Produkter",
+    links: [
+      { href: "#", label: "Link 1" },
+      { href: "#", label: "Link 2" },
+      { href: "#", label: "Link 3" },
+    ],
+  },
+
+  {
+    title: "Kontakt",
+    links: [
+      { href: "#", label: "Link 1" },
+      { href: "#", label: "Link 2" },
+      { href: "#", label: "Link 3" },
+    ],
+  },
+
+
+
+];
+
+const socialLinks = [
+  { icon: FaInstagram, href: "#", label: "Instagram" },
+  { icon: FaTiktok, href: "#", label: "TikTok" },
+  { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
+];
 
 export default function Footer() {
   return (
-    <footer className="relative z-[5] bg-primary-text bg-tertiary font-roboto text-onSurface">
-      <div className="mx-auto w-full max-w-screen-xl gap-20 p-4 md:flex md:flex-col md:items-center md:justify-between">
-        <div className="flex h-full w-full flex-col items-center justify-between gap-8 lg:flex-row lg:items-start">
-          <div className="flex flex-col gap-2">
-            <h2 className="ml-2 text-primary font-heading text-center text-lg  lg:text-start">
-              Some info
-            </h2>
-            <ul className="font-italic text-center font-medium text-white lg:text-start">
-              <li className="">
-                <p className="text-center hover:underline md:me-6">
-                  About us
-                </p>
-              </li>
-            </ul>
-          </div>
-          <div className="flex flex-col gap-2">
-            <h2 className="text-center text-primary font-heading text-lg lg:text-start">
-              Social
-            </h2>
-            <ul className="flex items-center justify-center font-medium text-gray-500 lg:items-start lg:justify-start">
-              <li>
+    <footer className="bg-tertiary text-tertiary-text">
+      <div className="container mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5">
+          {/* Brand / Logo Section */}
+          <div className="lg:col-span-2 space-y-5">
+            <div className="flex items-center gap-3">
+
+              <BeamFooterLogo />
+            </div>
+            <p className="max-w-sm text-sm text-pretty font-body leading-relaxed">
+              Noe tekst om beam hvis vi vil ha
+            </p>
+
+            {/* Social Icons */}
+            <div className="flex items-center gap-3 pt-2">
+              {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
-                  href="https://www.linkedin.com/company/anteambulo-no/posts/?feedView=all&viewAsMember=true"
-                  className="md:me-6"
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-text transition-transform ease-in-out duration-300 hover:scale-110"
                 >
-                  <Contact className="h-6 w-6 text-white" />
+                  <Icon size={18} />
                 </a>
-              </li>
-            </ul>
+              ))}
+            </div>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <h2 className="text-center text-primary font-heading text-lg  lg:text-start">
-              Contact
-            </h2>
-            <ul className="text-center font-medium text-white lg:text-start">
-              <li className="flex items-center">
-                <a href="#" className="text-center hover:underline md:me-6">
-                  mail@gmail.com
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="flex flex-col gap-2">
-            <h2 className="text-center text-primary font-heading text-lg  lg:text-start">
-              Address
-            </h2>
-            <ul className="font-medium text-white dark:text-gray-400">
-              <li>
-                <p className="text-center md:me-6 md:text-start">
-                 Some address <br />
-                  0000 Oslo, Norway
-                </p>
-              </li>
-            </ul>
-          </div>
+          {/* Link Sections */}
+          {footerLinks.map((item) => (
+            <div key={item.title}>
+              <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary font-heading">
+                {item.title}
+              </h4>
+              <ul className="space-y-3">
+                {item.links.map((link) => (
+                  <li className="hover:translate-x-1 transition-transform ease-in-out duration-300" key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm font-body:"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-        <div className="mt-8 flex font-body items-center justify-center">
-          <span className="text-center text-sm text-white dark:text-gray-400">
-            © 2025{' '}
-            <a href="#" className="hover:underline">
-              beam™
+
+        {/* Bottom Bar */}
+        <div className="flex  gap-2 mt-12 ">
+          <span className="h-[2px] w-2 bg-primary rounded-l-full"></span>
+          <span className="h-[2px] w-2 bg-primary"></span>
+          <span className="block h-[2px] bg-gradient-to-r from-primary to-transparent rounded-r-full w-full" />
+        </div>
+
+        <div className="mt-0 flex flex-col items-center justify-between gap-4  pt-8 sm:flex-row">
+
+          <p className="text-xs">
+            &copy; {new Date().getFullYear()} Beam. All rights reserved.
+          </p>
+          <div className="flex gap-6 text-xs">
+            <a href="#" className="transition-colors hover:text-primary">
+              Privacy Policy
             </a>
-            . All Rights Reserved.
-          </span>
+            <a href="#" className="transition-colors hover:text-primary">
+              Bruksvilkår
+            </a>
+          </div>
         </div>
       </div>
     </footer>
   );
-}
+};
+
