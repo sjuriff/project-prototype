@@ -59,7 +59,7 @@ export default function Header() {
 
       <header
         id="header"
-        className={` bg-tertiary relative left-0  overflow-hidden  transition-top duration-300 ease-in-out z-[60]    flex h-20 w-full items-center justify-between  px-4 py-4 font-roboto  lg:h-20  `}
+        className={` bg-tertiary relative left-0   transition-top duration-300 ease-in-out z-[60]    flex h-20 w-full items-center justify-between  px-4 py-4 font-roboto  lg:h-20  `}
       >
         <Link
           href={'/'}
@@ -70,6 +70,10 @@ export default function Header() {
         <div className={"flex items-center relative gap-4"}>
           <div className="flex gap-2 mr-4">
             {/*  <PrimaryButton Icon={User}>Logg inn</PrimaryButton> */}
+            <button className={` flex text-sm items-center group  border-[#ffffff]  text-primary px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
+              <Handshake className="mr-2 group-hover:translate-y-[-2px] transition-transform" /> Partnerskap
+        
+            </button>
             <button className={` flex text-sm items-center group  border-[#ffffff]  text-primary px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
               <BriefcaseBusiness className="mr-2 group-hover:translate-y-[-2px] transition-transform" /> Business
             </button>

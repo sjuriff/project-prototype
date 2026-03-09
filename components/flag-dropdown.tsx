@@ -54,8 +54,8 @@ export default function LanguageSelector({ scrollDirection, scrollTop }: { scrol
         className="flex items-center gap-2 px-2 hover:cursor-pointer py-1 rounded group"
         onClick={() => setOpen(!open)}
       >
-        <span>{current.flag}</span>
-        <span className={`text-sm font-heading text-tertiary-text `}>{current.label}</span>
+        <span className="text-3xl font-heading text-primary-text">{current.flag}</span>
+  
         <div ref={arrowRef}>
           <ChevronDown className={`w-4 group-hover:-translate-y-[-2px] transition-transform h-4 text-tertiary-text`} />
         </div>
@@ -63,7 +63,7 @@ export default function LanguageSelector({ scrollDirection, scrollTop }: { scrol
 
 
       <div ref={dropdownRef}
-        className="absolute translate-x-[250%] -z-10 right-0 mt-8 bg-surface-dim  rounded shadow-lg w-32"
+        className="absolute translate-x-[250%]   right-0 mt-8 bg-surface-dim  rounded shadow-lg w-32"
       >
         {flags.map(f => (
           <button

@@ -135,7 +135,7 @@ export default function DropInMenu({ menuOpen, menuItems }: DropInMenuProps) {
 
           <div ref={menuRef} className={`absolute  top-0  right-0 h-screen w-80 translate-x-[100%] pointer-events-none z-50 flex flex-col items-start justify-center bg-tertiary `}>
             {menuItems.map((item, index) => (
-              <Link data-menu-item key={index} href={item.href} className="px-4  group py-2 flex text-base gap-2 items-center justify-center text-tertiary-text">{<item.icon className="h-4 w-4 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" />} {item.title} </Link>
+              <Link data-menu-item key={index} href={item.href} className="px-4  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text">{<item.icon className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" />} {item.title} </Link>
             ))}
 
 
