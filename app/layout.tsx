@@ -39,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={`${nunitoSans.variable} ${inter.variable} ${museoModerno.variable} `} lang="en">
+    <html className={`${nunitoSans.variable} ${inter.variable} ${museoModerno.variable} bg-tertiary z-10  `} lang="en">
       <body
         className={`overflow-x-hidden antialiased`}
       >
