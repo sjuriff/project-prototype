@@ -1,0 +1,56 @@
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { Product } from "@/types/product";
+
+import { ProductCard } from "../product-card";
+
+gsap.registerPlugin(useGSAP);
+
+const ProductGrid = ({ products }: { products: Product[] }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (!containerRef.current || products.length === 0) return;
+      const cards = containerRef.current.querySelectorAll(".product-card");
+      gsap.fromTo(
+        cards,
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "expo.out", stagger: 0.05 }
+      );
+    },
+    { scope: containerRef, dependencies: [products] }
+  );
+
+  if (products.length === 0) {
+    return (
+      <div className="text-center py-20">
+        <h2 className="text-2xl font-display font-medium text-foreground mb-2">Ingen treff</h2>
+        <p className="text-muted-foreground text-sm">Prøv å endre søket ditt.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      ref={containerRef}
+      className="grid grid-cols-12 gap-x-6 gap-y-12"
+    >
+      {products.map((product) => (
+        <ProductCard id={product.id}
+          key={product.id}
+          imageUrl={product.imageUrl}
+          countryCode={product.countryCode}
+          title={product.title}
+          data={product.data}
+          validity={product.validity}
+          price={product.price}
+          tirers={product.tiers}
+          currency={product.currency} />
+      ))}
+    </div>
+  );
+};
+
+export default ProductGrid;

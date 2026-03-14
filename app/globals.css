@@ -3,25 +3,32 @@
 /* Design Tokens for Tailwind v4 */
 @theme {
   /* colors */
+  /*Main colors*/
   --color-primary: #f9f871;
- --color-secondary: #dae2ff;
---color-tertiary:  #5346d6;
+  --color-secondary: #dae2ff;
+  --color-tertiary: #5346d6;
 
+  /*Text colors*/
   --color-primary-text: #1d1d1d;
   --color-secondary-text: #2f4578;
   --color-tertiary-text: #ffffff;
 
+  /*Header colors*/
   --color-primary-heading: #f3e44c;
   --color-secondary-heading: #7aa8ff;
   --color-tertiary-heading: #006977;
 
+  /*Surface and container colors*/
   --color-surface: #f8fafc;
   --color-surface-dim: #f7f9fc;
   --color-surface-dark: #e2e8f0;
+  --color-surface-accent: #eef0ff;
+  --color-surface-cold: #eef4ff;
+  --color-light-yellow: #FFFCE6;
+  --color-surface-light: #F2F6FF;
+  --color-surface-blue: #E8ECFF;
 
-  --color-old-teal: #008093
-
-  --color-test: #5b3fdc;
+  --color-old-teal: #008093 --color-test: #5b3fdc;
 
   /* fonts - connected to `next/font` variables */
   --font-body: var(--font-inter);

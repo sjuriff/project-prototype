@@ -86,7 +86,7 @@ export function ProductCard({
 
 
   return (
-    <div className="w-[300px] relative z-0  xl:col-span-3 2xl:col-span-4 bg-secondary rounded-2xl overflow-hidden shadow-lg">
+    <div className="product-card w-[300px] relative  z-0  xl:col-span-3 2xl:col-span-4 bg-secondary rounded-2xl overflow-hidden shadow-lg">
       {/* Product Image Section */}
       <div className="">
         <div className="bg-white relative rounded-t-2xl overflow-hidden aspect-[4/3] ">

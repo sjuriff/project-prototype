@@ -42,8 +42,8 @@ export function PaymentDropdown({
         aria-controls={contentId}
         className={[
           "flex w-full items-center justify-between gap-3 rounded-2xl border px-4 py-3 text-left shadow-sm transition",
-          "border-transparent bg-secondary/50 hover:bg-secondary",
-          "focus:outline-none focus:ring-1 focus:ring-primary focus:bg-secondary",
+          "border-transparent bg-surface-light hover:bg-secondary",
+          "focus:outline-none hover:cursor-pointer focus:ring-1 focus:ring-primary focus:bg-secondary",
           disabled ? "cursor-not-allowed opacity-60 hover:bg-white" : "",
         ].join(" ")}
       >
