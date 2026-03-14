@@ -1,7 +1,7 @@
 
 import { CreativeHero } from "@/components/creative-hero";
 
-import ProductSection from "@/components/product-section";
+import ProductSection from "@/components/home/product-section";
 import Faq from "@/components/FAQ";
 import CompareCard from "@/components/compare-card";
 
@@ -30,7 +30,7 @@ export default function Home() {
 
       <ProductSection />
 
-      <section className="w-full ">
+      <section className="w-full mt-8 ">
         <ESimInfoHero />
 
       </section>

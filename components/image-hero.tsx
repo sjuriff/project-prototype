@@ -122,7 +122,7 @@ export default function ImageHero(props: HeroProps) {
         ref={textContainerRef}
         className="xl:pt-12 2xl:pt-68 flex ml-16 z-50 -translate-x-[120%] w-1/2 justify-center items-center"
       >
-        <div className="z-50 flex flex-col gap-4 px-12 pt-6 shadow-md pb-8 bg-secondary py-4 rounded-xl">
+        <div className="z-50 flex flex-col gap-4 px-12 pt-6 shadow-md pb-8 bg-surface-blue py-4 rounded-xl">
           <h1 className="text-4xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] md:text-5xl lg:text-6xl xl:text-7xl font-heading text-balance text-primary-text">
             Rimelig og trygg mobildata på reise
           </h1>

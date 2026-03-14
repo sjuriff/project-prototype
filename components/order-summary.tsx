@@ -47,7 +47,7 @@ export function OrderSummary({ products }: OrderSummaryProps) {
   }, 0)
 
   return (
-    <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100 sticky top-8">
+    <div className="bg-light-yellow rounded-lg p-6 shadow-sm  sticky top-8">
       <h2 className="font-heading text-xl text-primary-text mb-6">Din ordre</h2>
 
       {/* Items */}
@@ -59,13 +59,13 @@ export function OrderSummary({ products }: OrderSummaryProps) {
         return (
           <div
             key={item.id}
-            className="mb-6 pb-6 border-b border-gray-100 last:border-b-0"
+            className="mb-6 pb-6 border-b border-black last:border-b-0"
           >
             <div className="flex flex-col">
               <div className="flex gap-4 mb-4">
                 <div className="flex items-center justify-center gap-2 h-12 w-12 bg-secondary rounded-lg">
                   {isRegion(item.countryCode) ? (
-                    <Globe className="w-8 h-8 text-secondary-text" />
+                    <Globe className="w-8 h-8 text-primary-text" />
                   ) : (
                     <Image src={flagImageUrl} width={32} height={32} alt={item.countryCode} />
                   )
@@ -77,11 +77,11 @@ export function OrderSummary({ products }: OrderSummaryProps) {
                   <h3 className="font-body text-primary-text mb-1">
                     {item.title} eSIM – {item.validity} dager
                   </h3>
-                  <p className="text-secondary-text text-sm">
+                  <p className="text-primary-text text-sm">
                     {item.data} High-Speed Data
                   </p>
                   {hasQuantity(item) && (
-                    <div className="text-sm text-secondary-text mt-2 font-body">
+                    <div className="text-sm text-primary-text mt-2 font-body">
                       Antall: {item.quantity}
                     </div>
                   )}
@@ -95,21 +95,21 @@ export function OrderSummary({ products }: OrderSummaryProps) {
             </div>
 
             {/* Features */}
-            <div className="space-y-2 mt-4">
-              <div className="flex items-start gap-2 text-sm text-secondary-text">
-                <Check className="w-4 h-4 text-tertiary mt-0.5 flex-shrink-0" />
+            <div className="space-y-2 mt-4 text-primary-text">
+              <div className="flex items-start gap-2 text-sm ">
+                <Check className="w-4 h-4 text-secondary-text mt-0.5 flex-shrink-0" />
                 <span>Umiddelbar aktivering</span>
               </div>
-              <div className="flex items-start gap-2 text-sm text-secondary-text">
-                <Check className="w-4 h-4 text-tertiary mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-2 text-sm ">
+                <Check className="w-4 h-4 text-secondary-text mt-0.5 flex-shrink-0" />
                 <span>Dekning i hele {item.title}</span>
               </div>
-              <div className="flex items-start gap-2 text-sm text-secondary-text">
-                <Check className="w-4 h-4 text-tertiary mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-2 text-sm ">
+                <Check className="w-4 h-4 text-secondary-text mt-0.5 flex-shrink-0" />
                 <span>Ingen registrering</span>
               </div>
-              <div className="flex items-start gap-2 text-sm text-secondary-text">
-                <Check className="w-4 h-4 text-tertiary mt-0.5 flex-shrink-0" />
+              <div className="flex items-start gap-2 text-sm ">
+                <Check className="w-4 h-4 text-secondary-text mt-0.5 flex-shrink-0" />
                 <span>24/7 support</span>
               </div>
             </div>
@@ -118,12 +118,12 @@ export function OrderSummary({ products }: OrderSummaryProps) {
       })}
 
       {/* Price Breakdown */}
-      <div className="space-y-3 mb-6">
-        <div className="flex justify-between text-secondary-text font-body">
+      <div className="space-y-3 mb-6 text-primary-text">
+        <div className="flex justify-between  font-body">
           <span>Delsum</span>
           <span>{subtotal} kr</span>
         </div>
-        <div className="flex justify-between text-secondary-text font-body">
+        <div className="flex justify-between font-body">
           <span>MVA</span>
           <span>0.00</span>
         </div>
@@ -139,7 +139,7 @@ export function OrderSummary({ products }: OrderSummaryProps) {
 
       {/* Trust Indicators */}
       <div className="mt-6 pt-6 border-t border-gray-100">
-        <p className="text-xs text-secondary-text text-center">
+        <p className="text-xs text-primary-text text-center">
           Sikker checkout · Din data er beskyttet
         </p>
       </div>

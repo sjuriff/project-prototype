@@ -43,7 +43,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
         </div>
         <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="mb-8 mt-4">
+          <div className="mb-8 ml-4 mt-4">
             <div className="relative w-fit">
               <h1 className="text-primary-text relative z-10   md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] font-heading ">Kasse</h1>
               <div className="absolute z-0 -top-8 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">

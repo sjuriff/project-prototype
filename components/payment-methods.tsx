@@ -14,7 +14,7 @@ interface PaymentMethodsProps {
 
 export default function PaymentMethods() {
   return (
-    <div className="gap-8 lg:gap-12 bg-white rounded-lg p-4 shadow-sm border border-gray-100">
+    <div className="gap-8 lg:gap-12 bg-surface rounded-lg p-4 ">
       <h1 className="font-heading text-xl text-primary-text mb-4">Velg en betalingmåte</h1>
 
       <div className="flex gap-4 flex-wrap justify-center max-w-7xl">

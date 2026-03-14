@@ -2,7 +2,7 @@ import { Mail, User } from "lucide-react";
 
 export default function CustomerForm() {
   return (
-    <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+    <div className="bg-surface-light rounded-lg p-6 shadow-sm border border-gray-100">
       <h2 className="font-heading text-xl text-primary-text mb-6">Kontakt informasjon</h2>
 
       <form className="space-y-4">
@@ -39,7 +39,7 @@ export default function CustomerForm() {
         </div> */}
 
         <div>
-          <label htmlFor="email" className="block text-sm text-primary-text font-body mb-2">
+          <label htmlFor="email" className="block text-sm text-secondary-text font-body mb-2">
             Email
           </label>
           <div className="relative">
@@ -48,7 +48,7 @@ export default function CustomerForm() {
               type="email"
               id="email"
               placeholder="john.doe@example.com"
-              className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent font-body text-primary-text"
+              className="w-full pl-10 pr-4 py-3 border border-secondary-text rounded-lg focus:outline-none focus:ring-2 focus:ring-tertiary focus:border-transparent font-body text-primary-text"
             />
           </div>
           <p className="mt-2 text-xs text-secondary-text">
