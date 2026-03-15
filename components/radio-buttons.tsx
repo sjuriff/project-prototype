@@ -1,5 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useRef } from "react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
 
 interface SortSelectorProps {
   sort: string;
@@ -7,12 +10,53 @@ interface SortSelectorProps {
 }
 
 export default function ProductSortBar({ sort, onSortChange }: SortSelectorProps) {
-
+  const indicatorRefs = useRef<
+    Record<
+      string,
+      {
+        dotOne: HTMLDivElement | null;
+        dotTwo: HTMLDivElement | null;
+        line: HTMLDivElement | null;
+      }
+    >
+  >({
+    popular: { dotOne: null, dotTwo: null, line: null },
+    region: { dotOne: null, dotTwo: null, line: null },
+  });
 
   const tabs = [
     { key: "popular", label: "Populært" },
     { key: "region", label: "Region" }
   ];
+
+  useGSAP(
+    () => {
+      const active = indicatorRefs.current[sort];
+      if (!active?.dotOne || !active?.dotTwo || !active?.line) return;
+
+      gsap.killTweensOf([active.dotOne, active.dotTwo, active.line]);
+
+      const tl = gsap.timeline();
+
+      tl.fromTo(
+        active.dotOne,
+        { opacity: 0, scaleX: 0, y: 5, transformOrigin: "left center" },
+        { opacity: 1, y: 0, ease: "expo.out", duration: 0.2, scaleX: 1 }
+      )
+        .fromTo(
+          active.dotTwo,
+          { opacity: 0, scaleX: 0, transformOrigin: "left center" },
+          { opacity: 1, ease: "expo.out", duration: 0.2, scaleX: 1 }
+        )
+        .fromTo(
+          active.line,
+          { opacity: 0, scaleX: 0, transformOrigin: "left center" },
+          { opacity: 1, scaleX: 1, ease: "power3.out", duration: 0.2 },
+          "-=0.05"
+        );
+    },
+    { dependencies: [sort] }
+  );
 
   //${sort === key ? "border-b-2 border-tertiary text-primary-text" : " hover:text-tertiary hover:cursor-pointer"}
 
@@ -26,10 +70,28 @@ export default function ProductSortBar({ sort, onSortChange }: SortSelectorProps
             `}
         >
           {label}
-          <div className={`flex ${sort === key ? "opacity-100" : "opacity-0"} transition-opacity ease-in-out duration-300  items-center gap-1`}>
-            <div className="w-2 rounded-l-lg h-1 bg-tertiary"></div>
-            <div className="w-2  h-1 bg-tertiary"></div>
-            <div className="w-18  h-1 bg-gradient-to-r from-tertiary via-tertiary to-transparent"></div>
+          <div
+            className={`flex items-center gap-1 transition-opacity duration-200 ${sort === key ? "opacity-100" : "opacity-0"
+              }`}
+          >
+            <div
+              ref={(el) => {
+                indicatorRefs.current[key].dotOne = el;
+              }}
+              className="w-2 h-1 rounded-l-lg bg-tertiary"
+            />
+            <div
+              ref={(el) => {
+                indicatorRefs.current[key].dotTwo = el;
+              }}
+              className="w-2 h-1 bg-tertiary"
+            />
+            <div
+              ref={(el) => {
+                indicatorRefs.current[key].line = el;
+              }}
+              className="w-18 h-1 bg-gradient-to-r from-tertiary via-tertiary to-transparent"
+            />
           </div>
         </button>
       ))}
