@@ -6,6 +6,8 @@ import { useState, useEffect, useRef, use } from "react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import PrimaryButton from "../buttons/primary-button";
 import Link from "next/link";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 
 
@@ -34,6 +36,19 @@ export default function ProductSection() {
     }
 
   }, [])
+
+  useGSAP(
+    () => {
+      if (!containerRef.current || shownProducts.length === 0) return;
+      const cards = containerRef.current.querySelectorAll(".product-card");
+      gsap.fromTo(
+        cards,
+        { opacity: 0, y: 100 },
+        { opacity: 1, y: 0, duration: 1, ease: "expo.out", stagger: 0.13}
+      );
+    },
+    { scope: containerRef, dependencies: [shownProducts] }
+  );
 
 
 

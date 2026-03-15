@@ -16,8 +16,8 @@ const ProductGrid = ({ products }: { products: Product[] }) => {
       const cards = containerRef.current.querySelectorAll(".product-card");
       gsap.fromTo(
         cards,
-        { opacity: 0, y: 16 },
-        { opacity: 1, y: 0, duration: 0.6, ease: "expo.out", stagger: 0.05 }
+        { opacity: 0, y: 100 },
+        { opacity: 1, y: 0, duration: 1, ease: "expo.out", stagger: 0.13 }
       );
     },
     { scope: containerRef, dependencies: [products] }

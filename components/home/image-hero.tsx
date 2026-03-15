@@ -12,7 +12,7 @@ import { usePersistedProduct } from "@/hooks/use-persisted-product";
 import { useCountrySearch } from "@/hooks/use-country-search";
 
 
-import VippsPayIcon from "./vipps-pay-icon";
+import VippsPayIcon from "@/components/vipps-pay-icon";
 
 gsap.registerPlugin(useGSAP);
 
@@ -132,7 +132,7 @@ export default function ImageHero(props: HeroProps) {
           </p>
 
           {/* Search Input + Dropdown */}
-          <div className="relative rounded-xl group focus-within:ring-2 focus-within:ring-tertiary transition">
+          <div className="relative rounded-full group focus-within:ring-2 focus-within:ring-tertiary transition">
             <input
               type="text"
               value={query}
@@ -148,7 +148,7 @@ export default function ImageHero(props: HeroProps) {
               placeholder="Hvor skal du reise?"
               className="
                 w-full pl-12 pr-4 py-4
-                rounded-xl border-2 border-secondary-text
+                rounded-full border-2 border-secondary-text
                 bg-surface-dim shadow-sm
                 text-secondary-text
                 focus:text-primary-text

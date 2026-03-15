@@ -9,7 +9,7 @@ import ReversedHero from "@/components/reversed-hero";
 import HowItWorksSection from "@/components/how-it-works";
 
 
-import ImageHero from "@/components/image-hero";
+import ImageHero from "@/components/home/image-hero";
 import heroImage from '@/public/images/beam-wide-hero_two.png'
 import ESimInfoHero from "@/components/esim-info-hero";
 
