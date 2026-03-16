@@ -1,19 +1,38 @@
 'use client';
 import { Plane, X, Earth } from "lucide-react";
+import BackButton from "../buttons/back-button";
+import FilterDropdown from "./product-filter";
+import { useState } from "react";
 
 interface FilterHeaderProps {
   search: string;
+  sort: string;
   onSearchChange: (value: string) => void;
+  onSortChange: (value: string) => void;
   resultCount: number;
 }
+
+const SORT_OPTIONS = [
+  { value: 'a-<', label: 'A → Å' },
+  { value: 'z-a', label: 'Å → A' },
+  { value: 'price-low', label: 'Pris: Lav → Høy' },
+  { value: 'price-high', label: 'Pris: Høy → Lav' },
+];
 
 export default function FilterHeader({
   search,
   onSearchChange,
+  sort,
+  onSortChange,
   resultCount,
 }: FilterHeaderProps) {
+
+
   return (
-    <section className="bg-gradient-to-b from-surface to-secondary px-6 pt-20 pb-32">
+    <section className="bg-gradient-to-b z-10 max-h-[375px]  from-surface to-secondary px-6 relative pt-20 pb-32">
+      <div className="absolute top-8 left-8">
+        <BackButton />
+      </div>
       <div className="max-w-2xl mx-auto text-center space-y-8">
         <div>
           <div className=" relative w-fit mx-auto">
@@ -69,23 +88,7 @@ export default function FilterHeader({
           </div>
         </div>
 
-        {/*  <div className="relative max-w-md mx-auto">
-          <Plane className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-          <input
-            value={search}
-            onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full bg-surface rounded-full py-3 pl-11 pr-10 text-sm shadow-[0_1px_3px_rgba(0,0,0,0.05),0_10px_20px_-5px_rgba(0,0,0,0.04)] outline-none focus:ring-2 focus:ring-tertiary transition-shadow placeholder:text-muted-foreground"
-            placeholder="Søk etter land eller region..."
-          />
-          {search && (
-            <button
-              onClick={() => onSearchChange("")}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          )}
-        </div> */}
+   <FilterDropdown label="Sorter" value={sort} onChange={onSortChange}  options={SORT_OPTIONS} />
       </div>
     </section>
   );
