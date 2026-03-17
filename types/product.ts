@@ -12,6 +12,7 @@ export interface Product {
   title: string;
   data: string;
   validity: string;
+  region?: string;
   price: string;
   countryCode: string;
   currency?: string;

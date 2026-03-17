@@ -7,33 +7,48 @@ import { useState } from "react";
 interface FilterHeaderProps {
   search: string;
   sort: string;
+  region: string;
+  onRegionChange: (value: string) => void;
   onSearchChange: (value: string) => void;
   onSortChange: (value: string) => void;
   resultCount: number;
 }
 
 const SORT_OPTIONS = [
-  { value: 'a-<', label: 'A → Å' },
+  { value: 'a-z', label: 'A → Å' },
   { value: 'z-a', label: 'Å → A' },
   { value: 'price-low', label: 'Pris: Lav → Høy' },
   { value: 'price-high', label: 'Pris: Høy → Lav' },
 ];
 
+const REGIONS_OPTIONS = [
+  { value: 'europe', label: 'Europa' },
+  { value: 'asia', label: 'Asia' },
+  { value: 'africa', label: 'Afrika' },
+  { value: 'oceania', label: 'Oseania' },
+  { value: 'north-america', label: 'Nord-Amerika' },
+  { value: 'south-america', label: 'Sør-Amerika' },
+]
+
 export default function FilterHeader({
   search,
+  region,
   onSearchChange,
   sort,
+  onRegionChange,
   onSortChange,
   resultCount,
 }: FilterHeaderProps) {
 
+  const hasFilters = region || sort;
+
 
   return (
-    <section className="bg-gradient-to-b z-10 max-h-[375px]  from-surface to-secondary px-6 relative pt-20 pb-32">
+    <section className="bg-gradient-to-b z-10 max-h-[375px]  from-surface to-secondary px-6 relative pt-20 pb-10 ">
       <div className="absolute top-8 left-8">
         <BackButton />
       </div>
-      <div className="max-w-2xl mx-auto text-center space-y-8">
+      <div className="max-w-2xl  mx-auto text-center space-y-8">
         <div>
           <div className=" relative w-fit mx-auto">
             <div className="bg-primary z-0 absolute -top-8 -right-8 h-16 w-16 flex items-center justify-center rounded-full">
@@ -46,7 +61,7 @@ export default function FilterHeader({
           </p>
         </div>
 
-        <div className="relative rounded-full group focus-within:ring-2 focus-within:ring-tertiary transition">
+        <div className="relative rounded-full  group focus-within:ring-2 focus-within:ring-tertiary transition">
           <input
             type="text"
             value={search}
@@ -88,7 +103,19 @@ export default function FilterHeader({
           </div>
         </div>
 
-   <FilterDropdown label="Sorter" value={sort} onChange={onSortChange}  options={SORT_OPTIONS} />
+      </div>
+      <div className="flex pr-16   w-full items-center mt-16 justify-end gap-2">
+
+        <FilterDropdown label="Sorter" value={sort} onChange={onSortChange} options={SORT_OPTIONS} />
+        <FilterDropdown label="Region" value={region} onChange={onRegionChange} options={REGIONS_OPTIONS} />
+        {hasFilters && (
+          <button
+            onClick={() => { onRegionChange(''); onSortChange(''); }}
+            className="text-[12px] font-body text-secondary-text hover:cursor-pointer hover:text-primary-text px-2 py-1 transition-colors"
+          >
+            Fjern alle filtre
+          </button>
+        )}
       </div>
     </section>
   );
