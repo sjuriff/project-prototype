@@ -47,7 +47,7 @@ export default function FilterDropdown({ label, options, value, onChange }: Filt
         onComplete: () => {
           gsap.set(dropdownRef.current, { display: 'none' });
         }
-      
+
       });
     }
   }, { dependencies: [isOpen], scope: containerRef });
@@ -68,7 +68,7 @@ export default function FilterDropdown({ label, options, value, onChange }: Filt
           flex items-center gap-2 h-9 px-3 text-[13px] font-medium border-secondary-text hover:cursor-pointer rounded-full hover:bg-surface-blue border hover:shadow-md transition-colors duration-150
           ${value
             ? 'bg-accent/10 border-primary text-secondary-text hover:bg-accent/20'
-            : ' bg-surface'
+            : ' bg-surface-blue border-secondary-text hover:bg-surface-blue'
           }
         `}
       >
