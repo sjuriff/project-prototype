@@ -4,8 +4,6 @@ import eSIMProducts from "@/dummy-data/esim-products.json";
 import { Earth } from "lucide-react";
 import { useState, useEffect, useRef, use } from "react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import PrimaryButton from "../buttons/primary-button";
-import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -100,11 +98,6 @@ export default function ProductSection() {
             ))}
           </div>
         </div>
-        <Link href={'/produkter'}>
-          <PrimaryButton >
-            Alle destinasjoner
-          </PrimaryButton>
-        </Link>
       </div>
     </section>
 

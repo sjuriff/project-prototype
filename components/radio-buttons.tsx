@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import Link from "next/link";
 
 
 interface SortSelectorProps {
@@ -93,8 +94,11 @@ export default function ProductSortBar({ sort, onSortChange }: SortSelectorProps
               className="w-18 h-1 bg-gradient-to-r from-tertiary via-tertiary to-transparent"
             />
           </div>
+
         </button>
       ))}
+      <Link href={"/produkter"} className={`px-4 py-2 text-sm flex gap-1 font-medium     text-primary-text transition hover:text-tertiary hover:cursor-pointer
+            `}>Alle denstinasjoner</Link>
     </div>
   );
 }
