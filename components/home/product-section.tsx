@@ -6,20 +6,25 @@ import { useState, useEffect, useRef, use } from "react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { Product } from "@/types/shopify-product";
 
 
 
 import SortSelector from "@/components/radio-buttons";
-import { Product } from '@/types/product'
+/* import { Product } from '@/types/product' */
+
+interface ProductSectionProps {
+  popularProducts: Product[];
+  regionProducts: Product[];
+}
 
 
 
-
-
-export default function ProductSection() {
-  const [shownProducts, setShownProducts] = useState<Product[]>(eSIMProducts.popular);
+export default function ProductSection({ popularProducts, regionProducts }: ProductSectionProps) {
+  const [shownProducts, setShownProducts] = useState<Product[]>(popularProducts);
   const [sort, setSort] = useState("popular");
   const containerRef = useRef<HTMLDivElement>(null);
+ 
 
 
 
@@ -42,7 +47,7 @@ export default function ProductSection() {
       gsap.fromTo(
         cards,
         { opacity: 0, y: 100 },
-        { opacity: 1, y: 0, duration: 1, ease: "expo.out", stagger: 0.13}
+        { opacity: 1, y: 0, duration: 1, ease: "expo.out", stagger: 0.13 }
       );
     },
     { scope: containerRef, dependencies: [shownProducts] }
@@ -53,11 +58,11 @@ export default function ProductSection() {
   const handleSortChange = (value: string) => {
     setSort(value);
     if (value === "popular") {
-      setShownProducts(eSIMProducts.popular);
-    } else if (value === "region") {
-      setShownProducts(eSIMProducts.regions);
+      setShownProducts(popularProducts);
+      
     } else {
-      setShownProducts(eSIMProducts.countries);
+      setShownProducts(regionProducts);
+      
     }
   };
 
@@ -84,16 +89,14 @@ export default function ProductSection() {
           <div ref={containerRef} className="grid  py-8 mx-auto gap-10 grid-cols-12  justify-items-center  ">
             {shownProducts.map((product) => (
               <ProductCard
+                sort={sort}
                 id={product.id}
                 key={product.id}
                 imageUrl={product.imageUrl}
                 countryCode={product.countryCode}
                 title={product.title}
-                data={product.data}
-                validity={product.validity}
-                price={product.price}
+                validity={product.tiers[0].validity}
                 tirers={product.tiers}
-                currency={product.currency}
               />
             ))}
           </div>

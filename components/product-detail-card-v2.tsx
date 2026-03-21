@@ -17,7 +17,7 @@ interface ProductDetailCardProps {
   image: string | null;
   title: string;
   description: string;
-  price: string;
+  price: number;
   countryCode: string; 
   data: string;
   validity: string;
@@ -71,7 +71,7 @@ export default function ProductDetailV2({
       data: tier.data,
       countryCode: countryCode,
       validity: tier.validity,
-      price: parseInt(tier.price),
+      price: tier.price,
       quantity: 1,
     })
 

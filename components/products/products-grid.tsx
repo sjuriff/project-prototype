@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Product } from "@/types/product";
+import { Product } from "@/types/shopify-product";
 
 import { ProductCard } from "../product-card";
 
@@ -40,14 +40,13 @@ const ProductGrid = ({ products }: { products: Product[] }) => {
       {products.map((product) => (
         <ProductCard id={product.id}
           key={product.id}
+          sort=""
           imageUrl={product.imageUrl}
           countryCode={product.countryCode}
           title={product.title}
-          data={product.data}
-          validity={product.validity}
-          price={product.price}
+          validity={product.tiers[0].validity}
           tirers={product.tiers}
-          currency={product.currency} />
+        />
       ))}
     </div>
   );

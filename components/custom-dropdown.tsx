@@ -7,7 +7,7 @@ import gsap from 'gsap';
 interface Tier {
   data: string;
   validity: string;
-  price: string;
+  price: number;
 }
 
 interface CustomDropdownProps {

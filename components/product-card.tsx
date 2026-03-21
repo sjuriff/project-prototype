@@ -10,33 +10,62 @@ import { useState } from 'react';
 import { CustomDropdown } from './custom-dropdown';
 import { useRouter } from 'next/navigation';
 import { usePersistedProduct } from '@/hooks/use-persisted-product';
-import { Tier } from '@/types/product';
+import { Tier } from '@/types/shopify-product';
+import { FaEarthAmericas, FaEarthEurope, FaEarthAsia, FaEarthAfrica, FaGlobe } from "react-icons/fa6"
+import { IconType } from 'react-icons';
+
+
+const regionCodeIcon = (countryCode: string): React.ReactNode => {
+  if (countryCode === "US") {
+    return <div className="w-fit shadow h-1/2 bg-tertiary rounded-full ">
+      <FaEarthAmericas className=" w-full h-full text-primary" />
+    </div>;
+  } else if (countryCode === "EU") {
+    return <div className="w-fit shadow h-1/2 bg-tertiary rounded-full ">
+      <FaEarthEurope className=" w-full h-full text-primary" />
+    </div>;
+  } else if (countryCode === "AS") {
+    return <div className="w-fit shadow h-1/2 bg-tertiary rounded-full ">
+      <FaEarthAsia className=" w-full h-full text-primary" />
+    </div>;
+  } else if (countryCode === "AF") {
+    return <div className="w-fit shadow h-1/2 bg-tertiary rounded-full ">
+      <FaEarthAfrica className=" w-full h-full text-primary" />
+    </div>
+  } else {
+    return <div className="w-fit shadow h-1/2 bg-tertiary rounded-full ">
+      <FaGlobe className=" w-full h-full text-primary" />
+    </div>
+
+  }
+
+}
 
 
 
 interface ProductCardProps {
   id: string;
+  sort: string
   imageUrl: string | null;
   title: string;
-  data: string;
   countryCode: string;
   tirers: Tier[];
   validity: string;
-  price: string;
   currency?: string;
 }
 
 export function ProductCard({
+  sort,
   id,
   imageUrl,
   title,
-  data,
   countryCode,
   validity,
   tirers,
-  price,
   currency = "NOK"
 }: ProductCardProps) {
+
+  let isRegion = sort === 'region'
 
   const [selectedTier, setSelectedTier] = useState<Tier>(tirers[1]);
 
@@ -57,7 +86,7 @@ export function ProductCard({
       tiers: tirers,
     });
 
-    router.push(paths.checkout(id));
+    router.push(paths.checkout("1"));
   };
 
   const handleReadMoreClick = () => {
@@ -73,30 +102,46 @@ export function ProductCard({
       tiers: tirers,
     });
 
-    router.push(paths.product(id));
+    router.push(paths.product("1"));
 
   }
 
 
 
-  const flagImage: string = 'https://flagcdn.com/w320/' + countryCode.toLowerCase() + '.png'
+  console.log('countryCode', countryCode)
+
+  const flagImage: string = 'https://borderly.dev/flag/circle/' + countryCode.toLowerCase() + '.svg'
+  const countryOutlineImage: string = 'https://borderly.dev/country/' + countryCode.toLowerCase() + '.svg?fill=f9f871&stroke=f9f871&strokeWidth=1'
 
 
 
-
+  console.log(isRegion)
 
   return (
-    <div className="product-card opacity-0 w-[300px] relative  z-0  xl:col-span-3 2xl:col-span-4 bg-secondary rounded-2xl overflow-hidden shadow-lg">
+    <div className="product-card opacity-0  w-[300px] relative  z-0  xl:col-span-3 2xl:col-span-4 bg-secondary rounded-2xl overflow-hidden shadow-lg">
       {/* Product Image Section */}
       <div className="">
-        <div className="bg-white relative rounded-t-2xl overflow-hidden aspect-[4/3] ">
-          <Image
-            src={imageUrl ? imageUrl : flagImage}
-            alt={title}
-            width={1000}
-            height={1000}
-            className="w-full h-full object-cover"
-          />
+        <div className={`${isRegion ? 'bg-secondary' : 'bg-secondary-heading'}  flex items-center justify-center relative rounded-t-2xl overflow-hidden aspect-[4/3] `}>
+          {!imageUrl && !isRegion &&
+            <div className='absolute left-2 top-2 h-6 w-6 shadow-lg rounded-full   overflow-hidden '>
+              <Image width={500} height={500} src={flagImage} alt="primary line" className='w-full  h-full object-center object-contain' />
+            </div>
+
+          }
+
+          {isRegion ? (
+            regionCodeIcon(countryCode)
+          ) : (
+            <Image
+              src={imageUrl ? imageUrl : countryOutlineImage}
+              alt={title}
+              width={1000}
+              height={1000}
+              className={`w-full h-full  ${imageUrl ? 'object-cover' : 'object-fit  '}  `}
+            />
+
+          )}
+
         </div>
       </div>
 
@@ -144,7 +189,7 @@ export function ProductCard({
           <div className="flex items-end justify-between">
             <span className="text-secondary-text text-sm">Pris</span>
             <div className="flex items-baseline gap-1">
-              <span className="text-secondary-text text-2xl"><span className='text-xl'>{currency}</span> {selectedTier.price}</span>
+              <span className="text-secondary-text text-2xl"><span className='text-xl'>{currency}</span> {Number(selectedTier.price)}</span>
 
             </div>
           </div>

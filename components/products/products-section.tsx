@@ -3,14 +3,19 @@ import { useState, useMemo } from "react";
 import FilterHeader from "./filter-header";
 import ProductGrid from "./products-grid";
 import eSIMProducts from "@/dummy-data/esim-products.json";
+import { Product } from "@/types/shopify-product";
 
-export default function ProductsSection() {
+interface ProductSectionsProps {
+  products: Product[]
+  
+}
+export default function ProductsSection({products}: ProductSectionsProps) {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
   const [region, setRegion] = useState("");
-  const destinations = eSIMProducts.countries
+  const destinations = products
 
-  const products = useMemo(() => {
+  const destinationsList = useMemo(() => {
     let list = destinations;
 
     // Search
@@ -35,9 +40,9 @@ export default function ProductsSection() {
     } else if (sort === 'z-a') {
       list = [...list].sort((a, b) => b.title.localeCompare(a.title));
     } else if (sort === 'price-low') {
-      list = [...list].sort((a, b) => Number(a.price) - Number(b.price));
+      list = [...list].sort((a, b) => Number(a.tiers[0].price) - Number(b.tiers[0].price));
     } else if (sort === 'price-high') {
-      list = [...list].sort((a, b) => Number(b.price) - Number(a.price));
+      list = [...list].sort((a, b) => Number(b.tiers[0].price) - Number(a.tiers[0].price));
     }
 
     return list;
@@ -52,11 +57,11 @@ export default function ProductsSection() {
         onSortChange={setSort}
         onSearchChange={setSearch}
         onRegionChange={setRegion}
-        resultCount={products.length}
+        resultCount={destinationsList.length}
       />
       <div className=" mx-auto px-10 ">
-        <div className="bg-surface relative z-0 rounded-xl p-8 shadow-[0_1px_3px_rgba(0,0,0,0.05),0_10px_20px_-5px_rgba(0,0,0,0.04)]">
-          <ProductGrid products={products} />
+        <div className="bg-surface relative z-0 rounded-xl p-8 ">
+          <ProductGrid products={destinationsList} />
         </div>
       </div>
       <div className="h-20" />
