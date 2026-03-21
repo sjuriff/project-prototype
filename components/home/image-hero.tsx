@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import esimData from "@/dummy-data/esim-products.json";
 import { usePersistedProduct } from "@/hooks/use-persisted-product";
 import { useCountrySearch } from "@/hooks/use-country-search";
+import { Product } from "@/types/shopify-product";
 
 
 import VippsPayIcon from "@/components/vipps-pay-icon";
@@ -25,6 +26,8 @@ interface HeroProps {
   imgData: StaticImageData;
   imgAlt: string;
   title: string;
+  counrties: Product[];
+  popular: Product[];
 
 }
 
@@ -38,8 +41,8 @@ function normalize(s: string) {
 
 export default function ImageHero(props: HeroProps) {
   const router = useRouter();
-  const countries = esimData.countries;
-  const popularContries = esimData.popular
+  const countries = props.counrties;
+  const popularContries = props.popular;
 
   const { persistProduct } = usePersistedProduct()
 
@@ -78,8 +81,8 @@ export default function ImageHero(props: HeroProps) {
       title: chosenCountry?.title ?? "",
       data: chosenCountry?.tiers[1].data ?? "",
       validity: chosenCountry?.tiers[1].validity ?? "",
-      price: chosenCountry?.tiers[1].price ?? "",
-      currency: chosenCountry?.currency ?? "",
+      price: Number(chosenCountry?.tiers[1].price ?? 0),
+      currency: "NOK",
       countryCode: chosenCountry?.countryCode ?? "",
       tiers: chosenCountry?.tiers ?? [],
     });
@@ -95,9 +98,9 @@ export default function ImageHero(props: HeroProps) {
       title: chosenCountry?.title ?? "",
       data: chosenCountry?.tiers[1].data ?? "",
       validity: chosenCountry?.tiers[1].validity ?? "",
-      price: chosenCountry?.tiers[1].price ?? "",
+      price: chosenCountry?.tiers[1].price ?? 0,
       countryCode: chosenCountry?.countryCode ?? "",
-      currency: chosenCountry?.currency ?? "",
+      currency: "NOK",
       tiers: chosenCountry?.tiers ?? [],
     });
     // ✅ change this if your route differs

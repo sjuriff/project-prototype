@@ -7,6 +7,9 @@ import CompareCard from "@/components/compare-card";
 
 import ReversedHero from "@/components/reversed-hero";
 import HowItWorksSection from "@/components/how-it-works";
+import { getPopularProducts } from "@/lib/shopify-storefront";
+import { getRegionProducts } from "@/lib/shopify-storefront";
+import { getAllProducts } from "@/lib/shopify-storefront";
 
 
 import ImageHero from "@/components/home/image-hero";
@@ -18,17 +21,22 @@ import ESimInfoHero from "@/components/esim-info-hero";
 
 
 
-export default function Home() {
+export default async function Home() {
+  const popularProducts = await getPopularProducts(4);
+  const regionProducts = await getRegionProducts(4);
+  const countries = await getAllProducts(29);
+
+
 
   return (
     <main className="bg-surface  flex flex-col  2xl:gap-0">
       <section className="w-full z-0 bg-gradient-to-b from-surface to-secondary relative   flex items-center justify-center">
         {/*  <Hero /> */}
-        <ImageHero imgData={heroImage} imgAlt="hero" title="Dekning over hele verden" />
+        <ImageHero popular={popularProducts} counrties={countries} imgData={heroImage} imgAlt="hero" title="Dekning over hele verden" />
 
       </section>
 
-      <ProductSection />
+      <ProductSection popularProducts={popularProducts} regionProducts={regionProducts} />
 
       <section className="w-full mt-8 ">
         <ESimInfoHero />
