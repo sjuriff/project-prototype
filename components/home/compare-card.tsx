@@ -69,7 +69,7 @@ export default function CompareCard() {
         </div>
 
         {/* Comparison Card */}
-        <div className="w-full  rounded-3xl bg-white overflow-hidden">
+        <div className="w-full  xl:rounded-3xl bg-white overflow-hidden">
           <div className="flex flex-col gap-0 items-center ">
             {/* eSIM Column */}
             <div className="p-10  md:p-12 lg:p-10">

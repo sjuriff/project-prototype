@@ -24,9 +24,9 @@
   --color-surface-dark: #e2e8f0;
   --color-surface-accent: #eef0ff;
   --color-surface-cold: #eef4ff;
-  --color-light-yellow: #FFFCE6;
-  --color-surface-light: #F2F6FF;
-  --color-surface-blue: #E8ECFF;
+  --color-light-yellow: #fffce6;
+  --color-surface-light: #f2f6ff;
+  --color-surface-blue: #e8ecff;
 
   --color-old-teal: #008093 --color-test: #5b3fdc;
 
@@ -34,6 +34,10 @@
   --font-body: var(--font-inter);
   --font-heading: var(--font-nunito-sans);
   --font-logo: var(--font-museo-moderno);
+
+  /*breakpoints*/
+  --breakpoint-fhd: 1920px;
+  --breakpoint-3xl: 2000px;
 }
 
 :root {
