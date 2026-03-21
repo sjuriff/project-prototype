@@ -118,7 +118,7 @@ export function ProductCard({
   console.log(isRegion)
 
   return (
-    <div className="product-card opacity-0  w-[300px] relative  z-0  xl:col-span-3 2xl:col-span-4 bg-secondary rounded-2xl overflow-hidden shadow-lg">
+    <div className="product-card opacity-0  w-[300px] relative  z-0 lg:col-span-4  xl:col-span-3 2xl:col-span-3 bg-secondary rounded-2xl overflow-hidden shadow-lg">
       {/* Product Image Section */}
       <div className="">
         <div className={`${isRegion ? 'bg-secondary' : 'bg-secondary-heading'}  flex items-center justify-center relative rounded-t-2xl overflow-hidden aspect-[4/3] `}>

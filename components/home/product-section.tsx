@@ -24,7 +24,7 @@ export default function ProductSection({ popularProducts, regionProducts }: Prod
   const [shownProducts, setShownProducts] = useState<Product[]>(popularProducts);
   const [sort, setSort] = useState("popular");
   const containerRef = useRef<HTMLDivElement>(null);
- 
+
 
 
 
@@ -59,17 +59,17 @@ export default function ProductSection({ popularProducts, regionProducts }: Prod
     setSort(value);
     if (value === "popular") {
       setShownProducts(popularProducts);
-      
+
     } else {
       setShownProducts(regionProducts);
-      
+
     }
   };
 
 
   return (
-    <section className="w-full z-10   xl:px-8 2xl:px-0  bg-gradient-to-b from-secondary to-surface-dim gap-8    min-h-screen 2xl:min-h-[30vh]  flex flex-col items-center justify-center">
-      <div className="2xl:w-4/5 mt-8 relative bg-surface rounded-3xl  w-full h-full flex flex-col items-center justify-center  ">
+    <section className="w-full z-10  2xl:min-h-[30vh]   xl:px-8  2xl:px-16  bg-gradient-to-b from-secondary to-surface-dim gap-8    min-h-screen  flex flex-col items-center justify-center">
+      <div className=" mt-8 relative bg-surface rounded-3xl fhd:w-[90%]   w-full h-full flex flex-col items-center justify-center  ">
         <div className="flex  flex-col items-center gap-2 p-4">
           {/*  <div className="bg-primary h-16 w-16 flex items-center justify-center rounded-full">
             <Earth className="w-8 h-8 text-primary-text" />

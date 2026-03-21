@@ -110,7 +110,7 @@ export default function ImageHero(props: HeroProps) {
   }
 
   return (
-    <div className="relative h-[700px] 2xl:w-4/5 2xl:h-[750px] overflow-hidden w-full ">
+    <div className="relative h-[700px] 2xl:w-full 2xl:h-[750px] fhd:rounded-b-2xl  overflow-hidden w-full ">
       <div className="absolute w-full h-full z-0">
         <Image
           src={props.imgData}
@@ -123,7 +123,7 @@ export default function ImageHero(props: HeroProps) {
       {/* Text Card */}
       <div
         ref={textContainerRef}
-        className="xl:pt-12 2xl:pt-68 flex ml-16 z-50 -translate-x-[120%] w-1/2 justify-center items-center"
+        className="lg:pt-28 lg:ml-28 xl:ml-16 xl:pt-12 2xl:pt-28 flex ml-16 z-50 -translate-x-[120%] w-1/2 justify-center items-center"
       >
         <div className="z-50 flex flex-col gap-4 px-12 pt-6 shadow-md pb-8 bg-surface-blue py-4 rounded-xl">
           <h1 className="text-4xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] md:text-5xl lg:text-6xl xl:text-7xl font-heading text-balance text-primary-text">
@@ -191,7 +191,7 @@ export default function ImageHero(props: HeroProps) {
                     >
                       <span className="font-body text-primary-text">{c.title}</span>
                       <div className=" w-8  flex items-center justify-center">
-                      <Image className="object-cover " src={flagImageUrl} alt={c.title} width={32} height={32} />
+                        <Image className="object-cover " src={flagImageUrl} alt={c.title} width={32} height={32} />
                       </div>
 
                     </button>

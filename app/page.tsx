@@ -2,8 +2,8 @@
 import { CreativeHero } from "@/components/creative-hero";
 
 import ProductSection from "@/components/home/product-section";
-import Faq from "@/components/FAQ";
-import CompareCard from "@/components/compare-card";
+import Faq from "@/components/home/FAQ";
+import CompareCard from "@/components/home/compare-card";
 
 import ReversedHero from "@/components/reversed-hero";
 import HowItWorksSection from "@/components/how-it-works";
@@ -30,7 +30,7 @@ export default async function Home() {
 
   return (
     <main className="bg-surface  flex flex-col  2xl:gap-0">
-      <section className="w-full z-0 bg-gradient-to-b from-surface to-secondary relative   flex items-center justify-center">
+      <section className="w-full z-0 bg-gradient-to-b from-surface to-secondary relative fhd:px-38   flex items-center justify-center">
         {/*  <Hero /> */}
         <ImageHero popular={popularProducts} counrties={countries} imgData={heroImage} imgAlt="hero" title="Dekning over hele verden" />
 

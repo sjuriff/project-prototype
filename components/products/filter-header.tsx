@@ -104,7 +104,7 @@ export default function FilterHeader({
         </div>
 
       </div>
-      <div className="flex pr-16   w-full items-center mt-16 justify-end gap-2">
+      <div className="flex pr-16 fhd:pr-48   w-full items-center mt-16 justify-end gap-2">
 
         <FilterDropdown label="Sorter" value={sort} onChange={onSortChange} options={SORT_OPTIONS} />
         <FilterDropdown label="Region" value={region} onChange={onRegionChange} options={REGIONS_OPTIONS} />
