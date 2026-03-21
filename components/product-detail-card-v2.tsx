@@ -94,7 +94,7 @@ export default function ProductDetailV2({
       tiers: tiers,
     });
 
-    router.push(paths.checkout(id));
+    router.push(paths.checkout("1"));
   }
 
   return (
