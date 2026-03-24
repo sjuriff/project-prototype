@@ -17,24 +17,24 @@ import { IconType } from 'react-icons';
 
 const regionCodeIcon = (countryCode: string): React.ReactNode => {
   if (countryCode === "US") {
-    return <div className="w-fit shadow h-1/2 bg-tertiary rounded-full ">
-      <FaEarthAmericas className=" w-full h-full text-primary" />
+    return <div className="md:w-fit shadow h-fit md:h-1/2 bg-tertiary rounded-full ">
+      <FaEarthAmericas className=" md:w-full text-9xl  md:h-full text-primary" />
     </div>;
   } else if (countryCode === "EU") {
-    return <div className="w-fit shadow h-1/2 bg-tertiary rounded-full ">
-      <FaEarthEurope className=" w-full h-full text-primary" />
+    return <div className="md:w-fit shadow h-fit md:h-1/2 bg-tertiary rounded-full ">
+      <FaEarthEurope className=" md:w-full text-9xl  md:h-full text-primary" />
     </div>;
   } else if (countryCode === "AS") {
-    return <div className="w-fit shadow h-1/2 bg-tertiary rounded-full ">
-      <FaEarthAsia className=" w-full h-full text-primary" />
+    return <div className="md:w-fit shadow h-fit md:h-1/2 bg-tertiary rounded-full ">
+      <FaEarthAsia className=" md:w-full text-9xl md:h-full text-primary" />
     </div>;
   } else if (countryCode === "AF") {
-    return <div className="w-fit shadow h-1/2 bg-tertiary rounded-full ">
-      <FaEarthAfrica className=" w-full h-full text-primary" />
+    return <div className="md:w-fit shadow h-fit md:h-1/2 bg-tertiary rounded-full ">
+      <FaEarthAfrica className=" md:w-full text-9xl md:h-full text-primary" />
     </div>
   } else {
-    return <div className="w-fit shadow h-1/2 bg-tertiary rounded-full ">
-      <FaGlobe className=" w-full h-full text-primary" />
+    return <div className="md:w-fit shadow h-fit md:h-1/2 bg-tertiary rounded-full ">
+      <FaGlobe className=" md:w-full text-9xl md:h-full text-primary" />
     </div>
 
   }
@@ -118,7 +118,7 @@ export function ProductCard({
   console.log(isRegion)
 
   return (
-    <div className="product-card opacity-0  w-[300px] relative  z-0 lg:col-span-4  xl:col-span-3 2xl:col-span-3 bg-secondary rounded-2xl overflow-hidden shadow-lg">
+    <div className="product-card opacity-0  w-[300px] relative col-span-12  z-0 lg:col-span-4  xl:col-span-3 2xl:col-span-3 bg-secondary rounded-2xl overflow-hidden shadow-lg">
       {/* Product Image Section */}
       <div className="">
         <div className={`${isRegion ? 'bg-secondary' : 'bg-secondary-heading'}  flex items-center justify-center relative rounded-t-2xl overflow-hidden aspect-[4/3] `}>

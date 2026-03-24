@@ -3,13 +3,13 @@
 import { Smartphone, Check, BadgeQuestionMark, QrCode, Zap, Globe, Lightbulb, CloudDownload, FileCog, Settings, Wifi } from "lucide-react"
 import { useState, useRef } from "react"
 import Link from "next/link"
-import PrimaryButton from "./buttons/primary-button"
+import PrimaryButton from "@/components/buttons/primary-button"
 import paths from "@/paths"
-import IphoneSvgIcon from "./iphone-svg"
-import AndroidSvgIcon from "./android-svg"
+import IphoneSvgIcon from "@/components/iphone-svg"
+import AndroidSvgIcon from "@/components/android-svg"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
-import HowItWorksSection from "./how-it-works"
+import HowItWorksSection from "@/components/home/how-it-works"
 
 const PHONE_HOVER_COLOR = '#f9f871'
 
@@ -102,14 +102,14 @@ export default function ESimInfoHero() {
           {/* Header Section */}
           <div className=" space-y-8 text-center mb-16">
             <div className="  relative w-fit mx-auto " >
-              <div className="absolute z-0 -top-11 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
-                <Lightbulb className="w-8 h-8 z-0 text-secondary-foreground" />
+              <div className="absolute z-0 -top-8 md:-top-11 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
+                <Lightbulb className="h-6 w-6 md:w-8 md:h-8 z-0 text-secondary-foreground" />
               </div>
-              <h1 className="text-5xl z-10 relative font-heading md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] tracking-tight text-primary-text">
+              <h1 className="md:text-5xl text-4xl z-10 relative font-heading md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] tracking-tight text-primary-text">
                 Hva er eSIM?
               </h1>
             </div>
-            <p className="text-lg text-muted-foreground font-body max-w-3xl mx-auto leading-relaxed">
+            <p className="md:text-lg text-base text-primary-text font-body max-w-3xl mx-auto leading-relaxed">
               eSIM sørger for at du slipper høye roamingkostnader når du er på reise. Du vet hvor mye surfingen din vil koste allerede før du reiser. Et eSIM fungerer som et fysisk SIM-kort, bare digitalt. Det er forhåndsbetalt, krever ikke et eget abonnement og du får forutsigbare kostnader. Du kan ha både en eSIM og ditt vanlige SIM-kort på telefonen samtidig. Med Beam eSIM kan du kjøpe datapakker og spare penger mens du er på reise!
             </p>
           </div>
@@ -149,7 +149,7 @@ export default function ESimInfoHero() {
 
               </div>
               <h3 className="text-tertiary-text text-xl font-heading">Kjapp installeringsguide</h3>
-              <p className="text-tertiary-text/90 font-body text-sm">
+              <p className="text-tertiary-text/90 text-center text-balance font-body text-sm">
                 Se hvordan du installerer eSIM på <Link onMouseEnter={() => setIPhoneHovered(true)} onMouseLeave={() => setIPhoneHovered(false)} className='underline' href={'/info#iphone'}>iPhone</Link> og <Link onMouseEnter={() => setAndroidHovered(true)} onMouseLeave={() => setAndroidHovered(false)} className='underline' href={'/info#android'}>Android </Link>
               </p>
             </div>
@@ -157,7 +157,7 @@ export default function ESimInfoHero() {
 
           {/* Key Benefits */}
           <div className="grid grid-cols-6  w-full mx-auto items-center justify-center gap-4">
-            <div className="p-6   col-span-2 h-[200px] bg-card  space-y-4  rounded-xl bg-secondary">
+            <div className="p-6 col-span-6 flex flex-col items-center text-center text-balance md:text-left md:items-start    md:col-span-2 h-[200px] bg-card  space-y-4  rounded-xl bg-secondary">
               <div className="w-10 h-10 relative rounded-full  bg-primary flex items-center justify-center">
                 <Smartphone className="w-5 h-5 text-primary-text" />
               </div>
@@ -166,9 +166,9 @@ export default function ESimInfoHero() {
                 eSIM er et innebygd digitalt SIM-kort, som de fleste moderne smarttelefoner har
               </p>
             </div>
-            <div className="p-6 overflow-hidden bg-secondary relative  relative  col-span-2 h-[200px]   space-y-4  rounded-xl  ">
+            <div className="p-6 overflow-hidden bg-secondary flex flex-col items-center text-center text-balance md:text-left md:items-start col-span-6   md:col-span-2 h-[200px]   space-y-4  rounded-xl  ">
 
-              <div className="w-10 relative h-10 z-10  rounded-full bg-primary flex items-center justify-center">
+              <div className="w-10 relative  h-10 z-10  rounded-full bg-primary flex items-center justify-center">
                 <Wifi className="w-5 h-5 text-primary-text" />
               </div>
               <h3 className="text-secondary-text relative font-heading z-10">Stabilt internett</h3>
@@ -178,7 +178,7 @@ export default function ESimInfoHero() {
               {/*   <span className="absolute z-0 -top-12 -left-8 bg-secondary h-34 w-34 rounded-full"></span> */}
             </div>
 
-            <div className="p-6  col-span-2 h-[200px] bg-secondary rounded-xl  space-y-4 ">
+            <div className="p-6  col-span-6 flex flex-col items-center text-center text-balance md:text-pretty md:text-left md:items-start   md:col-span-2 h-[200px] bg-secondary rounded-xl  space-y-4 ">
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
                 <CloudDownload className="w-5 h-5 text-primary-text" />
               </div>

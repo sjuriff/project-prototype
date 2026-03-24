@@ -1,12 +1,12 @@
 
-import { CreativeHero } from "@/components/creative-hero";
+import { CreativeHero } from "@/components/home/creative-hero";
 
 import ProductSection from "@/components/home/product-section";
 import Faq from "@/components/home/FAQ";
 import CompareCard from "@/components/home/compare-card";
 
-import ReversedHero from "@/components/reversed-hero";
-import HowItWorksSection from "@/components/how-it-works";
+import ReversedHero from "@/components/home/reversed-hero";
+import HowItWorksSection from "@/components/home/how-it-works";
 import { getPopularProducts } from "@/lib/shopify-storefront";
 import { getRegionProducts } from "@/lib/shopify-storefront";
 import { getAllProducts } from "@/lib/shopify-storefront";
@@ -14,7 +14,7 @@ import { getAllProducts } from "@/lib/shopify-storefront";
 
 import ImageHero from "@/components/home/image-hero";
 import heroImage from '@/public/images/beam-wide-hero_two.png'
-import ESimInfoHero from "@/components/esim-info-hero";
+import ESimInfoHero from "@/components/home/esim-info-hero";
 
 
 
@@ -29,7 +29,7 @@ export default async function Home() {
 
 
   return (
-    <main className="bg-surface  flex flex-col  2xl:gap-0">
+    <main className="bg-surface border   md:w-full overflow-hidden  flex flex-col  2xl:gap-0">
       <section className="w-full z-0 bg-gradient-to-b from-surface to-secondary relative fhd:px-38   flex items-center justify-center">
         {/*  <Hero /> */}
         <ImageHero popular={popularProducts} counrties={countries} imgData={heroImage} imgAlt="hero" title="Dekning over hele verden" />
@@ -64,7 +64,7 @@ export default async function Home() {
         <CompareCard />
       </section>
 
-      <section className="w-full relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
+      <section className="w-full   relative bg-surface 2xl:px-28 2xl:py-28   flex items-center justify-center">
         <CreativeHero />
       </section>
 
