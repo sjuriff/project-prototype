@@ -33,7 +33,7 @@ export default function HowItWorksSection() {
         </h2> */}
 
         <p
-          className="text-center text-lg text-primary-text max-w-2xl mx-auto mb-16"
+          className="text-center text-base md:text-lg text-primary-text max-w-2xl mx-auto mb-16"
           style={{
             fontFamily: 'var(--font-body)',
          
@@ -64,7 +64,7 @@ export default function HowItWorksSection() {
                 {step.title}
               </h3>
 
-              <p
+              <p className="text-base"
                 style={{
                   fontFamily: 'var(--font-body)',
                   color: 'var(--color-secondary-text)'

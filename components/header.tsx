@@ -7,7 +7,7 @@ import { useState } from "react";
 import { User, Briefcase, BriefcaseBusiness, Plane, Lightbulb, Shield, Handshake, HeartHandshake, Info } from "lucide-react";
 import DropInMenu from "./drop-in-menu";
 import BeamLogo from "./beam-logo";
-import { title } from "process";
+
 
 
 const menuItems = [
@@ -55,7 +55,7 @@ export default function Header() {
   //}  transition-top duration-300 ease-in-out
 
   return (
-    <div id="header-wrapper" className={`sticky z-50 transition-top duration-300 ease-in-out  ${scrollDirection === 'down' && !menuOpen ? '-top-20' : 'top-0'}`}>
+    <div id="header-wrapper" className={`sticky w-screen overflow-hidden md:w-full z-50 transition-top duration-300 ease-in-out  ${scrollDirection === 'down' && !menuOpen ? '-top-20' : 'top-0'}`}>
 
       <header
         id="header"
@@ -68,7 +68,7 @@ export default function Header() {
           <BeamLogo scrollDirection={scrollDirection} />
         </Link>
         <div className={"flex items-center relative gap-4"}>
-          <div className="flex gap-2 mr-4">
+          <div className=" gap-2 hidden md:flex mr-4">
             {/*  <PrimaryButton Icon={User}>Logg inn</PrimaryButton> */}
             <button className={` flex text-sm items-center group  border-[#ffffff]  text-primary px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
               <Handshake className="mr-2 group-hover:translate-y-[-2px] transition-transform" /> Partnerskap

@@ -75,12 +75,12 @@ export default function ProductSection({ popularProducts, regionProducts }: Prod
             <Earth className="w-8 h-8 text-primary-text" />
           </div> */}
           <div className=" relative">
-            <div className="bg-primary z-0 absolute -top-8 -right-8 h-16 w-16 flex items-center justify-center rounded-full">
-              <Earth className="w-8 h-8 text-primary-text" />
+            <div className="bg-primary z-0 absolute -top-7 md:-top-8 -right-5 md:-right-8 h-12 w-12 md:h-16 md:w-16 flex items-center justify-center rounded-full">
+              <Earth className="md:w-8 md:h-8 h-8 w-8 text-primary-text" />
             </div>
-            <h1 className="text-5xl relative font-heading z-10   text-primary-text [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Dekning over hele verden</h1>
+            <h1 className="md:text-5xl text-3xl relative text-center font-heading z-10   text-primary-text [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Dekning over hele verden</h1>
           </div>
-          <p className="text-xl font-body text-secondary-text">Velg din destinasjon</p>
+          <p className="text-lg md:text-xl font-body text-secondary-text">Velg din destinasjon</p>
         </div>
         <div className="">
           <div className="flex items-center justify-center">

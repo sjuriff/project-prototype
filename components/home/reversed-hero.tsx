@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Globe, Smartphone, Zap, Signal } from 'lucide-react';
 import heroImg from '@/public/images/beam-terminal.jpg';
-import PrimaryButton from './buttons/primary-button';
+import PrimaryButton from '@/components/buttons/primary-button';
 import paths from '@/paths';
 import Link from 'next/link';
 
@@ -38,7 +38,7 @@ export default function ReversedHero() {
             </div>
 
             {/* Feature Pills */}
-            <div className="grid grid-cols-3  -translate-x-8 text-tertiary-text gap-6 pt-8">
+            <div className="grid grid-cols-3   md:-translate-x-8 text-tertiary-text gap-6 pt-8">
               <div className="flex flex-col items-center text-center">
                 <Globe className="w-10 h-10 mb-2" />
                 <p className="text-sm [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">190+ land</p>
@@ -54,7 +54,7 @@ export default function ReversedHero() {
             </div>
 
             {/* CTA Button */}
-            <div className="flex items-center  ml-20 w-full">
+            <div className="flex items-center justify-center md:justify-start   md:ml-20 w-full">
               <div className="flex font-heading items-center flex-wrap gap-4 pt-4">
                 <PrimaryButton >
                   Kom i gang

@@ -41,7 +41,7 @@ export default function RootLayout({
   return (
     <html className={`${nunitoSans.variable} ${inter.variable} ${museoModerno.variable} bg-tertiary z-10  `} lang="en">
       <body
-        className={`overflow-x-hidden antialiased`}
+        className={`overflow-x-hidden  antialiased`}
       >
         <Header />
         {children}

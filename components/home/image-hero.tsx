@@ -110,32 +110,36 @@ export default function ImageHero(props: HeroProps) {
   }
 
   return (
-    <div className="relative h-[700px] 2xl:w-full 2xl:h-[750px] fhd:rounded-b-2xl  overflow-hidden w-full ">
+    <div className="relative w-full h-[600px] xl:min-h-[700px]  xl:h-[calc(100dvh-5rem)] xl:max-h-[950px] 2xl:w-full 2xl:h-[750px] fhd:rounded-b-2xl  overflow-hidden w-full ">
       <div className="absolute w-full h-full z-0">
         <Image
           src={props.imgData}
           alt={props.imgAlt}
           fill
-          className="-scale-x-100 object-top object-cover"
+          className="-scale-x-100 object-[25%_center]   md:object-top object-cover"
         />
       </div>
 
       {/* Text Card */}
       <div
         ref={textContainerRef}
-        className="lg:pt-28 lg:ml-28 xl:ml-16 xl:pt-12 2xl:pt-28 flex ml-16 z-50 -translate-x-[120%] w-1/2 justify-center items-center"
+        className="lg:pt-28 w-[90%] ml-0 pl-0 lg:ml-28 xl:ml-16 xl:pt-12 2xl:pt-28 flex  z-50 -translate-x-[120%] md:w-1/2  justify-center items-center"
       >
-        <div className="z-50 flex flex-col gap-4 px-12 pt-6 shadow-md pb-8 bg-surface-blue py-4 rounded-xl">
-          <h1 className="text-4xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] md:text-5xl lg:text-6xl xl:text-7xl font-heading text-balance text-primary-text">
-            Rimelig og trygg mobildata på reise
+        <div className="z-50 bg-transparent w-full flex flex-col gap-4 pl-2 md:px-12 pt-6 md:shadow-md pb-8 md:bg-surface-blue py-4 rounded-xl">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-balance text-primary-text  leading-tight">
+            <span className="bg-surface-blue  box-decoration-clone  md:[text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">
+              Rimelig og trygg mobildata på reise
+            </span>
           </h1>
 
-          <p className="text-lg md:text-xl font-body text-secondary-text">
-            Dropp dyre datapakker. Aktiver eSIM på 2 minutter. Raskt, enkelt & dekning i 190+ land.
+          <p className="text-md pr-10 md:pr-0  leading-tight md:leading-medium   md:text-xl text-balance md:text-pretty font-body text-primary-text md:text-secondary-text">
+            <span className="bg-surface-blue/50 w-full  px-1 md:px-0  md:bg-transparent box-decoration-clone md:box-decoration-slice  [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">
+              Dropp dyre datapakker. Aktiver eSIM på 2 minutter. Raskt, enkelt & dekning i 190+ land.
+            </span>
           </p>
 
           {/* Search Input + Dropdown */}
-          <div className="relative rounded-full group focus-within:ring-2 focus-within:ring-tertiary transition">
+          <div className="relative mr-4 md:mr-0  md:pr-0 rounded-full group  focus-within:ring-2 focus-within:ring-tertiary transition">
             <input
               type="text"
               value={query}
@@ -150,7 +154,7 @@ export default function ImageHero(props: HeroProps) {
               }}
               placeholder="Hvor skal du reise?"
               className="
-                w-full pl-12 pr-4 py-4
+                w-full pl-12  pr-4 py-4
                 rounded-full border-2 border-secondary-text
                 bg-surface-dim shadow-sm
                 text-secondary-text
@@ -187,10 +191,10 @@ export default function ImageHero(props: HeroProps) {
                       type="button"
                       onMouseDown={(e) => e.preventDefault()} // prevents blur before click
                       onClick={() => goToCountry(c.id, c.title)}
-                      className="w-full text-left px-4 py-3 hover:bg-surface-dim flex items-center justify-between"
+                      className="w-full relative text-left z-20 px-4 py-3 hover:bg-surface-dim flex items-center justify-between"
                     >
                       <span className="font-body text-primary-text">{c.title}</span>
-                      <div className=" w-8  flex items-center justify-center">
+                      <div className="  w-8 relative  flex items-center justify-center">
                         <Image className="object-cover " src={flagImageUrl} alt={c.title} width={32} height={32} />
                       </div>
 
@@ -202,7 +206,7 @@ export default function ImageHero(props: HeroProps) {
           </div>
 
           {/* Popular chips */}
-          <div className="gap-4 flex items-center justify-center w-full">
+          <div className="gap-4  flex flex-col md:flex-row items-start md:items-center justify-center w-full">
             {popularDestinations.map((destination) => (
               <button
                 key={destination.code}
@@ -210,7 +214,7 @@ export default function ImageHero(props: HeroProps) {
                 onClick={() => goToPopularCountry(destination.name)}
                 className="hover:cursor-pointer group flex items-center justify-center gap-2 duration-200 text-sm"
               >
-                <span className="text-xl bg-surface/80 group-hover:border-2 transition-all ease-in-out border-primary h-10 w-10 flex items-center justify-center rounded-full">
+                <span className="text-xl bg-surface/80 group-hover:border-2 transition-all ease-in-out border-primary w-9 h-9 md:h-10 md:w-10 flex items-center justify-center rounded-full">
                   {destination.flag}
                 </span>
                 <span>{destination.name}</span>
@@ -221,7 +225,7 @@ export default function ImageHero(props: HeroProps) {
       </div>
 
       {/* Vipps circle */}
-      <div className="absolute -bottom-32 -right-32 w-80 h-80 z-30">
+      <div className="absolute -bottom-32 -right-32 md:w-80 md:h-80 z-30">
         <div className="absolute top-20 left-22">
           <VippsPayIcon height={80} width={80} />
         </div>

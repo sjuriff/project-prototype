@@ -53,15 +53,15 @@ export default function CompareCard() {
 
 
   return (
-    <div ref={cointainerRef} className="max-h-screen  bg-surface-dim w-full flex items-center justify-center  md:py-12 lg:py-16">
+    <div ref={cointainerRef} className="max-h-screen  bg-surface-dim w-full py-10 flex items-center justify-center  md:py-12 lg:py-16">
       <div className="w-full ">
         {/* Header */}
-        <div className="text-center flex flex-col items-center gap-2 mb-8 md:mb-20">
+        <div className="text-center px-4 md:px-0 flex flex-col items-center gap-2 mb-8 md:mb-20">
           <div className='relative '>
-            <span className='bg-primary z-0 absolute w-16 h-16 -top-11 -right-8   flex items-center justify-center rounded-full  '>
+            <span className='bg-primary z-0 absolute h-12 w-12 md:w-16 md:h-16 -top-8 md:-top-11 -right-8   flex items-center justify-center rounded-full  '>
               <Star className="w-8 h-8 text-primary-text" />
             </span>
-            <h1 className="mb-4 z-10 relative  text-5xl font-heading text-primary-text [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Fordeler med eSIM</h1>
+            <h1 className="mb-4 z-10 relative text-3xl  md:text-5xl font-heading text-primary-text [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Fordeler med eSIM</h1>
           </div>
           <p className="text-primary-text max-w-xl mx-auto">
             Null stress, med eSIM kan du kjøpe og aktivere lokale datapakker før du reiser, slik at du er online når du lander.
@@ -72,9 +72,9 @@ export default function CompareCard() {
         <div className="w-full  xl:rounded-3xl bg-white overflow-hidden">
           <div className="flex flex-col gap-0 items-center ">
             {/* eSIM Column */}
-            <div className="p-10  md:p-12 lg:p-10">
+            <div className="p-10   md:p-12 lg:p-10">
 
-              <div className="flex items-center  gap-8 ">
+              <div className="flex  items-start md:flex-row flex-col md:items-center  gap-8 ">
                 {esimBenefits.map((benefit, index) => (
                   <div id={`benefit-${index}`} key={index} className="flex items-center justify-center gap-2">
                     <div className="w-5 h-5 rounded-full p-1 bg-[#f9f871] flex items-center justify-center  mt-0.5">
@@ -86,7 +86,7 @@ export default function CompareCard() {
               </div>
 
             </div>
-            <div className="flex  w-full mb-8 pl-12 items-center gap-2">
+            <div className="flex  w-full mb-8 px-4 md:px-0 md:pl-12 items-center gap-2">
               <div ref={dotOneRef} className="w-5 opacity-0 h-[10px] rounded-l-lg bg-primary"></div>
               <div ref={dotTwoRef} className="w-5 opacity-0  h-[10px] bg-primary"></div>
               <div ref={lineRef} className="w-full opacity-0 h-[10px] bg-gradient-to-l from-transparent via-primary to-primary"></div>

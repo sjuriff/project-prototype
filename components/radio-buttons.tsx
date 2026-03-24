@@ -62,12 +62,12 @@ export default function ProductSortBar({ sort, onSortChange }: SortSelectorProps
   //${sort === key ? "border-b-2 border-tertiary text-primary-text" : " hover:text-tertiary hover:cursor-pointer"}
 
   return (
-    <div className="inline-flex  overflow-hidden bg-surface  ">
+    <div className="inline-flex px-4 md:px-0  justify-center overflow-hidden bg-surface  ">
       {tabs.map(({ key, label }) => (
         <button
           key={key}
           onClick={() => onSortChange(key)}
-          className={`px-4 py-2 text-sm flex gap-1 flex-col ${sort === key ? "font-bold pointer-events-none" : "font-medium"} items-center justify-center  text-primary-text transition hover:text-tertiary hover:cursor-pointer
+          className={`md:px-4 px-2 py-2 text-sm flex gap-1 flex-col ${sort === key ? "font-bold pointer-events-none" : "font-medium"} items-center justify-center  text-primary-text transition hover:text-tertiary hover:cursor-pointer
             `}
         >
           {label}
@@ -97,7 +97,7 @@ export default function ProductSortBar({ sort, onSortChange }: SortSelectorProps
 
         </button>
       ))}
-      <Link href={"/produkter"} className={`px-4 py-2 text-sm flex gap-1 font-medium     text-primary-text transition hover:text-tertiary hover:cursor-pointer
+      <Link href={"/produkter"} className={`md:px-4 px-2 py-2 text-sm flex gap-1 font-medium     text-primary-text transition hover:text-tertiary hover:cursor-pointer
             `}>Alle denstinasjoner</Link>
     </div>
   );
