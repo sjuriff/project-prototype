@@ -10,7 +10,8 @@ import { useRouter } from "next/navigation";
 import esimData from "@/dummy-data/esim-products.json";
 import { usePersistedProduct } from "@/hooks/use-persisted-product";
 import { useCountrySearch } from "@/hooks/use-country-search";
-import { Product } from "@/types/shopify-product";
+import { Product } from "@/types/shopify-product"
+import heroImg from '@/public/images/beam-green.jpg';
 
 
 import VippsPayIcon from "@/components/vipps-pay-icon";
@@ -110,32 +111,37 @@ export default function ImageHero(props: HeroProps) {
   }
 
   return (
-    <div className="relative w-full h-[600px] xl:min-h-[700px]  xl:h-[calc(100dvh-5rem)] xl:max-h-[950px] 2xl:w-full 2xl:h-[750px] fhd:rounded-b-2xl  overflow-hidden w-full ">
-      <div className="absolute w-full h-full z-0">
+    <div className="relative w-full h-[600px] xl:min-h-[700px] bg-tertiary  xl:h-[calc(100dvh-5rem)] xl:max-h-[950px] 2xl:w-full 2xl:h-[750px] fhd:rounded-b-2xl overflow-hidden   w-full ">
+      <div className="absolute  left-0 right-0 bottom-0  h-[80%] w-full  md:h-full z-0">
         <Image
           src={props.imgData}
           alt={props.imgAlt}
           fill
-          className="-scale-x-100 object-[25%_center]   md:object-top object-cover"
+          className="-scale-x-100 object-[25%_center] hidden md:block   md:object-top object-cover"
+        />
+        <span className="bg-gradient-to-b from-tertiary to-tertiary/50 md:hidden w-full rounded-b-full h-[25%] absolute top-0 left-0 z-10"></span>
+
+        <Image
+          src={heroImg}
+          alt={props.imgAlt}
+          fill
+          priority
+          className="block md:hidden  object-cover"
         />
       </div>
 
       {/* Text Card */}
       <div
         ref={textContainerRef}
-        className="lg:pt-28 w-[90%] ml-0 pl-0 lg:ml-28 xl:ml-16 xl:pt-12 2xl:pt-28 flex  z-50 -translate-x-[120%] md:w-1/2  justify-center items-center"
+        className="lg:pt-28 z-30 relative w-full ml-0 pl-0 lg:ml-28 xl:ml-16 xl:pt-12 2xl:pt-28 flex    -translate-x-[120%] md:w-1/2  justify-center items-center"
       >
-        <div className="z-50 bg-transparent w-full flex flex-col gap-4 pl-2 md:px-12 pt-6 md:shadow-md pb-8 md:bg-surface-blue py-4 rounded-xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading text-balance text-primary-text  leading-tight">
-            <span className="bg-surface-blue  box-decoration-clone  md:[text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">
-              Rimelig og trygg mobildata på reise
-            </span>
+        <div className=" bg-transparent w-full flex flex-col gap-4 pl-2 md:px-12 pt-6 md:shadow-md pb-8 md:bg-surface-blue py-4 rounded-xl">
+          <h1 className="text-4xl text-center md:text-left md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] lg:text-6xl xl:text-7xl font-heading text-balance text-primary md:text-primary-text  leading-tight">
+            Rimelig og trygg mobildata på reise
           </h1>
 
-          <p className="text-md pr-10 md:pr-0  leading-tight md:leading-medium   md:text-xl text-balance md:text-pretty font-body text-primary-text md:text-secondary-text">
-            <span className="bg-surface-blue/50 w-full  px-1 md:px-0  md:bg-transparent box-decoration-clone md:box-decoration-slice  [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">
-              Dropp dyre datapakker. Aktiver eSIM på 2 minutter. Raskt, enkelt & dekning i 190+ land.
-            </span>
+          <p className="text-md  md:pr-0 text-center md:text-left  leading-tight md:leading-medium   md:text-xl text-balance md:text-pretty font-body text-secondary md:text-secondary-text">
+            Dropp dyre datapakker. Aktiver eSIM på 2 minutter. Raskt, enkelt & dekning i 190+ land.
           </p>
 
           {/* Search Input + Dropdown */}
@@ -181,7 +187,7 @@ export default function ImageHero(props: HeroProps) {
 
             {/* Dropdown */}
             {open && results.length > 0 && (
-              <div className="absolute z-50 mt-2 w-full overflow-hidden rounded-xl border border-secondary-text bg-white shadow-lg">
+              <div className="absolute  mt-2 w-full overflow-hidden rounded-xl border border-secondary-text bg-white shadow-lg">
                 {results.map((c) => {
                   const flagImageUrl = `https://flagcdn.com/w320/` + c.countryCode.toLowerCase() + `.png`
 
@@ -191,7 +197,7 @@ export default function ImageHero(props: HeroProps) {
                       type="button"
                       onMouseDown={(e) => e.preventDefault()} // prevents blur before click
                       onClick={() => goToCountry(c.id, c.title)}
-                      className="w-full relative text-left z-20 px-4 py-3 hover:bg-surface-dim flex items-center justify-between"
+                      className="w-full relative text-left z-50 px-4 py-3 hover:bg-surface-dim flex items-center justify-between"
                     >
                       <span className="font-body text-primary-text">{c.title}</span>
                       <div className="  w-8 relative  flex items-center justify-center">
@@ -212,12 +218,12 @@ export default function ImageHero(props: HeroProps) {
                 key={destination.code}
                 type="button"
                 onClick={() => goToPopularCountry(destination.name)}
-                className="hover:cursor-pointer group flex items-center justify-center gap-2 duration-200 text-sm"
+                className="hover:cursor-pointer group flex  md:flex-row items-center justify-center gap-2 duration-200 text-sm"
               >
-                <span className="text-xl bg-surface/80 group-hover:border-2 transition-all ease-in-out border-primary w-9 h-9 md:h-10 md:w-10 flex items-center justify-center rounded-full">
+                <span className="text-xl bg-primary/80 md:bg-surface/80 group-hover:border-2 transition-all ease-in-out border-primary w-9 h-9 md:h-10 md:w-10 flex items-center justify-center rounded-full">
                   {destination.flag}
                 </span>
-                <span>{destination.name}</span>
+                <span className="hidden md:block">{destination.name}</span>
               </button>
             ))}
           </div>
@@ -225,7 +231,7 @@ export default function ImageHero(props: HeroProps) {
       </div>
 
       {/* Vipps circle */}
-      <div className="absolute -bottom-32 -right-32 md:w-80 md:h-80 z-30">
+      <div className="absolute -bottom-32 -right-32 md:w-80 md:h-80 z-20">
         <div className="absolute top-20 left-22">
           <VippsPayIcon height={80} width={80} />
         </div>
