@@ -5,7 +5,7 @@ import PrimaryButton from '@/components/buttons/primary-button';
 
 export function CreativeHero() {
   return (
-    <section className="relative flex flex-col md:flex-row items-start min-h-screen w-full  xl:rounded-none 2xl:rounded-3xl  2xl:min-h-[50vh] overflow-hidden" style={{ backgroundColor: 'var(--color-secondary)' }}>
+    <section className="relative flex flex-col md:flex-row items-start min-h-screen w-full  xl:rounded-none 2xl:rounded-3xl  2xl:min-h-[50vh] " style={{ backgroundColor: 'var(--color-secondary)' }}>
       {/* Mobile image */}
       <div className="lg:hidden mt-4   px-6">
         <div className="rounded-3xl overflow-hidden">

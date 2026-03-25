@@ -55,11 +55,11 @@ export default function Header() {
   //}  transition-top duration-300 ease-in-out
 
   return (
-    <div id="header-wrapper" className={`sticky w-screen overflow-hidden md:w-full z-50 transition-top duration-300 ease-in-out  ${scrollDirection === 'down' && !menuOpen ? '-top-20' : 'top-0'}`}>
+    <div id="header-wrapper" className={`sticky w-screen overflow-hidden  md:w-full z-50 transition-top duration-300 ease-in-out  ${scrollDirection === 'down' && !menuOpen ? '-top-20' : 'top-0'}`}>
 
       <header
         id="header"
-        className={` bg-tertiary relative left-0   transition-top duration-300 ease-in-out z-[60]    flex h-20 w-full items-center justify-between  px-4 py-4 font-roboto  lg:h-20  `}
+        className={` bg-tertiary relative left-0   transition-top duration-300 ease-in-out z-50   flex h-20 w-full items-center justify-between  px-4 py-4 font-roboto  lg:h-20  `}
       >
         <Link
           href={'/'}

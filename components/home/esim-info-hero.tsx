@@ -96,11 +96,11 @@ export default function ESimInfoHero() {
 
   }, [iPhoneHovered, androidHovered])
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center px-6 py-16">
-      <div className="max-w-5xl w-full">
+    <div className="min-h-screen bg-background flex items-center justify-center md:px-6 py-16">
+      <div className="max-w-5xl  w-full">
         <div className="space-y-8">
           {/* Header Section */}
-          <div className=" space-y-8 text-center mb-16">
+          <div className=" space-y-8  px-6 md:px-0 text-center mb-16">
             <div className="  relative w-fit mx-auto " >
               <div className="absolute z-0 -top-8 md:-top-11 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
                 <Lightbulb className="h-6 w-6 md:w-8 md:h-8 z-0 text-secondary-foreground" />
@@ -109,7 +109,7 @@ export default function ESimInfoHero() {
                 Hva er eSIM?
               </h1>
             </div>
-            <p className="md:text-lg text-base text-primary-text font-body max-w-3xl mx-auto leading-relaxed">
+            <p className="md:text-lg text-base text-primary-text text-balance md:text-pretty font-body max-w-3xl mx-auto leading-relaxed">
               eSIM sørger for at du slipper høye roamingkostnader når du er på reise. Du vet hvor mye surfingen din vil koste allerede før du reiser. Et eSIM fungerer som et fysisk SIM-kort, bare digitalt. Det er forhåndsbetalt, krever ikke et eget abonnement og du får forutsigbare kostnader. Du kan ha både en eSIM og ditt vanlige SIM-kort på telefonen samtidig. Med Beam eSIM kan du kjøpe datapakker og spare penger mens du er på reise!
             </p>
           </div>
@@ -124,7 +124,7 @@ export default function ESimInfoHero() {
 
 
             {/* eSIM */}
-            <div className="p-8 relative col-span-12 bg-tertiary  flex flex-col items-center   rounded-2xl shadow-lg border border-tertiary space-y-4 relative overflow-hidden">
+            <div className="p-8 relative col-span-12 bg-tertiary  flex flex-col items-center   md:rounded-2xl shadow-lg md:border md:border-tertiary space-y-4 relative overflow-hidden">
               <div
                 className="absolute  top-0 right-0 w-64 h-64 rounded-full bg-primary/20 -translate-y-1/2 translate-x-1/2"
 
@@ -156,7 +156,7 @@ export default function ESimInfoHero() {
           </div>
 
           {/* Key Benefits */}
-          <div className="grid grid-cols-6  w-full mx-auto items-center justify-center gap-4">
+          <div className="grid grid-cols-6  px-8 md:px-0  w-full mx-auto items-center justify-center gap-4">
             <div className="p-6 col-span-6 flex flex-col items-center text-center text-balance md:text-left md:items-start    md:col-span-2 h-[200px] bg-card  space-y-4  rounded-xl bg-secondary">
               <div className="w-10 h-10 relative rounded-full  bg-primary flex items-center justify-center">
                 <Smartphone className="w-5 h-5 text-primary-text" />
