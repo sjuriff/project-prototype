@@ -1,4 +1,5 @@
 'use client'
+import { MobileProductCard } from "../mobile-product-card";
 import { ProductCard } from "@/components/product-card";
 import eSIMProducts from "@/dummy-data/esim-products.json";
 import { Earth } from "lucide-react";
@@ -7,6 +8,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Product } from "@/types/shopify-product";
+import useIsMobile from "@/hooks/is-mobile";
 
 
 
@@ -24,6 +26,7 @@ export default function ProductSection({ popularProducts, regionProducts }: Prod
   const [shownProducts, setShownProducts] = useState<Product[]>(popularProducts);
   const [sort, setSort] = useState("popular");
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
 
 
@@ -83,23 +86,38 @@ export default function ProductSection({ popularProducts, regionProducts }: Prod
           <p className="text-lg md:text-xl font-body text-secondary-text">Velg din destinasjon</p>
         </div>
         <div className="">
-          <div className="flex items-center justify-center">
+          <div className="flex items-center gap-2 text-nowrap w-full   justify-center">
             <SortSelector sort={sort} onSortChange={handleSortChange} />
           </div>
-          <div ref={containerRef} className="grid  py-8 mx-auto gap-10 grid-cols-12  justify-items-center  ">
+
+          <div ref={containerRef} className="grid gap-x-8  px-16 md:px-0  w-full  py-8 w-full gap-10 grid-cols-12  justify-items-center  ">
             {shownProducts.map((product) => (
-              <ProductCard
-                sort={sort}
-                id={product.id}
-                key={product.id}
-                imageUrl={product.imageUrl}
-                countryCode={product.countryCode}
-                title={product.title}
-                validity={product.tiers[0].validity}
-                tirers={product.tiers}
-              />
+              isMobile ? (
+                <MobileProductCard
+                  sort={sort}
+                  id={product.id}
+                  key={product.id}
+                  imageUrl={product.imageUrl}
+                  countryCode={product.countryCode}
+                  title={product.title}
+                  validity={product.tiers[0].validity}
+                  tiers={product.tiers}
+                />
+              ) : (
+                <ProductCard
+                  sort={sort}
+                  id={product.id}
+                  key={product.id}
+                  imageUrl={product.imageUrl}
+                  countryCode={product.countryCode}
+                  title={product.title}
+                  validity={product.tiers[0].validity}
+                  tirers={product.tiers}
+                />
+              )
             ))}
           </div>
+
         </div>
       </div>
     </section>

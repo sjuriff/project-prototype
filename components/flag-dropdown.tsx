@@ -49,7 +49,7 @@ export default function LanguageSelector({ scrollDirection, scrollTop }: { scrol
   const current = flags.find(x => x.code === selected)!
 
   return (
-    <div className="relative">
+    <div className="relative z-50">
       <button
         className="flex items-center gap-2 px-2 hover:cursor-pointer py-1 rounded group"
         onClick={() => setOpen(!open)}
@@ -63,12 +63,12 @@ export default function LanguageSelector({ scrollDirection, scrollTop }: { scrol
 
 
       <div ref={dropdownRef}
-        className="absolute translate-x-[250%]   right-0 mt-8 bg-surface-dim  rounded shadow-lg w-32"
+        className="absolute translate-x-[250%] z-50   right-0 mt-8 bg-surface-dim  rounded shadow-lg w-32"
       >
         {flags.map(f => (
           <button
             key={f.code}
-            className="flex items-center gap-2 w-full px-2 py-1 hover:bg-gray-100 text-left"
+            className="flex items-center z-50 gap-2 w-full px-2 py-1 hover:bg-gray-100 text-left"
             onClick={() => handleSelect(f.code)}
           >
             <span>{f.flag}</span>

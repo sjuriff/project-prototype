@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 import { usePersistedProduct } from '@/hooks/use-persisted-product';
 import { Tier } from '@/types/shopify-product';
 import { FaEarthAmericas, FaEarthEurope, FaEarthAsia, FaEarthAfrica, FaGlobe } from "react-icons/fa6"
-import { IconType } from 'react-icons';
+
 
 
 const regionCodeIcon = (countryCode: string): React.ReactNode => {
