@@ -73,13 +73,12 @@ export function MobileProductCard({
   validity,
   currency = "NOK",
 }: MobileProductCardProps) {
-  const [selectedTier, setSelectedTier] = useState<Tier>(tiers[1] ?? tiers[0]);
   const { persistProduct } = usePersistedProduct();
 
   const isRegion = sort === "region";
   const flagUrl = `https://borderly.dev/flag/circle/${countryCode.toLowerCase()}.svg`;
   const router = useRouter();
-    const countryOutlineImage: string = 'https://borderly.dev/country/' + countryCode.toLowerCase() + '.svg?fill=fffce6&stroke=fffce6&strokeWidth=1'
+  const countryOutlineImage: string = 'https://borderly.dev/country/' + countryCode.toLowerCase() + '.svg?fill=fffce6&stroke=fffce6&strokeWidth=1'
 
 
 
@@ -89,31 +88,31 @@ export function MobileProductCard({
       imageUrl,
       title,
       countryCode,
-      data: selectedTier.data,
+      data: tiers[0].data,
       validity,
-      price: selectedTier.price,
+      price: tiers[0].price,
       currency,
       tiers: tiers,
     });
 
-    router.push(paths.checkout("1"));
+    router.push(paths.product("1"));
   };
 
 
 
   return (
     <div onClick={handleBuyClick} className="product-card overflow-hidden relative shadow-lg rounded-2xl flex col-span-12 w-full h-28 items-start gap-2   bg-secondary p-3">
-      { !isRegion &&
-      <div className="absolute z-0  top-0  opacity-50   -right-28 h-full w-full  rounded-2xl ">
-      
-        <Image
-          src={countryOutlineImage}
-          alt={`${title} flag`}
-          className="h-10 w-10 shrink-0 rounded-full  object-cover" 
-          fill
-        />
-      </div>
-}
+      {!isRegion &&
+        <div className="absolute z-0  top-0  opacity-50   -right-28 h-full w-full  rounded-2xl ">
+
+          <Image
+            src={countryOutlineImage}
+            alt={`${title} flag`}
+            className="h-10 w-10 shrink-0 rounded-full  object-cover"
+            fill
+          />
+        </div>
+      }
       <div className="flex z-10 flex-col gap-4 min-w-0  flex w-full flex-col gap-1">
         <div className="flex gap-4 items-center">
           {isRegion ? (
@@ -130,19 +129,19 @@ export function MobileProductCard({
 
           {/* Info */}
 
-          <span className="truncate text-sm font-heading font-semibold text-product-card-value">
+          <span className="truncate text-lg font-heading font-semibold text-product-card-value">
             {title}
           </span>
         </div>
-        <div className="flex  items-center justify-center font-body gap-2 text-xs ">
-          <div className="w-1/2">
-            <CustomDropdown options={tiers} value={selectedTier.data} onChange={(value) => setSelectedTier(tiers.find((tier) => tier.data === value) || tiers[0])} placeholder={selectedTier.data} className='' />
-          </div>
+        <div className="flex justify-end text-right  font-body  ">
 
-          <span className="text-scondary-text">{selectedTier.validity}</span>
-          <span className="font-semibold ">
-            {Number(selectedTier.price)} kr
-          </span>
+
+          <p className=" text-base ">
+            fra {' '}
+            <span className="font-semibold">
+              {Number(tiers[0].price)} kr
+            </span>
+          </p>
         </div>
       </div>
 
