@@ -111,7 +111,7 @@ export default function ImageHero(props: HeroProps) {
   }
 
   return (
-    <div className="relative w-full h-[600px] xl:min-h-[700px] bg-tertiary  xl:h-[calc(100dvh-5rem)] xl:max-h-[950px] 2xl:w-full 2xl:h-[750px] fhd:rounded-b-2xl overflow-hidden   w-full ">
+    <div className="relative w-full h-[600px] xl:min-h-[700px] bg-tertiary  xl:h-[calc(100dvh-5rem)] xl:max-h-[950px] 2xl:w-full 2xl:h-[750px] fhd:rounded-b-2xl overflow-hidden z-0   w-full ">
       <div className="absolute  left-0 right-0 bottom-0  h-[80%] w-full  md:h-full z-0">
         <Image
           src={props.imgData}
@@ -119,7 +119,7 @@ export default function ImageHero(props: HeroProps) {
           fill
           className="-scale-x-100 object-[25%_center] hidden md:block   md:object-top object-cover"
         />
-        <span className="bg-gradient-to-b from-tertiary to-tertiary/50 md:hidden w-full rounded-b-full h-[25%] absolute top-0 left-0 z-10"></span>
+        <span className="bg-gradient-to-b from-tertiary to-tertiary/50 md:hidden w-full rounded-b-3xl   h-[28%] absolute top-0 left-0 z-10"></span>
 
         <Image
           src={heroImg}
@@ -133,14 +133,14 @@ export default function ImageHero(props: HeroProps) {
       {/* Text Card */}
       <div
         ref={textContainerRef}
-        className="lg:pt-28 z-30 relative w-full ml-0 pl-0 lg:ml-28 xl:ml-16 xl:pt-12 2xl:pt-28 flex    -translate-x-[120%] md:w-1/2  justify-center items-center"
+        className="lg:pt-28  z-30 relative w-full ml-0 pl-0 lg:ml-28 xl:ml-16 xl:pt-12 2xl:pt-28 flex    -translate-x-[120%] md:w-1/2  justify-center items-center"
       >
         <div className=" bg-transparent w-full flex flex-col gap-4 pl-2 md:px-12 pt-6 md:shadow-md pb-8 md:bg-surface-blue py-4 rounded-xl">
           <h1 className="text-4xl text-center md:text-left md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] lg:text-6xl xl:text-7xl font-heading text-balance text-primary md:text-primary-text  leading-tight">
             Rimelig og trygg mobildata på reise
           </h1>
 
-          <p className="text-md  md:pr-0 text-center md:text-left  leading-tight md:leading-medium   md:text-xl text-balance md:text-pretty font-body text-secondary md:text-secondary-text">
+          <p className="text-md  md:pr-0 text-center md:text-left  leading-tight md:leading-medium   md:text-xl text-balance md:text-pretty font-body text-tertiary-text md:text-secondary-text">
             Dropp dyre datapakker. Aktiver eSIM på 2 minutter. Raskt, enkelt & dekning i 190+ land.
           </p>
 
@@ -212,7 +212,7 @@ export default function ImageHero(props: HeroProps) {
           </div>
 
           {/* Popular chips */}
-          <div className="gap-4  flex flex-col md:flex-row items-start md:items-center justify-center w-full">
+          <div className="gap-4 hidden md:flex   flex-col md:flex-row items-start md:items-center justify-center w-full">
             {popularDestinations.map((destination) => (
               <button
                 key={destination.code}
@@ -231,9 +231,12 @@ export default function ImageHero(props: HeroProps) {
       </div>
 
       {/* Vipps circle */}
-      <div className="absolute -bottom-32 -right-32 md:w-80 md:h-80 z-20">
-        <div className="absolute top-20 left-22">
+      <div className="absolute -right-28 -bottom-28 md:-bottom-37 md:-right-32 w-60 h-60 md:w-80 md:h-80 z-10">
+        <div className="absolute hidden md:block top-20 left-22">
           <VippsPayIcon height={80} width={80} />
+        </div>
+        <div className="absolute  md:hidden top-15 left-16">
+          <VippsPayIcon height={60} width={60} />
         </div>
         <svg viewBox="0 0 200 200" className="w-full h-full">
           <circle cx="100" cy="100" r="100" className="fill-primary opacity-70" />

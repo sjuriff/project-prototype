@@ -45,16 +45,16 @@ export default function FilterHeader({
 
   return (
     <section className="bg-gradient-to-b z-10 max-h-[375px]  from-surface to-secondary px-6 relative pt-20 pb-10 ">
-      <div className="absolute top-8 left-8">
+      <div className="absolute top-4 md:top-8 left-2 md:left-8">
         <BackButton />
       </div>
       <div className="max-w-2xl  mx-auto text-center space-y-8">
         <div>
           <div className=" relative w-fit mx-auto">
-            <div className="bg-primary z-0 absolute -top-8 -right-8 h-16 w-16 flex items-center justify-center rounded-full">
-              <Earth className="w-8 h-8 text-primary-text" />
+            <div className="bg-primary z-0 absolute -top-6 md:-top-8 -right-8 h-12 w-12 md:h-16 md:w-16 flex items-center justify-center rounded-full">
+              <Earth className=" h-6 w-6 md:w-8 md:h-8 text-primary-text" />
             </div>
-            <h1 className="text-5xl relative font-heading z-10   text-primary-text [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Alle destinasjoner</h1>
+            <h1 className="text-3xl md:text-5xl relative font-heading z-10   text-primary-text [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Alle destinasjoner</h1>
           </div>
           <p className="text-secondary-text text-lg mt-2 font-price">
             {resultCount} destinasjon{resultCount !== 1 ? "er" : ""}
@@ -104,7 +104,7 @@ export default function FilterHeader({
         </div>
 
       </div>
-      <div className="flex pr-16 fhd:pr-48   w-full items-center mt-16 justify-end gap-2">
+      <div className="flex md:pr-16 fhd:pr-48   w-full items-center mt-8 md:mt-16 justify-center md:justify-end gap-2">
 
         <FilterDropdown label="Sorter" value={sort} onChange={onSortChange} options={SORT_OPTIONS} />
         <FilterDropdown label="Region" value={region} onChange={onRegionChange} options={REGIONS_OPTIONS} />

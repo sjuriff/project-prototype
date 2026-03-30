@@ -89,7 +89,7 @@ export function CustomDropdown({
   };
 
   return (
-    <div ref={dropdownRef} className={`relative w-full ${className}`}>
+    <div ref={dropdownRef} className={`relative  w-full ${className}`}>
       {/* Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}

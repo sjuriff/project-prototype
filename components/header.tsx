@@ -55,11 +55,11 @@ export default function Header() {
   //}  transition-top duration-300 ease-in-out
 
   return (
-    <div id="header-wrapper" className={`sticky w-screen overflow-hidden  md:w-full z-50 transition-top duration-300 ease-in-out  ${scrollDirection === 'down' && !menuOpen ? '-top-20' : 'top-0'}`}>
+    <div id="header-wrapper" className={`sticky w-full overflow-x-clip   md:w-full z-50 transition-top duration-300 ease-in-out  ${scrollDirection === 'down' && !menuOpen ? '-top-20' : 'top-0'}`}>
 
       <header
         id="header"
-        className={` bg-tertiary relative left-0   transition-top duration-300 ease-in-out z-50   flex h-20 w-full items-center justify-between  px-4 py-4 font-roboto  lg:h-20  `}
+        className={` bg-tertiary relative left-0    transition-top duration-300 ease-in-out z-50    flex h-20 w-full items-center justify-between  px-4 py-4 font-roboto  lg:h-20  `}
       >
         <Link
           href={'/'}
@@ -67,12 +67,12 @@ export default function Header() {
         >
           <BeamLogo scrollDirection={scrollDirection} />
         </Link>
-        <div className={"flex items-center relative gap-4"}>
+        <div className={"flex items-center z-50 relative gap-4"}>
           <div className=" gap-2 hidden md:flex mr-4">
             {/*  <PrimaryButton Icon={User}>Logg inn</PrimaryButton> */}
             <button className={` flex text-sm items-center group  border-[#ffffff]  text-primary px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
               <Handshake className="mr-2 group-hover:translate-y-[-2px] transition-transform" /> Partnerskap
-        
+
             </button>
             <button className={` flex text-sm items-center group  border-[#ffffff]  text-primary px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
               <BriefcaseBusiness className="mr-2 group-hover:translate-y-[-2px] transition-transform" /> Business
@@ -89,7 +89,7 @@ export default function Header() {
           </div>
           <LanguageSelector scrollTop={scrollTop} scrollDirection={scrollDirection} />
           <HeaderShoppingCart scrollDirection={scrollDirection} scrollTop={scrollTop} />
-          <div className="ml-8">
+          <div className="ml-8 overflow-hidden">
             <DropInMenu menuItems={menuItems} menuOpen={setMenuOpen} />
           </div>
 
