@@ -139,7 +139,7 @@ export default function DropInMenu({ menuOpen, menuItems }: DropInMenuProps) {
               <Link data-menu-item  href={'#'} className="px-4 md:hidden  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text"><Handshake className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" /> Partnerskap </Link>
                <Link data-menu-item  href={'#'} className="px-4 md:hidden  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text"><BriefcaseBusiness className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" /> Business </Link>
             {menuItems.map((item, index) => (
-              <Link data-menu-item key={index} href={item.href} className="px-4  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text">{<item.icon className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" />} {item.title} </Link>
+              <Link onClick={ () => setIsOpen(false)} data-menu-item key={index} href={item.href} className="px-4  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text">{<item.icon className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" />} {item.title} </Link>
             ))}
 
 
