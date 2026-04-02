@@ -43,7 +43,7 @@ const menuItems = [
   },
   {
     title: "Om oss",
-    href: "#",
+    href: "/about",
     icon: Info
   },
 ]
