@@ -10,7 +10,7 @@ interface CartItemHeaderProps {
   price: number;
   quantity: number;
   onUpdateQuantity: (id: string, quantity: number) => void;
-  onRemove: (id: string) => void;
+  onRemove: (id: string, data: string) => void;
 }
 
 export const REGION_CODES = [
@@ -43,7 +43,7 @@ export function CartItemHeader({
   return (
     <div className="flex border border-secondary w-full shadow py-4 px-2 rounded-lg relative items-start gap-4  border-b border-[#e5e7eb]">
       <button
-        onClick={() => onRemove(id)}
+        onClick={() => onRemove(id, data)}
         className="p-0 absolute top-1 right-1 hover:scale-105 text-tertiary-text hover:text-primary-text hover:bg-primary rounded-full transition-colors"
         aria-label="Remove item"
       >

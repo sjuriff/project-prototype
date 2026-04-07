@@ -10,7 +10,7 @@ interface CartItemProps {
   price: number;
   quantity: number;
   onUpdateQuantity: (id: string, quantity: number) => void;
-  onRemove: (id: string) => void;
+  onRemove: (id: string, data: string) => void;
 }
 
 export const REGION_CODES = [
@@ -46,7 +46,7 @@ export function CartItem({
   return (
     <div className="flex  bg-gradient-to-r from-primary/50 to-primary shadow  py-4 px-2 rounded-xl relative items-start gap-4 ">
       <button
-        onClick={() => onRemove(id)}
+        onClick={() => onRemove(id, data)}
         className="p-0 absolute top-1 right-1 hover:scale-105  hover:cursor-pointer  rounded-full transition-transfomr"
         aria-label="Remove item"
       >
