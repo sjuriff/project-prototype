@@ -18,19 +18,19 @@ export function useCart() {
 
 
   const loadCart = () => {
-    try{
+    try {
       const saved = localStorage.getItem("cart")
       setItems(saved ? JSON.parse(saved) : [])
     } catch { setItems(items) }
   }
- 
+
   // Load from localStorage once
   useEffect(() => {
     loadCart()
     setHydrated(true)
   }, [])
 
- useEffect(() => {
+  useEffect(() => {
     const handleCartUpdated = () => {
       loadCart()
     }
@@ -40,7 +40,7 @@ export function useCart() {
   }, [])
 
 
-   const persistCart = (nextItems: CartItemData[]) => {
+  const persistCart = (nextItems: CartItemData[]) => {
     setItems(nextItems)
     localStorage.setItem("cart", JSON.stringify(nextItems))
     window.dispatchEvent(new Event("cart-updated"))
@@ -48,7 +48,7 @@ export function useCart() {
 
   /** Add a new item (does NOT check duplicates) */
   const addItem = (item: CartItemData) => {
-    const existing = items.find(i => i.id === item.id)
+    const existing = items.find(i => i.id === item.id && i.data === item.data)
 
     if (existing) {
       persistCart(
@@ -66,11 +66,11 @@ export function useCart() {
 
   /** Remove item by id */
 
-  const removeItem = (id: string) => {
-    persistCart(items.filter(item => item.id !== id))
+  const removeItem = (id: string, data: string) => {
+    persistCart(items.filter(item => !(item.id === id && item.data === data)))
   }
   /** Update quantity for an item */
- const updateQuantity = (id: string, qty: number) => {
+  const updateQuantity = (id: string, qty: number) => {
     persistCart(
       items
         .map(item => (item.id === id ? { ...item, quantity: qty } : item))
@@ -79,7 +79,7 @@ export function useCart() {
   }
 
   /** Reset everything */
- const reset = () => {
+  const reset = () => {
     localStorage.removeItem("cart")
     setItems([])
     window.dispatchEvent(new Event("cart-updated"))
