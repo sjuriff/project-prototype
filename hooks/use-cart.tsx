@@ -16,60 +16,73 @@ export function useCart() {
   const [items, setItems] = useState<CartItemData[]>([])
   const [hydrated, setHydrated] = useState(false)
 
+
+  const loadCart = () => {
+    try{
+      const saved = localStorage.getItem("cart")
+      setItems(saved ? JSON.parse(saved) : [])
+    } catch { setItems(items) }
+  }
+ 
   // Load from localStorage once
   useEffect(() => {
-    const saved = localStorage.getItem("cart")
-    if (saved) {
-      try {
-        setItems(JSON.parse(saved))
-      } catch { }
-    }
+    loadCart()
     setHydrated(true)
   }, [])
 
-  // Persist on every update
-  useEffect(() => {
-    if (hydrated) {
-      localStorage.setItem("cart", JSON.stringify(items))
-      window.dispatchEvent(new Event("cart-updated"))
+ useEffect(() => {
+    const handleCartUpdated = () => {
+      loadCart()
     }
-  }, [items, hydrated])
+
+    window.addEventListener("cart-updated", handleCartUpdated)
+    return () => window.removeEventListener("cart-updated", handleCartUpdated)
+  }, [])
+
+
+   const persistCart = (nextItems: CartItemData[]) => {
+    setItems(nextItems)
+    localStorage.setItem("cart", JSON.stringify(nextItems))
+    window.dispatchEvent(new Event("cart-updated"))
+  }
 
   /** Add a new item (does NOT check duplicates) */
   const addItem = (item: CartItemData) => {
-    setItems(prev => {
-      const existing = prev.find(i => i.id === item.id)
+    const existing = items.find(i => i.id === item.id)
 
-      if (existing) {
-        return prev.map(i =>
+    if (existing) {
+      persistCart(
+        items.map(i =>
           i.id === item.id
             ? { ...i, quantity: i.quantity + item.quantity }
             : i
         )
-      }
+      )
+      return
+    }
 
-      return [...prev, item]
-    })
+    persistCart([...items, item])
   }
 
   /** Remove item by id */
-  const removeItem = (id: string) => {
-    setItems(prev => prev.filter(item => item.id !== id))
-  }
 
+  const removeItem = (id: string) => {
+    persistCart(items.filter(item => item.id !== id))
+  }
   /** Update quantity for an item */
-  const updateQuantity = (id: string, qty: number) => {
-    setItems(prev =>
-      prev.map(item =>
-        item.id === id ? { ...item, quantity: qty } : item
-      )
+ const updateQuantity = (id: string, qty: number) => {
+    persistCart(
+      items
+        .map(item => (item.id === id ? { ...item, quantity: qty } : item))
+        .filter(item => item.quantity > 0)
     )
   }
 
   /** Reset everything */
-  const reset = () => {
-    setItems([])
+ const reset = () => {
     localStorage.removeItem("cart")
+    setItems([])
+    window.dispatchEvent(new Event("cart-updated"))
   }
 
   return {

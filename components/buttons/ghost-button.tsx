@@ -1,8 +1,10 @@
 import { type ButtonHTMLAttributes } from "react";
 
-interface GhostButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+interface GhostButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  fullWidth?: boolean
+}
 
-export default function GhostButton({ className = "", type = "button", children, ...props }: GhostButtonProps) {
+export default function GhostButton({fullWidth, className = "", type = "button", children, ...props }: GhostButtonProps) {
   return (
     <button
       type={type}

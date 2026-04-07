@@ -1,13 +1,12 @@
 'use client'
 
-import PaymentForm from "@/components/payment-form";
-import { OrderSummary } from "@/components/order-summary";
-import CustomerForm from "@/components/customer-form";
+
+import { OrderSummary } from "@/components/check-out/order-summary";
+
 import BackButton from "@/components/buttons/back-button";
-import { CreditCard, ReceiptText } from "lucide-react";
+import {  ReceiptText } from "lucide-react";
 import { usePersistedProduct } from "@/hooks/use-persisted-product";
 import { useCart } from "@/hooks/use-cart";
-import PaymentMethods from "@/components/payment-methods";
 import PaymentSection from "@/components/payment-section";
 
 //TODO! Sjekk ut forskjell på UI fra forskjellige land etter implementasjon av flag-api, pågrunn av lengde på navn, må håndteres
@@ -19,22 +18,19 @@ interface CheckoutPageProps {
 //Needs to be an asycn function when we fetch real data
 export default function CheckoutPage({ params }: CheckoutPageProps) {
 
-  const { getProduct, clearProduct } = usePersistedProduct()
+
 
   const { items } = useCart()
 
   const cartItems = items
 
 
-  const product = getProduct()
+ 
 
 
 
 
-  if (!product) {
-    console.error("Product not found");
-
-  }
+  
   return (
     <main className="bg-surface  flex items-center justify-center  flex flex-col  ">
       <section className="w-full relative  bg-surface  min-h-screen flex items-center justify-center">
@@ -61,7 +57,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
 
             {/* Right Column - Order Summary */}
             <div className="lg:col-span-1">
-              <OrderSummary products={items.length > 0 ? cartItems : [product!]} />
+              <OrderSummary products={ cartItems} />
             </div>
           </div>
         </div>

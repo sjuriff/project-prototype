@@ -13,6 +13,7 @@ import { usePersistedProduct } from '@/hooks/use-persisted-product';
 import { Tier } from '@/types/shopify-product';
 import { FaEarthAmericas, FaEarthEurope, FaEarthAsia, FaEarthAfrica, FaGlobe } from "react-icons/fa6"
 import GhostButton from './buttons/ghost-button';
+import { useCart } from '@/hooks/use-cart';
 
 
 
@@ -74,18 +75,18 @@ export function ProductCard({
 
   const router = useRouter();
 
+  const { addItem } = useCart();
+
   const handleBuyClick = () => {
-    persistProduct({
-      id,
-      imageUrl,
-      title,
-      countryCode,
+    addItem({
+      id: id,
+      title: title,
       data: selectedTier.data,
-      validity,
+      countryCode: countryCode,
+      validity: selectedTier.validity,
       price: selectedTier.price,
-      currency,
-      tiers: tirers,
-    });
+      quantity: 1,
+    })
 
     router.push(paths.checkout("1"));
   };
@@ -96,15 +97,13 @@ export function ProductCard({
       imageUrl,
       title,
       data: selectedTier.data,
-      validity,
+      validity: selectedTier.validity,
       countryCode,
       price: selectedTier.price,
       currency,
       tiers: tirers,
     });
-
     router.push(paths.product("1"));
-
   }
 
 
@@ -127,7 +126,6 @@ export function ProductCard({
             <div className='absolute left-2 top-2 h-6 w-6 shadow-lg rounded-full   overflow-hidden '>
               <Image width={500} height={500} src={flagImage} alt="primary line" className='w-full  h-full object-center object-contain' />
             </div>
-
           }
 
           {isRegion ? (
@@ -157,13 +155,6 @@ export function ProductCard({
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
       {/* Product Details Section */}
       <div className="p-6 relative z-0 w-full   pt-6">
 
