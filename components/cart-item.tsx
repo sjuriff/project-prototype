@@ -42,73 +42,67 @@ export function CartItem({
 
   console.log('countryCode', countryCode)
 
-  const flagImageUrl = 'https://flagcdn.com/w320/' + countryCode.toLowerCase() + '.png'
+  const flagImageUrl = 'https://borderly.dev/flag/circle/' + countryCode.toLowerCase() + '.svg'
   return (
-    <div className="flex items-start gap-4 py-6 border-b border-[#e5e7eb]">
-      <div className="flex items-center justify-center w-16 h-16 bg-[var(--color-secondary)] rounded-lg flex-shrink-0">
+    <div className="flex  bg-gradient-to-r from-primary/50 to-primary shadow  py-4 px-2 rounded-xl relative items-start gap-4 ">
+      <button
+        onClick={() => onRemove(id)}
+        className="p-0 absolute top-1 right-1 hover:scale-105  hover:cursor-pointer  rounded-full transition-transfomr"
+        aria-label="Remove item"
+      >
+        <X className="w-5 h-5 text-primary-text"  />
+      </button>
+      <div className="flex   items-center justify-center   rounded-lg ">
         {isRegion(countryCode) ? (
-          <Globe className="w-8 h-8 text-secondary-text" />
+          <Globe className="w-8 h-8 text-primary-text" />
         ) : (
           <div className="w-12 h-12 flex items-center justify-center">
 
-            <Image src={flagImageUrl} width={100} height={100} alt={countryCode} className="object-cover w-full" />
+            <Image src={flagImageUrl} width={100} height={100} alt={countryCode} className="object-contain w-full" />
           </div>
         )
         }
       </div>
-      <div className="flex-1 min-w-0">
+      <div className="flex-1">
         <h3 className="mb-1" style={{ color: 'var(--color-primary-text)' }}>
           {title}
         </h3>
-        <div className="flex gap-3 mb-2">
-          <span className="inline-flex items-center px-2 py-0.5 rounded-md" style={{
-            backgroundColor: 'var(--color-surface-dim)',
-            color: 'var(--color-secondary-text)',
-            fontSize: '0.875rem'
-          }}>
+        <div className="flex gap-3  font-body text-sm mb-2">
+          <span className="inline-flex items-center  py-0.5 rounded-md text-sm">
             {data}
           </span>
-          <span className="inline-flex items-center px-2 py-0.5 rounded-md" style={{
-            backgroundColor: 'var(--color-surface-dim)',
-            color: 'var(--color-secondary-text)',
-            fontSize: '0.875rem'
-          }}>
+          <span className="inline-flex items-center  py-0.5 rounded-md" >
             {validity}
           </span>
         </div>
         <p style={{ color: 'var(--color-primary-text)', fontSize: '1.125rem' }}>
-          {price.toFixed(2)}
+          {price.toFixed(0)} kr
         </p>
       </div>
 
-      <div className="flex items-center gap-3">
-        <div className="flex items-center gap-2 border rounded-lg px-1 py-1" style={{ borderColor: '#e5e7eb' }}>
+      <div className="flex flex-col my-auto  h-full justify-center  items-center gap-3">
+
+        <div className="flex items-center gap-2 border border-primary-text/50 rounded-full px-1 py-1" >
           <button
             onClick={() => onUpdateQuantity(id, Math.max(1, quantity - 1))}
-            className="p-1.5 hover:bg-[var(--color-surface)] rounded transition-colors"
+            className="p-1.5  hover:cursor-pointer hover:scale-105 rounded transition-transform"
             aria-label="Decrease quantity"
           >
-            <Minus className="w-4 h-4" style={{ color: 'var(--color-secondary-text)' }} />
+            <Minus className="w-4 h-4 text-secondary-text" />
           </button>
-          <span className="w-8 text-center" style={{ color: 'var(--color-primary-text)' }}>
+          <span className="w-8 text-center text-primary-text" >
             {quantity}
           </span>
           <button
             onClick={() => onUpdateQuantity(id, quantity + 1)}
-            className="p-1.5 hover:bg-[var(--color-surface)] rounded transition-colors"
+            className="p-1.5  hover:cursor-pointer hover:scale-105 rounded transition-transform"
             aria-label="Increase quantity"
           >
-            <Plus className="w-4 h-4" style={{ color: 'var(--color-secondary-text)' }} />
+            <Plus className="w-4 h-4 text-secondary-text"  />
           </button>
         </div>
 
-        <button
-          onClick={() => onRemove(id)}
-          className="p-2 hover:bg-[var(--color-surface)] rounded-lg transition-colors"
-          aria-label="Remove item"
-        >
-          <X className="w-5 h-5" style={{ color: 'var(--color-secondary-text)' }} />
-        </button>
+
       </div>
     </div>
   );

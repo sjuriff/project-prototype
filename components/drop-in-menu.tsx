@@ -17,9 +17,10 @@ interface MenuItem {
 interface DropInMenuProps {
   menuOpen: (isOpen: boolean) => void
   menuItems: MenuItem[]
+  open?: boolean
 }
 
-export default function DropInMenu({ menuOpen, menuItems }: DropInMenuProps) {
+export default function DropInMenu({ menuOpen, menuItems, open }: DropInMenuProps) {
   const [isOpen, setIsOpen] = useState(false)
   const arrowRef = useRef<HTMLDivElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
@@ -38,6 +39,14 @@ export default function DropInMenu({ menuOpen, menuItems }: DropInMenuProps) {
   useEffect(() => {
     menuOpen(isOpen)
   }, [isOpen])
+
+
+  useEffect(() => {
+    if (!open) {
+      setIsOpen(false)
+
+    }
+  }, [open])
 
   const handleMenuClick = useCallback(() => {
     setIsOpen(prev => !prev)
@@ -65,7 +74,7 @@ export default function DropInMenu({ menuOpen, menuItems }: DropInMenuProps) {
             duration: 0.3,
             ease: "power4.out",
             pointerEvents: "auto",
-          }, 0 )
+          }, 0)
 
           .to(arrowRef.current, {
             rotate: 180,
@@ -134,12 +143,12 @@ export default function DropInMenu({ menuOpen, menuItems }: DropInMenuProps) {
 
 
           <div ref={menuRef} className={`absolute mt-8 md:mt-0 md:fixed w-screen  top-0  right-0 h-screen md:w-80 translate-x-[100%] pointer-events-none z-40 md:z-40 flex flex-col items-start justify-center pb-24 bg-tertiary `}>
-             <Link data-menu-item  href={'#'} className="px-4 md:hidden  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text"><User className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" /> Logg inn </Link>
-             <Link data-menu-item  href={'#'} className="px-4 md:hidden  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text"><UserPlus className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" /> Registrer deg </Link>
-              <Link data-menu-item  href={'#'} className="px-4 md:hidden  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text"><Handshake className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" /> Partnerskap </Link>
-               <Link data-menu-item  href={'#'} className="px-4 md:hidden  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text"><BriefcaseBusiness className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" /> Business </Link>
+            <Link data-menu-item href={'#'} className="px-4 md:hidden  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text"><User className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" /> Logg inn </Link>
+            <Link data-menu-item href={'#'} className="px-4 md:hidden  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text"><UserPlus className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" /> Registrer deg </Link>
+            <Link data-menu-item href={'#'} className="px-4 md:hidden  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text"><Handshake className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" /> Partnerskap </Link>
+            <Link data-menu-item href={'#'} className="px-4 md:hidden  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text"><BriefcaseBusiness className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" /> Business </Link>
             {menuItems.map((item, index) => (
-              <Link onClick={ () => setIsOpen(false)} data-menu-item key={index} href={item.href} className="px-4  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text">{<item.icon className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" />} {item.title} </Link>
+              <Link onClick={() => setIsOpen(false)} data-menu-item key={index} href={item.href} className="px-4  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text">{<item.icon className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" />} {item.title} </Link>
             ))}
 
 

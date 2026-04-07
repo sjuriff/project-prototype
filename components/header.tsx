@@ -88,9 +88,9 @@ export default function Header() {
 
           </div>
           <LanguageSelector scrollTop={scrollTop} scrollDirection={scrollDirection} />
-          <HeaderShoppingCart scrollDirection={scrollDirection} scrollTop={scrollTop} />
+          <HeaderShoppingCart mainMenuOpen={menuOpen} setMenuOpen={setMenuOpen}  />
           <div className="ml-8 overflow-hidden">
-            <DropInMenu menuItems={menuItems} menuOpen={setMenuOpen} />
+            <DropInMenu open={menuOpen} menuItems={menuItems} menuOpen={setMenuOpen} />
           </div>
 
 

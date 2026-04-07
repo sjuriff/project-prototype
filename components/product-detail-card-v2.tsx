@@ -13,6 +13,7 @@ import { useGSAP } from "@gsap/react";
 
 import { usePersistedProduct } from '@/hooks/use-persisted-product';
 import { Tier } from '@/types/product';
+import GhostButton from './buttons/ghost-button';
 
 /**         backgroundColor: '#d6cfc3', // warm paper
                   backgroundImage: "url('/images/polaroid-paper.jpg')", // repeating grain
@@ -112,16 +113,15 @@ export default function ProductDetailV2({
   }
 
   const handleBuyClick = () => {
-    persistProduct({
+    addItem({
       id,
-      imageUrl: image,
       title,
       countryCode,
       data: tier.data,
       validity: tier.validity,
       price: tier.price,
-      currency: "NOK",
-      tiers: tiers,
+      quantity: 1
+
     });
 
     router.push(paths.checkout("1"));
@@ -272,7 +272,7 @@ export default function ProductDetailV2({
 
               <div className='grid grid-cols-12 mb-8 shadow-md gap-y-6 gap-x-4 py-4 px-8 bg-surface  rounded-lg'>
                 {tiers.map((item) => (
-                <div className=' col-span-12  md:col-span-6 flex flex-col items-start md:items-center justify-center bg-surface px-2 rounded '>
+                  <div className=' col-span-12  md:col-span-6 flex flex-col items-start md:items-center justify-center bg-surface px-2 rounded '>
                     <div onClick={() => handleTierClick(item)} key={item.data} className={` ${item.price === tier.price ? '' : ''} flex relative  hover:cursor-pointer bg-surface  px-4 py-2    items-center justify-center gap-3 `}>
                       {item.popular && <span className={`absolute -top-3 -right-4 ${item.price === tier.price ? 'bg-primary' : 'bg-light-yellow'} text-xs  rounded-full px-1 py-1 font-body text-primary-text `} >Populær</span>}
                       <div className={`mt-1 p-2 rounded-full ${item.price === tier.price ? 'bg-primary text-primary-text' : ' bg-transparent text-primary-text '} `} >
@@ -329,9 +329,11 @@ export default function ProductDetailV2({
                   </PrimaryButton>
                 </div>
                 {/*  </Link> */}
-                <button onClick={() => handleAddToCartClick(id, title, countryCode)} className="w-full font-heading py-3 px-6 border-2 border-tertiary text-secondary-text hover:cursor-pointer  rounded-lg transition-transform duration-300 hover:scale-102"   >
-                  Legg til handlekurv
-                </button>
+              {/*   <div className='w-full flex items-center justify-center'>
+                  <GhostButton className='w-full'  >
+                    Legg til i handlekurv
+                  </GhostButton>
+                </div> */}
               </div>
               <div className="mt-6 md:p-4  " >
                 <p className='text-primary-text text-sm md:text-base font-body' >

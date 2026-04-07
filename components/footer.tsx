@@ -7,28 +7,28 @@ const footerLinks = [
   {
     title: "Info",
     links: [
-      { href: "#", label: "Link 1" },
-      { href: "#", label: "Link 2" },
-      { href: "#", label: "Link 3" },
+      { href: "/info", label: "Hva er eSIM?" },
+      { href: "#", label: "Kom i gang med eSIM" },
+      { href: "#", label: "VPN" },
     ],
   },
 
 
   {
-    title: "Produkter",
+    title: "eSIM",
     links: [
-      { href: "#", label: "Link 1" },
-      { href: "#", label: "Link 2" },
-      { href: "#", label: "Link 3" },
+      { href: "/produkter", label: "Kjøp eSIM" },
+      { href: "#", label: "Bedrift" },
+      { href: "#", label: "Bli Partner" },
     ],
   },
 
   {
-    title: "Kontakt",
+    title: "beam",
     links: [
-      { href: "#", label: "Link 1" },
-      { href: "#", label: "Link 2" },
-      { href: "#", label: "Link 3" },
+      { href: "/about", label: "Om oss" },
+      { href: "#", label: "Kontakt" },
+      { href: "/support", label: "Support" },
     ],
   },
 
@@ -54,7 +54,7 @@ export default function Footer() {
               <BeamFooterLogo />
             </div>
             <p className="max-w-sm text-sm text-pretty font-body leading-relaxed">
-              Noe tekst om beam hvis vi vil ha
+              Rimelig og trygg mobildata på reise
             </p>
 
             {/* Social Icons */}
