@@ -1,16 +1,16 @@
 @import 'tailwindcss';
 
-/* Design Tokens for Tailwind v4 #5346d6; #3ee7f4 */
+/* Design Tokens for Tailwind v4 Tertiary:#5346d6; Secondary:#dae2ff surface: #f8fafc text-secondary: #2f4578   */
 @theme {
   /* colors */
   /*Main colors*/
   --color-primary: #f9f871;
-  --color-secondary: #dae2ff;
-  --color-tertiary: #5346d6;
+  --color-secondary: #DDF6F2;
+  --color-tertiary: #0e8c7c;
 
   /*Text colors*/
   --color-primary-text: #1d1d1d;
-  --color-secondary-text: #2f4578;
+  --color-secondary-text: #24524B;
   --color-tertiary-text: #ffffff;
 
   /*Header colors*/
