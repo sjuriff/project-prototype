@@ -23,28 +23,33 @@
   /* colors */
   /*Main colors*/
   --color-primary: #f9f871;
-  --color-secondary: #E6EEF6;
-  --color-tertiary: #2F5D8C;
+  --color-secondary: #d6e9fb;
+  --color-tertiary: #2f5d8c;
 
   /*Text colors*/
   --color-primary-text: #1d1d1d;
-  --color-secondary-text: #2f4578;
+  --color-secondary-text: #243a5e;
   --color-tertiary-text: #ffffff;
+  --color-secondary-muted: #4a6a8a;
+  --color-tertiary-muted: #c7d6e6;
+  --color-text-default: #1f2937;
 
   /*Header colors*/
-  --color-primary-heading: #f3e44c;
-  --color-secondary-heading: #7aa8ff;
-  --color-tertiary-heading: #006977;
+  --color-primary-heading: #e6db4a; /* slightly toned yellow */
+  --color-secondary-heading: #5c84b2; /* derived from tertiary */
+  --color-tertiary-heading: #254a70; /* darker version of tertiary */
 
   /*Surface and container colors*/
   --color-surface: #f8fafc;
-  --color-surface-dim: #f7f9fc;
+  --color-surface-dim: #f1f5f9;
   --color-surface-dark: #e2e8f0;
-  --color-surface-accent: #eef0ff;
-  --color-surface-cold: #eef4ff;
-  --color-light-yellow: #fffce6;
-  --color-surface-light: #f2f6ff;
-  --color-surface-blue: #e8ecff;
+  --color-surface-accent: #EDF4FD;
+--color-surface-cold: #EAF3FB;
+--color-surface-light: #E6F0FA;
+--color-surface-blue: #DCEBFA;
+
+--color-light-yellow: #FFF9CC;
+
 
   --color-old-teal: #008093 --color-test: #5b3fdc;
 
