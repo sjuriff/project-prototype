@@ -1,16 +1,34 @@
 @import 'tailwindcss';
 
 /* Design Tokens for Tailwind v4 Tertiary:#5346d6; Secondary:#dae2ff surface: #f8fafc text-secondary: #2f4578   */
+
+/*First change test:
+ --color-primary: #f9f871;
+  --color-secondary: #DDF6F2;
+  --color-tertiary: #0e8c7c;
+
+
+  --color-primary-text: #1d1d1d;
+  --color-secondary-text: #24524B;
+  --color-tertiary-text: #ffffff;
+
+
+  --color-primary-heading: #f3e44c;
+  --color-secondary-heading: #7aa8ff;
+  --color-tertiary-heading: #006977;
+
+
+  --color-surface: #f8fafc; */
 @theme {
   /* colors */
   /*Main colors*/
   --color-primary: #f9f871;
-  --color-secondary: #DDF6F2;
-  --color-tertiary: #0e8c7c;
+  --color-secondary: #E6EEF6;
+  --color-tertiary: #2F5D8C;
 
   /*Text colors*/
   --color-primary-text: #1d1d1d;
-  --color-secondary-text: #24524B;
+  --color-secondary-text: #2f4578;
   --color-tertiary-text: #ffffff;
 
   /*Header colors*/
