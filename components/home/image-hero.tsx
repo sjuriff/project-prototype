@@ -64,7 +64,7 @@ export default function ImageHero(props: HeroProps) {
     gsap.fromTo(
       textContainerRef.current,
       { x: "-120%" },
-      { x: 0, duration: 0.5, ease: "back.out(1.1)" }
+      { x: 0, duration: 0.5, ease: "power4.out" }
     );
   }, []);
 
@@ -133,9 +133,9 @@ export default function ImageHero(props: HeroProps) {
       {/* Text Card */}
       <div
         ref={textContainerRef}
-        className="lg:pt-28  z-30 relative w-full ml-0 pl-0 lg:ml-28 xl:ml-16 xl:pt-12 2xl:pt-28 flex    -translate-x-[120%] md:w-1/2  justify-center items-center"
+        className="lg:pt-0  z-30 relative w-full ml-0 pl-0 lg:ml-0 xl:ml-0 xl:pt-0 2xl:pt-28 flex    -translate-x-[120%] md:w-1/2 md:h-full  justify-center items-center"
       >
-        <div className=" bg-transparent w-full flex flex-col gap-4 pl-2 md:px-12 pt-6 md:shadow-md pb-8 md:bg-secondary py-4 rounded-xl">
+        <div className=" bg-transparent w-full md:h-full  justify-center flex flex-col gap-4 pl-2 md:px-12 pt-6 md:shadow-md pb-8 md:bg-secondary/90 py-4 md:rounded-none rounded-xl">
           <h1 className="text-4xl text-center md:text-left md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] lg:text-6xl xl:text-7xl font-heading text-balance text-primary md:text-primary-text  leading-tight">
             Rimelig og trygg mobildata på reise
           </h1>

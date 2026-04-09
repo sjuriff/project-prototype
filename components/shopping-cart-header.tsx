@@ -90,10 +90,10 @@ export default function HeaderShoppingCart({mainMenuOpen, setMenuOpen }: Shoppin
     <div className="flex  items-center hover:cursor-pointer relative justify-center">
       <div ref={buttonRef} className="h-6" onClick={handleCartClick}>
         <button className="hover:cursor-pointer ">
-          <ShoppingCart className={`h-6 w-6   text-tertiary-text`} />
+          <ShoppingCart className={`h-6 w-6   text-primary`} />
         </button>
         {count > 0 && (
-          <span className="absolute -top-2 -right-2 flex items-center justify-center w-5 h-5 text-xs font-semibold text-primary-text bg-primary rounded-full">
+          <span className="absolute -top-2 -right-2 flex items-center justify-center w-5 h-5 text-xs font-semibold text-primary-text bg-secondary rounded-full">
             {count}
           </span>
         )}

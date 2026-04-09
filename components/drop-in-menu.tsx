@@ -124,7 +124,7 @@ export default function DropInMenu({ menuOpen, menuItems, open }: DropInMenuProp
 
   return (
     <div className="">
-      <button onClick={handleMenuClick} className={`flex group gap-1 text-tertiary-text  hover:cursor-pointer items-center justify-center`}>
+      <button onClick={handleMenuClick} className={`flex group gap-1 text-primary  hover:cursor-pointer items-center justify-center`}>
         <Menu className="h-6 w-6 " />
         <div ref={arrowRef}>
           <ChevronDown className="h-4 w-4 group-hover:-translate-y-[-2px] transition-transform " />
