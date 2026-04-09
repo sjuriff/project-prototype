@@ -4,6 +4,7 @@ const paths = {
   home: "/",
   support: "/support",
   info: "/info",
+  produkter: "/produkter",
   product(id: string){
     return `/product/${id}`
   },

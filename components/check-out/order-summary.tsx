@@ -153,7 +153,7 @@ export function OrderSummary({ }: OrderSummaryProps) {
       </div> */}
 
       {/* Total */}
-      <div className="pt-6 border-t border-gray-100">
+      <div className="pt-6 ">
         <div className="flex justify-between items-center mb-6">
           <span className="font-heading text-primary-text">Total</span>
           <span className="font-heading text-primary-text">{subtotal} kr</span>
@@ -161,7 +161,7 @@ export function OrderSummary({ }: OrderSummaryProps) {
       </div>
 
       {/* Trust Indicators */}
-      <div className="mt-6 pt-6 border-t border-gray-100">
+      <div className="mt-6 pt-6 border-t border-primary-text">
         <p className="text-xs text-primary-text text-center">
           Sikker checkout · Din data er beskyttet
         </p>

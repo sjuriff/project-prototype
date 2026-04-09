@@ -44,7 +44,7 @@ export function CartItem({
 
   const flagImageUrl = 'https://borderly.dev/flag/circle/' + countryCode.toLowerCase() + '.svg'
   return (
-    <div className="flex  bg-gradient-to-r from-primary/50 to-primary shadow  py-4 px-2 rounded-xl relative items-start gap-4 ">
+    <div className="flex bg-extra-light-yellow   shadow  py-4 px-2 rounded-xl relative items-start gap-4 ">
       <button
         onClick={() => onRemove(id, data)}
         className="p-0 absolute top-1 right-1 hover:scale-105  hover:cursor-pointer  rounded-full transition-transfomr"

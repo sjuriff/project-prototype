@@ -33,24 +33,24 @@ const troubleshootingGuides = [
 
 export default function TroubleShootingSection() {
   return (
-    <div className="bg-[#f8fafc] py-16 px-6">
+    <div className="bg-surface py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <div className='relative mx-auto w-fit mb-12'>
-          <div className="absolute z-0 -top-8 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
-            <SearchX className="w-8 h-8 z-0 text-secondary-foreground" />
+          <div className="absolute z-0 -top-6 md:-top-8 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
+            <SearchX className="md:w-8 w-6 h-6 md:h-8 z-0 text-secondary-foreground" />
           </div>
-          <h2 className="text-center relative z-10 text-5xl font-heading [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]   text-primary-text">Feilsøking</h2>
+          <h2 className="text-center relative z-10 text-4xl md:text-5xl font-heading [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]   text-primary-text">Feilsøking</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {troubleshootingGuides.map((guide, index) => (
             <div key={index} className="bg-white p-8 rounded-lg border border-[#e5e7eb]">
-              <h3 className="mb-6 text-[#1d1d1d]">{guide.title}</h3>
+              <h3 className="mb-6 text-primary-text">{guide.title}</h3>
               <ul className="space-y-4">
                 {guide.steps.map((step, stepIndex) => (
                   <li key={stepIndex} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-tertiary flex-shrink-0 mt-0.5" />
-                    <span className="text-[#4a4a4a] leading-relaxed">{step}</span>
+                    <span className="text-secondary-text leading-relaxed">{step}</span>
                   </li>
                 ))}
               </ul>

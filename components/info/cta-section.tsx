@@ -1,4 +1,9 @@
+'use client'
+
 import { ArrowRight, Globe2, Zap } from "lucide-react";
+import PrimaryButton from "../buttons/primary-button";
+import Link from "next/link";
+import paths from "@/paths";
 
 export default function CTASection() {
   return (
@@ -13,7 +18,7 @@ export default function CTASection() {
             className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10 -translate-y-1/2 translate-x-1/2"
             style={{ backgroundColor: 'var(--color-primary)' }}
           />
-        
+
 
           <div className="relative z-10">
             <div className="flex flex-col md:flex-row items-center gap-8 mb-8">
@@ -48,24 +53,16 @@ export default function CTASection() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <button
-                className="px-8 py-4 rounded-xl transition-all hover:scale-105 hover:shadow-lg flex items-center justify-center gap-2 group"
-                style={{ backgroundColor: 'var(--color-primary)' }}
-              >
-                <span
-                className="font-heading text-primary-text"
-    
-                >
-                  Se planer
-                </span>
-                <ArrowRight
-                  className="w-5 h-5 text-primary-text transition-transform group-hover:translate-x-1"
-                />
-              </button>
+              <Link className=" h-none flex items-center justify-center" href={paths.produkter}>
+
+                <PrimaryButton Icon={ArrowRight} iconRight fullWidth >
+                  Se alle destinasjoner
+                </PrimaryButton>
+              </Link>
 
               <button
-                className="px-8 py-4 border-primary text-tertiary-text rounded-xl border-2 transition-all hover:scale-105 flex items-center justify-center gap-2"
-               
+                className="px-6 py-3 border-primary text-tertiary-text rounded-xl border-2 transition-all hover:cursor-pointer hover:scale-101 flex items-center justify-center gap-2"
+
               >
                 <Zap className="w-5 h-5 text-primary" />
                 <span style={{ fontFamily: 'var(--font-heading)' }}>

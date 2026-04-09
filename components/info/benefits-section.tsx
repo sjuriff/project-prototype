@@ -31,11 +31,11 @@ export default function BenefitsSection() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="relative  w-fit mb-12 mx-auto">
-          <div className="absolute z-0 -top-11 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
-            <Sparkles className="w-8 h-8 z-0 text-secondary-foreground" />
+          <div className="absolute z-0 -top-9 md:-top-11 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
+            <Sparkles className="md:w-8 w-6 h-6 md:h-8 z-0 text-secondary-foreground" />
           </div>
           <h2
-            className="text-center relative z-10 [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-5xl font-heading text-primary-text"
+            className="text-center relative z-10 [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-4xl md:text-5xl font-heading text-primary-text"
 
           >
             Fordeler med eSIM

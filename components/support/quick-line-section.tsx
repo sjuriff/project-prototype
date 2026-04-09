@@ -30,11 +30,11 @@ export default function QuickLinksSection() {
         {quickLinks.map((link, index) => (
           <button
             key={index}
-            className="bg-[#f8fafc] p-8 rounded-lg hover:bg-[#d6e3ff] transition-colors text-left group"
+            className="bg-surface-dark p-8 rounded-lg hover:bg-[#d6e3ff] transition-colors text-left group"
           >
             <link.icon className="w-10 h-10 text-tertiary mb-4 group-hover:scale-110 transition-transform" />
-            <h3 className="mb-2 text-[#1d1d1d]">{link.title}</h3>
-            <p className="text-[#4a4a4a]">{link.description}</p>
+            <h3 className="mb-2 font-heading text-primary-text">{link.title}</h3>
+            <p className="text-secondary-text font-body">{link.description}</p>
           </button>
         ))}
       </div>

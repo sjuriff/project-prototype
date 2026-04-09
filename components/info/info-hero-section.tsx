@@ -10,10 +10,10 @@ export default function HeroSection() {
         <div className="bg-white rounded-2xl p-8 shadow-sm">
           <div className="max-w-3xl mx-auto">
             <div className="relative  mb-1 w-fit mx-auto">
-              <div className="absolute z-0 -top-11 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
-                <Lightbulb className="w-8 h-8 z-0 text-secondary-foreground" />
+              <div className="absolute z-0 -top-9 md:-top-11 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
+                <Lightbulb className="w-6 h-6 md:w-8 md:h-8 z-0 text-secondary-foreground" />
               </div>
-              <h2 className="text-5xl relative z-10 font-heading text-center text-primary-text [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]" >
+              <h2 className="md:text-5xl text-4xl relative z-10 font-heading text-center text-primary-text [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]" >
                 Hva er eSIM
               </h2>
             </div>

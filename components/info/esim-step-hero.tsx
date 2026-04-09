@@ -1,7 +1,8 @@
-import { Smartphone, QrCode, CheckCircle2, Wifi, CardSim, ShoppingCart } from 'lucide-react';
+import { QrCode, CheckCircle2, CardSim, ShoppingCart } from 'lucide-react';
 import Link from 'next/link';
-import TertiaryButton from './buttons/tertiary-button';
-import PrimaryButton from './buttons/primary-button';
+import paths from '@/paths';
+
+import PrimaryButton from '@/components/buttons/primary-button';
 
 export default function EsimStepHero() {
   const steps = [
@@ -34,12 +35,10 @@ export default function EsimStepHero() {
         {/* Hero Header */}
         <div className="text-center   mx-auto  rounded-2xl p-8 mb-16">
           <div className='relative  w-fit mx-auto'>
-            <div className="flex z-0 absolute -top-11 -right-8  items-center justify-center w-16 h-16 rounded-full mb-6" style={{
-              backgroundColor: 'var(--color-primary)'
-            }}>
-              <CardSim className="w-8 h-8" style={{ color: 'var(--color-primary-text)' }} />
+            <div className="flex z-0 absolute -top-9 md:-top-11 -right-8  items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full mb-6 bg-primary" >
+              <CardSim className="h-6 w-6 md:w-8 md:h-8 text-primary-text" />
             </div>
-            <h1 className="mb-4 relative z-10 text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] font-heading text-secondary-text " >
+            <h1 className="mb-4 relative z-10 text-4xl text-nowrap md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] font-heading text-secondary-text " >
               Slik fungerer eSIM
             </h1>
           </div>
@@ -73,11 +72,7 @@ export default function EsimStepHero() {
                   </div>
 
                   {/* Step Number */}
-                  <div className="absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center" style={{
-                    backgroundColor: 'var(--color-surface)',
-                    fontFamily: 'var(--font-heading)',
-                    color: 'var(--color-secondary-text)'
-                  }}>
+                  <div className="absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center bg-secondary font-heading text-secondary-text">
                     {step.number}
                   </div>
 
@@ -112,9 +107,11 @@ export default function EsimStepHero() {
             Kjøp eSIM nå
           </button> */}
         <div className="flex justify-center mt-12">
-          <PrimaryButton>
-            Kjøp eSIM nå
-          </PrimaryButton>
+          <Link href={paths.produkter}>
+            <PrimaryButton>
+              Kjøp eSIM nå
+            </PrimaryButton>
+          </Link>
 
 
         </div>

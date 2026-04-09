@@ -29,7 +29,7 @@ export default async function Home() {
 
 
   return (
-    <main className="bg-surface   md:w-full overflow-hidden  flex flex-col  2xl:gap-0">
+    <main className="bg-surface    md:w-full overflow-hidden  flex flex-col  2xl:gap-0">
       <section className="w-full h-full bg-gradient-to-b from-surface to-secondary fhd:px-38   flex items-center justify-center">
         {/*  <Hero /> */}
         <ImageHero popular={popularProducts} counrties={countries} imgData={heroImage} imgAlt="hero" title="Dekning over hele verden" />

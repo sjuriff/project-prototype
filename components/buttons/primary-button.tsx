@@ -7,9 +7,10 @@ interface PrimaryButtonProps {
   fullWidth?: boolean
   disabled?: boolean
   onClick?: () => void
+  iconRight?: boolean
 }
 
-export default function PrimaryButton({ children, Icon, onClick, fullWidth, disabled }: PrimaryButtonProps) {
+export default function PrimaryButton({ children, Icon, onClick, fullWidth, disabled, iconRight }: PrimaryButtonProps) {
   return (
     <button
     onClick={onClick}
@@ -50,9 +51,10 @@ export default function PrimaryButton({ children, Icon, onClick, fullWidth, disa
     hover:before:translate-x-[450%]
   `}
     >
-      {Icon ? <Icon className="h-5 w-5" /> : null}
+      {Icon && !iconRight ? <Icon className={`h-5 w-5 ${iconRight ? "order-2" : "order-1"}`} /> : null}
 
       {children}
+       {Icon && iconRight ? <Icon className={`h-5 ml-2 w-5 ${iconRight ? "order-2" : "order-1"}`} /> : null}
 
       {/* Reverse glow sweep */}
       <span

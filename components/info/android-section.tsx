@@ -4,7 +4,7 @@ import { PhoneFrame, Step1, Step2, Step3, SettingItem } from "./android-screen";
 export default function AndroidSection() {
   return (
     <div className="gap-8 lg:gap-12">
-      <div className="flex gap-12 flex-wrap justify-center max-w-7xl">
+      <div className="flex gap-8 md:gap-18 flex-wrap justify-center max-w-7xl">
         {/* Phone 1 */}
         <PhoneFrame
           step={1}
