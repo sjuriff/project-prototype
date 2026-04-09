@@ -78,7 +78,7 @@ export function MobileProductCard({
   const isRegion = sort === "region";
   const flagUrl = `https://borderly.dev/flag/circle/${countryCode.toLowerCase()}.svg`;
   const router = useRouter();
-  const countryOutlineImage: string = 'https://borderly.dev/country/' + countryCode.toLowerCase() + '.svg?fill=fffce6&stroke=fffce6&strokeWidth=1'
+  const countryOutlineImage: string = 'https://borderly.dev/country/' + countryCode.toLowerCase() + '.svg?fill=fff9cc&stroke=fff9cc&strokeWidth=1'
 
 
 

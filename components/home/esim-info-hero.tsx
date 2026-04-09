@@ -124,14 +124,14 @@ export default function ESimInfoHero() {
 
 
             {/* eSIM */}
-            <div className="p-8 relative col-span-12 bg-tertiary  flex flex-col items-center   md:rounded-2xl shadow-lg md:border md:border-tertiary space-y-4 relative overflow-hidden">
+            <div className="p-8 relative col-span-12 bg-tertiary  flex flex-col items-center   md:rounded-2xl shadow-lg  space-y-4 relative overflow-hidden">
               <div
-                className="absolute  top-0 right-0 w-64 h-64 rounded-full bg-primary/20 -translate-y-1/2 translate-x-1/2"
+                className="absolute  top-0 right-0 h-54 w-54 md:w-64 md:h-64 rounded-full bg-primary/20 -translate-y-1/2 translate-x-1/2"
 
               >
 
               </div>
-              <Zap className="h-10 w-10 absolute right-7 top-7 text-primary" />
+              <Zap className="h-10 w-10 absolute right-4 md:right-7 top-7 text-primary" />
 
               <div className="flex relative  items-center justify-center  ">
                 <div className="flex flex-col  gap-1 items-center">
@@ -142,7 +142,7 @@ export default function ESimInfoHero() {
 
 
                 <div className="flex   flex-col gap-1 justify-center items-center">
-                  <AndroidSvgIcon ref={androidRef} screenColor="#5346d6" size={100} color={androidColor} />
+                  <AndroidSvgIcon ref={androidRef} screenColor="#2f5d8c" size={100} color={androidColor} />
                   <p id="android" className="opacity-0 font-body text-sm text-center text-tertiary-text">Android</p>
                 </div>
 
@@ -158,7 +158,7 @@ export default function ESimInfoHero() {
           {/* Key Benefits */}
           <div className="grid grid-cols-6  px-8 md:px-0  w-full mx-auto items-center justify-center gap-4">
             <div className="p-6 col-span-6 flex flex-col items-center text-center text-balance md:text-left md:items-start    md:col-span-2 h-[200px] bg-card  space-y-4  rounded-xl bg-secondary">
-              <div className="w-10 h-10 relative rounded-full  bg-primary flex items-center justify-center">
+              <div className="w-10 h-10 relative rounded-full   bg-primary flex items-center justify-center">
                 <Smartphone className="w-5 h-5 text-primary-text" />
               </div>
               <h3 className="text-secondary-text font-heading">Din mobil må ha støtte eSIM</h3>
