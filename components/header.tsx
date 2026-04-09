@@ -7,6 +7,7 @@ import { useState } from "react";
 import { User, Briefcase, BriefcaseBusiness, Plane, Lightbulb, Shield, Handshake, HeartHandshake, Info } from "lucide-react";
 import DropInMenu from "./drop-in-menu";
 import BeamLogo from "./beam-logo";
+import paths from "@/paths";
 
 
 
@@ -74,9 +75,9 @@ export default function Header() {
               <Handshake className="mr-2 group-hover:translate-y-[-2px] transition-transform" /> Partnerskap
 
             </button>
-            <button className={` flex text-sm items-center group  border-[#ffffff]  text-primary px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
+            <Link href={paths.business} className={` flex text-sm items-center group  border-[#ffffff]  text-primary px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
               <BriefcaseBusiness className="mr-2 group-hover:translate-y-[-2px] transition-transform" /> Business
-            </button>
+            </Link>
             <button className={` flex text-sm items-center group  border-[#ffffff]  text-primary px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
               <User className="mr-2 group-hover:translate-y-[-2px] transition-transform" /> Logg inn
             </button>

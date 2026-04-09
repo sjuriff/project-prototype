@@ -5,6 +5,7 @@ const paths = {
   support: "/support",
   info: "/info",
   produkter: "/produkter",
+  business: "/business",
   product(id: string){
     return `/product/${id}`
   },
