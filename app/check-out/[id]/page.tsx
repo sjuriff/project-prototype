@@ -39,11 +39,11 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
         </div>
         <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="mb-8 ml-4 mt-4">
+          <div className="mb-8 ml-4 mt-8  md:mt-4">
             <div className="relative w-fit">
-              <h1 className="text-primary-text relative z-10   md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] font-heading ">Kasse</h1>
+              <h1 className="text-primary-text text-4xl relative z-10   md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] font-heading ">Kasse</h1>
               <div className="absolute z-0 -top-8 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
-                <ReceiptText className="w-8 h-8 text-primary-text" />
+                <ReceiptText className="h-6 w-6 md:w-8 md:h-8 text-primary-text" />
               </div>
             </div>
             <p className="text-secondary-text font-body">Fullfør ditt eSIM kjøp</p>

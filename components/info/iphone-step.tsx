@@ -164,10 +164,10 @@ export default function IPhoneScreen({ step }: IPhoneScreenProps) {
         </div>
       </div>
       <div className='mb-6 h-16 flex-flex-col text-primary-text font-heading justify-center items-center gap-2' >
-        <h3 className=" text-center font-body text-lg" >
+        <h3 className=" text-center font-heading text-lg" >
           {stepContent.title}
         </h3>
-        <p className='text-secondary-text text-sm text-center'>{stepContent.subtitle}</p>
+        <p className='text-secondary-text font-body text-sm text-center'>{stepContent.subtitle}</p>
       </div>
 
       {/* iPhone Mockup */}

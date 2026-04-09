@@ -29,19 +29,19 @@ export default function ContactSection() {
     <div className="max-w-6xl mx-auto px-6 py-16">
       <div className="text-center mb-12">
         <div className='mb-3 relative w-fit mx-auto'>
-          <div className="absolute z-0 -top-8 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
-            <Send className="w-8 h-8 z-0 text-secondary-foreground" />
+          <div className="absolute z-0 -top-6 md:-top-8 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
+            <Send className="w-6 h-6 md:w-8 md:h-8 z-0 text-primary-text" />
           </div>
-          <h2 className=" relative z-10 text-5xl font-heading text-primary-text">Kontakt oss</h2>
+          <h2 className=" relative z-10 text-4xl md:text-5xl font-heading text-primary-text">Kontakt oss</h2>
         </div>
-        <p className="text-[#4a4a4a]">
+        <p className="text-secondary-text">
           Vårt team er tilgjengelig 24/7 for hjelp. Vennligst kontakt oss via e-post, telefon eller live chat.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {contactMethods.map((method, index) => (
-          <div key={index} className="bg-white p-8 rounded-lg border border-[#e5e7eb] text-center hover:border-tertiary transition-colors">
+          <div key={index} className=" p-8 rounded-lg bg-surface-dim shadow text-center hover:border-tertiary transition-colors">
             <div className="flex justify-center mb-4">
               <div className="w-14 h-14 bg-[#f9f871] rounded-full flex items-center justify-center">
                 <method.icon className="w-6 h-6 text-[#1d1d1d]" />

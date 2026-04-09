@@ -40,9 +40,9 @@ export default function FAQSection() {
   return (
     <div className="max-w-3xl mx-auto px-6 py-16">
       <div className="relative mb-8   w-fit mx-auto">
-        <h1 className="text-5xl relative z-10 text-center font-heading [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-primary-text">Frequently Asked Questions</h1>
-        <span className="h-16 absolute -top-8 -right-8 z-0 w-16 bg-primary flex items-center justify-center rounded-full">
-          <BadgeQuestionMark className="w-8 h-8" />
+        <h1 className="text-4xl md:text-5xl relative z-10 text-center font-heading [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-primary-text">Frequently Asked Questions</h1>
+        <span className="md:h-16 absolute -top-8 -right-1 md:-right-8 z-0 h-14 w-14 md:w-16 bg-primary flex items-center justify-center rounded-full">
+          <BadgeQuestionMark className="w-6 h-6 md:w-8 md:h-8" />
         </span>
       </div>
 
@@ -50,13 +50,13 @@ export default function FAQSection() {
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="bg-white border border-[#e5e7eb] rounded-lg overflow-hidden"
+            className="bg-surface-dim border border-[#e5e7eb] rounded-lg overflow-hidden"
           >
             <button
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
               className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-[#f8fafc] transition-colors"
             >
-              <span className="pr-4 text-[#1d1d1d]">{faq.question}</span>
+              <span className="pr-4 text-secondary-text">{faq.question}</span>
               <ChevronDown
                 className={`w-5 h-5 text-[#4a4a4a] flex-shrink-0 transition-transform ${openIndex === index ? 'rotate-180' : ''
                   }`}
@@ -64,8 +64,8 @@ export default function FAQSection() {
             </button>
 
             {openIndex === index && (
-              <div className="px-6 py-5 bg-[#f8fafc] border-t border-[#e5e7eb]">
-                <p className="text-[#4a4a4a] leading-relaxed">{faq.answer}</p>
+              <div className="px-6 py-5 bg-surface border-t border-[#e5e7eb]">
+                <p className="text-primary-text leading-relaxed">{faq.answer}</p>
               </div>
             )}
           </div>
