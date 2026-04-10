@@ -28,17 +28,17 @@ export default function BusinessHero() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="relative h-[750px] bg-secondary overflow-hidden">
+ 
 
 
-      <div className=" relative bg-secondary z-10 mx-auto flex h-[750px] w-full  flex-col lg:flex-row items-center gap-12 py-24  lg:py-0">
+      <div ref={containerRef} className=" relative  bg-secondary z-10 mx-auto flex  h-[600px] xl:min-h-[700px]   xl:h-[calc(100dvh-5rem)] xl:max-h-[950px] w-full  flex-col lg:flex-row items-center gap-12 py-24  lg:py-0">
         {/* Left content */}
         <div className="flex-1 max-w-2xl">
 
 
-          <h1 className="hero-heading ml-16 font-heading font-semibold text-4xl sm:text-5xl lg:text-6xl  tracking-tight text-primary-text leading-[1.1] mb-6">
+          <h1 className="hero-heading ml-16 font-heading font-semibold text-4xl sm:text-5xl lg:text-6xl  tracking-tight text-tertiary leading-[1.1] mb-6">
             Selg eSIM på{" "}
-            <span className="text-tertiary">din platform</span>{" "}
+            <span className="text-primary [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">din platform</span>{" "}
             <span className="text-muted-foreground"></span>
           </h1>
 
@@ -83,7 +83,6 @@ export default function BusinessHero() {
           </div>
         </div>
       </div>
-    </section>
   );
 
 }
