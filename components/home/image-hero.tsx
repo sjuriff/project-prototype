@@ -32,13 +32,7 @@ interface HeroProps {
 
 }
 
-function normalize(s: string) {
-  return s
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .trim();
-}
+
 
 export default function ImageHero(props: HeroProps) {
   const router = useRouter();
