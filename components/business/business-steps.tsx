@@ -1,7 +1,17 @@
-import { Users, Package, Activity } from "lucide-react";
+'use client'
 
-export default function BusinessSteps(){
-    const steps = [
+import { Users, Package, Activity } from "lucide-react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
+
+export default function BusinessSteps() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const steps = [
     {
       number: 1,
       title: "Legg ti medlemmer",
@@ -24,52 +34,84 @@ export default function BusinessSteps(){
       color: "primary"
     }
   ];
-  return(
-    <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {steps.map((step, index) => {
-            const Icon = step.icon;
-            const bgColor = step.color === 'primary' ? 'var(--color-primary)' :
-              step.color === 'secondary' ? 'var(--color-secondary)' :
-                'var(--color-tertiary)';
-            const textColor = step.color === 'tertiary' ? 'var(--color-tertiary-text)' : 'var(--color-primary-text)';
 
-            return (
-              <div key={step.number} className="relative">
-                {/* Connector Line */}
-                {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-gray-300" />
-                )}
+  useGSAP(
+    () => {
+      const cards = containerRef.current?.querySelectorAll(".step-card");
 
-                <div className="relative bg-surface-dim rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow h-full">
-                  {/* Step Number Badge */}
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-full mb-6" style={{
-                    backgroundColor: bgColor
-                  }}>
-                    <Icon className="w-7 h-7" style={{ color: textColor }} />
-                  </div>
+      if (!cards) return;
 
-                  {/* Step Number */}
-                  <div className="absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center bg-secondary font-heading text-secondary-text">
-                    {step.number}
-                  </div>
+      gsap.fromTo(
+        cards,
+        {
+          y: 60,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.2,
+           scrollTrigger: {
+            trigger: containerRef.current,
+            start: "30% bottom",
+            end: "70% bottom",
+            scrub: false,
+            toggleActions: "play none none reverse",
+            markers: false
+          }
+        }
+      );
+    },
+    { scope: containerRef }
+  );
+  return (
+    <div ref={containerRef} className="grid md:grid-cols-3 gap-8 mb-16">
+      {steps.map((step, index) => {
+        const Icon = step.icon;
+        const bgColor = step.color === 'primary' ? 'var(--color-primary)' :
+          step.color === 'secondary' ? 'var(--color-secondary)' :
+            'var(--color-tertiary)';
+        const textColor = step.color === 'tertiary' ? 'var(--color-tertiary-text)' : 'var(--color-primary-text)';
 
-                  {/* Content */}
-                  <h3 className="mb-3 text-primary-text" style={{
-                    fontFamily: 'var(--font-heading)',
+        return (
+          <div key={step.number} className="step-card relative">
+            {/* Connector Line */}
+            {index < steps.length - 1 && (
+              <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-gray-300" />
+            )}
 
-                  }}>
-                    {step.title}
-                  </h3>
-                  <p className='text-balance' style={{
-                    color: 'var(--color-primary-text)'
-                  }}>
-                    {step.description}
-                  </p>
-                </div>
+            <div className="relative bg-surface-dim rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow h-full">
+              {/* Step Number Badge */}
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full mb-6" style={{
+                backgroundColor: bgColor
+              }}>
+                <Icon className="w-7 h-7" style={{ color: textColor }} />
               </div>
-            );
-          })}
-        </div>
+
+              {/* Step Number */}
+              <div className="absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center bg-secondary font-heading text-secondary-text">
+                {step.number}
+              </div>
+
+              {/* Content */}
+              <h3 className="mb-3 text-primary-text" style={{
+                fontFamily: 'var(--font-heading)',
+
+              }}>
+                {step.title}
+              </h3>
+              <p className='text-balance' style={{
+                color: 'var(--color-primary-text)'
+              }}>
+                {step.description}
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
 
   )
 }

@@ -19,24 +19,24 @@ import { useCart } from '@/hooks/use-cart';
 
 const regionCodeIcon = (countryCode: string): React.ReactNode => {
   if (countryCode === "US") {
-    return <div className="md:w-fit shadow h-fit md:h-1/2 bg-tertiary rounded-full ">
-      <FaEarthAmericas className=" md:w-full text-9xl  md:h-full text-primary" />
+    return <div className="md:w-fit shadow h-fit md:h-1/2 bg-light-yellow rounded-full ">
+      <FaEarthAmericas className=" md:w-full text-9xl   md:h-full text-tertiary" />
     </div>;
   } else if (countryCode === "EU") {
-    return <div className="md:w-fit shadow h-fit md:h-1/2 bg-tertiary rounded-full ">
-      <FaEarthEurope className=" md:w-full text-9xl  md:h-full text-primary" />
+    return <div className="md:w-fit shadow h-fit md:h-1/2 bg-light-yellow rounded-full ">
+      <FaEarthEurope className=" md:w-full text-9xl  md:h-full text-tertiary" />
     </div>;
   } else if (countryCode === "AS") {
-    return <div className="md:w-fit shadow h-fit md:h-1/2 bg-tertiary rounded-full ">
-      <FaEarthAsia className=" md:w-full text-9xl md:h-full text-primary" />
+    return <div className="md:w-fit shadow h-fit md:h-1/2 bg-light-yellow rounded-full ">
+      <FaEarthAsia className=" md:w-full text-9xl md:h-full text-tertiary" />
     </div>;
   } else if (countryCode === "AF") {
-    return <div className="md:w-fit shadow h-fit md:h-1/2 bg-tertiary rounded-full ">
-      <FaEarthAfrica className=" md:w-full text-9xl md:h-full text-primary" />
+    return <div className="md:w-fit shadow h-fit md:h-1/2 bg-light-yellow rounded-full ">
+      <FaEarthAfrica className=" md:w-full text-9xl md:h-full text-tertiary" />
     </div>
   } else {
-    return <div className="md:w-fit shadow h-fit md:h-1/2 bg-tertiary rounded-full ">
-      <FaGlobe className=" md:w-full text-9xl md:h-full text-primary" />
+    return <div className="md:w-fit shadow h-fit md:h-1/2 bg-primary rounded-full ">
+      <FaGlobe className=" md:w-full text-9xl md:h-full text-tertiary" />
     </div>
 
   }
