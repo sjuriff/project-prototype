@@ -9,7 +9,7 @@ interface CartItemHeaderProps {
   validity: string;
   price: number;
   quantity: number;
-  onUpdateQuantity: (id: string, quantity: number) => void;
+  onUpdateQuantity: (id: string, quantity: number, data: string) => void;
   onRemove: (id: string, data: string) => void;
 }
 
@@ -74,7 +74,7 @@ export function CartItemHeader({
           <p className="text-tertiary-text font-body text-sm">{price} kr</p>
           <div className="flex items-center gap-1 border rounded-full h-fit   px-1 py-1" style={{ borderColor: '#e5e7eb' }}>
             <button
-              onClick={() => onUpdateQuantity(id, Math.max(1, quantity - 1))}
+              onClick={() => onUpdateQuantity(id, Math.max(1, quantity - 1), data)}
               className="p-1.5 text-tertiary-text hover:text-primary  hover:cursor-pointer hover:scale-110 rounded transition-all"
               aria-label="Decrease quantity"
             >
@@ -84,7 +84,7 @@ export function CartItemHeader({
               {quantity}
             </span>
             <button
-              onClick={() => onUpdateQuantity(id, quantity + 1)}
+              onClick={() => onUpdateQuantity(id, quantity + 1, data)}
               className="p-1.5 text-tertiary-text  hover:text-primary  hover:cursor-pointer hover:scale-110 rounded transition-all"
               aria-label="Increase quantity"
             >

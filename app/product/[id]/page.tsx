@@ -25,13 +25,10 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   const { getProduct, clearProduct } = usePersistedProduct()
 
 
-
-
-
-
-
-
   const showProduct = getProduct()
+
+
+  
 
   console.log("showProduct", showProduct)
 

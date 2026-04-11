@@ -70,10 +70,10 @@ export function useCart() {
     persistCart(items.filter(item => !(item.id === id && item.data === data)))
   }
   /** Update quantity for an item */
-  const updateQuantity = (id: string, qty: number) => {
+  const updateQuantity = (id: string, qty: number, data: string) => {
     persistCart(
       items
-        .map(item => (item.id === id ? { ...item, quantity: qty } : item))
+        .map(item => (item.id === id && item.data === data ? { ...item, quantity: qty } : item))
         .filter(item => item.quantity > 0)
     )
   }

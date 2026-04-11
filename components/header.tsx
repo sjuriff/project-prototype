@@ -8,6 +8,7 @@ import { User, Briefcase, BriefcaseBusiness, Plane, Lightbulb, Shield, Handshake
 import DropInMenu from "./drop-in-menu";
 import BeamLogo from "./beam-logo";
 import paths from "@/paths";
+import { usePathname } from "next/navigation";
 
 
 
@@ -53,6 +54,8 @@ const menuItems = [
 export default function Header() {
   const { scrollDirection, scrollTop } = useScroll();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const pathName = usePathname();
   //}  transition-top duration-300 ease-in-out
 
   return (
@@ -60,7 +63,7 @@ export default function Header() {
 
       <header
         id="header"
-        className={` bg-tertiary relative left-0    transition-top duration-300 ease-in-out z-50    flex h-20 w-full items-center justify-between  px-4 py-4 font-roboto  lg:h-20  `}
+        className={` ${pathName === '/business' ? 'bg-light-yellow' : 'bg-tertiary'} relative left-0    transition-top duration-300 ease-in-out z-50    flex h-20 w-full items-center justify-between  px-4 py-4 font-roboto  lg:h-20  `}
       >
         <Link
           href={'/'}
@@ -71,17 +74,17 @@ export default function Header() {
         <div className={"flex items-center z-50 relative gap-4"}>
           <div className=" gap-2 hidden md:flex mr-4">
             {/*  <PrimaryButton Icon={User}>Logg inn</PrimaryButton> */}
-            <button className={` flex text-sm items-center group  border-[#ffffff]  text-primary px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
+            <button className={` flex text-sm items-center group  border-[#ffffff] ${pathName === '/business' ? 'text-tertiary' : 'text-primary'}  px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
               <Handshake className="mr-2 group-hover:translate-y-[-2px] transition-transform" /> Partnerskap
 
             </button>
-            <Link href={paths.business} className={` flex text-sm items-center group  border-[#ffffff]  text-primary px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
+            <Link href={paths.business} className={` flex text-sm items-center group ${pathName === '/business' ? 'text-tertiary' : 'text-primary'}  border-[#ffffff]   px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
               <BriefcaseBusiness className="mr-2 group-hover:translate-y-[-2px] transition-transform" /> Business
             </Link>
-            <button className={` flex text-sm items-center group  border-[#ffffff]  text-primary px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
+            <button className={` flex text-sm items-center group  border-[#ffffff] ${pathName === '/business' ? 'text-tertiary' : 'text-primary'}    px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
               <User className="mr-2 group-hover:translate-y-[-2px] transition-transform" /> Logg inn
             </button>
-            <button className={` text-sm text-primary px-4 py-3 rounded-lg  hover:cursor-pointer hover:scale-105 transition-transform`}>
+            <button className={` text-sm ${pathName === '/business' ? 'text-tertiary' : 'text-primary'}  px-4 py-3 rounded-lg  hover:cursor-pointer hover:scale-105 transition-transform`}>
               Registrer deg
             </button>
 

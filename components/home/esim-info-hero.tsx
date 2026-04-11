@@ -97,19 +97,22 @@ export default function ESimInfoHero() {
   }, [iPhoneHovered, androidHovered])
   return (
     <div className="min-h-screen bg-background flex items-center justify-center md:px-6 py-16">
-      <div className="max-w-5xl  w-full">
+      <div className="max-w-5xl   relative  w-full">
+        <div className="hidden absolute md:block z-0 top-8 md:-top-16 -right-8 items-center flex justify-center gap-3 p-24 bg-primary/40 rounded-full">
+          <Lightbulb className="h-6 w-6 md:w-20 md:h-20 z-0 text-default opacity-40" />
+        </div>
         <div className="space-y-8">
           {/* Header Section */}
           <div className=" space-y-8  px-6 md:px-0 text-center mb-16">
             <div className="  relative w-fit mx-auto " >
-              <div className="absolute z-0 -top-8 md:-top-11 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
+              <div className="absolute z-0 md:hidden -top-8 md:-top-11 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
                 <Lightbulb className="h-6 w-6 md:w-8 md:h-8 z-0 text-secondary-foreground" />
               </div>
               <h1 className="md:text-5xl text-4xl z-10 relative font-heading md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] tracking-tight text-primary-text">
                 Hva er eSIM?
               </h1>
             </div>
-            <p className="md:text-lg text-base text-primary-text text-balance md:text-pretty font-body max-w-3xl mx-auto leading-relaxed">
+            <p className="md:text-lg z-10 relative text-base text-primary-text text-balance md:text-pretty font-body max-w-3xl mx-auto leading-relaxed">
               eSIM sørger for at du slipper høye roamingkostnader når du er på reise. Du vet hvor mye surfingen din vil koste allerede før du reiser. Et eSIM fungerer som et fysisk SIM-kort, bare digitalt. Det er forhåndsbetalt, krever ikke et eget abonnement og du får forutsigbare kostnader. Du kan ha både en eSIM og ditt vanlige SIM-kort på telefonen samtidig. Med Beam eSIM kan du kjøpe datapakker og spare penger mens du er på reise!
             </p>
           </div>

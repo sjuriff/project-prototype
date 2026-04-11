@@ -98,7 +98,7 @@ export default function ProductSortBar({ sort, onSortChange }: SortSelectorProps
         </button>
       ))}
       <Link href={"/produkter"} className={`md:px-4 px-2 py-2 text-sm flex gap-1 font-medium     text-primary-text transition hover:text-tertiary hover:cursor-pointer
-            `}>Alle denstinasjoner</Link>
+            `}>Alle destinasjoner</Link>
     </div>
   );
 }

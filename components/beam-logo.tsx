@@ -3,6 +3,7 @@
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
+import { usePathname } from "next/navigation";
 
 interface BeamLogoProps {
   scrollDirection: string
@@ -12,6 +13,8 @@ export default function BeamLogo({ scrollDirection }: BeamLogoProps) {
   const dotOneRef = useRef<HTMLDivElement>(null)
   const dotTwoRef = useRef<HTMLDivElement>(null)
   const lineRef = useRef<HTMLDivElement>(null)
+
+  const pathname = usePathname();
 
 
 
@@ -28,7 +31,7 @@ export default function BeamLogo({ scrollDirection }: BeamLogoProps) {
   }, [scrollDirection])
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="text-4xl font-logo text-primary [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">beam</h1>
+      <h1 className={`text-4xl font-logo ${pathname === 'business' ? 'text-tertiary' : 'text-primary '} [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]`}>beam</h1>
       <div className="flex  items-center gap-1">
         <div ref={dotOneRef} className="w-2 opacity-0 rounded-l-lg h-1 bg-primary"></div>
         <div ref={dotTwoRef} className="w-2 opacity-0 h-1 bg-primary"></div>

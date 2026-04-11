@@ -5,6 +5,7 @@ import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import usePortal from "@/hooks/use-portal"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 gsap.registerPlugin(useGSAP)
 
@@ -26,6 +27,8 @@ export default function DropInMenu({ menuOpen, menuItems, open }: DropInMenuProp
   const menuRef = useRef<HTMLDivElement>(null)
   const backdropRef = useRef<HTMLDivElement>(null)
   const renderPortal = usePortal();
+
+  const pathName = usePathname();
 
   /*   console.log('isOpen', isOpen) */
 
@@ -124,7 +127,7 @@ export default function DropInMenu({ menuOpen, menuItems, open }: DropInMenuProp
 
   return (
     <div className="">
-      <button onClick={handleMenuClick} className={`flex group gap-1 text-primary  hover:cursor-pointer items-center justify-center`}>
+      <button onClick={handleMenuClick} className={`flex group gap-1 ${pathName === '/business' ? 'text-tertiary' : 'text-primary'}  hover:cursor-pointer items-center justify-center`}>
         <Menu className="h-6 w-6 " />
         <div ref={arrowRef}>
           <ChevronDown className="h-4 w-4 group-hover:-translate-y-[-2px] transition-transform " />

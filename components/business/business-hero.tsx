@@ -21,8 +21,8 @@ export default function BusinessHero() {
     tl.from(".hero-badge", { opacity: 0, y: 20, duration: 0.5 })
       .from(".hero-heading", { opacity: 0, y: 30, duration: 0.7 }, "-=0.2")
       .from(".hero-desc", { opacity: 0, y: 20, duration: 0.5 }, "-=0.3")
-      .from(".hero-buttons", { opacity: 0, y: 20, duration: 0.5 }, "-=0.2")
-      .from(".hero-stat", { opacity: 0, y: 20, duration: 0.5, stagger: 0.1 }, "-=0.2")
+      .from(".hero-buttons", { opacity: 0, x: -20, duration: 0.5 }, "-=0.2")
+      .from(".hero-stat", { opacity: 0, x: -20, duration: 0.5, stagger: 0.1 }, "-=0.2")
      /*  .from(".hero-globe", { opacity: 0, scale: 0.9, duration: 0.8 }, "-=0.8") */
       .from(".hero-card", { opacity: 0, x: (i) => (i === 0 ? -20 : 20), duration: 0.6, stagger: 0.15 }, "-=0.3");
   }, { scope: containerRef });

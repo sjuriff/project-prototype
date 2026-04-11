@@ -9,7 +9,7 @@ interface CartItemProps {
   validity: string;
   price: number;
   quantity: number;
-  onUpdateQuantity: (id: string, quantity: number) => void;
+  onUpdateQuantity: (id: string, quantity: number, data: string) => void;
   onRemove: (id: string, data: string) => void;
 }
 
@@ -84,7 +84,7 @@ export function CartItem({
 
         <div className="flex items-center gap-2 border border-primary-text/50 rounded-full px-1 py-1" >
           <button
-            onClick={() => onUpdateQuantity(id, Math.max(1, quantity - 1))}
+            onClick={() => onUpdateQuantity(id, Math.max(1, quantity - 1), data)}
             className="p-1.5  hover:cursor-pointer hover:scale-105 rounded transition-transform"
             aria-label="Decrease quantity"
           >
@@ -94,7 +94,7 @@ export function CartItem({
             {quantity}
           </span>
           <button
-            onClick={() => onUpdateQuantity(id, quantity + 1)}
+            onClick={() => onUpdateQuantity(id, quantity + 1, data)}
             className="p-1.5  hover:cursor-pointer hover:scale-105 rounded transition-transform"
             aria-label="Increase quantity"
           >
