@@ -108,7 +108,7 @@ export function ProductCard({
 
 
 
-  console.log('countryCode', countryCode)
+
 
   const flagImage: string = 'https://borderly.dev/flag/circle/' + countryCode.toLowerCase() + '.svg'
   const countryOutlineImage: string = 'https://borderly.dev/country/' + countryCode.toLowerCase() + '.svg?fill=FFF9CC&stroke=FFF9CC&strokeWidth=1'
