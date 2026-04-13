@@ -47,8 +47,7 @@ export default function ImageHero(props: HeroProps) {
     { name: "Thailand", code: "TH", flag: "🇹🇭" },
     { name: "Japan", code: "JP", flag: "🇯🇵" },
     { name: "Tyrkia", code: "TR", flag: "🇹🇷" },
-    { name: "Vietnam", code: "VN", flag: "🇻🇳" },
-    { name: "Canada", code: "CA", flag: "🇨🇦" },
+
   ];
 
   const textContainerRef = useRef<HTMLDivElement>(null);
@@ -129,8 +128,8 @@ export default function ImageHero(props: HeroProps) {
         ref={textContainerRef}
         className="lg:pt-0  z-30 relative w-full ml-0 pl-0 lg:ml-0 xl:ml-0 xl:pt-0 2xl:pt-28 flex    -translate-x-[120%] md:w-1/2 md:h-full  justify-center items-center"
       >
-        <div className=" bg-transparent w-full md:h-full  justify-center flex flex-col gap-4 pl-2 md:px-12 pt-6 md:shadow-md pb-8 md:bg-secondary/90 py-4 md:rounded-none rounded-xl">
-          <h1 className="text-4xl text-center md:text-left md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] lg:text-6xl xl:text-7xl font-heading text-balance text-primary md:text-primary-text  leading-tight">
+        <div className=" bg-transparent w-full md:h-full  justify-center md:justify-start  flex flex-col gap-4 pl-2 md:px-12 pt-6 md:shadow-md pb-8 md:bg-secondary/90 py-4 md:rounded-none rounded-xl">
+          <h1 className="text-4xl text-center md:text-left md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] md:mt-20 lg:text-6xl xl:text-7xl font-heading text-balance text-primary md:text-primary-text  leading-tight">
             Rimelig og trygg mobildata på reise
           </h1>
 
@@ -139,7 +138,7 @@ export default function ImageHero(props: HeroProps) {
           </p>
 
           {/* Search Input + Dropdown */}
-          <div className="relative mr-4 md:mr-0  md:pr-0 rounded-full group  focus-within:ring-2 focus-within:ring-tertiary transition">
+          <div className="relative mr-4 md:mr-0 md:mt-4  md:pr-0 rounded-full group  focus-within:ring-2 focus-within:ring-tertiary transition">
             <input
               type="text"
               value={query}
@@ -183,7 +182,8 @@ export default function ImageHero(props: HeroProps) {
             {open && results.length > 0 && (
               <div className="absolute  mt-2 w-full overflow-hidden rounded-xl border border-secondary-text bg-white shadow-lg">
                 {results.map((c) => {
-                  const flagImageUrl = `https://flagcdn.com/w320/` + c.countryCode.toLowerCase() + `.png`
+
+                  const flagImageUrl: string = 'https://borderly.dev/flag/circle/' + c.countryCode.toLowerCase() + '.svg'
 
                   return (
                     <button
@@ -206,20 +206,28 @@ export default function ImageHero(props: HeroProps) {
           </div>
 
           {/* Popular chips */}
-          <div className="gap-4 hidden md:flex   flex-col md:flex-row items-start md:items-center justify-center w-full">
-            {popularDestinations.map((destination) => (
-              <button
-                key={destination.code}
-                type="button"
-                onClick={() => goToPopularCountry(destination.name)}
-                className="hover:cursor-pointer group flex  md:flex-row items-center justify-center gap-2 duration-200 text-sm"
-              >
-                <span className="text-xl bg-primary/80 md:bg-surface/80 group-hover:border-2 transition-all ease-in-out border-primary w-9 h-9 md:h-10 md:w-10 flex items-center justify-center rounded-full">
-                  {destination.flag}
-                </span>
-                <span className="hidden md:block">{destination.name}</span>
-              </button>
-            ))}
+          <div className="gap-4 hidden md:flex md:mt-8   flex-col md:flex-row items-start md:items-center justify-around w-full">
+            {popularDestinations.map((destination) => {
+
+              const flagImageUrl: string = 'https://borderly.dev/flag/circle/' + destination.code.toLowerCase() + '.svg'
+
+              return (
+
+                <button
+                  key={destination.code}
+                  type="button"
+                  onClick={() => goToPopularCountry(destination.name)}
+                  className="hover:cursor-pointer group flex  md:flex-row items-center justify-center gap-2 duration-200 text-sm"
+                >
+                  <div className="text-xl relative bg-primary/80 md:bg-surface/80 group-hover:border-2 transition-all ease-in-out border-primary w-9 h-9 md:h-12 md:w-12 flex items-center justify-center rounded-full">
+                    <Image alt={`${destination.name} flag`} fill src={flagImageUrl} className="text-xl bg-primary/80 md:bg-surface/80 group-hover:border-2 transition-all ease-in-out border-primary w-9 h-9 md:h-10 md:w-10 flex items-center justify-center rounded-full" />
+                    {destination.flag}
+                  </div>
+
+                  <span className="hidden md:block text-lg font-heading">{destination.name}</span>
+                </button>
+              )
+            })}
           </div>
         </div>
       </div>
