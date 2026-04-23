@@ -56,6 +56,8 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const pathName = usePathname();
+
+  const isBusiness = pathName === '/business';
   //}  transition-top duration-300 ease-in-out
 
   return (
@@ -69,7 +71,7 @@ export default function Header() {
           href={'/'}
           className="ml-2 flex items-center lg:ml-12"
         >
-          <BeamLogo scrollDirection={scrollDirection} />
+          <BeamLogo isBusiness={isBusiness} scrollDirection={scrollDirection} />
         </Link>
         <div className={"flex items-center z-50 relative gap-4"}>
           <div className=" gap-2 hidden md:flex mr-4">
@@ -91,10 +93,10 @@ export default function Header() {
 
 
           </div>
-          <LanguageSelector scrollTop={scrollTop} scrollDirection={scrollDirection} />
-          <HeaderShoppingCart mainMenuOpen={menuOpen} setMenuOpen={setMenuOpen}  />
+          <LanguageSelector isBusiness={isBusiness} />
+          <HeaderShoppingCart isBusiness={isBusiness} mainMenuOpen={menuOpen} setMenuOpen={setMenuOpen}  />
           <div className="ml-8 overflow-hidden">
-            <DropInMenu open={menuOpen} menuItems={menuItems} menuOpen={setMenuOpen} />
+            <DropInMenu isBusiness={isBusiness} open={menuOpen} menuItems={menuItems} menuOpen={setMenuOpen} />
           </div>
 
 

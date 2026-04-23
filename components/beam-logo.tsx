@@ -7,9 +7,10 @@ import { usePathname } from "next/navigation";
 
 interface BeamLogoProps {
   scrollDirection: string
+  isBusiness?: boolean
 }
 
-export default function BeamLogo({ scrollDirection }: BeamLogoProps) {
+export default function BeamLogo({ scrollDirection, isBusiness }: BeamLogoProps) {
   const dotOneRef = useRef<HTMLDivElement>(null)
   const dotTwoRef = useRef<HTMLDivElement>(null)
   const lineRef = useRef<HTMLDivElement>(null)
@@ -31,11 +32,11 @@ export default function BeamLogo({ scrollDirection }: BeamLogoProps) {
   }, [scrollDirection])
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className={`text-4xl font-logo ${pathname === 'business' ? 'text-tertiary' : 'text-primary '} [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]`}>beam</h1>
+      <h1 className={`text-4xl font-logo ${isBusiness ? 'text-tertiary' : 'text-primary '} [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]`}>beam</h1>
       <div className="flex  items-center gap-1">
-        <div ref={dotOneRef} className="w-2 opacity-0 rounded-l-lg h-1 bg-primary"></div>
-        <div ref={dotTwoRef} className="w-2 opacity-0 h-1 bg-primary"></div>
-        <div ref={lineRef} className="w-18 opacity-0 h-1 bg-gradient-to-r from-primary via-primary to-transparent"></div>
+        <div ref={dotOneRef} className={`w-2 opacity-0 rounded-l-lg h-1 ${isBusiness ? 'bg-tertiary' : 'bg-primary'} `}></div>
+        <div ref={dotTwoRef} className={`w-2 opacity-0 h-1 ${isBusiness ? 'bg-tertiary' : 'bg-primary'}`}></div>
+        <div ref={lineRef} className={`w-18 opacity-0 h-1 bg-gradient-to-r ${isBusiness ? 'from-tertiary via-tertiary to-transparent' : ' from-primary via-primary to-transparent'}`} ></div>
       </div>
 
     </div>

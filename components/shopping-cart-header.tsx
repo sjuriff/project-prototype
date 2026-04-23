@@ -14,10 +14,11 @@ import { CartItemHeader } from "./cart-item-header";
 interface ShoppingCartHeaderProps {
   mainMenuOpen: boolean
   setMenuOpen: (open: boolean) => void
+  isBusiness?: boolean
 }
 
 
-export default function HeaderShoppingCart({mainMenuOpen, setMenuOpen }: ShoppingCartHeaderProps) {
+export default function HeaderShoppingCart({mainMenuOpen, setMenuOpen, isBusiness }: ShoppingCartHeaderProps) {
 
   const {
     items,
@@ -87,7 +88,7 @@ export default function HeaderShoppingCart({mainMenuOpen, setMenuOpen }: Shoppin
   }, [open])
 
   return (
-    <div className="flex  items-center hover:cursor-pointer relative justify-center">
+    <div className={` ${isBusiness ? 'hidden': 'flex'}  items-center hover:cursor-pointer relative justify-center`}>
       <div ref={buttonRef} className="h-6" onClick={handleCartClick}>
         <button className="hover:cursor-pointer ">
           <ShoppingCart className={`h-6 w-6   text-primary`} />
@@ -102,7 +103,7 @@ export default function HeaderShoppingCart({mainMenuOpen, setMenuOpen }: Shoppin
 
 
         <div ref={dropdownRef}
-          className="absolute  px-4 translate-x-[250%] flex flex-col gap-2 h-screen items-center z-50  right-0 top-20 bg-tertiary w-screen   shadow-lg md:w-80"
+          className="absolute   px-4 translate-x-[250%] flex flex-col gap-2 h-screen items-center z-50  right-0 top-20 bg-tertiary w-screen   shadow-lg md:w-80"
         >
           <h1 className="font-heading mt-4 text-xl text-tertiary-text">Din handlekurv</h1>
           {count > 0 ? items.map((item) => (

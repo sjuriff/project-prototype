@@ -3,15 +3,19 @@
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
-import ScrollSmoother from "gsap/dist/ScrollSmoother";
+
 
 
 gsap.registerPlugin(useGSAP);
-gsap.registerPlugin(ScrollSmoother);
+
+
+interface BeamLogoProps {
+  isBusiness: boolean
+}
 
 
 
-export default function BeamFooterLogo() {
+export default function BeamFooterLogo({ isBusiness }: BeamLogoProps) {
   const logoRef = useRef<HTMLDivElement>(null)
   const dotOneRef = useRef<HTMLDivElement>(null)
   const dotTwoRef = useRef<HTMLDivElement>(null)
@@ -54,11 +58,11 @@ export default function BeamFooterLogo() {
   }, { scope: logoRef })
   return (
     <div ref={logoRef} className="flex flex-col items-center justify-center">
-      <h1 className="text-5xl font-logo text-primary [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">beam</h1>
+      <h1 className={` ${isBusiness ? 'text-tertiary' : 'text-primary '} text-5xl font-logo  [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]`}>beam</h1>
       <div className="flex  items-center gap-1">
-        <div ref={dotOneRef} className="w-3 opacity-0 rounded-l-lg h-1 bg-primary"></div>
-        <div ref={dotTwoRef} className="w-3 opacity-0 h-1 bg-primary"></div>
-        <div ref={lineRef} className="w-25 opacity-0 h-1 bg-gradient-to-r from-primary via-primary to-transparent"></div>
+        <div ref={dotOneRef} className={`w-3 opacity-0 rounded-l-lg h-1 ${isBusiness ? 'bg-tertiary' : 'bg-primary'} `}></div>
+        <div ref={dotTwoRef} className={`w-3 opacity-0 h-1 ${isBusiness ? 'bg-tertiary' : 'bg-primary'}`}></div>
+        <div ref={lineRef} className={`w-25 opacity-0 h-1 bg-gradient-to-r ${isBusiness ? 'from-tertiary via-tertiary to-transparent' : ' from-primary via-primary to-transparent'}  `}></div>
       </div>
 
     </div>
