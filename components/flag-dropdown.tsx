@@ -8,6 +8,10 @@ import Image from "next/image"
 
 gsap.registerPlugin(useGSAP)
 
+interface LanguageSelectorProps {
+  isBusiness?: boolean
+}
+
 const flags = [
   { code: "no", label: "Norsk" },
   { code: "se", label: "Svenska" },
@@ -15,7 +19,7 @@ const flags = [
   { code: "uk", label: "English" }
 ]
 
-export default function LanguageSelector({ scrollDirection, scrollTop }: { scrollDirection: string, scrollTop: number }) {
+export default function LanguageSelector({isBusiness }: LanguageSelectorProps) {
   const [open, setOpen] = useState(false)
   const [selected, setSelected] = useState("no")
 
@@ -63,7 +67,7 @@ export default function LanguageSelector({ scrollDirection, scrollTop }: { scrol
           <Image
             src={currentFlagImageUrl}
             fill
-            className="rounded-full border border-primary"
+            className={`rounded-full border ${isBusiness ? 'border-tertiary' : 'border-primary'} `}
             alt={current.label}
           />
         </div>
@@ -75,7 +79,7 @@ export default function LanguageSelector({ scrollDirection, scrollTop }: { scrol
 
 
       <div ref={dropdownRef}
-        className="absolute translate-x-[250%] z-50   -right-6 mt-8 bg-tertiary  rounded shadow-lg w-32"
+        className={`absolute translate-x-[250%] z-50   -right-6 mt-8 ${isBusiness ? 'bg-light-yellow': 'bg-tertiary '}  rounded shadow-lg w-32`}
       >
            
         {flags.map(f => {
@@ -90,11 +94,11 @@ export default function LanguageSelector({ scrollDirection, scrollTop }: { scrol
               <Image
                 src={flagImageUrl}
                 fill
-                className="rounded-full shadow-lg border group-hover:border-primary"
+                className={`rounded-full shadow-lg border ${isBusiness ? 'group-hover:border-tertiary' : 'group-hover:border-primary'} `}
                 alt={f.label}
               />
             </div>
-            <span className="text-sm group-hover:text-primary font-heading text-tertiary-text">{f.label}</span>
+            <span className={`text-sm group-hover:text-primary ${isBusiness ? 'group-hover:text-tertiary text-primary-text' : 'group-hover:text-primary text-tertiary-text'} font-heading `}>{f.label}</span>
           </button>
           )
         })}

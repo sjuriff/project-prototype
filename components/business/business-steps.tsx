@@ -1,6 +1,6 @@
 'use client'
 
-import { Users, Package, Activity } from "lucide-react";
+import { Users, Package, Activity, BarChart3 } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
@@ -14,23 +14,23 @@ export default function BusinessSteps() {
   const steps = [
     {
       number: 1,
-      title: "Legg ti medlemmer",
+      title: "Tildel dataplaner",
       description: "Start med å legge til medlemmer og tildele planer.",
       icon: Users,
       color: "primary"
     },
     {
       number: 2,
-      title: "Kjøp planer enkelt",
+      title: "Følg forbruk og fyll på data i sanntid",
       description: "Velg land, regional eller globale planer og kjøp med en gang",
-      icon: Package,
+      icon: Activity,
       color: "primary"
     },
     {
       number: 3,
-      title: "Monitorer databruk",
+      title: "Full oversikt og forutsigbare kostnader",
       description: "Når en bruker har aktivert en eSIM, kan du monitorere brukt data.",
-      icon: Activity,
+      icon: BarChart3,
       color: "primary"
     }
   ];
@@ -82,7 +82,7 @@ export default function BusinessSteps() {
               <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-gray-300" />
             )}
 
-            <div className="relative bg-surface-dim rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow h-full">
+            <div className="relative bg-tertiary rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow h-full">
               {/* Step Number Badge */}
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-full mb-6" style={{
                 backgroundColor: bgColor
@@ -96,17 +96,15 @@ export default function BusinessSteps() {
               </div>
 
               {/* Content */}
-              <h3 className="mb-3 text-primary-text" style={{
+              <h3 className="mb-3 text-tertiary-text" style={{
                 fontFamily: 'var(--font-heading)',
 
               }}>
                 {step.title}
               </h3>
-              <p className='text-balance' style={{
-                color: 'var(--color-primary-text)'
-              }}>
+            {/*   <p className='text-balance text-tertiary-text'>
                 {step.description}
-              </p>
+              </p> */}
             </div>
           </div>
         );
