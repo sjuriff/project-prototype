@@ -76,10 +76,10 @@ export default function Header() {
         <div className={"flex items-center z-50 relative gap-4"}>
           <div className=" gap-2 hidden md:flex mr-4">
             {/*  <PrimaryButton Icon={User}>Logg inn</PrimaryButton> */}
-            <button className={` flex text-sm items-center group  border-[#ffffff] ${pathName === '/business' ? 'text-tertiary' : 'text-primary'}  px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
+            <Link href={"/partner"} className={` flex text-sm items-center group  border-[#ffffff] ${pathName === '/business' ? 'text-tertiary' : 'text-primary'}  px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
               <Handshake className="mr-2 group-hover:translate-y-[-2px] transition-transform" /> Partnerskap
 
-            </button>
+            </Link>
             <Link href={paths.business} className={` flex text-sm items-center group ${pathName === '/business' ? 'text-tertiary' : 'text-primary'}  border-[#ffffff]   px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
               <BriefcaseBusiness className="mr-2 group-hover:translate-y-[-2px] transition-transform" /> Business
             </Link>
