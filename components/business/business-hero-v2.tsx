@@ -5,6 +5,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 
+gsap.registerPlugin(useGSAP);
+
 
 export default function BusinessHero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -37,7 +39,8 @@ export default function BusinessHero() {
           ".bh-phone",
           { x: 60, opacity: 0, scale: 0.95, duration: 1, ease: "power3.out" },
           "-=0.9"
-        )
+        )  
+
         // Phone inner content
         .from(
           ".bh-phone-status, .bh-phone-header, .bh-phone-ring, .bh-phone-bars, .bh-phone-list > *",
