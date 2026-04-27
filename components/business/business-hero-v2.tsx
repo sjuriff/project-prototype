@@ -4,6 +4,7 @@ import { ArrowRight, Signal, Wifi, BatteryFull, Plane, Globe2 } from "lucide-rea
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
+import { OutlineButton } from "../buttons/outline-button";
 
 gsap.registerPlugin(useGSAP);
 
@@ -126,9 +127,10 @@ export default function BusinessHero() {
 
           <div className="bh-cta mt-12 flex flex-wrap items-center gap-4">
             <PrimaryButton>
-              Kontakt beam business
+              Kontakt oss
               <ArrowRight className="ml-2 h-4 w-4 transition-transform  group-hover:translate-x-0.5" />
             </PrimaryButton>
+            <OutlineButton variant="tertiary"  >Registrer deg</OutlineButton>
           </div>
         </div>
 

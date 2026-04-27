@@ -67,7 +67,7 @@ export default function BusinessSteps() {
     { scope: containerRef }
   );
   return (
-    <div ref={containerRef} className="grid md:grid-cols-3 gap-8 mb-16">
+    <div ref={containerRef} className="grid  w-1/3 relative z-10 md:grid-cols-1 gap-8 mb-16">
       {steps.map((step, index) => {
         const Icon = step.icon;
         const bgColor = step.color === 'primary' ? 'var(--color-primary)' :
@@ -76,13 +76,10 @@ export default function BusinessSteps() {
         const textColor = step.color === 'tertiary' ? 'var(--color-tertiary-text)' : 'var(--color-primary-text)';
 
         return (
-          <div key={step.number} className="step-card relative">
-            {/* Connector Line */}
-            {index < steps.length - 1 && (
-              <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-gray-300" />
-            )}
+          <div key={step.number} className="step-card  w-full relative">
+         
 
-            <div className="relative bg-tertiary rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow h-full">
+            <div className="relative bg-tertiary rounded-2xl p-8 shadow-md hover:shadow-md transition-shadow h-full">
               {/* Step Number Badge */}
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-full mb-6" style={{
                 backgroundColor: bgColor

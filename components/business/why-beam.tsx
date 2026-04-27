@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Calendar, Gauge, MousePointerClick, Globe2, FileText, Headphones, BadgeQuestionMark } from "lucide-react";
 import { useGSAP } from "@gsap/react";
+import PrimaryButton from "../buttons/primary-button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,7 +106,7 @@ export default function WhyBeam() {
   return (
     <section
       ref={containerRef}
-      className="relative overflow-hidden flex items-center justify-center border w-full bg-tertiary py-24 md:py-36"
+      className="relative overflow-hidden flex items-center flex-col gap-15 justify-center border w-full bg-tertiary py-24 md:py-36"
     >
       {/* Half-circle entering from the right */}
       <div
@@ -167,6 +168,7 @@ export default function WhyBeam() {
           ))}
         </div>
       </div>
+      <PrimaryButton>Ønsker du å selge beam til dine kunder?</PrimaryButton>
     </section>
   );
 };
