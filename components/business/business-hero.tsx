@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import PrimaryButton from "../buttons/primary-button";
 import Image from "next/image";
+import { OutlineButton } from "../buttons/outline-button";
 const stats = [
   { icon: Globe, label: "Land", value: "190+" },
   { icon: Wifi, label: "Nettverk", value: "700+" },
@@ -51,9 +52,9 @@ export default function BusinessHero() {
             <PrimaryButton Icon={ArrowRight} >
               Les mer
             </PrimaryButton>
-            {/* <Button variant="heroOutline" size="lg" className="text-base px-8">
-              View API Docs
-            </Button> */}
+            <OutlineButton variant="secondary" >
+              Kontakt oss
+            </OutlineButton>
           </div>
 
           {/* Stats */}
