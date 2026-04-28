@@ -29,7 +29,7 @@ export default function PartnerHero() {
       })
         .from(
           ".partner-phone",
-          { x: 60,  opacity: 0, scale: 0.8, duration: 0.6, ease: "power3.out" },
+          { x: 60, opacity: 0, scale: 0.8, duration: 0.6, ease: "power3.out" },
           "-=0.6"
         )
         .from(
@@ -52,15 +52,15 @@ export default function PartnerHero() {
 
 
         <h1 className="partner-heading font-heading text-secondary-text text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-balance">
-          <span className="inline-block">Tjen på reisen,</span>
-          <span className=" [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] inline-block text-primary">uten å reise selv.</span>
+          <span className="inline-block">Bli partner</span>
+          <span className=" [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] inline-block text-primary">med <span className="font-logo">beam</span></span>
         </h1>
 
         <p className="partner-subheading text-lg font-body text-secondary-text max-w-xl leading-relaxed text-pretty">
-          Anbefal <span className="font-logo [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] ">beam</span> eSIM til ditt publikum og motta opptil
-          <span className="text-foreground"> 25 % provisjon</span> på hver eSIM
-          som aktiveres. Skreddersydd for influencere, reisebyråer og
-          innholdsskapere.
+          En aktiv partnerfokusert aktør med fokus på scandinaviske markedet, Vi er
+          en ivrig og nysgjerrig partner som altid er åpen for nye ideer.
+          Vi ønsker å utfodre det etablerte operatørene på en gammeldags og
+          utdatert opplevelse rundt mobiltelefoni og databruk utenfor Europa
         </p>
 
         <div className="flex flex-wrap mb-16  gap-3 ">
@@ -69,16 +69,11 @@ export default function PartnerHero() {
 
             >
 
-              Bli partner
+              Kontakt oss
               <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform ml-1" />
             </PrimaryButton>
           </div>
-          <div className="ghost-button">
-            <GhostButton
-            >
-              Slik fungerer det
-            </GhostButton>
-          </div>
+         
         </div>
 
 

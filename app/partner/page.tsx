@@ -2,6 +2,7 @@ import PartnerHero from "@/components/partner/partner-hero"
 import WhyBeamEsim from "@/components/partner/why-beam"
 import PartnerBanner from "@/components/partner/partner-banner"
 import HowToStart from "@/components/partner/partner-start"
+import PartnerCardWrapper from "@/components/partner/partner-card-wrapper"
 
 export default function PartnerPage(){
 
@@ -10,9 +11,12 @@ export default function PartnerPage(){
       <section>
         <PartnerHero />
       </section>
-      <section className="flex items-center justify-center">
-        <WhyBeamEsim />
+      <section>
+        <PartnerCardWrapper />
       </section>
+     {/*  <section className="flex items-center justify-center">
+        <WhyBeamEsim />
+      </section> */}
       <section>
         <PartnerBanner />
       </section>

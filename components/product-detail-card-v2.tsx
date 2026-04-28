@@ -86,8 +86,12 @@ export default function ProductDetailV2({
   })
 
 
-  const isRegion: boolean = REGION_CODES.includes(countryCode)
+  const days = [{number:"7", price: 155 }, {number:"14", price: 255 }, {number:"30", price: 355 }, {number:"90", price: 655 }] 
 
+  const [plan, setPlan] = useState<"set" | "unlimited">("set")
+
+
+  const isRegion: boolean = REGION_CODES.includes(countryCode)
 
 
   const indicatorRefs = useRef<
@@ -100,11 +104,28 @@ export default function ProductDetailV2({
       }
     >
   >({
-    "2GB": { dotOne: null, dotTwo: null, line: null },
-    "5GB": { dotOne: null, dotTwo: null, line: null },
-    "10GB": { dotOne: null, dotTwo: null, line: null },
-    "20GB": { dotOne: null, dotTwo: null, line: null },
+    "set": { dotOne: null, dotTwo: null, line: null },
+    "unlimited": { dotOne: null, dotTwo: null, line: null },
+
   });
+
+
+  /* 
+    const indicatorRefs = useRef<
+      Record<
+        string,
+        {
+          dotOne: HTMLDivElement | null;
+          dotTwo: HTMLDivElement | null;
+          line: HTMLDivElement | null;
+        }
+      >
+    >({
+      "2GB": { dotOne: null, dotTwo: null, line: null },
+      "5GB": { dotOne: null, dotTwo: null, line: null },
+      "10GB": { dotOne: null, dotTwo: null, line: null },
+      "20GB": { dotOne: null, dotTwo: null, line: null },
+    }); */
   const { addItem } = useCart()
   const router = useRouter()
 
@@ -142,7 +163,7 @@ export default function ProductDetailV2({
 
   useGSAP(
     () => {
-      const active = indicatorRefs.current[tier.data];
+      const active = indicatorRefs.current[plan];
       if (!active?.dotOne || !active?.dotTwo || !active?.line) return;
 
       gsap.killTweensOf([active.dotOne, active.dotTwo, active.line]);
@@ -166,7 +187,7 @@ export default function ProductDetailV2({
           "-=0.05"
         );
     },
-    { dependencies: [tier] }
+    { dependencies: [plan] }
   );
 
 
@@ -216,7 +237,7 @@ export default function ProductDetailV2({
                 </div>
               ) : (<div className=" relative bg-secondary-heading    flex items-center justify-center overflow-hidden  h-[250px]   w-full md:h-1/2 ">
                 <div className="flex absolute w-full -bottom-1 z-10  items-center gap-4">
-                  <div className="w-25   h-4 bg-secondary"></div>
+                  <div className="w-25    h-4 bg-secondary"></div>
                   <div className="w-25  h-4 bg-secondary"></div>
                   <div className="w-full  h-4 bg-secondary"></div>
                 </div>
@@ -240,52 +261,97 @@ export default function ProductDetailV2({
                 }
 
               </div>)}
-              <div className='w-full flex flex-col items-center gap-2 md:gap-4  justify-center py-6 md:py-0 md:h-1/2'>
-                <h1 className='font-heading text-2xl md:text-3xl text-tertiary'>Velg et abonnement</h1>
-                <div className=' gap-4 text-base md:text-base font-heading flex'>
-                  <p className='border-b border-tertiary'>Fast</p>
-                  <p>Ubegrenset</p>
+              <div className='w-full flex flex-col border items-center gap-2 md:gap-4  justify-center  md:py-0 md:h-1/2'>
+                <h1 className='font-heading text-2xl md:text-3xl text-tertiary '>Velg et abonnement</h1>
+                <div className=' gap-4  text-base gap-16 md:text-base font-heading flex'>
+                  <div className='flex flex-col w-20 items-center justify-center gap-1'>
+                    <p onClick={() => setPlan("set")} className=''>Fast</p>
+                    <div
+                      className={`flex items-center gap-1 w-full transition-opacity duration-200 ${plan === "set" ? "opacity-100" : "opacity-0"} `}
+                    >
+                      <div
+                        ref={(el) => {
+                          indicatorRefs.current["set"].dotOne = el;
+                        }}
+                        className="w-2 h-1  rounded-l-lg bg-tertiary"
+                      />
+                      <div
+                        ref={(el) => {
+                          indicatorRefs.current["set"].dotTwo = el;
+                        }}
+                        className="w-2 h-1  bg-tertiary"
+                      />
+                      <div
+                        ref={(el) => {
+                          indicatorRefs.current["set"].line = el;
+                        }}
+                        className="w-full  h-1 bg-gradient-to-r from-tertiary via-tertiary to-transparent"
+                      />
+                    </div>
+                  </div>
+                  <div className='flex flex-col w-20 items-center justify-center gap-1'>
+                    <p onClick={() => setPlan("unlimited")}>Ubegrenset</p>
+                    <div className={`flex items-center gap-1 w-full transition-opacity duration-200 ${plan === "unlimited" ? "opacity-100" : "opacity-0"} `}
+                    >
+                      <div
+                        ref={(el) => {
+                          indicatorRefs.current["unlimited"].dotOne = el;
+                        }}
+                        className="w-2 h-1 rounded-l-lg bg-tertiary"
+                      />
+                      <div
+                        ref={(el) => {
+                          indicatorRefs.current["unlimited"].dotTwo = el;
+                        }}
+                        className="w-2 h-1 bg-tertiary"
+                      />
+                      <div
+                        ref={(el) => {
+                          indicatorRefs.current["unlimited"].line = el;
+                        }}
+                        className="w-full h-1 bg-gradient-to-r from-tertiary via-tertiary to-transparent"
+                      />
+                    </div>
+                  </div>
                 </div>
 
-                <div className='grid grid-cols-12   mb-8  gap-y-6 gap-x-4  py-4 px-8 bg-secondary  rounded-lg'>
+                <div className={`grid grid-cols-12 ${plan === "set" ? "visible" : "hidden"}    mb-8  gap-y-6 gap-x-4  py-4 px-8 bg-secondary  rounded-lg`}>
 
                   {tiers.map((item) => (
                     <div className=' col-span-12  md:col-span-6 flex flex-col items-start md:items-center justify-center bg-secondary px-2 rounded '>
-                      <div onClick={() => handleTierClick(item)} key={item.data} className={` ${item.price === tier.price ? '' : ''} flex relative  hover:cursor-pointer bg-secondary  px-4 py-2    items-center justify-center gap-3 `}>
+                      <div onClick={() => handleTierClick(item)} key={item.data} className={` ${item.price === tier.price ? 'bg-surface-dim shadow' : 'bg-secondary'} flex relative  hover:cursor-pointer  rounded-xl  px-4 py-2    items-center justify-center gap-3 `}>
                         {item.popular && <span className={`absolute -top-3 -right-4 ${item.price === tier.price ? 'bg-primary' : 'bg-light-yellow'} text-xs  rounded-full px-1 py-1 font-body text-primary-text `} >Populær</span>}
-                        <div className={`mt-1 p-2 rounded-full ${item.price === tier.price ? 'bg-primary text-primary-text' : ' bg-transparent text-primary-text '} `} >
+                        <div className={`mt-1 p-2 rounded-full ${item.price === tier.price ? 'bg-tertiary text-primary' : ' bg-transparent text-primary-text '} `} >
                           <Radio className="w-5 h-5 " />
 
                         </div>
-                        <div className={` font-body flex flex-col ${item.price === tier.price ? 'text-secondary-text' : 'text-secondary-text'} `}>
+                        <div className={` font-body flex flex-col ${item.price === tier.price ? 'text-primary-text' : 'text-secondary-text'} `}>
                           <p className=' font-heading text-sm' >{item.validity}</p>
                           <p >{item.data}</p>
                         </div>
 
                       </div>
-                      <div
-                        className={`flex items-center gap-1 w-full transition-opacity duration-200 ${item.price === tier.price ? "opacity-100" : "opacity-0"
-                          }`}
-                      >
-                        <div
-                          ref={(el) => {
-                            indicatorRefs.current[item.data].dotOne = el;
-                          }}
-                          className="w-2 h-1 rounded-l-lg bg-tertiary"
-                        />
-                        <div
-                          ref={(el) => {
-                            indicatorRefs.current[item.data].dotTwo = el;
-                          }}
-                          className="w-2 h-1 bg-tertiary"
-                        />
-                        <div
-                          ref={(el) => {
-                            indicatorRefs.current[item.data].line = el;
-                          }}
-                          className="w-full h-1 bg-gradient-to-r from-tertiary via-tertiary to-transparent"
-                        />
+                
+                    </div>
+                  ))}
+                </div>
+                <div className={`grid grid-cols-12 ${plan === "unlimited" ? "visible" : "hidden"}    mb-8  gap-y-6 gap-x-4  py-4 px-8 bg-secondary  rounded-lg`}>
+
+                  {days.map((day) => (
+                    <div className=' col-span-12  md:col-span-6 flex flex-col items-start md:items-center justify-center bg-secondary px-2 rounded '>
+                      <div  className={`flex relative  hover:cursor-pointer  rounded-xl  px-4 py-2    items-center justify-center gap-3 `}>
+                       
+                        <div className={`mt-1 p-2 rounded-full  `} >
+                          <Radio className="w-5 h-5 " />
+
+                        </div>
+                        <div className={` font-body flex flex-col `}>
+                          <p className=' font-heading text-sm' >{day.number} dager</p>
+                          <p >{}</p>
+                        </div>
+
                       </div>
+                
                     </div>
                   ))}
                 </div>
