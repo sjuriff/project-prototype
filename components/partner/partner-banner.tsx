@@ -1,6 +1,6 @@
 'use client'
 
-import earningsIllustration from "@/public/images/earnings-illustration.png"
+import earningsIllustration from "@/public/images/test-partner.png";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";

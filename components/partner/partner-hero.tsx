@@ -1,7 +1,7 @@
 'use client'
 import { ArrowRight } from "lucide-react";
 import PrimaryButton from "../buttons/primary-button";
-import illustration from "@/public/images/partner-illustration.png";
+import illustration from "@/public/images/partner-arms.png";
 import Image from "next/image";
 import GhostButton from "../buttons/ghost-button";
 import gsap from "gsap";

@@ -36,25 +36,7 @@ export default function DurationDropdown({
   const planeRef = useRef<SVGSVGElement>(null);
   const chevronRef = useRef<SVGSVGElement>(null);
 
-  const portal = usePortal();
-
-  const [position, setPosition] = useState({
-    top: 0,
-    left: 0,
-    width: 0,
-  });
-
-  const updatePosition = () => {
-    if (!ref.current) return;
-
-    const rect = ref.current.getBoundingClientRect();
-
-    setPosition({
-      top: rect.bottom + 8,
-      left: rect.left,
-      width: rect.width,
-    });
-  };
+  
 
   // Click outside (fungerer med portal)
   useEffect(() => {
@@ -74,19 +56,7 @@ export default function DurationDropdown({
   }, []);
 
   // Oppdater posisjon ved open + scroll/resize
-  useLayoutEffect(() => {
-    if (!open) return;
 
-    updatePosition();
-
-    window.addEventListener("resize", updatePosition);
-    window.addEventListener("scroll", updatePosition, true);
-
-    return () => {
-      window.removeEventListener("resize", updatePosition);
-      window.removeEventListener("scroll", updatePosition, true);
-    };
-  }, [open]);
 
   // Chevron + close animation
   useGSAP(() => {
@@ -204,8 +174,7 @@ export default function DurationDropdown({
     <div ref={ref} className="relative w-72">
       <button
         type="button"
-        onClick={() => {
-          if (!open) updatePosition();
+        onClick={() => { 
           setOpen((o) => !o);
         }}
         onMouseEnter={handleHoverPlane}
@@ -226,17 +195,12 @@ export default function DurationDropdown({
       </button>
 
       {render &&
-        portal(
+        
           <ul
             ref={listRef}
             role="listbox"
-            style={{
-              position: "fixed",
-              top: position.top,
-              left: position.left,
-              width: position.width,
-            }}
-            className="z-[9999] overflow-hidden rounded-lg border border-tertiary bg-surface-blue p-1 shadow-lg"
+            
+            className="z-[9999] absolute top-full w-full mt-2 overflow-hidden rounded-lg border border-tertiary bg-surface-blue p-1 shadow-lg"
           >
             {options.map((option) => {
               const isSelected = option === selected;
@@ -266,7 +230,7 @@ export default function DurationDropdown({
               );
             })}
           </ul>
-        )}
+        }
     </div>
   );
 }
