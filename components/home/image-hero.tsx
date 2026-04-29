@@ -104,7 +104,7 @@ export default function ImageHero(props: HeroProps) {
   }
 
   return (
-    <div className="relative w-full h-[600px] xl:min-h-[700px] bg-tertiary  xl:h-[calc(100dvh-5rem)] xl:max-h-[950px] 2xl:w-full 2xl:h-[750px] fhd:rounded-b-2xl overflow-hidden z-0   w-full ">
+    <div className="relative w-full h-[600px] xl:min-h-[700px] bg-tertiary  xl:h-[calc(100dvh-5rem)] xl:max-h-[950px] 2xl:w-full 2xl:h-[750px] fhd:rounded-b-2xl    w-full ">
       <div className="absolute  left-0 right-0 bottom-0  h-[80%] w-full  md:h-full z-0">
         <Image
           src={props.imgData}
@@ -164,7 +164,7 @@ export default function ImageHero(props: HeroProps) {
             />
 
             {/* Icon + sliding circle */}
-            <div className="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none overflow-hidden">
+            <div className="absolute inset-y-0 left-0 overflow-hidden flex items-center pl-2 pointer-events-none ">
               <div className="relative flex items-center justify-center w-8 h-8">
                 <div
                   className="
@@ -180,7 +180,7 @@ export default function ImageHero(props: HeroProps) {
 
             {/* Dropdown */}
             {open && results.length > 0 && (
-              <div className="absolute  mt-2 w-full overflow-hidden rounded-xl border border-secondary-text bg-white shadow-lg">
+              <div className="absolute  mt-2 overflow-hidden w-full z-50  rounded-xl border border-secondary-text bg-white shadow-lg">
                 {results.map((c) => {
 
                   const flagImageUrl: string = 'https://borderly.dev/flag/circle/' + c.countryCode.toLowerCase() + '.svg'
@@ -233,7 +233,8 @@ export default function ImageHero(props: HeroProps) {
       </div>
 
       {/* Vipps circle */}
-      <div className="absolute -right-28 -bottom-28 md:-bottom-37 md:-right-32 w-60 h-60 md:w-80 md:h-80 z-10">
+      <div className="absolute left-1/2 top-0 overflow-hidden h-full w-1/2 ">
+        <div className="absolute -right-28 -bottom-28 md:-bottom-37 md:-right-32 w-60 h-60 md:w-80 md:h-80 z-10">
         <div className="absolute hidden md:block top-20 left-22">
           <VippsPayIcon height={80} width={80} />
         </div>
@@ -257,6 +258,8 @@ export default function ImageHero(props: HeroProps) {
           </text>
         </svg>
       </div>
+      </div>
+    
     </div>
   );
 }
