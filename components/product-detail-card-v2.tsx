@@ -12,6 +12,7 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { FaEarthAmericas, FaEarthEurope, FaEarthAsia, FaEarthAfrica, FaGlobe } from "react-icons/fa6"
 import { Tier } from '@/types/product';
+import DurationDropdown from './custom-dropdown-v2';
 
 
 interface ProductDetailCardProps {
@@ -86,7 +87,7 @@ export default function ProductDetailV2({
   })
 
 
-  const days = [{number:"7", price: 155 }, {number:"14", price: 255 }, {number:"30", price: 355 }, {number:"90", price: 655 }] 
+  const days = [{ number: "7", price: 155 }, { number: "14", price: 255 }, { number: "30", price: 355 }, { number: "90", price: 655 }]
 
   const [plan, setPlan] = useState<"set" | "unlimited">("set")
 
@@ -261,11 +262,11 @@ export default function ProductDetailV2({
                 }
 
               </div>)}
-              <div className='w-full flex flex-col border items-center gap-2 md:gap-4  justify-center  md:py-0 md:h-1/2'>
+              <div className='w-full flex flex-col items-center gap-2 md:gap-4  justify-center  md:py-0 md:h-1/2'>
                 <h1 className='font-heading text-2xl md:text-3xl text-tertiary '>Velg et abonnement</h1>
                 <div className=' gap-4  text-base gap-16 md:text-base font-heading flex'>
                   <div className='flex flex-col w-20 items-center justify-center gap-1'>
-                    <p onClick={() => setPlan("set")} className=''>Fast</p>
+                    <p  onClick={() => setPlan("set")} className='hover:cursor-pointer'>Fast</p>
                     <div
                       className={`flex items-center gap-1 w-full transition-opacity duration-200 ${plan === "set" ? "opacity-100" : "opacity-0"} `}
                     >
@@ -290,8 +291,8 @@ export default function ProductDetailV2({
                     </div>
                   </div>
                   <div className='flex flex-col w-20 items-center justify-center gap-1'>
-                    <p onClick={() => setPlan("unlimited")}>Ubegrenset</p>
-                    <div className={`flex items-center gap-1 w-full transition-opacity duration-200 ${plan === "unlimited" ? "opacity-100" : "opacity-0"} `}
+                    <p className='hover:cursor-pointer' onClick={() => setPlan("unlimited")}>Ubegrenset</p>
+                    <div className={`flex items-center  gap-1 w-full transition-opacity duration-200 ${plan === "unlimited" ? "opacity-100" : "opacity-0"} `}
                     >
                       <div
                         ref={(el) => {
@@ -315,11 +316,11 @@ export default function ProductDetailV2({
                   </div>
                 </div>
 
-                <div className={`grid grid-cols-12 ${plan === "set" ? "visible" : "hidden"}    mb-8  gap-y-6 gap-x-4  py-4 px-8 bg-secondary  rounded-lg`}>
+                <div className={`grid grid-cols-12 ${plan === "set" ? "visible" : "hidden"} bg-surface-blue shadow-sm h-1/2   mb-8  gap-y-6 gap-x-4  py-4 px-8 bg-secondary  rounded-lg`}>
 
                   {tiers.map((item) => (
-                    <div className=' col-span-12  md:col-span-6 flex flex-col items-start md:items-center justify-center bg-secondary px-2 rounded '>
-                      <div onClick={() => handleTierClick(item)} key={item.data} className={` ${item.price === tier.price ? 'bg-surface-dim shadow' : 'bg-secondary'} flex relative  hover:cursor-pointer  rounded-xl  px-4 py-2    items-center justify-center gap-3 `}>
+                    <div className=' col-span-12  md:col-span-6 flex flex-col items-start md:items-center justify-center  px-2 rounded '>
+                      <div onClick={() => handleTierClick(item)} key={item.data} className={` ${item.price === tier.price ? 'bg-surface-dim shadow' : 'bg-transparent'} flex relative  hover:cursor-pointer  rounded-xl  px-4 py-2    items-center justify-center gap-3 `}>
                         {item.popular && <span className={`absolute -top-3 -right-4 ${item.price === tier.price ? 'bg-primary' : 'bg-light-yellow'} text-xs  rounded-full px-1 py-1 font-body text-primary-text `} >Populær</span>}
                         <div className={`mt-1 p-2 rounded-full ${item.price === tier.price ? 'bg-tertiary text-primary' : ' bg-transparent text-primary-text '} `} >
                           <Radio className="w-5 h-5 " />
@@ -331,29 +332,14 @@ export default function ProductDetailV2({
                         </div>
 
                       </div>
-                
+
                     </div>
                   ))}
                 </div>
-                <div className={`grid grid-cols-12 ${plan === "unlimited" ? "visible" : "hidden"}    mb-8  gap-y-6 gap-x-4  py-4 px-8 bg-secondary  rounded-lg`}>
 
-                  {days.map((day) => (
-                    <div className=' col-span-12  md:col-span-6 flex flex-col items-start md:items-center justify-center bg-secondary px-2 rounded '>
-                      <div  className={`flex relative  hover:cursor-pointer  rounded-xl  px-4 py-2    items-center justify-center gap-3 `}>
-                       
-                        <div className={`mt-1 p-2 rounded-full  `} >
-                          <Radio className="w-5 h-5 " />
-
-                        </div>
-                        <div className={` font-body flex flex-col `}>
-                          <p className=' font-heading text-sm' >{day.number} dager</p>
-                          <p >{}</p>
-                        </div>
-
-                      </div>
-                
-                    </div>
-                  ))}
+                <div className={`flex flex-col items-center  justify-start  gap-2 relative ${plan === "unlimited" ? "visible" : "hidden"}     h-1/2   mb-8   py-4 px-8 bg-secondary  rounded-lg`}>
+                  <p className='font-body  text-sm   text-primary-text'>Hvor lenge skal du resie?</p>
+                  <DurationDropdown />
                 </div>
               </div>
 
