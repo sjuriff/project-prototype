@@ -7,7 +7,7 @@ import PartnerCardWrapper from "@/components/partner/partner-card-wrapper"
 export default function PartnerPage(){
 
   return(
-    <main className="bg-surface">
+    <main className="bg-surface overflow-hidden">
       <section>
         <PartnerHero />
       </section>

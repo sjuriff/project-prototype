@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Globe, Smartphone, Zap } from 'lucide-react';
 import heroImg from '@/public/images/beam-green.jpg';
+import heroMobileImage from '@/public/images/beam-family.jpg';
 import PrimaryButton from '@/components/buttons/primary-button';
 
 export function CreativeHero() {
@@ -10,7 +11,7 @@ export function CreativeHero() {
       <div className="lg:hidden mt-4   px-6">
         <div className="rounded-3xl overflow-hidden">
           <Image
-            src={heroImg}
+            src={heroMobileImage}
             alt="Mobile phone connectivity"
             className="w-full h-[400px] object-cover"
           />

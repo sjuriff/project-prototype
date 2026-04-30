@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react"
 import usePortal from "@/hooks/use-portal"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import paths from "@/paths"
 
 gsap.registerPlugin(useGSAP)
 
@@ -31,14 +32,7 @@ export default function DropInMenu({ menuOpen, menuItems, open, isBusiness }: Dr
 
 
 
-  /*   console.log('isOpen', isOpen) */
 
-  /*   const handleArrowAnimation = () => {
-      gsap.to(arrowRef.current, {
-        rotate: isOpen ? 180 : 0,
-        duration: 0.3,
-      });
-    }; */
 
   useEffect(() => {
     menuOpen(isOpen)
@@ -147,10 +141,9 @@ export default function DropInMenu({ menuOpen, menuItems, open, isBusiness }: Dr
 
 
           <div ref={menuRef} className={`absolute mt-8 md:mt-0 md:fixed w-screen ${isBusiness ? 'bg-light-yellow' : 'bg-tertiary'}  top-0  right-0 h-screen md:w-80 translate-x-[100%] pointer-events-none z-40 md:z-40 flex flex-col items-start justify-center pb-24  `}>
-            <Link data-menu-item href={'#'} className={`p ${isBusiness ? 'text-primary-text' : 'text-tertiary-text'}x-4 md:hidden  group py-2 flex text-lg gap-2 items-center justify-center `}><User className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" /> Logg inn </Link>
-            <Link data-menu-item href={'#'} className="px-4 md:hidden  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text"><UserPlus className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" /> Registrer deg </Link>
-            <Link data-menu-item href={'#'} className="px-4 md:hidden  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text"><Handshake className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" /> Partnerskap </Link>
-            <Link data-menu-item href={'#'} className="px-4 md:hidden  group py-2 flex text-lg gap-2 items-center justify-center text-tertiary-text"><BriefcaseBusiness className="h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform text-tertiary-text" /> Business </Link>
+            <Link data-menu-item href={'#'} className={`p ${isBusiness ? 'text-tertiary' : 'text-tertiary-text'} px-4 md:hidden  group py-2 flex text-lg gap-2 items-center justify-center `}><User className={`h-5 ${isBusiness ? 'text-primary-text' : 'text-tertiary-text'}  w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary transition-transform `} /> Logg inn </Link>
+            <Link data-menu-item href={'#'} className={`px-4 md:hidden ${isBusiness ? 'text-tertiary' : 'text-tertiary-text'}  group py-2 flex text-lg gap-2 items-center justify-center `}><UserPlus className={`h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 group-hover:text-primary ${isBusiness ? 'text-primary-text' : 'text-tertiary-text'}  transition-transform `} /> Registrer deg </Link>
+            
             {menuItems.map((item, index) => (
               <Link onClick={() => setIsOpen(false)} data-menu-item key={index} href={item.href} className={`px-4  group py-2 flex text-lg gap-2 items-center justify-center  ${isBusiness ? 'text-tertiary' : 'text-tertiary-text'}`}>{<item.icon className={`h-5 w-5 group-hover:translate-y-[-2px] group-hover:-translate-x-1 group-hover:scale-110 transition-transform  ${isBusiness ? 'text-primary-text group-hover:text-tertiary' : 'text-tertiary-text  group-hover:text-primary'}`} />} {item.title} </Link>
             ))}

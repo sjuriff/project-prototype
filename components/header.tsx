@@ -15,12 +15,12 @@ import { usePathname } from "next/navigation";
 const menuItems = [
   {
     title: "Destinasjoner",
-    href: "#",
+    href: paths.produkter,
     icon: Plane
   },
   {
     title: "Slik fungerer eSIM",
-    href: "#",
+    href: paths.info,
     icon: Lightbulb
   },
   {
@@ -30,22 +30,22 @@ const menuItems = [
   },
   {
     title: "Bedrift"
-    , href: "#",
+    , href: paths.business,
     icon: Briefcase
   },
   {
     title: "Partnerskap",
-    href: "#",
+    href: paths.partner,
     icon: Handshake
   },
   {
     title: "Support",
-    href: "#",
+    href: paths.support,
     icon: HeartHandshake
   },
   {
     title: "Om oss",
-    href: "/about",
+    href: paths.about,
     icon: Info
   },
 ]

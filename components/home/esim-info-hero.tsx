@@ -21,8 +21,31 @@ export default function ESimInfoHero() {
   const [androidColor, setAndroidColor] = useState('#ffffff')
   const androidRef = useRef<SVGSVGElement>(null)
   const iPhoneRef = useRef<SVGSVGElement>(null)
+  const iconRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {
+
+    if (!iconRef.current) return
+    gsap.fromTo(iconRef.current, {
+      opacity: 0,
+      x: '100%',
+      duration: 0.8,
+    }
+      , {
+      opacity: 1,
+      x: 0,
+      duration: 0.8,
+      ease: "power3.out",
+      
+      scrollTrigger: {
+        trigger: iconRef.current,
+        start: "top 85%",
+        end: "bottom 85%",
+        scrub: true,
+        markers: false
+      },
+    })
     if (!iPhoneRef.current || !androidRef.current) return
 
     if (androidHovered) {
@@ -96,10 +119,10 @@ export default function ESimInfoHero() {
 
   }, [iPhoneHovered, androidHovered])
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center md:px-6 py-16">
+    <div ref={containerRef} className="min-h-screen bg-background flex items-center justify-center md:mt-16 md:px-6 py-16">
       <div className="max-w-5xl   relative  w-full">
-        <div className="hidden absolute md:block z-0 top-8 md:-top-16 -right-8 items-center flex justify-center gap-3 p-24 bg-primary/40 rounded-full">
-          <Lightbulb className="h-6 w-6 md:w-20 md:h-20 z-0 text-default opacity-40" />
+        <div ref={iconRef} className="hidden  absolute md:block z-0 top-8 md:-top-34 -right-98 items-center h-[500px] w-[500px] flex justify-center gap-3  bg-primary/40 rounded-full">
+          <Lightbulb className="h-12 w-12 absolute top-1/2 left-38 -translate-y-1/2  md:w-38 md:h-38 z-0 text-tertiary opacity-50  " />
         </div>
         <div className="space-y-8">
           {/* Header Section */}

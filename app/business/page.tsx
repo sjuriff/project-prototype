@@ -21,7 +21,7 @@ export default function BusinessPage() {
       <section className="min-h-[700px] py-16 relative  px-16 gap-4 flex flex-col items-center justify-center" >
 
         <StepsHeader />
-        <div className="flex justify-around w-full">
+        <div className="flex flex-col  md:flex-row justify-around w-full">
           <BusinessSteps />
           <DashboatdPhone />
         </div>

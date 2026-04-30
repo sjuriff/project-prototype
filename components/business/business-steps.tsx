@@ -67,7 +67,7 @@ export default function BusinessSteps() {
     { scope: containerRef }
   );
   return (
-    <div ref={containerRef} className="grid  w-1/3 relative z-10 md:grid-cols-1 gap-8 mb-16">
+    <div ref={containerRef} className="grid  md:w-1/3 relative  z-10 md:grid-cols-1 gap-8 mb-16">
       {steps.map((step, index) => {
         const Icon = step.icon;
         const bgColor = step.color === 'primary' ? 'var(--color-primary)' :
