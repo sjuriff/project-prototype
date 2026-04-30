@@ -67,7 +67,7 @@ export default function BusinessHero() {
             </p>
           </div>
 
-          <div className="bh-cta mt-12 flex flex-wrap items-center gap-4">
+          <div className="bh-cta mt-12 flex flex-col md:flex-row items-center gap-4">
             <PrimaryButton>
               Kontakt oss
               <ArrowRight className="ml-2 h-4 w-4 transition-transform  group-hover:translate-x-0.5" />

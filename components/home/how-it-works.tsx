@@ -25,12 +25,7 @@ export default function HowItWorksSection() {
   return (
     <section className="py-16  px-6 md:py-0">
       <div className="max-w-6xl mx-auto">
-        {/* <h2
-          className="text-center font-heading text-3xl font-heading mb-4"
-         
-        >
-          Slik fungerer det
-        </h2> */}
+      
 
         <p
           className="text-center text-base md:text-lg text-primary-text max-w-2xl mx-auto mb-16"

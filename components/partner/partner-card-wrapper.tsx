@@ -103,7 +103,7 @@ export default function PartnerCardWrapper() {
       <div className="container mx-auto max-w-6xl">
         <header className="mb-12  flex flex-col items-center text-center">
           <div className=" w-fit text-center relative">
-             <div ref={iconRef} className="flex z-0 absolute -top-9 md:-top-9 -right-6  items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full mb-6 bg-primary" >
+             <div ref={iconRef} className="flex z-0 absolute -top-9 md:-top-9 right-4 md:-right-6  items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full mb-6 bg-primary" >
               <Sparkle className="h-6 w-6 md:w-8 md:h-8 text-primary-text" />
             </div>
             <h1

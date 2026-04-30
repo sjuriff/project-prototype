@@ -114,12 +114,12 @@ export default function WhyBeam() {
         className="pointer-events-none absolute right-0 top-24 z-0 translate-x-1/2"
         aria-hidden
       >
-        <div className="relative h-[420px] w-[420px] md:h-[620px] md:w-[620px]">
+        <div className="relative h-[250px] w-[250px] md:h-[620px] md:w-[620px]">
           {/* Concentric ring outline */}
    
           
           {/* Solid beam circle */}
-          <div className="absolute inset-0 flex items-center justify-center rounded-full bg-light-yellow" >
+          <div className="absolute inset-0 flex items-center justify-center rounded-full bg-surface-blue md:bg-light-yellow" >
             </div>
         </div>
       </div>

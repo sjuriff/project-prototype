@@ -48,7 +48,7 @@ export default function PlanCardWrapper() {
     });
   }, { scope: wrapperRef });
   return (
-    <div ref={wrapperRef} className="plan-card-wrapper grid grid-cols-4 place-items-center w-full gap-4 px-24">
+    <div ref={wrapperRef} className="plan-card-wrapper grid grid-cols-4 place-items-center w-full px-4 gap-4 md:px-24">
 
       <PlanCard title="Global beam 5GB " subtext="12 mnd abonnement 4788,-" features={features} price="399" currency="NOK" period="måned" />
       <PlanCard title="Global beam 10GB" subtext="12 mnd abonnement 7188,-" features={featuresTen} price="599" currency="NOK" period="måned" />
