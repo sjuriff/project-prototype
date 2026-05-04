@@ -179,7 +179,7 @@ export default function DurationDropdown({
         }}
         onMouseEnter={handleHoverPlane}
         onMouseLeave={handleLeavePlane}
-        className={`flex w-full items-center justify-between gap-2 rounded-lg border border-tertiary bg-card px-4 py-3 text-left text-sm font-medium text-secondary-text shadow-sm transition-all
+        className={`flex w-full items-center bg-white justify-between gap-2 rounded-lg border border-tertiary  px-4 py-3 text-left text-sm font-medium text-secondary-text shadow-sm transition-all
         hover:border-primary/40 hover:shadow-md
         ${open && "border-primary-text ring-2 ring-primary/20"}`}
         aria-haspopup="listbox"
@@ -200,7 +200,7 @@ export default function DurationDropdown({
             ref={listRef}
             role="listbox"
             
-            className="z-[9999] absolute top-full w-full mt-2 overflow-hidden rounded-lg border border-tertiary bg-surface-blue p-1 shadow-lg"
+            className="z-[9999] absolute top-full w-full mt-2 overflow-hidden rounded-lg border border-tertiary bg-white p-1 shadow-lg"
           >
             {options.map((option) => {
               const isSelected = option === selected;

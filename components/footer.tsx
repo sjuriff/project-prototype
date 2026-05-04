@@ -79,7 +79,7 @@ export default function Footer() {
           {/* Link Sections */}
           {footerLinks.map((item) => (
             <div key={item.title}>
-              <h4 className={`mb-4 text-sm font-semibold uppercase tracking-wider ${isBusiness ? 'text-tertiary' : 'text-primary'} t font-heading`}>
+              <h4 className={`mb-4 text-base md:text-lg font-semibold  tracking-wider ${isBusiness ? 'text-tertiary' : 'text-primary'}  font-heading`}>
                 {item.title}
               </h4>
               <ul className="space-y-3">

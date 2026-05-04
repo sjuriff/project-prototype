@@ -6,9 +6,9 @@ import PrimaryButton from '@/components/buttons/primary-button';
 
 export function CreativeHero() {
   return (
-    <section className="relative flex flex-col md:flex-row items-start min-h-screen w-full  xl:rounded-none 2xl:rounded-3xl  2xl:min-h-[50vh] " style={{ backgroundColor: 'var(--color-secondary)' }}>
+    <section className="relative flex flex-col md:flex-row  md:justify-start md:items-start min-h-screen w-full  xl:rounded-none 2xl:rounded-3xl  2xl:min-h-[50vh] " style={{ backgroundColor: 'var(--color-secondary)' }}>
       {/* Mobile image */}
-      <div className="lg:hidden mt-4   px-6">
+     {/*  <div className="lg:hidden mt-4   px-6">
         <div className="rounded-3xl overflow-hidden">
           <Image
             src={heroMobileImage}
@@ -16,13 +16,13 @@ export function CreativeHero() {
             className="w-full h-[400px] object-cover"
           />
         </div>
-      </div>
-      <div className="container relative mx-auto px-6 py-4 md:py-20  z-10 relative">
-        <div className="lg:grid  lg:grid-cols-2 gap-20 items-center">
+      </div> */}
+      <div className="container  relative mx-auto px-6 py-20 md:py-20  z-10 relative">
+        <div className="lg:grid   lg:grid-cols-2 gap-20 items-center">
           {/* Left Content */}
-          <div className="space-y-8  flex flex-col items-center justify-center   ">
+          <div className="md:space-y-8 space-y-12 flex flex-col items-center justify-center   ">
             {/* Heading */}
-            <div className="space-y-4">
+            <div className="space-y-8 md:space-y-4">
               <h1 className="text-5xl font-heading text-balance md:text-pretty   lg:text-7xl " style={{ color: 'var(--color-primary-text)' }}>
                 Utforsk verden.{' '}
                 <span className='text-primary text-pretty [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]' >Vi sørger for at du er online</span>
