@@ -31,9 +31,9 @@ export default function BenefitsSection() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="relative  w-fit mb-12 mx-auto">
-          <div className="absolute z-0 -top-9 md:-top-11 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
+          {/* <div className="absolute z-0 -top-9 md:-top-11 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
             <Sparkles className="md:w-8 w-6 h-6 md:h-8 z-0 text-secondary-foreground" />
-          </div>
+          </div> */}
           <h2
             className="text-center relative z-10 [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-4xl md:text-5xl font-heading text-primary-text"
 
@@ -47,23 +47,27 @@ export default function BenefitsSection() {
             <div
               key={index}
               className="bg-white shadow-md rounded-2xl p-8 transition-transform hover:-translate-y-1"
+
             >
-              <div
-                className="inline-flex bg-primary items-center justify-center w-14 h-14 rounded-full mb-4"
+              <div className="flex items-center gap-4">
 
-              >
-                <benefit.icon className="w-7 h-7 text-primary-text" />
+                <div
+                  className="inline-flex bg-primary items-center justify-center w-14 h-14 rounded-full mb-4"
+
+                >
+                  <benefit.icon className="w-7 h-7 text-primary-text" />
+                </div>
+
+                <h3
+                  className="mb-3 text-xl"
+                  style={{
+                    fontFamily: 'var(--font-heading)',
+                    color: 'var(--color-primary-text)'
+                  }}
+                >
+                  {benefit.title}
+                </h3>
               </div>
-
-              <h3
-                className="mb-3"
-                style={{
-                  fontFamily: 'var(--font-heading)',
-                  color: 'var(--color-primary-text)'
-                }}
-              >
-                {benefit.title}
-              </h3>
 
               <p
                 className="text-sm"

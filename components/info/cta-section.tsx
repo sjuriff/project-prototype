@@ -52,7 +52,7 @@ export default function CTASection() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className=" px-48">
               <Link className=" h-none flex items-center justify-center" href={paths.produkter}>
 
                 <PrimaryButton Icon={ArrowRight} iconRight fullWidth >
@@ -60,15 +60,6 @@ export default function CTASection() {
                 </PrimaryButton>
               </Link>
 
-              <button
-                className="px-6 py-3 border-primary text-tertiary-text rounded-xl border-2 transition-all hover:cursor-pointer hover:scale-101 flex items-center justify-center gap-2"
-
-              >
-                <Zap className="w-5 h-5 text-primary" />
-                <span style={{ fontFamily: 'var(--font-heading)' }}>
-                  Hurtigoppsett
-                </span>
-              </button>
             </div>
           </div>
         </div>

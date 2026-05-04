@@ -53,14 +53,14 @@ export default function CompareCard() {
 
 
   return (
-    <div ref={cointainerRef} className="max-h-screen  bg-surface-dim w-full py-10 flex items-center justify-center  md:py-12 lg:py-16">
-      <div className="w-full ">
+    <div ref={cointainerRef} className="max-h-screen   bg-surface-dim w-full py-10 flex items-center justify-center  md:py-12 lg:py-8">
+      <div className="w-full  ">
         {/* Header */}
-        <div className="text-center px-4 md:px-0 flex flex-col items-center gap-2 mb-8 md:mb-20">
+        <div className="text-center  px-4 md:px-0 flex flex-col items-center gap-2 mb-8 ">
           <div className='relative '>
-            <span className='bg-primary z-0 absolute h-12 w-12 md:w-16 md:h-16 -top-8 md:-top-11 -right-8   flex items-center justify-center rounded-full  '>
+           {/*  <span className='bg-primary z-0 absolute h-12 w-12 md:w-16 md:h-16 -top-8 md:-top-11 -right-8   flex items-center justify-center rounded-full  '>
               <Star className="w-8 h-8 text-primary-text" />
-            </span>
+            </span> */}
             <h1 className="mb-4 z-10 relative text-3xl  md:text-5xl font-heading text-primary-text [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Fordeler med eSIM</h1>
           </div>
           <p className="text-primary-text max-w-xl mx-auto">

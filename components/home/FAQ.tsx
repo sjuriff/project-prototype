@@ -85,24 +85,29 @@ export default function Faq() {
     <div ref={containerRef} className=" z-10 relative min-h-[50vh]  w-full py-16 px-4 sm:px-6 lg:px-8">
       <div className="relative mb-8   w-fit   md:w-fit mx-auto">
         <h1 className="md:text-5xl text-3xl relative z-10 text-center font-heading [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-primary-text">Frequently Asked Questions</h1>
-        <span className="md:h-16 h-12 absolute -top-8 right-8 md:-right-8 z-0 w-12 md:w-16 bg-primary flex items-center justify-center rounded-full">
+        {/*   <span className="md:h-16 h-12 absolute -top-8 right-8 md:-right-8 z-0 w-12 md:w-16 bg-primary flex items-center justify-center rounded-full">
           <BadgeQuestionMark className="w-8 h-8" />
-        </span>
+        </span> */}
       </div>
       <div className="flex flex-col md:flex-row  gap-4 lg:gap-8 2xl:gap-16 h-full">
         <div id="card-left" className="md:w-1/2 w-full flex xl:h-85 2xl:h-90  items-center justify-center   text-secondary-text">
-          <div className="w-full z-10 shadow-lg h-full flex flex-col gap-4 rounded-2xl p-8 bg-secondary ">
-            <CardSim className=" w-10 h-10" />
+          <div className="w-full z-10 relative overflow-hidden shadow-lg h-full flex flex-col gap-4 rounded-2xl p-8 bg-secondary ">
+            <CardSim className=" w-10 z-10 absolute right-6 top-4 text-primary h-10" />
+             <div className="absolute z-0 w-42 h-42 bg-tertiary/50 rounded-full  -right-18  -top-18"></div>
             <h1 className="md:text-4xl text-2xl font-heading ">Hva er eSIM?</h1>
             <p className="font-body text-sm md:text-base text-balance leading-relaxed">En eSIM (innebygd SIM) er et digitalt SIM-kort som er innebygd direkte i enheten din, som en smarttelefon eller smartklokke. I stedet for et fysisk, flyttbart plastkort, fungerer en eSIM digitalt, og du kan aktivere et mobilabonnement ved å laste ned en profil fra din mobiloperatør.</p>
           </div>
         </div>
         <div id="card-right" className="md:w-1/2 w-full  xl:h-85 2xl:h-90 flex  items-center justify-center ">
-          <div className="w-full z-10 shadow-lg flex h-full flex-col gap-4 rounded-2xl p-8 bg-primary ">
-            <TabletSmartphone className=" w-10 h-10" />
-            <h1 className="md:text-4xl text-2xl font-heading text-primary-text">Fungerer eSIM på min telefon?</h1>
-            <p className="font-body md:text-base text-sm text-balance leading-relaxed">For at eSIM skal fungere må telefonen din støtte eSIM-teknologi. De fleste nyere smarttelefoner fra Apple, Samsung og Google har støtte. Du kan vanligvis se dette i telefonens innstillinger eller på produsentens nettside. Kontakt også mobiloperatøren din for å sikre at de tilbyr eSIM til din modell.</p>
-            <p className="font-body md:text-base text-sm text-balance leading-relaxed text-xs">Tast inn *#06# (som om du skulle ringt til den koden). Da får du opp bl.a. IMEI-nummer og annet. Får du en linje som heter eID, betyr det at mobilen støtter eSIM</p>
+          <div className="w-full z-10 shadow-lg relative overflow-hidden flex h-full flex-col gap-4 rounded-2xl p-8 bg-tertiary ">
+            <TabletSmartphone className=" w-10 z-10 absolute right-6 top-4 text-primary h-10" />
+            <div className="absolute w-42 z-0 h-42 bg-primary/50 rounded-full  -right-18  -top-18">
+              {/*   <TabletSmartphone className=" w-5 text-secondary h-5" /> */}
+            </div>
+            {/*  */}
+            <h1 className="md:text-4xl text-2xl font-heading text-secondary">Fungerer eSIM på min telefon?</h1>
+            <p className="font-body md:text-base text-sm text-balance text-secondary leading-relaxed">For at eSIM skal fungere må telefonen din støtte eSIM-teknologi. De fleste nyere smarttelefoner fra Apple, Samsung og Google har støtte. Du kan vanligvis se dette i telefonens innstillinger eller på produsentens nettside. Kontakt også mobiloperatøren din for å sikre at de tilbyr eSIM til din modell.</p>
+            <p className="font-body md:text-base text-sm text-balance text-secondary leading-relaxed text-xs">Tast inn *#06# (som om du skulle ringt til den koden). Da får du opp bl.a. IMEI-nummer og annet. Får du en linje som heter eID, betyr det at mobilen støtter eSIM</p>
           </div>
         </div>
       </div>

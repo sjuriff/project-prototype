@@ -129,7 +129,7 @@ export default function ProductDetailV2({
 
 
 
-  console.log("tiers", tiers)
+
 
 
   const handleBuyClick = () => {
@@ -200,11 +200,11 @@ export default function ProductDetailV2({
               {image ? (
                 <div className=" z-0 rounded-t-2xl md:rounded-l-2xl overflow-hidden relative h-[250px]  w-full md:h-1/2   "
                 >
-                  <div className="flex absolute w-full -bottom-1 z-10  items-center gap-4">
+               {/*    <div className="flex absolute w-full -bottom-1 z-10  items-center gap-4">
                     <div className="w-25   h-4 bg-secondary"></div>
                     <div className="w-25  h-4 bg-secondary"></div>
                     <div className="w-full  h-4 bg-secondary"></div>
-                  </div>
+                  </div> */}
                   <div className="relative h-full w-full overflow-hidden ">
 
                     <Image
@@ -222,11 +222,11 @@ export default function ProductDetailV2({
 
                 </div>
               ) : (<div className=" relative bg-secondary-heading rounded-t-2xl md:rounded-t-none md:rounded-l-2xl    flex items-center justify-center   h-[250px]   w-full md:h-1/2 ">
-                <div className="flex absolute w-full -bottom-1 z-10  items-center gap-4">
+              {/*   <div className="flex absolute w-full -bottom-1 z-10  items-center gap-4">
                   <div className="w-25    h-4 bg-secondary"></div>
                   <div className="w-25  h-4 bg-secondary"></div>
                   <div className="w-full  h-4 bg-secondary"></div>
-                </div>
+                </div> */}
                 {isRegion ? (
                   <div className='h-full w-full  flex items-center justify-center'>
 
@@ -301,11 +301,11 @@ export default function ProductDetailV2({
                   </div>
                 </div>
 
-                <div className={`grid grid-cols-12 ${plan === "set" ? "visible" : "hidden"} bg-surface-blue shadow-sm md:h-1/2  mb-4 mt-4 md:mt-0  md:mb-8  gap-y-6 gap-x-4  py-4 px-8 bg-secondary  rounded-lg`}>
+                <div className={`grid grid-cols-12 ${plan === "set" ? "visible" : "hidden"} bg-white shadow md:h-1/2  mb-4 mt-4 md:mt-0  md:mb-8  gap-y-6 gap-x-4  py-4 px-8 bg-secondary  rounded-xl`}>
 
                   {tiers.map((item) => (
                     <div className=' col-span-12  md:col-span-6 flex flex-col items-start md:items-center justify-center  px-2 rounded '>
-                      <div onClick={() => handleTierClick(item)} key={item.data} className={` ${item.price === tier.price ? 'bg-surface-dim shadow' : 'bg-transparent'} flex relative  hover:cursor-pointer  rounded-xl  px-4 py-2    items-center justify-center gap-3 `}>
+                      <div onClick={() => handleTierClick(item)} key={item.data} className={` ${item.price === tier.price ? 'bg-secondary shadow' : 'bg-transparent'} flex relative  hover:cursor-pointer  rounded-xl  px-4 py-2    items-center justify-center gap-3 `}>
                         {item.popular && <span className={`absolute -top-3 -right-4 ${item.price === tier.price ? 'bg-primary' : 'bg-light-yellow'} text-xs  rounded-full px-1 py-1 font-body text-primary-text `} >Populær</span>}
                         <div className={`mt-1 p-2 rounded-full ${item.price === tier.price ? 'bg-tertiary text-primary' : ' bg-transparent text-primary-text '} `} >
                           <Radio className="w-5 h-5 " />
@@ -382,11 +382,11 @@ export default function ProductDetailV2({
 
 
 
-              <div className='flex p-4  mb-8 bg-tertiary items-center justify-center gap-2 rounded-lg flex'>
+              <div className='flex p-4  mb-8  items-center justify-start gap-2 rounded-lg flex'>
 
-                <RadioTower className="w-5 h-5 text-tertiary-text" />
-                <p className='text-tertiary-text font-body text-base'>Operatørvalg:</p>
-                <p className='text-tertiary-text font-body text-base'>Opratør</p>
+                <RadioTower className="w-5 h-5 text-tertiary" />
+                <p className='text-primary-text font-body text-base'>Operatørvalg:</p>
+                <p className='text-primary-text font-body text-base'>Opratør</p>
               </div>
 
 

@@ -4,20 +4,20 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="py-16 relative px-6 bg-secondary md:py-24">
+    <section className="py-16 relative px-6 bg-secondary md:py-16">
 
       <div className="max-w-4xl mx-auto text-center">
         <div className="bg-white rounded-2xl p-8 shadow-sm">
           <div className="max-w-3xl mx-auto">
-            <div className="relative  mb-1 w-fit mx-auto">
-              <div className="absolute z-0 -top-9 md:-top-11 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
+            <div className="relative   mb-1 w-fit mx-auto">
+            {/*   <div className="absolute z-0 -top-9 md:-top-11 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
                 <Lightbulb className="w-6 h-6 md:w-8 md:h-8 z-0 text-secondary-foreground" />
-              </div>
+              </div> */}
               <h2 className="md:text-5xl text-4xl relative z-10 font-heading text-center text-primary-text [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]" >
                 Hva er eSIM
               </h2>
             </div>
-            <div className="mb-12    py-4 px-2 rounded-2xl">
+            <div className="mb-6    py-4 px-2 rounded-2xl">
               <p className='font-body text-sm text-center leading-relaxed text-balance'>eSIM sørger for at du slipper høye roamingkostnader når du er på reise. Du vet hvor mye surfingen din vil koste allerede før du reiser.
 
                 Et eSIM fungerer som et fysisk SIM-kort, bare digitalt. Det er forhåndsbetalt, krever ikke et eget abonnement og du får forutsigbare kostnader. Du kan ha både en eSIM og ditt vanlige SIM-kort på telefonen samtidig. Med Beam eSIM kan du kjøpe datapakker og spare penger mens du er på reise!</p>

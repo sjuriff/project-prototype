@@ -26,7 +26,7 @@ const deviceTypes = [
 export default function CompatibilitySection() {
   return (
     <section
-      className="py-16 px-6"
+      className="pt-16 px-6"
       style={{ backgroundColor: 'var(--color-surface)' }}
     >
       <div className="max-w-6xl mx-auto">
@@ -100,9 +100,9 @@ export default function CompatibilitySection() {
           className="mt-8 p-6 rounded-xl text-center shadow-md bg-white"
 
         >
-          <p className="font-body text-primary-text ">
+          <p className="font-body text-sm text-primary-text ">
 
-            Sjekk enhetsinnstillingene under Mobilnett for å bekrefte om enheten støtter eSIM
+            Tast inn *#06# (som om du skulle ringt til den koden). Da får du opp bl.a. IMEI-nummer og annet. Får du en linje som heter eID, betyr det at mobilen støtter eSIM
           </p>
         </div>
       </div>
