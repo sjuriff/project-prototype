@@ -24,7 +24,7 @@ const menuItems = [
     icon: Lightbulb
   },
   {
-    title: "Integrety VPN",
+    title: "Integrity VPN",
     href: "#",
     icon: Shield
   },
@@ -50,6 +50,24 @@ const menuItems = [
   },
 ]
 
+const handleHeaderColor = (pathName: string) => {
+  if (pathName === '/business') {
+    return 'light-yellow'
+  } else if (pathName === '/partner') {
+    return 'secondary'
+  }
+  return 'tertiary'
+}
+
+const handleHeaderTextColor = (pathName: string) => {
+  if (pathName === '/business') {
+    return 'tertiary'
+  } else if (pathName === '/partner') {
+    return 'secondary-text'
+  }
+  return 'primary'
+}
+// ${pathName === '/business' ? 'bg-light-yellow' : 'bg-tertiary'}
 
 export default function Header() {
   const { scrollDirection, scrollTop } = useScroll();
@@ -58,6 +76,12 @@ export default function Header() {
   const pathName = usePathname();
 
   const isBusiness = pathName === '/business';
+  const isPartner = pathName === '/partner';
+
+
+  const headerBackgroundColor = handleHeaderColor(pathName);
+  const headerTextColor = handleHeaderTextColor(pathName);
+  
   //}  transition-top duration-300 ease-in-out
 
   return (
@@ -65,42 +89,36 @@ export default function Header() {
 
       <header
         id="header"
-        className={` ${pathName === '/business' ? 'bg-light-yellow' : 'bg-tertiary'} relative left-0    transition-top duration-300 ease-in-out z-50    flex h-20 w-full items-center justify-between  px-4 py-4 font-roboto  lg:h-20  `}
+        className={`bg-${headerBackgroundColor}  relative left-0    transition-top duration-300 ease-in-out z-50    flex h-20 w-full items-center justify-between  px-4 py-4 font-roboto  lg:h-20  `}
       >
         <Link
           href={'/'}
           className="ml-2 flex items-center lg:ml-12"
         >
-          <BeamLogo isBusiness={isBusiness} scrollDirection={scrollDirection} />
+          <BeamLogo textColor={headerTextColor} bgColor={headerBackgroundColor} scrollDirection={scrollDirection} />
         </Link>
         <div className={"flex items-center z-50 relative gap-4"}>
           <div className=" gap-2 hidden md:flex mr-4">
             {/*  <PrimaryButton Icon={User}>Logg inn</PrimaryButton> */}
-            <Link href={"/partner"} className={` flex text-sm items-center group  border-[#ffffff] ${pathName === '/business' ? 'text-tertiary' : 'text-primary'}  px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
+            <Link href={"/partner"} className={` flex text-sm items-center group  border-[#ffffff] text-${headerTextColor}  px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
               <Handshake className="mr-2 group-hover:translate-y-[-2px] transition-transform" /> Partnerskap
 
             </Link>
-            <Link href={paths.business} className={` flex text-sm items-center group ${pathName === '/business' ? 'text-tertiary' : 'text-primary'}  border-[#ffffff]   px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
+            <Link href={paths.business} className={` flex text-sm items-center group text-${headerTextColor}  border-[#ffffff]   px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
               <BriefcaseBusiness className="mr-2 group-hover:translate-y-[-2px] transition-transform" /> Business
             </Link>
-            <button className={` flex text-sm items-center group  border-[#ffffff] ${pathName === '/business' ? 'text-tertiary' : 'text-primary'}    px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
+            <button className={` flex text-sm items-center group  border-[#ffffff] text-${headerTextColor}    px-4 py-3 rounded-lg  hover:cursor-pointer  transition-transform`}>
               <User className="mr-2 group-hover:translate-y-[-2px] transition-transform" /> Logg inn
             </button>
-            <button className={` text-sm ${pathName === '/business' ? 'text-tertiary' : 'text-primary'}  px-4 py-3 rounded-lg  hover:cursor-pointer hover:scale-105 transition-transform`}>
+            <button className={` text-sm text-${headerTextColor} flex items-center group border-[#ffffff]  ${headerTextColor}  px-4 py-3 rounded-lg  hover:cursor-pointer hover:scale-105 transition-transform`}>
               Registrer deg
             </button>
-
-
-
           </div>
-          <LanguageSelector isBusiness={isBusiness} />
-          <HeaderShoppingCart isBusiness={isBusiness} mainMenuOpen={menuOpen} setMenuOpen={setMenuOpen}  />
+          <LanguageSelector bgColor={headerBackgroundColor} textColor={headerTextColor} />
+          <HeaderShoppingCart isBusiness={isBusiness} isPartner={isPartner} mainMenuOpen={menuOpen} setMenuOpen={setMenuOpen}  />
           <div className="ml-8 overflow-hidden">
-            <DropInMenu isBusiness={isBusiness} open={menuOpen} menuItems={menuItems} menuOpen={setMenuOpen} />
+            <DropInMenu bgColor={headerBackgroundColor} textColor={headerTextColor} open={menuOpen} menuItems={menuItems} menuOpen={setMenuOpen} />
           </div>
-
-
-
         </div>
       </header>
     </div>

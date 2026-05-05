@@ -2,7 +2,7 @@
 import {  useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Calendar, Gauge, MousePointerClick, Globe2, FileText, Headphones, BadgeQuestionMark } from "lucide-react";
+import { Calendar, Gauge, MousePointerClick, Globe2, FileText, Headphones, ArrowRight } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 import PrimaryButton from "../buttons/primary-button";
 
@@ -168,7 +168,9 @@ export default function WhyBeam() {
           ))}
         </div>
       </div>
-      <PrimaryButton>Ønsker du å selge beam til dine kunder?</PrimaryButton>
+      <PrimaryButton>Kontakt oss
+          <ArrowRight className="ml-2 h-4 w-4 transition-transform  group-hover:translate-x-0.5" />
+      </PrimaryButton>
     </section>
   );
 };

@@ -43,7 +43,6 @@ export default function HowToStart() {
   const containerRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
   const descriptionRef = useRef<HTMLDivElement>(null);
-  const iconRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -62,7 +61,6 @@ export default function HowToStart() {
 
     tl.fromTo(headingRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, ease: "power3.out", duration: 0.5 })
       .fromTo(descriptionRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, ease: "power3.out", duration: 0.5 }, "-=0.2")
-      .fromTo(iconRef.current, { opacity: 0, x: 100, scale: 0.9 }, { opacity: 1, x: 0, scale: 1, ease: "power3.out", duration: 0.5 }, "-=0.2")
       .fromTo(
         cards!,
         {
@@ -82,12 +80,10 @@ export default function HowToStart() {
   }, { scope: containerRef })
   return (
 
-    <div ref={containerRef} className="  relative">
+    <div ref={containerRef} className="  relative ">
       <div className="mx-auto flex flex-col items-center max-w-2xl text-center">
         <div className="relative  w-fit">
-          <div ref={iconRef} className="flex z-0 absolute -top-9 md:-top-10 -right-6  items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full mb-6 bg-primary" >
-            <ListOrdered className="h-6 w-6 md:w-8 md:h-8 text-primary-text" />
-          </div>
+         
           <h2 ref={headingRef} className="font-heading relative z-10 text-4xl  [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]  leading-[1.05] tracking-tight  sm:text-5xl md:text-6xl">
             Hvordan starter man?
           </h2>
@@ -103,7 +99,7 @@ export default function HowToStart() {
           return (
             <article
               key={number}
-              className="step-card group relative col-span-6  lg:col-span-2 flex flex-col rounded-3xl bg-secondary shadow-md p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-soft"
+              className="step-card group relative col-span-6  lg:col-span-2 flex flex-col rounded-3xl bg-tertiary shadow-md p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-soft"
             >
               <div className="flex  justify-between items-center gap-3 mb-5">
 
@@ -113,15 +109,15 @@ export default function HowToStart() {
                   <Icon className="text-xl" />
                 </div>
                 <span
-                  className={`inline-flex h-10 w-10 items-center bg-surface rounded-full justify-center  font-display text-sm font-700 `}
+                  className={`inline-flex h-10 w-10 items-center bg-surface-dark rounded-full justify-center  font-display text-sm font-700 `}
                 >
                   {number}
                 </span>
               </div>
-              <h3 className="font-heading text-2xl f text-secondary-text">
+              <h3 className="font-heading text-2xl f text-tertiary-text">
                 {title}
               </h3>
-              <p className="mt-3  text-base font-body leading-relaxed text-primary-text/80">
+              <p className="mt-3  text-base font-body leading-relaxed text-secondary">
                 {description}
               </p>
             </article>

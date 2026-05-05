@@ -15,10 +15,11 @@ interface ShoppingCartHeaderProps {
   mainMenuOpen: boolean
   setMenuOpen: (open: boolean) => void
   isBusiness?: boolean
+  isPartner?: boolean
 }
 
 
-export default function HeaderShoppingCart({mainMenuOpen, setMenuOpen, isBusiness }: ShoppingCartHeaderProps) {
+export default function HeaderShoppingCart({mainMenuOpen, setMenuOpen, isBusiness, isPartner }: ShoppingCartHeaderProps) {
 
   const {
     items,
@@ -88,7 +89,7 @@ export default function HeaderShoppingCart({mainMenuOpen, setMenuOpen, isBusines
   }, [open])
 
   return (
-    <div className={` ${isBusiness ? 'hidden': 'flex'}  items-center hover:cursor-pointer relative justify-center`}>
+    <div className={` ${isBusiness || isPartner ? 'hidden': 'flex'}  items-center hover:cursor-pointer relative justify-center`}>
       <div ref={buttonRef} className="h-6" onClick={handleCartClick}>
         <button className="hover:cursor-pointer ">
           <ShoppingCart className={`h-6 w-6   text-primary`} />
