@@ -48,15 +48,15 @@ export default function PartnerHero() {
   return (
 
     <div ref={containerRef} className="flex-1 w-full mx-auto overflow-hidden  xl:min-h-[700px]    xl:h-[calc(100dvh-5rem)] xl:max-h-[950px]    grid lg:grid-cols-12  items-center">
-      <div className="lg:col-span-6 order-2 lg:order-1 col-span-1 flex flex-col px-8 pt-4 lg:pt-0 lg:px-0 justify-center items-start lg:pl-16 bg-secondary  h-full w-full  space-y-8">
+      <div className="lg:col-span-6 order-2 lg:order-1 col-span-1 flex flex-col px-8 pt-4 lg:pt-0 lg:px-0 justify-center items-start lg:pl-16 bg-tertiary  h-full w-full  space-y-8">
 
 
-        <h1 className="partner-heading font-heading text-secondary-text text-center lg:text-left text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-balance">
+        <h1 className="partner-heading font-heading text-secondary text-center lg:text-left text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-balance">
           <span className="inline-block">Bli partner</span>
           <span className=" [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] inline-block text-primary">med <span className="font-logo">beam</span></span>
         </h1>
 
-        <p className="partner-subheading text-center lg:text-left text-lg font-body text-secondary-text max-w-xl leading-relaxed text-pretty">
+        <p className="partner-subheading text-center lg:text-left text-lg font-body text-tertiary-text max-w-xl leading-relaxed text-pretty">
           En aktiv partnerfokusert aktør med fokus på scandinaviske markedet, Vi er
           en ivrig og nysgjerrig partner som altid er åpen for nye ideer.
           Vi ønsker å utfodre det etablerte operatørene på en gammeldags og
@@ -80,8 +80,8 @@ export default function PartnerHero() {
       </div>
 
       {/* Image */}
-      <div className="lg:col-span-6 order-1 lg:order-2 col-span-1 h-full w-full bg-surface-light relative">
-        <div className="partner-phone aspect-square w-full">
+      <div className="lg:col-span-6 order-1 lg:order-2 col-span-1 h-full w-full bg-surface-dark relative">
+        <div className=" aspect-square w-full">
           <Image
             src={illustration}
             alt="To partnere håndhilser med en flyrute som forbinder dem globalt"

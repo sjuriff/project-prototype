@@ -7,15 +7,31 @@ import { usePathname } from "next/navigation";
 
 interface BeamLogoProps {
   scrollDirection: string
-  isBusiness?: boolean
+  bgColor: string
+  textColor: string
 }
 
-export default function BeamLogo({ scrollDirection, isBusiness }: BeamLogoProps) {
+const handlePartnerColor = (textColor: string) => {
+
+  if (textColor === 'secondary-text') {
+    return { gradient: 'from-secondary-text via-secondary-text to-transparent', background: 'bg-secondary-text' }
+  }
+
+  return null
+
+}
+
+export default function BeamLogo({ scrollDirection, textColor }: BeamLogoProps) {
   const dotOneRef = useRef<HTMLDivElement>(null)
   const dotTwoRef = useRef<HTMLDivElement>(null)
   const lineRef = useRef<HTMLDivElement>(null)
 
-  const pathname = usePathname();
+  //${isBusiness ? 'from-tertiary via-tertiary to-transparent' : ' from-primary via-primary to-transparent'}
+
+
+  console.log("text-color", textColor)
+
+  const partnerTextColor = handlePartnerColor(textColor)
 
 
 
@@ -26,17 +42,17 @@ export default function BeamLogo({ scrollDirection, isBusiness }: BeamLogoProps)
     if (scrollDirection === 'down') return
 
     tl.fromTo(dotOneRef.current, { opacity: 0, scaleX: 0, y: 5, transformOrigin: "left center" }, { opacity: 1, y: 0, ease: "expo.out", delay: 0.3, duration: 0.3, scaleX: 1, })
-    tl.fromTo(dotTwoRef.current, { opacity: 0,  scaleX: 0, transformOrigin: "left center" }, { opacity: 1,  ease: "expo.out", duration: 0.3, scaleX: 1, })
+    tl.fromTo(dotTwoRef.current, { opacity: 0, scaleX: 0, transformOrigin: "left center" }, { opacity: 1, ease: "expo.out", duration: 0.3, scaleX: 1, })
     tl.fromTo(lineRef.current, { opacity: 0, scaleX: 0, transformOrigin: "left center" }, { opacity: 1, scaleX: 1, delay: 0.1, ease: "power3.out", duration: 0.3, })
 
   }, [scrollDirection])
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className={`text-4xl font-logo ${isBusiness ? 'text-tertiary' : 'text-primary '} [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]`}>beam</h1>
+      <h1 className={`text-4xl font-logo text-${textColor} [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]`}>beam</h1>
       <div className="flex  items-center gap-1">
-        <div ref={dotOneRef} className={`w-2 opacity-0 rounded-l-lg h-1 ${isBusiness ? 'bg-tertiary' : 'bg-primary'} `}></div>
-        <div ref={dotTwoRef} className={`w-2 opacity-0 h-1 ${isBusiness ? 'bg-tertiary' : 'bg-primary'}`}></div>
-        <div ref={lineRef} className={`w-18 opacity-0 h-1 bg-gradient-to-r ${isBusiness ? 'from-tertiary via-tertiary to-transparent' : ' from-primary via-primary to-transparent'}`} ></div>
+        <div ref={dotOneRef} className={`w-2 opacity-0 rounded-l-lg h-1 ${partnerTextColor ? partnerTextColor.background : `bg-${textColor}`} `}></div>
+        <div ref={dotTwoRef} className={`w-2 opacity-0 h-1 ${partnerTextColor ? partnerTextColor.background : `bg-${textColor}`} `}></div>
+        <div ref={lineRef} className={`w-18 opacity-0 h-1 bg-gradient-to-r ${partnerTextColor ? partnerTextColor.gradient : `from-${textColor} via-${textColor} to-transparent `}`} ></div>
       </div>
 
     </div>

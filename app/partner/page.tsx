@@ -20,7 +20,7 @@ export default function PartnerPage(){
       <section>
         <PartnerBanner />
       </section>
-      <section className="relative overflow-hidden border py-24 sm:py-32">
+      <section className="relative overflow-hidden bg-surface-dark py-24 sm:py-32">
         <HowToStart />
 
       </section>

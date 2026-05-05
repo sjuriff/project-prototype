@@ -5,11 +5,13 @@ import { ChevronDown } from "lucide-react"
 
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
+import { text } from "stream/consumers"
 
 gsap.registerPlugin(useGSAP)
 
 interface LanguageSelectorProps {
-  isBusiness?: boolean
+  textColor: string
+  bgColor: string
 }
 
 const flags = [
@@ -19,7 +21,7 @@ const flags = [
   { code: "uk", label: "English" }
 ]
 
-export default function LanguageSelector({isBusiness }: LanguageSelectorProps) {
+export default function LanguageSelector({ textColor, bgColor }: LanguageSelectorProps) {
   const [open, setOpen] = useState(false)
   const [selected, setSelected] = useState("no")
 
@@ -51,9 +53,11 @@ export default function LanguageSelector({isBusiness }: LanguageSelectorProps) {
     setOpen(false)
   }
 
+  const borderColor = `border-${textColor}`
+
   const current = flags.find(x => x.code === selected)!
 
-      const currentFlagImageUrl: string = 'https://borderly.dev/flag/circle/' + current.code + '.svg'
+  const currentFlagImageUrl: string = 'https://borderly.dev/flag/circle/' + current.code + '.svg'
 
 
 
@@ -67,39 +71,39 @@ export default function LanguageSelector({isBusiness }: LanguageSelectorProps) {
           <Image
             src={currentFlagImageUrl}
             fill
-            className={`rounded-full border ${isBusiness ? 'border-tertiary' : 'border-primary'} `}
+            className={`rounded-full border border-${textColor} `}
             alt={current.label}
           />
         </div>
 
         <div ref={arrowRef}>
-          <ChevronDown className={`w-4 group-hover:-translate-y-[-2px] transition-transform h-4 text-tertiary-text`} />
+          <ChevronDown className={`w-4 group-hover:-translate-y-[-2px] transition-transform h-4 text-${textColor}`} />
         </div>
       </button>
 
 
       <div ref={dropdownRef}
-        className={`absolute translate-x-[250%] z-50   -right-6 mt-8 ${isBusiness ? 'bg-light-yellow': 'bg-tertiary '}  rounded shadow-lg w-32`}
+        className={`absolute translate-x-[250%] z-50   -right-6 mt-8 bg-${bgColor}  rounded shadow-lg w-32`}
       >
-           
+
         {flags.map(f => {
-             const flagImageUrl: string = 'https://borderly.dev/flag/circle/' + f.code + '.svg'
-          return(
-          <button
-            key={f.code}
-            className="flex items-center z-50 gap-2 w-full px-2 py-1 group text-left"
-            onClick={() => handleSelect(f.code)}
-          >
-            <div className="relative h-6 w-6">
-              <Image
-                src={flagImageUrl}
-                fill
-                className={`rounded-full shadow-lg border ${isBusiness ? 'group-hover:border-tertiary' : 'group-hover:border-primary'} `}
-                alt={f.label}
-              />
-            </div>
-            <span className={`text-sm group-hover:text-primary ${isBusiness ? 'group-hover:text-tertiary text-primary-text' : 'group-hover:text-primary text-tertiary-text'} font-heading `}>{f.label}</span>
-          </button>
+          const flagImageUrl: string = 'https://borderly.dev/flag/circle/' + f.code + '.svg'
+          return (
+            <button
+              key={f.code}
+              className="flex items-center z-50 gap-2 w-full px-2 py-1 group text-left"
+              onClick={() => handleSelect(f.code)}
+            >
+              <div className="relative h-6 w-6">
+                <Image
+                  src={flagImageUrl}
+                  fill
+                  className={`rounded-full shadow-lg border group-hover:${borderColor} `}
+                  alt={f.label}
+                />
+              </div>
+              <span className={`text-sm  text-${textColor} group-hover:-translate-x-[-2px] transition-transform  font-heading `}>{f.label}</span>
+            </button>
           )
         })}
       </div>

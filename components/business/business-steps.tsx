@@ -53,7 +53,7 @@ export default function BusinessSteps() {
           duration: 0.8,
           ease: "power3.out",
           stagger: 0.2,
-           scrollTrigger: {
+          scrollTrigger: {
             trigger: containerRef.current,
             start: "30% bottom",
             end: "70% bottom",
@@ -67,7 +67,7 @@ export default function BusinessSteps() {
     { scope: containerRef }
   );
   return (
-    <div ref={containerRef} className="grid  md:w-1/3 relative  z-10 md:grid-cols-1 gap-8 mb-16">
+    <div ref={containerRef} className=" w-full   md:w-1/3 relative  z-10 flex flex-col gap-8 mb-16">
       {steps.map((step, index) => {
         const Icon = step.icon;
         const bgColor = step.color === 'primary' ? 'var(--color-primary)' :
@@ -76,32 +76,42 @@ export default function BusinessSteps() {
         const textColor = step.color === 'tertiary' ? 'var(--color-tertiary-text)' : 'var(--color-primary-text)';
 
         return (
-          <div key={step.number} className="step-card  w-full relative">
-         
+          <div key={step.number} className="step-card    w-full relative">
 
-            <div className="relative bg-tertiary rounded-2xl p-8 shadow-md hover:shadow-md transition-shadow h-full">
-              {/* Step Number Badge */}
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full mb-6" style={{
+
+            <div className="relative overflow-hidden   bg-tertiary rounded-2xl p-8 shadow-b-md transition-shadow h-full">
+
+              {/* Step Icon */}
+
+              <div className="absolute  -left-8 -top-6   w-20 h-20 rounded-full " style={{
                 backgroundColor: bgColor
               }}>
-                <Icon className="w-7 h-7" style={{ color: textColor }} />
+                <Icon className="w-7 h-7 absolute top-9  right-4 transform  " style={{ color: textColor }} />
               </div>
 
               {/* Step Number */}
-              <div className="absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center bg-secondary font-heading text-secondary-text">
-                {step.number}
+              <div className="absolute top-1/2 transform -translate-y-1/2 -right-6 w-12 h-12 rounded-full flex items-center justify-center bg-secondary font-heading text-secondary-text">
+                <p className="absolute [text-shadow:0px_0px_8px_rgba(249,248,113,0.6),2px_2px_6px_rgba(249,248,113,0.4)] font-semibold left-3">
+                  {step.number}
+                </p>
               </div>
+              {/* Step Number Badge and Title */}
+              <div className="flex mb-4  items-center gap-2">
 
-              {/* Content */}
-              <h3 className="mb-3 text-tertiary-text" style={{
-                fontFamily: 'var(--font-heading)',
 
-              }}>
-                {step.title}
-              </h3>
-            {/*   <p className='text-balance text-tertiary-text'>
+
+
+                {/* Content */}
+                <h3 className=" ml-6 text-tertiary-text" style={{
+                  fontFamily: 'var(--font-heading)',
+
+                }}>
+                  {step.title}
+                </h3>
+              </div>
+              <p className='text-balance ml-6 text-tertiary-text'>
                 {step.description}
-              </p> */}
+              </p>
             </div>
           </div>
         );

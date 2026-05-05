@@ -15,20 +15,20 @@ export default function BusinessPage() {
       <section className="relative  w-full">
         <BusinessHero />
       </section>
-      <section className="py-24">
+      <section className=" py-16 md:py-24">
         <PlanCardWrapper />
       </section>
-      <section className="min-h-[700px] py-16 relative  px-16 gap-4 flex flex-col items-center justify-center" >
+      <section className="min-h-[700px] md:py-0 relative px-4  md:px-16 gap-4 flex flex-col items-center justify-center" >
 
         <StepsHeader />
-        <div className="flex flex-col  md:flex-row justify-around w-full">
+        <div className="flex flex-col mt-0 md:mt-6   md:flex-row justify-around w-full">
           <BusinessSteps />
           <DashboatdPhone />
         </div>
        
       </section>
 
-      <section className="min-h-screen bg-secondary">
+      <section className="min-h-screen pt-16 bg-secondary">
         <WhyBeam />
       </section>
     </main>
