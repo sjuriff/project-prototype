@@ -52,7 +52,7 @@ export default function ProductSection({ popularProducts, regionProducts }: Prod
       gsap.fromTo(
         iconRef.current,
         { opacity: 0, y: 100 },
-        { opacity: 1, y: 0, duration: 1, ease: "expo.out", scrollTrigger: {trigger: containerRef.current, start: "top bottom", end: "bottom top", scrub: true, markers: true} }
+        { opacity: 1, y: 0, duration: 1, ease: "expo.out", scrollTrigger: {trigger: containerRef.current, start: "top 90%", end: "50% 90%", scrub: true, markers: false} }
       );
 
 
@@ -90,8 +90,8 @@ export default function ProductSection({ popularProducts, regionProducts }: Prod
             <Earth className="w-8 h-8 text-primary-text" />
           </div> */}
 
-          <div ref={iconRef}  className="hidden  absolute md:block z-0 top-8 md:-top-34 -left-24 items-center h-[500px] w-[500px] flex justify-center gap-3  bg-primary/40 rounded-full">
-          <Earth className="h-12 w-12 absolute top-1/2 left-38 -translate-y-1/2  md:w-38 md:h-38 z-0 text-tertiary opacity-75   " />
+          <div ref={iconRef}  className="hidden  absolute md:block z-0 top-8 md:-top-52 -left-48 items-center h-[500px] w-[500px] flex justify-center gap-3  bg-primary/40 rounded-full">
+          <Earth className="h-12 w-12 absolute top-60 right-28  md:w-38 md:h-38 z-0 text-tertiary opacity-75   " />
         </div>
           <div className=" relative">
             <div className="bg-primary md:hidden z-0 absolute -top-7 md:-top-8 -right-5 md:-right-8 h-12 w-12 md:h-16 md:w-16 flex items-center justify-center rounded-full">
