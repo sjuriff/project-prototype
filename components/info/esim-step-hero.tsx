@@ -1,10 +1,18 @@
+'use client'
 import { QrCode, CheckCircle2, CardSim, ShoppingCart } from 'lucide-react';
 import Link from 'next/link';
 import paths from '@/paths';
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef } from 'react';
+
 
 import PrimaryButton from '@/components/buttons/primary-button';
+gsap.registerPlugin(useGSAP);
 
 export default function EsimStepHero() {
+  const iconRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const steps = [
     {
       number: 1,
@@ -29,15 +37,32 @@ export default function EsimStepHero() {
     }
   ];
 
+  useGSAP(() => {
+
+    if (!iconRef.current) return
+    gsap.fromTo(iconRef.current, {
+      opacity: 0,
+      x: '100%',
+      duration: 0.8,
+    },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.7,
+        ease: "power4.out",
+      })
+  }, { scope: containerRef })
+
   return (
-    <div className="min-h-[50vh]  bg-secondary font-body  py-16 px-4 sm:px-6 lg:px-8" >
+    <div ref={containerRef} className="min-h-[50vh] relative  bg-secondary font-body  py-16 px-4 sm:px-6 lg:px-8" >
+      <div ref={iconRef} className="hidden opacity-0  absolute md:block z-0 top-8 md:-top-52 -right-48 items-center h-[500px] w-[500px] flex justify-center gap-3  bg-primary/40 rounded-full" >
+        <CardSim className="h-12 w-12 absolute top-60 left-24  md:w-38 md:h-38 z-0 text-tertiary opacity-75    " />
+      </div>
       <div className="max-w-6xl  mx-auto">
         {/* Hero Header */}
         <div className="text-center   mx-auto  rounded-2xl p-8 mb-16">
           <div className='relative  w-fit mx-auto'>
-            <div className="flex z-0 absolute -top-9 md:-top-11 -right-8  items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full mb-6 bg-primary" >
-              <CardSim className="h-6 w-6 md:w-8 md:h-8 text-primary-text" />
-            </div>
+
             <h1 className="mb-4 relative z-10 text-4xl text-nowrap md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] font-heading text-secondary-text " >
               Slik fungerer eSIM
             </h1>
@@ -60,7 +85,7 @@ export default function EsimStepHero() {
               <div key={step.number} className="relative">
                 {/* Connector Line */}
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-gray-300" />
+                  <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-primary" />
                 )}
 
                 <div className="relative bg-surface-dim rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow h-full">
