@@ -29,9 +29,6 @@ export default function ContactSection() {
     <div className="max-w-6xl mx-auto px-6 py-16">
       <div className="text-center mb-12">
         <div className='mb-3 relative w-fit mx-auto'>
-          <div className="absolute z-0 -top-6 md:-top-8 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
-            <Send className="w-6 h-6 md:w-8 md:h-8 z-0 text-primary-text" />
-          </div>
           <h2 className=" relative z-10 text-4xl md:text-5xl font-heading text-primary-text">Kontakt oss</h2>
         </div>
         <p className="text-secondary-text">

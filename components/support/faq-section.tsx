@@ -41,9 +41,6 @@ export default function FAQSection() {
     <div className="max-w-3xl mx-auto px-6 py-16">
       <div className="relative mb-8   w-fit mx-auto">
         <h1 className="text-4xl md:text-5xl relative z-10 text-center font-heading [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-primary-text">Frequently Asked Questions</h1>
-        <span className="md:h-16 absolute -top-8 -right-1 md:-right-8 z-0 h-14 w-14 md:w-16 bg-primary flex items-center justify-center rounded-full">
-          <BadgeQuestionMark className="w-6 h-6 md:w-8 md:h-8" />
-        </span>
       </div>
 
       <div className="space-y-3">

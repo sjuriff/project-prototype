@@ -31,9 +31,7 @@ export default function CompatibilitySection() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="relative  w-fit mb-4 mx-auto">
-          <div className="absolute z-0 -top-8 md:-top-10 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
-            <LaptopMinimalCheck className="w-6 h-6 md:w-8 md:h-8 z-0 text-secondary-foreground" />
-          </div>
+        
           <h2
             className="text-center relative z-10 [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]  font-heading text-4xl md:text-5xl text-primary-text"
 

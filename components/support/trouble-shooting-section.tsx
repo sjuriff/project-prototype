@@ -1,4 +1,14 @@
+'use client'
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { CheckCircle, SearchX } from 'lucide-react';
+import { useRef } from "react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
+
+
 
 const troubleshootingGuides = [
   {
@@ -32,19 +42,34 @@ const troubleshootingGuides = [
 
 
 export default function TroubleShootingSection() {
+  const containerRef = useRef(null);
+  const iconRef = useRef(null);
+    useGSAP(
+    () => {
+      if (!iconRef.current || !containerRef.current) return
+
+      gsap.fromTo(
+        iconRef.current,
+        { opacity: 0, y: 100 },
+        { opacity: 1, y: 0, duration: 1, ease: "expo.out", scrollTrigger: { trigger: containerRef.current, start: "top 80%", end: "50% 80%", scrub: true, markers: false } }
+      );
+    },
+    { scope: containerRef }
+  )
   return (
-    <div className="bg-surface py-16 px-6">
+    <div ref={containerRef} className="bg-surface relative py-16 px-6 overflow-hidden">
+      <div ref={iconRef} className="hidden   absolute md:block z-0 top-8 md:-top-52 -left-48 items-center h-[450px] w-[450px] flex justify-center gap-3  bg-primary/40 rounded-full" >
+        <SearchX className="h-12 w-12 absolute top-60 right-24  md:w-30 md:h-30 z-0 text-tertiary opacity-75    " />
+      </div>
       <div className="max-w-6xl mx-auto">
         <div className='relative mx-auto w-fit mb-12'>
-          <div className="absolute z-0 -top-6 md:-top-8 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
-            <SearchX className="md:w-8 w-6 h-6 md:h-8 z-0 text-secondary-foreground" />
-          </div>
+
           <h2 className="text-center relative z-10 text-4xl md:text-5xl font-heading [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]   text-primary-text">Feilsøking</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {troubleshootingGuides.map((guide, index) => (
-            <div key={index} className="bg-white p-8 rounded-lg border border-[#e5e7eb]">
+            <div key={index} className="bg-white relative z-10 p-8 rounded-lg border border-[#e5e7eb]">
               <h3 className="mb-6 text-primary-text">{guide.title}</h3>
               <ul className="space-y-4">
                 {guide.steps.map((step, stepIndex) => (

@@ -1,7 +1,7 @@
 'use client'
 import { ArrowRight } from "lucide-react";
 import PrimaryButton from "../buttons/primary-button";
-import illustration from "@/public/images/partner-arms.png";
+import heroImage from '@/public/images/beam-green-window.jpg'
 import Image from "next/image";
 import GhostButton from "../buttons/ghost-button";
 import gsap from "gsap";
@@ -81,13 +81,13 @@ export default function PartnerHero() {
 
       {/* Image */}
       <div className="lg:col-span-6 order-1 lg:order-2 col-span-1 h-full w-full bg-surface-dark relative">
-        <div className=" aspect-square w-full">
+        <div className=" h-full  w-full">
           <Image
-            src={illustration}
-            alt="To partnere håndhilser med en flyrute som forbinder dem globalt"
+            src={heroImage}
+            alt="Dame titter ut av vinduet på en flyplass"
             width={1024}
             height={1024}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover"
           />
         </div>
       </div>
