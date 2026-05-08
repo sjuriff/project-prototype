@@ -115,7 +115,7 @@ export default function MobileStepSection() {
         </div> */}
 
         <h1 className="text-center relative z-10 [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] font-heading text-4xl md:text-5xl text-primary-text mb-12">
-          Hvordan aktiverer jeg Beam eSIM
+          Hvordan aktiverer jeg <span className="font-logo">beam</span> eSIM
         </h1>
       </div>
 

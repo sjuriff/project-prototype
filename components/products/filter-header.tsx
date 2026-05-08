@@ -2,7 +2,11 @@
 import { Plane, X, Earth } from "lucide-react";
 import BackButton from "../buttons/back-button";
 import FilterDropdown from "./product-filter";
-import { useState } from "react";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 interface FilterHeaderProps {
   search: string;
@@ -43,17 +47,38 @@ export default function FilterHeader({
   const hasFilters = region || sort;
 
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const iconRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(() => {
+
+    if (!iconRef.current) return
+    gsap.fromTo(iconRef.current, {
+      opacity: 0,
+      x: '100%',
+      duration: 0.8,
+    },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.7,
+        ease: "power4.out",
+      })
+  }, { scope: containerRef })
+
+
   return (
-    <section className="bg-gradient-to-b z-10 max-h-[375px]  from-surface to-secondary px-6 relative pt-20 pb-10 ">
+    <section ref={containerRef} className="bg-gradient-to-b z-10 max-h-[375px]  from-surface to-secondary px-6 relative pt-20 pb-10 ">
+      <div ref={iconRef}  className="hidden  absolute md:block z-0 top-8 md:-top-52 -right-48 items-center h-[500px] w-[500px] flex justify-center gap-3  bg-primary/40 rounded-full">
+        <Earth className="h-12 w-12 absolute top-60 left-28  md:w-38 md:h-38 z-0 text-tertiary opacity-75   " />
+      </div>
       <div className="absolute top-4 md:top-8 left-2 md:left-8">
         <BackButton />
       </div>
       <div className="max-w-2xl  mx-auto text-center space-y-8">
         <div>
           <div className=" relative w-fit mx-auto">
-            <div className="bg-primary z-0 absolute -top-6 md:-top-8 -right-8 h-12 w-12 md:h-16 md:w-16 flex items-center justify-center rounded-full">
-              <Earth className=" h-6 w-6 md:w-8 md:h-8 text-primary-text" />
-            </div>
+
             <h1 className="text-3xl md:text-5xl relative font-heading z-10   text-primary-text [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Alle destinasjoner</h1>
           </div>
           <p className="text-secondary-text text-lg mt-2 font-price">

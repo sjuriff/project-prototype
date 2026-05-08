@@ -83,74 +83,8 @@ export function OrderSummary({ }: OrderSummaryProps) {
                       onUpdateQuantity={updateQuantity}
                       onRemove={removeItem}
                     />
-       /*    <div
-            key={item.id}
-            className="mb-6 pb-6 border-b border-black last:border-b-0"
-          >
-            <div className="flex flex-col">
-              <div className="flex gap-4 mb-4">
-                <div className="flex items-center justify-center gap-2 h-12 w-12 bg-secondary rounded-lg">
-                  {isRegion(item.countryCode) ? (
-                    <Globe className="w-8 h-8 text-primary-text" />
-                  ) : (
-                    <Image src={flagImageUrl} width={32} height={32} alt={item.countryCode} />
-                  )
-                  }
-
-
-                </div>
-                <div>
-                  <h3 className="font-body text-primary-text mb-1">
-                    {item.title} eSIM – {item.validity} dager
-                  </h3>
-                  <p className="text-primary-text text-sm">
-                    {item.data} High-Speed Data
-                  </p>
-                  {hasQuantity(item) && (
-                    <div className="text-sm text-primary-text mt-2 font-body">
-                      Antall: {item.quantity}
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              <p className="font-body text-primary-text">
-                {price} kr
-                {quantity > 1 && ` × ${quantity}`}
-              </p>
-            </div> */
-
-       
-      /*       <div className="space-y-2 mt-4 text-primary-text">
-              <div className="flex items-start gap-2 text-sm ">
-                <Check className="w-4 h-4 text-secondary-text mt-0.5 flex-shrink-0" />
-                <span>Umiddelbar aktivering</span>
-              </div>
-              <div className="flex items-start gap-2 text-sm ">
-                <Check className="w-4 h-4 text-secondary-text mt-0.5 flex-shrink-0" />
-                <span>Dekning i hele {item.title}</span>
-              </div>
-              <div className="flex items-start gap-2 text-sm ">
-                <Check className="w-4 h-4 text-secondary-text mt-0.5 flex-shrink-0" />
-                <span>Ingen registrering</span>
-              </div>
-              <div className="flex items-start gap-2 text-sm ">
-                <Check className="w-4 h-4 text-secondary-text mt-0.5 flex-shrink-0" />
-                <span>24/7 support</span>
-              </div>
-            </div>
-          </div>
-          */
-        ) 
+        )
       })}
-
-      {/* Price Breakdown */}
-   {/*    <div className="space-y-3 mb-6 text-primary-text">
-        <div className="flex justify-between  font-body">
-          <span>Delsum</span>
-          <span>{subtotal} kr</span>
-        </div>
-      </div> */}
 
       {/* Total */}
       <div className="pt-6 ">
