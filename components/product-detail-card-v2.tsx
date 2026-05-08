@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { Wifi, Globe, Radio, Calendar, Shield, RadioTower } from 'lucide-react';
 import PrimaryButton from './buttons/primary-button';
+import DatePicker from './date-picker';
 
 import paths from '@/paths';
 import { useCart } from '@/hooks/use-cart';
@@ -324,7 +325,8 @@ export default function ProductDetailV2({
 
                 <div className={`flex flex-col items-center  justify-start  gap-2 relative ${plan === "unlimited" ? "visible" : "hidden"}     h-1/2   mb-8   py-4 px-8 bg-secondary  rounded-lg`}>
                   <p className='font-body  text-sm   text-primary-text'>Hvor lenge skal du resie?</p>
-                  <DurationDropdown />
+                 {/*  <DurationDropdown /> */}
+                 <DatePicker />
                 </div>
               </div>
 
