@@ -9,10 +9,10 @@ type Props = {
 
 import {useState, useEffect, useRef} from "react";
 
-const WEEKDAYS = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
+const WEEKDAYS = ["Ma", "Ti", "On", "To", "Fr", "Lø", "Sø"];
 const MONTHS = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December",
+  "Januar", "Februar", "Mars", "April", "Mai", "Juni",
+  "Juli", "August", "September", "Oktober", "November", "Desember",
 ];
 
 function startOfDay(d: Date) {
@@ -83,12 +83,10 @@ export default function DatePicker({ value, onChange, className }: Props) {
     const cells = buildMonth(base.getFullYear(), base.getMonth());
     return (
       <div style={{ flex: 1, minWidth: 240 }}>
-        <div style={{ textAlign: "center", fontWeight: 600, marginBottom: 8 }}>
-          {MONTHS[base.getMonth()]} {base.getFullYear()}
-        </div>
+       
         <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 2 }}>
           {WEEKDAYS.map((w) => (
-            <div key={w} style={{ textAlign: "center", fontSize: 12, color: "#6b7280", padding: "4px 0" }}>
+            <div className="font-roboto" key={w} style={{ textAlign: "center", fontSize: 12, color: "#6b7280", padding: "4px 0" }}>
               {w}
             </div>
           ))}
@@ -99,7 +97,7 @@ export default function DatePicker({ value, onChange, className }: Props) {
             const isTo = range.to && sameDay(d, range.to);
             const inRange = range.from && range.to && d > range.from && d < range.to;
             const selected = isFrom || isTo;
-            const bg = selected ? "#111827" : inRange ? "#e5e7eb" : "transparent";
+            const bg = selected ? "#2f5d8c" : inRange ? "#e5e7eb" : "transparent";
             const color = selected ? "#fff" : disabled ? "#cbd5e1" : "#111827";
             return (
               <button
@@ -107,6 +105,7 @@ export default function DatePicker({ value, onChange, className }: Props) {
                 type="button"
                 disabled={disabled}
                 onClick={() => handlePick(d)}
+                className="font-body"
                 style={{
                   padding: "8px 0",
                   fontSize: 14,
@@ -134,11 +133,11 @@ export default function DatePicker({ value, onChange, className }: Props) {
     : "Velg dagene du reiser";
 
   return (
-    <div ref={rootRef} className={className} style={{ position: "relative", display: "inline-block", fontFamily: "system-ui, sans-serif" }}>
+    <div ref={rootRef} className={"font-roboto"} style={{ position: "relative", display: "inline-block"}}>
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex items-center justify-center"
+        className="flex items-center font-heading justify-center"
         style={{
           padding: "10px 14px",
           border: "1px solid #d1d5db",
@@ -168,14 +167,16 @@ export default function DatePicker({ value, onChange, className }: Props) {
             zIndex: 50,
           }}
         >
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 0 }}>
             <button
               type="button"
               onClick={() => setView(new Date(view.getFullYear(), view.getMonth() - 1, 1))}
+              className="font-body"
               style={{ border: "none", background: "transparent", cursor: "pointer", fontSize: 18, padding: "4px 10px" }}
             >
               ‹
             </button>
+            <div className="font-heading font-semibold">{MONTHS[view.getMonth()] + " " + view.getFullYear()}</div>
             <button
               type="button"
               onClick={() => setView(new Date(view.getFullYear(), view.getMonth() + 1, 1))}
@@ -184,12 +185,12 @@ export default function DatePicker({ value, onChange, className }: Props) {
               ›
             </button>
           </div>
-          <div style={{ display: "flex", gap: 24 }}>
+          <div >
             {renderMonth(view)}
-            {renderMonth(nextMonth)}
+          {/*   {renderMonth(nextMonth)} */}
           </div>
           {nights > 0 && (
-            <div className="text-primary-text mt-4 font-body" style={{  textAlign: "center" }}>
+            <div className="text-primary-text mt-4  font-body" style={{  textAlign: "center" }}>
               {nights} {nights === 1 ? "dag" : "dager"} 
             </div>
           )}

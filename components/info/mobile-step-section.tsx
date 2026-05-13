@@ -1,8 +1,10 @@
 'use client'
 import IPhoneScreen from "./iphone-step"
+import IPhoneSlider from "../iphone-slider"
 import AndroidSection from "./android-section"
+import AndroidSlider from "../android-slider"
 import { useState, useEffect, useRef, useMemo } from "react"
-import { WifiCog } from "lucide-react"
+
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 export default function MobileStepSection() {
@@ -96,14 +98,12 @@ export default function MobileStepSection() {
   const content = useMemo(() => {
     if (phoneType === "iphone") {
       return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-          <IPhoneScreen step={1} />
-          <IPhoneScreen step={2} />
-          <IPhoneScreen step={3} />
+        <div className="flex items-center justify-center">
+          <IPhoneSlider/>
         </div>
       )
     }
-    return <AndroidSection />
+    return <AndroidSlider />
   }, [phoneType])
 
   return (

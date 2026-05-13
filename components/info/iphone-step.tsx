@@ -149,6 +149,59 @@ export default function IPhoneScreen({ step }: IPhoneScreenProps) {
             </div>
           )
         };
+        case 4:
+  return {
+    title: 'Velg eSIM for data',
+    subtitle: "Velg beam eSIM som standard for mobildata",
+    header: 'Mobildata standard',
+    backButton: true,
+    content: (
+      <>
+        <SettingsGroup subtitle="Velg hvilken linje som skal brukes for mobildata.">
+          <SettingsItem label="Primær" value="" showChevron />
+          <SettingsItem
+            label="beam eSIM"
+            showChevron
+            highlighted
+          />
+        </SettingsGroup>
+
+        <SettingsGroup>
+          <SettingsItem label="Tillat bytte av mobildata" toggle />
+        </SettingsGroup>
+      </>
+    )
+  };
+case 5:
+  return {
+    title: 'Bruk SIM for samtaler og SMS',
+    subtitle: "Velg ditt vanlige SIM-kort som standard for samtaler og meldinger",
+    header: 'Standardlinje',
+    backButton: true,
+    content: (
+      <>
+        <SettingsGroup title="Standard tale-linje" subtitle="Brukes for samtaler og FaceTime.">
+          <SettingsItem
+            label="Primær"
+            value="+47 123 45 67"
+            showChevron
+            highlighted
+          />
+          <SettingsItem label="beam eSIM" showChevron />
+        </SettingsGroup>
+
+        <SettingsGroup title="iMessage og FaceTime" subtitle="Velg linjen som brukes til meldinger.">
+          <SettingsItem
+            label="Primær"
+            value="+47 123 45 67"
+            showChevron
+            highlighted
+          />
+          <SettingsItem label="beam eSIM" showChevron />
+        </SettingsGroup>
+      </>
+    )
+  };
       default:
         return { title: '', header: '', content: null };
     }
@@ -199,7 +252,7 @@ export default function IPhoneScreen({ step }: IPhoneScreenProps) {
                   </button>
                 )}
                 {!stepContent.backButton && <div></div>}
-                <h2 className="absolute left-1/2 -translate-x-1/2 text-[15px]" style={{ color: 'var(--color-primary-text)' }}>
+                <h2 className="absolute left-1/2 -translate-x-1/2 top-9 text-[15px]" style={{ color: 'var(--color-primary-text)' }}>
                   {stepContent.header}
                 </h2>
               </div>
