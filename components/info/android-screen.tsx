@@ -172,6 +172,129 @@ export function Step3() {
   );
 }
 
+export function Step4() {
+  return (
+    <div className="flex flex-col h-full">
+      {/* Header */}
+      <div className="bg-tertiary text-white px-6 py-4 flex items-center gap-4">
+        <button className="p-1 hover:bg-blue-700 rounded-full transition-colors">
+          <ArrowLeft className="w-6 h-6" />
+        </button>
+        <h1 className="text-lg font-heading">Mobildata</h1>
+      </div>
+
+      {/* Choose eSIM for data */}
+      <div className="flex-1 bg-gray-50">
+        <div className="px-6 pt-4 pb-2">
+          <p className="text-xs text-secondary-text font-body uppercase tracking-wide">
+            Velg SIM for mobildata
+          </p>
+        </div>
+
+        <div className="bg-white">
+          <SettingItem
+            icon={<Radio className="w-5 h-5 text-secondary-text" />}
+            title="Fysisk SIM"
+            subtitle="Primær linje"
+          />
+          <div className="h-px bg-gray-200 ml-16" />
+          <SettingItem
+            icon={<Radio className="w-5 h-5 text-secondary-text" />}
+            title="beam eSIM"
+            subtitle="Ny linje · Anbefalt for data"
+            highlighted
+          />
+        </div>
+
+        <div className="bg-white mt-2">
+          <div className="px-6 py-4 flex items-center justify-between">
+            <div>
+              <div className="text-primary-text font-heading">Tillat databytte</div>
+              <div className="text-sm text-secondary-text font-body">
+                Bruk begge SIM-kort for data automatisk
+              </div>
+            </div>
+            <div className="relative w-12 h-7 rounded-full bg-tertiary flex-shrink-0">
+              <div className="absolute top-0.5 right-0.5 w-6 h-6 bg-white rounded-full shadow-sm" />
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-4 mx-6 bg-blue-50 border border-blue-200 rounded-lg p-4 flex gap-3">
+          <Info className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-gray-700 font-body">
+            Velg eSIM som standard for mobildata for best dekning og hastighet.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function Step5() {
+  return (
+    <div className="flex flex-col h-full">
+      {/* Header */}
+      <div className="bg-tertiary text-white px-6 py-4 flex items-center gap-4">
+        <button className="p-1 hover:bg-blue-700 rounded-full transition-colors">
+          <ArrowLeft className="w-6 h-6" />
+        </button>
+        <h1 className="text-lg font-heading">Anrop og SMS</h1>
+      </div>
+
+      {/* Choose physical SIM for calls and SMS */}
+      <div className="flex-1 bg-gray-50">
+        <div className="px-6 pt-4 pb-2">
+          <p className="text-xs text-secondary-text font-body uppercase tracking-wide">
+            Standard for anrop
+          </p>
+        </div>
+        <div className="bg-white">
+          <SettingItem
+            icon={<Radio className="w-5 h-5 text-secondary-text" />}
+            title="Fysisk SIM"
+            subtitle="Primær linje"
+            highlighted
+          />
+          <div className="h-px bg-gray-200 ml-16" />
+          <SettingItem
+            icon={<Radio className="w-5 h-5 text-secondary-text" />}
+            title="beam eSIM"
+            subtitle="Ny linje"
+          />
+        </div>
+
+        <div className="px-6 pt-4 pb-2">
+          <p className="text-xs text-secondary-text font-body uppercase tracking-wide">
+            Standard for SMS
+          </p>
+        </div>
+        <div className="bg-white">
+          <SettingItem
+            icon={<Radio className="w-5 h-5 text-secondary-text" />}
+            title="Fysisk SIM"
+            subtitle="Primær linje"
+            highlighted
+          />
+          <div className="h-px bg-gray-200 ml-16" />
+          <SettingItem
+            icon={<Radio className="w-5 h-5 text-secondary-text" />}
+            title="beam eSIM"
+            subtitle="Ny linje"
+          />
+        </div>
+
+        <div className="mt-4 mx-6 bg-blue-50 border border-blue-200 rounded-lg p-4 flex gap-3">
+          <Info className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-gray-700 font-body">
+            Behold fysisk SIM som standard for anrop og SMS slik at du beholder ditt vanlige nummer.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export function SettingItem({
   icon,
   title,
