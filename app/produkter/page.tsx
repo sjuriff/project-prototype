@@ -1,11 +1,13 @@
 import ProductsSection from "@/components/products/products-section"
-import { getAllProducts } from "@/lib/shopify-storefront"
+import products from "@/dummy-data/esim-products.json"
+import { Product } from "@/types/product"
 
 export default async function ProductsPage() {
-  const products = await getAllProducts(29)
+  const contries : Product[] = products.countries
+
   return (
     <main>
-      <ProductsSection products={products} />
+      <ProductsSection products={contries} />
     </main>
   )
 }

@@ -1,15 +1,15 @@
 
 import { CreativeHero } from "@/components/home/creative-hero";
+import products from "@/dummy-data/esim-products.json";
+import { Product } from "@/types/product";
 
 import ProductSection from "@/components/home/product-section";
 import Faq from "@/components/home/FAQ";
 import CompareCard from "@/components/home/compare-card";
 
 import ReversedHero from "@/components/home/reversed-hero";
-import HowItWorksSection from "@/components/home/how-it-works";
-import { getPopularProducts } from "@/lib/shopify-storefront";
-import { getRegionProducts } from "@/lib/shopify-storefront";
-import { getAllProducts } from "@/lib/shopify-storefront";
+
+
 
 
 import ImageHero from "@/components/home/image-hero";
@@ -22,9 +22,11 @@ import ESimInfoHero from "@/components/home/esim-info-hero";
 
 
 export default async function Home() {
-  const popularProducts = await getPopularProducts(4);
-  const regionProducts = await getRegionProducts(4);
-  const countries = await getAllProducts(29);
+  const popularProducts: Product[] = products.popular;
+  const regionProducts : Product[] = products.regions;
+  const countries: Product[] = products.countries;
+
+
 
 
 

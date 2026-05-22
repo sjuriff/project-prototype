@@ -7,7 +7,7 @@ import { useState, useEffect, useRef, use } from "react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Product } from "@/types/shopify-product";
+import { Product } from "@/types/product";
 import useIsMobile from "@/hooks/is-mobile";
 import SortSelector from "@/components/radio-buttons";
 

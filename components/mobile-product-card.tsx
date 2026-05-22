@@ -4,15 +4,11 @@ import PrimaryButton from "@/components/buttons/primary-button";
 import { CustomDropdown } from "./custom-dropdown";
 import { usePersistedProduct } from "@/hooks/use-persisted-product";
 import { useRouter } from 'next/navigation';
+import { Tier } from "@/types/product";
 import paths from "@/paths";
 import Image from "next/image";
 import { FaEarthAmericas, FaEarthEurope, FaEarthAsia, FaEarthAfrica, FaGlobe } from "react-icons/fa6"
 
-export interface Tier {
-  data: string;
-  price: number;
-  validity: string;
-}
 
 const regionCodeIcon = (countryCode: string): React.ReactNode => {
   if (countryCode === "US") {
@@ -53,7 +49,7 @@ export interface PersistedProduct {
 }
 
 interface MobileProductCardProps {
-  id: string;
+  id: number;
   sort: string;
   title: string;
   imageUrl?: string | null;
@@ -91,7 +87,6 @@ export function MobileProductCard({
       data: tiers[0].data,
       validity,
       price: tiers[0].price,
-      currency,
       tiers: tiers,
     });
 

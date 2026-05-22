@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import esimData from "@/dummy-data/esim-products.json";
 import { usePersistedProduct } from "@/hooks/use-persisted-product";
 import { useCountrySearch } from "@/hooks/use-country-search";
-import { Product } from "@/types/shopify-product"
+import { Product } from "@/types/product"
 import heroImg from '@/public/images/beam-green.jpg';
 
 
@@ -70,13 +70,13 @@ export default function ImageHero(props: HeroProps) {
   function goToPopularCountry(title: string) {
     const chosenCountry = popularContries.find((c) => c.title === title);
     persistProduct({
-      id: chosenCountry?.id ?? "",
+      id: chosenCountry?.id ?? 0,
       imageUrl: chosenCountry?.imageUrl ?? "",
       title: chosenCountry?.title ?? "",
       data: chosenCountry?.tiers[1].data ?? "",
       validity: chosenCountry?.tiers[1].validity ?? "",
       price: Number(chosenCountry?.tiers[1].price ?? 0),
-      currency: "NOK",
+     
       countryCode: chosenCountry?.countryCode ?? "",
       tiers: chosenCountry?.tiers ?? [],
     });
@@ -84,17 +84,16 @@ export default function ImageHero(props: HeroProps) {
     router.push('/product/1');
   }
 
-  function goToCountry(iso: string, title?: string) {
-    const chosenCountry = countries.find((c) => c.id === iso);
+  function goToCountry(id: number, title?: string) {
+    const chosenCountry = countries.find((c) => c.id === id);
     persistProduct({
-      id: chosenCountry?.id ?? "",
+      id: chosenCountry?.id ?? 0,
       imageUrl: chosenCountry?.imageUrl ?? "",
       title: chosenCountry?.title ?? "",
       data: chosenCountry?.tiers[1].data ?? "",
       validity: chosenCountry?.tiers[1].validity ?? "",
       price: chosenCountry?.tiers[1].price ?? 0,
       countryCode: chosenCountry?.countryCode ?? "",
-      currency: "NOK",
       tiers: chosenCountry?.tiers ?? [],
     });
     // ✅ change this if your route differs
@@ -235,31 +234,31 @@ export default function ImageHero(props: HeroProps) {
       {/* Vipps circle */}
       <div className="absolute left-1/2 top-0 overflow-hidden h-full w-1/2 ">
         <div className="absolute -right-28 -bottom-28 md:-bottom-37 md:-right-32 w-60 h-60 md:w-80 md:h-80 z-10">
-        <div className="absolute hidden md:block top-20 left-22">
-          <VippsPayIcon height={80} width={80} />
+          <div className="absolute hidden md:block top-20 left-22">
+            <VippsPayIcon height={80} width={80} />
+          </div>
+          <div className="absolute  md:hidden top-15 left-16">
+            <VippsPayIcon height={60} width={60} />
+          </div>
+          <svg viewBox="0 0 200 200" className="w-full h-full">
+            <circle cx="100" cy="100" r="100" className="fill-primary opacity-70" />
+            <defs>
+              <path id="leftArc" d="M100,180 A80,80 0 0,1 100,20" />
+            </defs>
+            <text className="fill-primary-text">
+              <textPath
+                href="#leftArc"
+                startOffset="78%"
+                textAnchor="middle"
+                className="font-heading text-[10px] tracking-wide"
+              >
+                Betal enkelt med Vipps
+              </textPath>
+            </text>
+          </svg>
         </div>
-        <div className="absolute  md:hidden top-15 left-16">
-          <VippsPayIcon height={60} width={60} />
-        </div>
-        <svg viewBox="0 0 200 200" className="w-full h-full">
-          <circle cx="100" cy="100" r="100" className="fill-primary opacity-70" />
-          <defs>
-            <path id="leftArc" d="M100,180 A80,80 0 0,1 100,20" />
-          </defs>
-          <text className="fill-primary-text">
-            <textPath
-              href="#leftArc"
-              startOffset="78%"
-              textAnchor="middle"
-              className="font-heading text-[10px] tracking-wide"
-            >
-              Betal enkelt med Vipps
-            </textPath>
-          </text>
-        </svg>
       </div>
-      </div>
-    
+
     </div>
   );
 }

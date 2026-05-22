@@ -10,12 +10,14 @@ gsap.registerPlugin(useGSAP);
 
 
 interface BeamLogoProps {
-  isBusiness: boolean
+  bgColor: string;
+  textColor: string;
+  gradientColor: string
 }
 
 
 
-export default function BeamFooterLogo({ isBusiness }: BeamLogoProps) {
+export default function BeamFooterLogo({ bgColor, textColor, gradientColor }: BeamLogoProps) {
   const logoRef = useRef<HTMLDivElement>(null)
   const dotOneRef = useRef<HTMLDivElement>(null)
   const dotTwoRef = useRef<HTMLDivElement>(null)
@@ -58,11 +60,11 @@ export default function BeamFooterLogo({ isBusiness }: BeamLogoProps) {
   }, { scope: logoRef })
   return (
     <div ref={logoRef} className="flex flex-col items-center justify-center">
-      <h1 className={` ${isBusiness ? 'text-tertiary' : 'text-primary '} text-5xl font-logo  [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]`}>beam</h1>
+      <h1 className={` ${textColor} text-5xl font-logo  [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]`}>beam</h1>
       <div className="flex  items-center gap-1">
-        <div ref={dotOneRef} className={`w-3 opacity-0 rounded-l-lg h-1 ${isBusiness ? 'bg-tertiary' : 'bg-primary'} `}></div>
-        <div ref={dotTwoRef} className={`w-3 opacity-0 h-1 ${isBusiness ? 'bg-tertiary' : 'bg-primary'}`}></div>
-        <div ref={lineRef} className={`w-25 opacity-0 h-1 bg-gradient-to-r ${isBusiness ? 'from-tertiary via-tertiary to-transparent' : ' from-primary via-primary to-transparent'}  `}></div>
+        <div ref={dotOneRef} className={`w-3 opacity-0 rounded-l-lg h-1 ${bgColor} `}></div>
+        <div ref={dotTwoRef} className={`w-3 opacity-0 h-1 ${bgColor}`}></div>
+        <div ref={lineRef} className={`w-25 opacity-0 h-1 bg-gradient-to-r ${gradientColor}  `}></div>
       </div>
 
     </div>

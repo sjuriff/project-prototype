@@ -84,11 +84,11 @@ export default function HowToStart() {
       <div className="mx-auto flex flex-col items-center max-w-2xl text-center">
         <div className="relative  w-fit">
          
-          <h2 ref={headingRef} className="font-heading relative z-10 text-4xl  [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]  leading-[1.05] tracking-tight  sm:text-5xl md:text-6xl">
+          <h2 ref={headingRef} className="font-heading relative z-10 text-4xl text-tertiary-text  [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]  leading-[1.05] tracking-tight  sm:text-5xl md:text-6xl">
             Hvordan starter man?
           </h2>
         </div>
-        <p ref={descriptionRef} className="mt-6 text-lg leading-relaxed text-beam-ink-soft">
+        <p ref={descriptionRef} className="mt-6 text-lg leading-relaxed text-secondary">
           Tre enkle steg fra registrering til første utbetaling.
         </p>
       </div>
@@ -99,7 +99,7 @@ export default function HowToStart() {
           return (
             <article
               key={number}
-              className="step-card group relative col-span-6  lg:col-span-2 flex flex-col rounded-3xl bg-tertiary shadow-md p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-soft"
+              className="step-card group relative col-span-6  lg:col-span-2 flex flex-col rounded-3xl bg-secondary-text shadow-md p-7 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-soft"
             >
               <div className="flex  justify-between items-center gap-3 mb-5">
 
@@ -109,7 +109,7 @@ export default function HowToStart() {
                   <Icon className="text-xl" />
                 </div>
                 <span
-                  className={`inline-flex h-10 w-10 items-center bg-surface-dark rounded-full justify-center  font-display text-sm font-700 `}
+                  className={`inline-flex h-10 w-10 items-center bg-tertiary rounded-full text-tertiary-text justify-center  font-display text-sm font-700 `}
                 >
                   {number}
                 </span>

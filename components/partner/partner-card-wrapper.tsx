@@ -100,21 +100,21 @@ export default function PartnerCardWrapper() {
   }, []);
 
   return (
-    <div className="min-h-[600px] bg-surface-dark py-16 px-4">
+    <div className="min-h-[600px] bg-tertiary py-16 px-4">
       <div className="container mx-auto max-w-6xl">
         <header className="mb-12  flex flex-col items-center text-center">
           <div className=" w-fit text-center relative">
 
             <h1
               ref={titleRef}
-              className="text-4xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] md:text-5xl font-heading tracking-tight text-foreground"
+              className="text-4xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] md:text-5xl font-heading tracking-tight text-secondary"
             >
               Partnerskap med <span className="font-logo text-primary">beam</span>
             </h1>
           </div>
           <p
             ref={subtitleRef}
-            className="mt-4 text-lg font-body max-w-2xl mx-auto"
+            className="mt-4 text-lg text-tertiary-text font-body max-w-2xl mx-auto"
           >
             Velg den modellen som passer din virksomhet best.
           </p>

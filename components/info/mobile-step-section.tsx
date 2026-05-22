@@ -10,7 +10,7 @@ import gsap from "gsap"
 export default function MobileStepSection() {
   const [phoneType, setPhoneType] = useState<'iphone' | 'android'>('iphone');
 
-  const buttonsRef = useRef<Record<string, HTMLDivElement | null>>({
+  const buttonsRef = useRef<Record<string, HTMLButtonElement | null>>({
     iphone: null,
     android: null,
   })
@@ -33,18 +33,25 @@ export default function MobileStepSection() {
     () => {
       const active = indicatorRefs.current[phoneType];
       if (!active?.dotOne || !active?.dotTwo || !active?.line) return;
-      const buttons = Object.values(buttonsRef.current);
 
-      // Reset ALLE knapper først
-      gsap.set(buttons, {
-        backgroundColor: "transparent",
-        color: "#1f2937",
-      });
-
+      const buttons = Object.values(buttonsRef.current).filter(Boolean);
       const activeButton = buttonsRef.current[phoneType];
       if (!activeButton) return;
 
-      gsap.killTweensOf([active.dotOne, active.dotTwo, active.line, activeButton]);
+      // Kill old tweens BEFORE resetting
+      gsap.killTweensOf([
+        ...buttons,
+        active.dotOne,
+        active.dotTwo,
+        active.line,
+      ]);
+
+      // Reset all buttons after killing tweens
+      gsap.set(buttons, {
+        backgroundColor: "transparent",
+        color: "#1f2937",
+        boxShadow: "none",
+      });
 
       const tl = gsap.timeline();
 
@@ -66,8 +73,8 @@ export default function MobileStepSection() {
         )
         .fromTo(
           activeButton,
-          { backgroundColor: "transparent",  color: "#1f2937" },
-          {  backgroundColor: "#2f5d8c", color: "#ffffff", ease: "power3.out", duration: 0.5 },
+          { backgroundColor: "transparent", color: "#1f2937", },
+          { backgroundColor: '#d6e9fb', color: "#243a5e", ease: "power3.out", duration: 0.5 },
         )
     },
     { dependencies: [phoneType] }
@@ -98,8 +105,8 @@ export default function MobileStepSection() {
   const content = useMemo(() => {
     if (phoneType === "iphone") {
       return (
-        <div className="flex items-center justify-center">
-          <IPhoneSlider/>
+        <div className="flex items-center justify-center w-full">
+          <IPhoneSlider />
         </div>
       )
     }
@@ -119,14 +126,15 @@ export default function MobileStepSection() {
         </h1>
       </div>
 
-      <div className="flex  justify-center mb-12">
-        <div className="w-fit flex gap-2 bg-surface-dim px-8 py-4 rounded-lg shadow-md ">
+      <div className="flex   justify-center mb-12">
+        <div className="w-fit  flex  bg-surface-dim  rounded-lg shadow-md ">
           <button
+            ref={(el) => { buttonsRef.current["iphone"] = el }}
             disabled={phoneType === "iphone"}
-            className={`px-4 flex  md:text-lg rounded-lg  flex-col gap-1 items-center justify-center py-2  ${phoneType !== "iphone" ? "hover:scale-105 hover:cursor-pointer" : ""}  transition-transform   mr-4 `}
+            className={` flex h-full  md:text-lg rounded-l-lg px-6 py-4   flex-col gap-1 items-center justify-center   ${phoneType !== "iphone" ? "hover:scale-105 hover:cursor-pointer" : ""}  transition-transform   mr-4 `}
             onClick={() => setPhoneType('iphone')}
           >
-            <div ref={(el) => { buttonsRef.current["iphone"] = el }} className=" px-2 rounded-lg">
+            <div className=" px-2 rounded-lg">
               iPhone
             </div>
             <div
@@ -154,11 +162,12 @@ export default function MobileStepSection() {
             </div>
           </button>
           <button
+            ref={(el) => { buttonsRef.current["android"] = el }}
             disabled={phoneType === "android"}
-            className={`px-4 py-2 flex md:text-lg text-default rounded-lg flex-col items-center justify-center  ${phoneType !== "android" ? "hover:scale-105 hover:cursor-pointer" : ""} gap-1 transition-transform   `}
+            className={`px-6 py-4 gap-1 flex md:text-lg text-default rounded-r-lg flex-col items-center justify-center  ${phoneType !== "android" ? "hover:scale-105 hover:cursor-pointer" : ""} gap-1 transition-transform   `}
             onClick={() => setPhoneType('android')}
           >
-            <div   ref={(el) => { buttonsRef.current["android"] = el }} className=" px-2 rounded-lg">
+            <div className=" px-2 rounded-lg">
               Android
             </div>
             <div
@@ -187,7 +196,9 @@ export default function MobileStepSection() {
           </button>
         </div>
       </div>
-      {content}
+      <div className="">
+        {content}
+      </div>
     </div>
 
   )

@@ -1,6 +1,6 @@
 import { Check, Globe, Plane } from "lucide-react";
 import { CartItemData } from "@/hooks/use-cart";
-import { Product } from "@/types/product";
+import { Product } from "@/types/persistedt-product";
 import Image from "next/image";
 import { CartItem } from "@/components/cart-item";
 import { useCart } from "@/hooks/use-cart";
@@ -44,12 +44,12 @@ function getItemPrice(item: OrderItem): number {
 
 export function OrderSummary({ }: OrderSummaryProps) {
 
-    const {
-      items: cartItems,
-      removeItem,
-      updateQuantity,
-      hydrated,
-    } = useCart()
+  const {
+    items: cartItems,
+    removeItem,
+    updateQuantity,
+    hydrated,
+  } = useCart()
 
 
   const subtotal = cartItems.reduce((sum, item) => {
@@ -64,11 +64,11 @@ export function OrderSummary({ }: OrderSummaryProps) {
 
       {cartItems.length === 0 && (
         <div className="flex flex-col items-center justify-center gap-4">
-        <p className="font-body text-primary-text">Ingen produkter i kassen</p>
-        <Link href="/produkter" className="w-full">
-        <PrimaryButton Icon={Plane} fullWidth>Se destinasjoner</PrimaryButton>
-        </Link>
-      </div>
+          <p className="font-body text-primary-text">Ingen produkter i kassen</p>
+          <Link href="/produkter" className="w-full">
+            <PrimaryButton Icon={Plane} fullWidth>Se destinasjoner</PrimaryButton>
+          </Link>
+        </div>
       )}
       {cartItems.map((item) => {
         const price = getItemPrice(item)
@@ -76,13 +76,13 @@ export function OrderSummary({ }: OrderSummaryProps) {
         const flagImageUrl = `https://flagcdn.com/w320/` + item.countryCode.toLowerCase() + `.png`
 
         return (
-            <CartItem
-                      key={item.id}
-                      {...item}
-                      validity={item.validity}
-                      onUpdateQuantity={updateQuantity}
-                      onRemove={removeItem}
-                    />
+          <CartItem
+            key={item.id}
+            {...item}
+            validity={item.validity}
+            onUpdateQuantity={updateQuantity}
+            onRemove={removeItem}
+          />
         )
       })}
 

@@ -2,7 +2,7 @@ import useIsMobile from "@/hooks/is-mobile";
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Product } from "@/types/shopify-product";
+import { Product } from "@/types/product";
 import { MobileProductCard } from "../mobile-product-card";
 
 import { ProductCard } from "../product-card";

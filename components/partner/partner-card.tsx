@@ -14,7 +14,7 @@ export default function PartnerCard ({ icon: Icon, title, description, cardRef }
       <div
         ref={cardRef}
         data-card
-        className="group relative overflow-hidden bg-tertiary rounded-xl p-6  shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+        className="group relative overflow-hidden bg-secondary-text rounded-xl p-6  shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
       >
         <div className="flex mb-4 justify-start ">
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-text transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
