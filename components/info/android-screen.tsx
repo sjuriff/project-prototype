@@ -5,13 +5,13 @@ export function PhoneFrame({ children, step, title, description }: { children: R
   return (
     <div className="flex flex-col items-center">
       {/* Step Label and Description */}
-      <div className="mb-6 text-center max-w-[320px]">
+    {/*   <div className="mb-6 text-center max-w-[320px]">
         <div className="inline-block px-4 py-2 bg-primary text-primary-text rounded-full mb-3">
           {step}
         </div>
         <h3 className="mb-2 font-heading text-lg text-primary-text">{title}</h3>
         <p className="text-sm text-secondary-text font-body">{description}</p>
-      </div>
+      </div> */}
       
       <div className="bg-gray-800 rounded-[40px] p-3 shadow-2xl">
         <div className="bg-white rounded-[32px] overflow-hidden shadow-lg w-[320px]">

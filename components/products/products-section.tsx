@@ -3,13 +3,13 @@ import { useState, useMemo } from "react";
 import FilterHeader from "./filter-header";
 import ProductGrid from "./products-grid";
 import eSIMProducts from "@/dummy-data/esim-products.json";
-import { Product } from "@/types/shopify-product";
+import { Product } from "@/types/product";
 
 interface ProductSectionsProps {
   products: Product[]
-  
+
 }
-export default function ProductsSection({products}: ProductSectionsProps) {
+export default function ProductsSection({ products }: ProductSectionsProps) {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
   const [region, setRegion] = useState("");

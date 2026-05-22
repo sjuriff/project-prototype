@@ -12,12 +12,12 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { FaEarthAmericas, FaEarthEurope, FaEarthAsia, FaEarthAfrica, FaGlobe } from "react-icons/fa6"
-import { Tier } from '@/types/product';
+import { Tier } from '@/types/persistedt-product';
 import DurationDropdown from './custom-dropdown-v2';
 
 
 interface ProductDetailCardProps {
-  id: string;
+  id: number;
   image: string | null;
   title: string;
   description: string;
@@ -82,6 +82,7 @@ export default function ProductDetailV2({
 
 
   const [tier, setTier] = useState<Tier>({
+    id: id,
     data: data,
     validity: validity,
     price: price
@@ -112,7 +113,7 @@ export default function ProductDetailV2({
   });
 
 
-  
+
   const { addItem } = useCart()
   const router = useRouter()
 
@@ -135,7 +136,7 @@ export default function ProductDetailV2({
 
   const handleBuyClick = () => {
     addItem({
-      id,
+      id: String(id),
       title,
       countryCode,
       data: tier.data,
@@ -201,7 +202,7 @@ export default function ProductDetailV2({
               {image ? (
                 <div className=" z-0 rounded-t-2xl md:rounded-l-2xl overflow-hidden relative h-[250px]  w-full md:h-1/2   "
                 >
-               {/*    <div className="flex absolute w-full -bottom-1 z-10  items-center gap-4">
+                  {/*    <div className="flex absolute w-full -bottom-1 z-10  items-center gap-4">
                     <div className="w-25   h-4 bg-secondary"></div>
                     <div className="w-25  h-4 bg-secondary"></div>
                     <div className="w-full  h-4 bg-secondary"></div>
@@ -223,7 +224,7 @@ export default function ProductDetailV2({
 
                 </div>
               ) : (<div className=" relative bg-secondary-heading rounded-t-2xl md:rounded-t-none md:rounded-l-2xl    flex items-center justify-center   h-[250px]   w-full md:h-1/2 ">
-              {/*   <div className="flex absolute w-full -bottom-1 z-10  items-center gap-4">
+                {/*   <div className="flex absolute w-full -bottom-1 z-10  items-center gap-4">
                   <div className="w-25    h-4 bg-secondary"></div>
                   <div className="w-25  h-4 bg-secondary"></div>
                   <div className="w-full  h-4 bg-secondary"></div>
@@ -252,7 +253,7 @@ export default function ProductDetailV2({
                 <h1 className='font-heading mt-4 md:mt-0 text-2xl md:text-3xl text-tertiary '>Velg et abonnement</h1>
                 <div className=' gap-4  text-base gap-16 md:text-base font-heading flex'>
                   <div className='flex flex-col w-20 items-center justify-center gap-1'>
-                    <p  onClick={() => setPlan("set")} className='hover:cursor-pointer'>Fast</p>
+                    <p onClick={() => setPlan("set")} className='hover:cursor-pointer'>Fast</p>
                     <div
                       className={`flex items-center gap-1 w-full transition-opacity duration-200 ${plan === "set" ? "opacity-100" : "opacity-0"} `}
                     >
@@ -325,8 +326,8 @@ export default function ProductDetailV2({
 
                 <div className={`flex flex-col items-center  justify-start  gap-2 relative ${plan === "unlimited" ? "visible" : "hidden"}     h-1/2   mb-8   py-4 px-8 bg-secondary  rounded-lg`}>
                   <p className='font-body  text-sm   text-primary-text'>Hvor lenge skal du resie?</p>
-                 {/*  <DurationDropdown /> */}
-                 <DatePicker />
+                  {/*  <DurationDropdown /> */}
+                  <DatePicker />
                 </div>
               </div>
 

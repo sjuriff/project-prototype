@@ -10,87 +10,102 @@ export function normalizeNo(s: string) {
     .replace(/\s+/g, ' ')
     .trim();
 }
-//SHOULD BE ALIAS TO ID
-const ALIAS_TO_TITLE_NO: Record<string, string> = {
+
+const ALIAS_TO_COUNTRY_CODE_NO: Record<string, string> = {
   // United Kingdom / Storbritannia
-  uk: 'Storbritannia',
-  england: 'Storbritannia',
-  skotland: 'Storbritannia',
-  wales: 'Storbritannia',
-  'forente kongerike': 'Storbritannia',
-  storbritannia: 'Storbritannia',
-  'great britain': 'Storbritannia',
+  uk: 'GB',
+  england: 'GB',
+  skotland: 'GB',
+  scotland: 'GB',
+  wales: 'GB',
+  'forente kongerike': 'GB',
+  storbritannia: 'GB',
+  'great britain': 'GB',
 
   // USA
-  usa: 'USA',
-  amerika: 'USA',
-  'forente stater': 'USA',
-  'de forente stater': 'USA',
+  usa: 'US',
+  amerika: 'US',
+  'forente stater': 'US',
+  'de forente stater': 'US',
 
   // UAE
-  uae: 'De forente arabiske emirater',
-  emiratene: 'De forente arabiske emirater',
-  'de forente arabiske emirater': 'De forente arabiske emirater',
+  uae: 'AE',
+  emiratene: 'AE',
+  'de forente arabiske emirater': 'AE',
+
+  // Regions
+  europa: 'EU',
+  asia: 'AS',
+  afrika: 'AF',
+  'nord amerika': 'US',
+  'nord-amerika': 'US',
 };
 
 function buildAliasIndex(map: Record<string, string>) {
   const out: Record<string, string> = {};
-  for (const [k, v] of Object.entries(map)) {
-    out[normalizeNo(k)] = normalizeNo(v);
+
+  for (const [alias, countryCode] of Object.entries(map)) {
+    out[normalizeNo(alias)] = normalizeNo(countryCode);
   }
+
   return out;
 }
 
-const ALIAS_TO_TITLE_NO_N = buildAliasIndex(ALIAS_TO_TITLE_NO);
+const ALIAS_TO_COUNTRY_CODE_NO_N = buildAliasIndex(ALIAS_TO_COUNTRY_CODE_NO);
 
 export function expandedQueriesNo(qRaw: string) {
   const q = normalizeNo(qRaw);
   if (!q) return [];
 
-  const mappedId = ALIAS_TO_TITLE_NO_N[q]; // already normalized
-  if (!mappedId) return [q];
+  const mappedCountryCode = ALIAS_TO_COUNTRY_CODE_NO_N[q];
 
-  // include both: mapped canonical id + original query
-  // (so "uk" can still match "uk" if you ever store it anywhere)
-  return Array.from(new Set([mappedId, q]));
+  return Array.from(new Set(mappedCountryCode ? [mappedCountryCode, q] : [q]));
 }
-
-
-
 
 export type SearchableCountry<T> = T & {
   _nTitle: string;
-  _nId: string;
+  _nCountryCode: string;
   _words: string[];
 };
 
 function scoreAgainstQuery<T>(c: SearchableCountry<T>, q: string) {
-  const t = c._nTitle;
-  const iso = c._nId;
+  const title = c._nTitle;
+  const countryCode = c._nCountryCode;
 
-  if (t === q) return 1000;
-  if (iso === q) return 950;
-  if (t.startsWith(q)) return 900;
+  if (countryCode === q) return 1000;
+  if (title === q) return 950;
+
+  if (title.startsWith(q)) return 900;
   if (c._words.some((w) => w.startsWith(q))) return 850;
-  if (iso.startsWith(q)) return 820;
+  if (countryCode.startsWith(q)) return 820;
 
-  const idx = t.indexOf(q);
-  if (idx !== -1) return 700 - idx;
+  const titleIndex = title.indexOf(q);
+  if (titleIndex !== -1) return 700 - titleIndex;
 
-  const isoIdx = iso.indexOf(q);
-  if (isoIdx !== -1) return 650 - isoIdx;
+  const countryCodeIndex = countryCode.indexOf(q);
+  if (countryCodeIndex !== -1) return 650 - countryCodeIndex;
 
   return -1;
 }
 
-export function preprocessCountries<T extends { title?: string; id?: string }>(
-  countries: T[],
-): SearchableCountry<T>[] {
-  return countries.map((c) => {
-    const nTitle = normalizeNo(c.title ?? '');
-    const nId = normalizeNo(c.id ?? '');
+export function preprocessCountries<
+  T extends {
+    title?: string;
+    countryCode?: string;
+    id?: string | number;
+  },
+>(countries: T[]): SearchableCountry<T>[] {
+  return countries.map((country) => {
+    const nTitle = normalizeNo(country.title ?? '');
+    const nCountryCode = normalizeNo(country.countryCode ?? '');
     const words = nTitle.split(/\s+/).filter(Boolean);
-    return { ...c, _nTitle: nTitle, _nId: nId, _words: words };
+
+    return {
+      ...country,
+      _nTitle: nTitle,
+      _nCountryCode: nCountryCode,
+      _words: words,
+    };
   });
 }
 
@@ -99,17 +114,19 @@ export function searchCountries<T>(
   query: string,
   limit = 8,
 ): T[] {
-  const qs = expandedQueriesNo(query);
-  if (!qs.length) return [];
+  const queries = expandedQueriesNo(query);
+  if (!queries.length) return [];
 
   return normalizedCountries
-    .map((c) => {
-      let best = -1;
-      for (const q of qs) best = Math.max(best, scoreAgainstQuery(c, q));
-      return { c, s: best };
+    .map((country) => {
+      const score = Math.max(
+        ...queries.map((query) => scoreAgainstQuery(country, query)),
+      );
+
+      return { country, score };
     })
-    .filter(({ s }) => s >= 0)
-    .sort((a, b) => b.s - a.s)
+    .filter(({ score }) => score >= 0)
+    .sort((a, b) => b.score - a.score)
     .slice(0, limit)
-    .map(({ c }) => c);
+    .map(({ country }) => country);
 }

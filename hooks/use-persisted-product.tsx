@@ -2,25 +2,15 @@
 
 import { useEffect, useState } from "react"
 import type { StaticImageData } from "next/image"
-import { Product } from "@/types/product"
-
-/* =========================
-   Types (inline)
-   ========================= */
+import { Product } from "@/types/persistedt-product"
 
 
-
-/* =========================
-   Stored (JSON-safe) shape
-   ========================= */
 
 
 
 const STORAGE_KEY = "product"
 
-/* =========================
-   Hook
-   ========================= */
+
 
 export function usePersistedProduct() {
   const [hydrated, setHydrated] = useState(false)

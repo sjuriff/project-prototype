@@ -10,7 +10,7 @@ import { useState } from 'react';
 import { CustomDropdown } from './custom-dropdown';
 import { useRouter } from 'next/navigation';
 import { usePersistedProduct } from '@/hooks/use-persisted-product';
-import { Tier } from '@/types/shopify-product';
+import { Tier } from '@/types/product';
 import { FaEarthAmericas, FaEarthEurope, FaEarthAsia, FaEarthAfrica, FaGlobe } from "react-icons/fa6"
 import GhostButton from './buttons/ghost-button';
 import { useCart } from '@/hooks/use-cart';
@@ -46,7 +46,7 @@ const regionCodeIcon = (countryCode: string): React.ReactNode => {
 
 
 interface ProductCardProps {
-  id: string;
+  id: number;
   sort: string
   imageUrl: string | null;
   title: string;
@@ -79,7 +79,7 @@ export function ProductCard({
 
   const handleBuyClick = () => {
     addItem({
-      id: id,
+      id: String(id),
       title: title,
       data: selectedTier.data,
       countryCode: countryCode,
@@ -100,7 +100,6 @@ export function ProductCard({
       validity: selectedTier.validity,
       countryCode,
       price: selectedTier.price,
-      currency,
       tiers: tirers,
     });
     router.push(paths.product("1"));

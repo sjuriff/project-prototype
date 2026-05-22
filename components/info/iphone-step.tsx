@@ -1,4 +1,4 @@
-import { ChevronRight, Wifi, Radio, ChevronLeft, Signal, Battery, Globe, Lock, Bell, User, QrCode, Smartphone } from 'lucide-react';
+import { ChevronRight, Wifi, Radio, ChevronLeft, Signal, Battery, Globe, Bell, User, QrCode, Smartphone } from 'lucide-react';
 
 interface IPhoneScreenProps {
   step: number;
@@ -210,8 +210,8 @@ case 5:
   const stepContent = getStepContent();
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="mb-4">
+    <div className="flex flex-row ">
+      {/* <div className="mb-4">
         <div className="inline-flex items-center justify-center w-10 h-10 rounded-full" style={{ backgroundColor: 'var(--color-primary)' }}>
           <span className="text-sm" style={{ color: 'var(--color-primary-text)' }}>{step}</span>
         </div>
@@ -221,12 +221,12 @@ case 5:
           {stepContent.title}
         </h3>
         <p className='text-secondary-text font-body text-sm text-center'>{stepContent.subtitle}</p>
-      </div>
+      </div> */}
 
       {/* iPhone Mockup */}
       <div className="relative w-full max-w-[320px] mx-auto">
         {/* iPhone Frame */}
-        <div className="relative bg-black rounded-[3rem] p-2.5 shadow-2xl">
+        <div className="relative bg-black rounded-[3rem] p-2.5 ">
           {/* Dynamic Island */}
           <div className="absolute top-5 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full z-10"></div>
 

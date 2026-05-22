@@ -1,6 +1,6 @@
-import 'server-only';
+/*import 'server-only';
 
-import type { Product, Tier } from '@/types/shopify-product';
+import type { Product, Tier } from '@/types/product';
 
 const SHOPIFY_STORE_DOMAIN = process.env.SHOPIFY_STORE_DOMAIN;
 const SHOPIFY_STOREFRONT_TOKEN = process.env.SHOPIFY_STOREFRONT_TOKEN;
@@ -205,3 +205,4 @@ export function getDefaultTier(product: Product): Tier | undefined {
     product.tiers.find((tier) => tier.popular === true) ?? product.tiers[0]
   );
 }
+*/
