@@ -7,8 +7,13 @@ export default function IPhoneSlider() {
   const steps = [{ step: 1, title: " Åpne innstillinger", subtitle: "Gå til Innstillinger på telefonen din og velg 'Mobilnett'" },
   { step: 2, title: "Gå til mobilnett", subtitle: "Inne på mobilnett velger du 'Legg til eSIM'" },
   { step: 3, title: 'Legg til eSIM', subtitle: "Velg Bruk 'QR-kode', og scan QR-koden med din telefon" },
-  { step: 4, title: 'Velg eSIM for data', subtitle: "Velg beam eSIM som standard for mobildata" },
-  { step: 5, title: 'Bruk SIM for samtaler og SMS', subtitle: "Velg ditt vanlige SIM-kort som standard for samtaler og meldinger" }]
+  { step: 4, title: 'Aktiver eSIM', subtitle: "Velg aktiver for å starte aktiveringen av din eSIM" },
+  { step: 5, title: 'Aktiver eSIM', subtitle: "Trykk forsett for neste steg" },
+  { step: 6, title: 'Hvor skal eSIM brukes', subtitle: "Velg om du skal bruke eSIM i utlandet eller i Norge" },
+  { step: 7, title: 'Velg plan', subtitle: "Velg 'bare data' som din plan" },
+  { step: 8, title: 'eSIM er nå klar til bruk', subtitle: "Hva skal stå her" },
+]
+
   const [activeIndex, setActiveIndex] = useState(0)
 
   const [title, setTitle] = useState('')
