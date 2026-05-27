@@ -20,13 +20,13 @@ interface IPhoneScreenProps {
 
 export default function IPhoneScreen({ step }: IPhoneScreenProps) {
   return (
-    <div className="flex flex-row">
+    <div className="flex  h-[650px] flex-row">
       <div className="relative mx-auto w-full max-w-[320px]">
         <div className="relative rounded-[3rem] bg-black p-2.5">
           <div className="absolute top-5 left-1/2 z-20 h-6 w-20 -translate-x-1/2 rounded-full bg-black" />
 
           <div
-            className="relative overflow-hidden rounded-[2.5rem] bg-white"
+            className="relative overflow-hidden h-[620px] w-full rounded-[2.5rem] bg-white"
             style={{ aspectRatio: '9/19.5' }}
           >
             <div className="absolute top-0 left-0 right-0 z-30 flex h-11 items-center justify-between px-7 text-[11px]">
@@ -46,7 +46,7 @@ export default function IPhoneScreen({ step }: IPhoneScreenProps) {
   );
 }
 
-//Steps
+
 
 function MobilnettScreen() {
   return (
@@ -88,6 +88,51 @@ function MobilnettScreen() {
     </div>
   );
 }
+
+
+function MobilnettScreenEnd() {
+  return (
+    <div className=" h-full pt-11 border flex-col ">
+      <div className="px-4 pb-2">
+        <div className="flex h-10 items-center justify-between">
+          <button
+            className="mr-2 flex items-center gap-0.5 text-sm"
+            style={{ color: 'var(--color-tertiary)' }}
+          >
+            <ChevronLeft className="h-4 w-4" />
+            <span>Innstillinger</span>
+          </button>
+          <h2
+            className="absolute top-9 left-1/2 -translate-x-1/2 text-[15px]"
+            style={{ color: 'var(--color-primary-text)' }}
+          >
+            Mobilnett
+          </h2>
+        </div>
+      </div>
+
+      <div className="relative flex-1 h-full overflow-hidden pt-3" style={{ backgroundColor: '#f2f2f7' }}>
+        <SettingsGroup>
+          <SettingsItem label="Mobildata" value="Primær" showChevron />
+          <SettingsItem label="Mobildatavalg" value="Roaming på" showChevron />
+        </SettingsGroup>
+        <SettingsGroup  >
+          <SettingsItem label="Standard tale" value="Primær" showChevron />
+        </SettingsGroup>
+        <SettingsGroup title='Simkort'>
+          <SettingsItem label="Primær" value="På" showChevron />
+          <SettingsItem label="beam eSIM" value="Av" highlighted showChevron />
+          <SettingsItem label="Legg til eSIM"   />
+        
+        
+        </SettingsGroup>
+      
+      </div>
+    </div>
+  );
+}
+
+//Steps
 
 function getStepContent(step: number): ReactNode {
   switch (step) {
@@ -171,7 +216,7 @@ function getStepContent(step: number): ReactNode {
 
     case 3:
       return (
-        <div className="flex h-full flex-col pt-11">
+        <div className="flex h-full flex-col pt-11 ">
           <div className="px-4 pb-2">
             <div className="flex h-10 items-center justify-between">
               <div />
@@ -279,7 +324,7 @@ function getStepContent(step: number): ReactNode {
                 className="mt-6 text-[24px] font-bold"
                 style={{ color: 'var(--color-primary-text)' }}
               >
-                Aktiver eSIM2
+                Aktiver eSIM
               </h2>
               <p className="mt-3 text-[15px]" style={{ color: '#6d6d72' }}>
                 Ditt nye eSIM fra beam mobile er klar for å aktiveres.
@@ -416,6 +461,63 @@ function getStepContent(step: number): ReactNode {
               </div>
             </div>
           </BottomSheet>
+        </div>
+      );
+
+    case 9:
+      return (
+      
+          <MobilnettScreenEnd />
+         
+      );
+
+    case 10:
+      return (
+    <div className="flex h-full flex-col pt-11">
+          <div className="px-4 pb-2">
+            <div className="flex h-10 items-center justify-between">
+          <button
+            className="mr-2 flex items-center gap-0.5 text-sm"
+            style={{ color: 'var(--color-tertiary)' }}
+          >
+            <ChevronLeft className="h-4 w-4" />
+            <span>Mobilnett</span>
+          </button>
+          <h2
+            className="absolute top-9 left-1/2 -translate-x-1/2 text-[15px]"
+            style={{ color: 'var(--color-primary-text)' }}
+          >
+            beam eSIM
+          </h2>
+        </div>
+            
+          </div>
+
+          <div className="flex-1 overflow-y-auto pt-3" style={{ backgroundColor: '#f2f2f7' }}>
+            <SettingsGroup>
+              <SettingsItem
+                
+                label="Mobilabonnement"
+                value="beam eSIM"
+                showChevron
+              />
+               <SettingsItem
+                label='Slå på denne linjen'
+                toggle
+              />
+            </SettingsGroup>
+
+           
+
+           <div className="mt-auto px-1 w-full">
+                <button
+                  className="w-full text-red-600 bg-white rounded-full py-3.5 text-[16px] font-semibold"
+                  
+                >
+                  Slett eSIM
+                </button>
+              </div>
+          </div>
         </div>
       );
 
