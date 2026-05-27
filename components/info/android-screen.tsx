@@ -1,7 +1,11 @@
 import { ArrowLeft, ChevronRight, Wifi, Radio, SignalHigh, QrCode, Info, Pencil, CardSim, Check, Smartphone, User } from 'lucide-react';
+import Image from 'next/image';
+import qrCode from '@/public/images/qr-code.png'
 
 
 export function PhoneFrame({ children, step, title, description }: { children: React.ReactNode; step: number; title: string; description: string }) {
+
+  const isQrCode = step === 1
   return (
     <div className="flex flex-col items-center">
       {/* Step Label and Description */}
@@ -13,10 +17,10 @@ export function PhoneFrame({ children, step, title, description }: { children: R
         <p className="text-sm text-secondary-text font-body">{description}</p>
       </div> */}
 
-      <div className="bg-gray-800 rounded-[40px] p-3 shadow-2xl">
-        <div className="bg-white rounded-[32px] overflow-hidden shadow-lg w-[320px]">
+      <div className={` ${isQrCode ? "bg-transparent shadow-none" : "bg-gray-800 shadow-2xl"} rounded-[40px] p-3 `}>
+        <div className={` ${isQrCode ? "shadow-none bg-transparent" : "shadow-lg bg-white"} rounded-[32px] overflow-hidden  w-[320px]`}>
           {/* Status Bar */}
-          <div className="bg-white px-6 pt-3 pb-2 flex items-center justify-between">
+          <div className={`${isQrCode ? "opacity-0" : "opacity-100"} bg-white  px-6 pt-3 pb-2 flex items-center justify-between`}>
             <span className="text-sm">9:41</span>
             <div className="flex items-center gap-1">
               <SignalHigh className="w-4 h-4" />
@@ -26,7 +30,7 @@ export function PhoneFrame({ children, step, title, description }: { children: R
           </div>
 
           {/* Screen Content */}
-          <div className="bg-white h-[600px] overflow-hidden">
+          <div className={` ${isQrCode ? "bg-transparent" : "bg-white"}  h-[600px] overflow-hidden`}>
             {children}
           </div>
         </div>
@@ -37,87 +41,58 @@ export function PhoneFrame({ children, step, title, description }: { children: R
 
 export function Step1() {
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex  flex-col items-center justify-center h-full">
       {/* Header */}
-      <div className="bg-tertiary text-tertiary-text font-heading px-6 py-4">
-        <h1 className="text-lg">Innstillinger</h1>
-      </div>
+      <div className='mb-18 relative'>
+        <div className='absolute top-1/2  left-1/2 flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 h-1/3 w-1/3 bg-tertiary '>
+          <div className="flex flex-col  items-center justify-center">
+            <h1 className={`text-3xl font-logo text-primary [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]`}>beam</h1>
+            <div className="flex   items-center gap-1">
+              <div className={`w-2  bg-primary rounded-l-lg h-1 `}></div>
+              <div className={`w-2  bg-primary h-1  `}></div>
+              <div className={`w-12 h-1 bg-gradient-to-r from-primary to-transparent `} ></div>
+            </div>
 
-      {/* Settings List */}
-      <div className="flex-1 bg-gray-50">
-        <div className="bg-white mt-2">
-          <SettingItem
-            icon={<Wifi className="w-5 h-5 text-secondary-text" />}
-            title="Nettverk og internett"
-            subtitle="Wi-Fi, mobil, databruk, hotspot"
-            highlighted
-          />
+          </div>
         </div>
 
-        <div className="bg-white mt-2">
-          <SettingItem
-            icon={<div className="w-5 h-5 rounded-full bg-primary" />}
-            title="Tilkoblede enheter"
-            subtitle="Bluetooth, paring"
-          />
-          <div className="h-px bg-gray-200 ml-16" />
-          <SettingItem
-            icon={<div className="w-5 h-5 rounded-full bg-secondary" />}
-            title="Apper"
-            subtitle="Tillatelser, standardapper"
-          />
-          <div className="h-px bg-gray-200 ml-16" />
-          <SettingItem
-            icon={<div className="w-5 h-5 rounded-full bg-tertiary" />}
-            title="Varsler"
-            subtitle="Varselhistorikk, samtaler"
-          />
-        </div>
+        <Image alt="qr code" width={300} height={300} src={qrCode} />
       </div>
+
     </div>
   );
 }
+
+
 
 export function Step2() {
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="bg-tertiary font-heading text-white px-6 py-4 flex items-center gap-4">
-        <button className="p-1 hover:bg-blue-700 rounded-full transition-colors">
-          <ArrowLeft className="w-6 h-6" />
-        </button>
-        <h1 className="text-lg font-heading">Nettverk og internett</h1>
+      <div className="text-white px-6 py-4 flex flex-col justify-center font-bold items-center gap-4">
+        <CardSim className="w-6 h-6 text-tertiary" />
+        <h1 className="text-lg text-primary-text text-center font-heading">
+          Vil du legge til beam eSIM mobile?
+        </h1>
       </div>
 
-      {/* Network Settings */}
-      <div className="flex-1 bg-gray-50">
-        <div className="bg-white mt-2">
-          <SettingItem
-            icon={<Radio className="w-5 h-5 text-secondary-text" />}
-            title="SIM-kort"
-            subtitle="2 SIM-kort"
-            highlighted
-          />
-        </div>
+      {/* Content */}
+      <div className="flex-1  px-6 pb-6 flex flex-col">
+        <p className="text-sm text-secondary-text text-center font-body mb-6">
+          Dette kobler telefonen til beam-mobilnettet
+        </p>
 
-        <div className="bg-white mt-2">
-          <SettingItem
-            icon={<Wifi className="w-5 h-5 text-secondary-text" />}
-            title="Internett"
-            subtitle="MittWiFi"
-          />
-          <div className="h-px bg-gray-200 ml-16" />
-          <SettingItem
-            icon={<div className="w-5 h-5 rounded bg-gray-400" />}
-            title="Anrop og SMS"
-            subtitle="Standard for anrop og SMS"
-          />
-          <div className="h-px bg-gray-200 ml-16" />
-          <SettingItem
-            icon={<div className="w-5 h-5 rounded bg-gray-400" />}
-            title="Databruk"
-            subtitle="3,2 GB brukt denne måneden"
-          />
+
+
+
+
+
+        {/* Navigasjonsknapper */}
+        <div className="mt-auto flex justify-end pt-6">
+
+          <button className="bg-tertiary font-heading text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-colors">
+            Legg til
+          </button>
         </div>
       </div>
     </div>
@@ -128,44 +103,90 @@ export function Step3() {
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="bg-tertiary text-white px-6 py-4 flex items-center gap-4">
-        <button className="p-1 hover:bg-blue-700 rounded-full transition-colors">
-          <ArrowLeft className="w-6 h-6" />
-        </button>
-        <h1 className="text-lg font-heading">Legg til eSIM</h1>
+      <div className="text-white px-6 py-4 flex flex-col justify-center font-bold items-center gap-4">
+        <CardSim className="w-6 h-6 text-tertiary" />
+        <h1 className="text-lg text-primary-text text-center font-heading">
+          Legger til beam mobile-eSIM...
+        </h1>
       </div>
 
-      {/* eSIM Activation */}
-      <div className="flex-1 bg-gray-50 px-6 py-6 flex flex-col">
-        <div className="bg-white rounded-lg p-6 shadow-sm">
-          <div className="flex justify-center mb-6">
-            <div className="w-40 h-40 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center bg-gray-50">
-              <QrCode className="w-16 h-16 text-secondary-text" />
-            </div>
+      {/* Content */}
+      <div className="flex-1 gap-34  px-6 pb-6 flex flex-col">
+        <p className="text-sm text-secondary-text text-center font-body mb-6">
+          Dette kan ta noen minutter
+        </p>
+
+        <div className="flex items-center flex-col gap-2">
+          <div className="h-2 w-full flex rounded-full bg-gray-200">
+            <span className="w-3/4 h-full rounded-full bg-tertiary"></span>
           </div>
+          <p className="text-sm text-secondary-text text-center font-body">75%</p>
+        </div>
 
-          <h2 className="text-center text-primary-text font-heading mb-2">Skann QR-kode</h2>
-          <p className="text-center text-secondary-text font-body text-sm mb-6">
-            Bruk QR-koden fra operatøren din for å aktivere eSIM
-          </p>
 
-          <div className="space-y-3">
-            <button className="w-full bg-tertiary font-heading text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">
-              Skann QR-kode
-            </button>
-            <button className="w-full border border-tertiary font-heading text-secondary-text py-3 rounded-lg hover:bg-blue-50 transition-colors">
-              Skriv inn kode manuelt
-            </button>
+
+        {/* Navigasjonsknapper */}
+        <div className="mt-auto flex justify-end pt-6">
+
+
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function Step4() {
+  return (
+    <div className="flex flex-col h-full">
+      {/* Header */}
+      <div className="text-white px-6 py-4 flex justify-center font-bold items-center gap-4">
+        <h1 className="text-lg text-primary-text text-center font-heading">
+          Prioriter SIM for samtaler
+        </h1>
+      </div>
+
+      {/* Content */}
+      <div className="flex-1 bg-gray-50 px-6 py-6 flex flex-col">
+        <p className="text-sm text-secondary-text text-center font-body mb-6">
+          Velg et standard-SIM-kort for nye samtaler.
+        </p>
+
+        {/* Primær SIM - valgt */}
+        <div className="w-full rounded-full p-4 mb-4 flex items-center gap-4 bg-white border-2 border-tertiary shadow-sm">
+
+          <div className="flex-1 flex items-center justify-between">
+            <div className="text-left">
+              <span className="block text-primary-text font-body font-medium">
+                Primær SIM
+              </span>
+            </div>
+            <div className="w-6 h-6 rounded-full bg-tertiary flex items-center justify-center">
+              <Check className="w-4 h-4 text-white" />
+            </div>
           </div>
         </div>
 
-        <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4 flex gap-3">
-          <Info className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-          <div>
-            <p className="text-sm text-gray-700">
-              Kontakt operatøren din for å få en QR-kode eller aktiveringskode for eSIM
-            </p>
+        {/* Beam eSIM - ikke valgt */}
+        <div className="w-full rounded-full p-4 flex items-center gap-4 bg-gray-100 border-2 border-transparent">
+
+          <div className="flex-1 flex items-center justify-between">
+            <div className="text-left">
+              <span className="block text-primary-text font-body font-medium">
+                Beam eSIM
+              </span>
+            </div>
           </div>
+        </div>
+
+        {/* Navigasjonsknapper */}
+        <div className="mt-auto flex justify-between pt-6">
+          <button className="flex items-center gap-2 px-4 py-3 text-secondary-text font-body hover:text-primary-text transition-colors">
+            <ArrowLeft className="w-5 h-5" />
+            Forrige
+          </button>
+          <button className="bg-tertiary font-heading text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-colors">
+            Neste
+          </button>
         </div>
       </div>
     </div>
@@ -173,7 +194,12 @@ export function Step3() {
 }
 
 
-export function Step4() {
+
+
+
+
+
+export function Step7() {
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
@@ -287,77 +313,11 @@ export function Step5() {
   );
 }
 
+
+
+
+
 export function Step6() {
-  return (
-    <div className="flex flex-col h-full">
-      {/* Header */}
-      <div className="text-white px-6 py-4 flex flex-col justify-center font-bold items-center gap-4">
-        <CardSim className="w-6 h-6 text-tertiary" />
-        <h1 className="text-lg text-primary-text text-center font-heading">
-          Vil du legge til beam eSIM mobile?
-        </h1>
-      </div>
-
-      {/* Content */}
-      <div className="flex-1  px-6 pb-6 flex flex-col">
-        <p className="text-sm text-secondary-text text-center font-body mb-6">
-          Dette kobler telefonen til beam-mobilnettet
-        </p>
-
-
-
-
-
-
-        {/* Navigasjonsknapper */}
-        <div className="mt-auto flex justify-end pt-6">
-
-          <button className="bg-tertiary font-heading text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-colors">
-            Legg til
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function Step7() {
-  return (
-    <div className="flex flex-col h-full">
-      {/* Header */}
-      <div className="text-white px-6 py-4 flex flex-col justify-center font-bold items-center gap-4">
-        <CardSim className="w-6 h-6 text-tertiary" />
-        <h1 className="text-lg text-primary-text text-center font-heading">
-          Legger til beam mobile-eSIM...
-        </h1>
-      </div>
-
-      {/* Content */}
-      <div className="flex-1 gap-34  px-6 pb-6 flex flex-col">
-        <p className="text-sm text-secondary-text text-center font-body mb-6">
-          Dette kan ta noen minutter
-        </p>
-
-        <div className="flex items-center flex-col gap-2">
-          <div className="h-2 w-full flex rounded-full bg-gray-200">
-            <span className="w-3/4 h-full rounded-full bg-tertiary"></span>
-          </div>
-          <p className="text-sm text-secondary-text text-center font-body">75%</p>
-        </div>
-
-
-
-        {/* Navigasjonsknapper */}
-        <div className="mt-auto flex justify-end pt-6">
-
-
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function Step8() {
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
@@ -428,7 +388,7 @@ export function Step8() {
   );
 }
 
-export function Step9() {
+export function Step8() {
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
@@ -455,10 +415,10 @@ export function Step9() {
                   Primær SIM
                 </span>
                 <span className="block text-xs text-secondary-text font-body">
-                  Telenor 
+                  Telenor
                 </span>
                 <span className="block text-xs text-secondary-text font-body">
-                   +47 412 34 567
+                  +47 412 34 567
                 </span>
               </div>
               <Toggle on />
@@ -483,7 +443,7 @@ export function Step9() {
                 <span className="block text-xs text-secondary-text font-body">
                   beam Mobile
                 </span>
-                  <span className="block text-xs text-secondary-text font-body">
+                <span className="block text-xs text-secondary-text font-body">
                   Ukjent nummer
                 </span>
               </div>
@@ -520,9 +480,8 @@ function PriorityRow({ label, value }: { label: string; value: string }) {
 function Toggle({ on }: { on?: boolean }) {
   return (
     <div
-      className={`w-11 h-6 rounded-full flex items-center px-0.5 transition-colors ${
-        on ? "bg-tertiary justify-end" : "bg-gray-300 justify-start"
-      }`}
+      className={`w-11 h-6 rounded-full flex items-center px-0.5 transition-colors ${on ? "bg-tertiary justify-end" : "bg-gray-300 justify-start"
+        }`}
     >
       <div className="w-5 h-5 rounded-full bg-white shadow" />
     </div>

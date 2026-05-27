@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { ChevronLeft, ChevronRight, Zap } from 'lucide-react'
-import { PhoneFrame, Step1, Step2, Step3, Step4, Step5, Step6, Step7, Step8, Step9 } from "@/components/info/android-screen";
+import { PhoneFrame, Step1, Step4, Step5, Step2, Step3, Step6, Step7, Step8 } from "@/components/info/android-screen";
 import SpeechBubble from "./info/speech-buble";
 
 const androidSteps = [
@@ -11,26 +11,34 @@ const androidSteps = [
     title: 'Åpne innstillinger',
     description:
       "Gå til Innstillinger på telefonen din og velg 'Nettverk og internett'",
-    component: <Step6 />,
+    component: <Step1 />,
   },
   {
     step: 2,
-    title: 'Velg SIM-kort',
+    title: 'Åpne innstillinger',
     description:
-      "Trykk på 'SIM-kort' for å administrere dine mobile abonnement",
-    component: <Step7 />,
+      "Gå til Innstillinger på telefonen din og velg 'Nettverk og internett'",
+    component: <Step2 />,
   },
   {
     step: 3,
+    title: 'Velg SIM-kort',
+    description:
+      "Trykk på 'SIM-kort' for å administrere dine mobile abonnement",
+    component: <Step3 />,
+  },
+  {
+    step: 4,
     title: 'Aktiver eSIM',
     description:
       'Skann QR-koden fra operatøren din for å aktivere eSIM',
-    component: <Step5 />,
+    component: <Step4 />,
   },
 
-  { step: 4, title: 'Velg hovedlinje', description: 'Velg det som hovedlinje for mobildata', component: <Step8 /> },
-  { step: 5, title: 'Aktiver eSIM', description: 'Aktiver eSIM', component: <Step4 /> },
-  { step: 6, title: 'Aktiver eSIM', description: 'Aktiver eSIM', component: <Step9 /> },
+  { step: 5, title: 'Velg hovedlinje', description: 'Velg det som hovedlinje for mobildata', component: <Step5 /> },
+  { step: 6, title: 'Aktiver eSIM', description: 'Aktiver eSIM', component: <Step6 /> },
+  { step: 7, title: 'Aktiver eSIM', description: 'Aktiver eSIM', component: <Step7 /> },
+  { step: 9, title: 'Velg hovedlinje', description: 'Velg det som hovedlinje for mobildata', component: <Step8 /> },
 
  
   
