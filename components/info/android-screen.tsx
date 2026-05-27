@@ -172,7 +172,7 @@ export function Step4() {
           <div className="flex-1 flex items-center justify-between">
             <div className="text-left">
               <span className="block text-primary-text font-body font-medium">
-                Beam eSIM
+                beam eSIM
               </span>
             </div>
           </div>
@@ -236,7 +236,7 @@ export function Step7() {
               <CardSim className="w-6 h-6 text-primary-text" />
             </button>
             <div className="flex-1 flex items-center justify-between border-b border-gray-200 pb-2">
-              <span className="text-primary-text font-body">Beam eSIM</span>
+              <span className="text-primary-text font-body">beam eSIM</span>
               <Pencil className="w-4 h-4 text-secondary-text" />
             </div>
           </div>
@@ -292,7 +292,7 @@ export function Step5() {
           <div className="flex-1 flex items-center justify-between">
             <div className="text-left">
               <span className="block text-primary-text font-body font-medium">
-                Beam eSIM
+                beam eSIM
               </span>
             </div>
           </div>
@@ -352,7 +352,7 @@ export function Step6() {
           <div className="flex-1 flex items-center justify-between">
             <div className="text-left">
               <span className="block text-primary-text font-body font-medium">
-                Beam eSIM
+                beam eSIM
               </span>
             </div>
             <div className="w-6 h-6 rounded-full bg-tertiary flex items-center justify-center">

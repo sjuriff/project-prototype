@@ -8,9 +8,9 @@ import SpeechBubble from "./info/speech-buble";
 const androidSteps = [
   {
     step: 1,
-    title: 'Åpne innstillinger',
+    title: 'Scan QR-koden',
     description:
-      "Gå til Innstillinger på telefonen din og velg 'Nettverk og internett'",
+      "Scan QR-koden du har motatt på mail med kamera på telefonen din'",
     component: <Step1 />,
   },
   {
@@ -39,9 +39,6 @@ const androidSteps = [
   { step: 6, title: 'Aktiver eSIM', description: 'Aktiver eSIM', component: <Step6 /> },
   { step: 7, title: 'Aktiver eSIM', description: 'Aktiver eSIM', component: <Step7 /> },
   { step: 9, title: 'Velg hovedlinje', description: 'Velg det som hovedlinje for mobildata', component: <Step8 /> },
-
- 
-  
 ]
 
 export default function AndroidSlider() {
