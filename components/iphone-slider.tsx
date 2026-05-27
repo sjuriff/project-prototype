@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import IPhoneScreen from "../components/info/iphone-step"
 import { ChevronLeft, ChevronRight, Zap } from 'lucide-react'
+import SpeechBubble from './info/speech-buble'
 
 
 export default function IPhoneSlider() {
@@ -11,8 +12,10 @@ export default function IPhoneSlider() {
   { step: 5, title: 'Aktiver eSIM', subtitle: "Trykk forsett for neste steg" },
   { step: 6, title: 'Hvor skal eSIM brukes', subtitle: "Velg om du skal bruke eSIM i utlandet eller i Norge" },
   { step: 7, title: 'Velg plan', subtitle: "Velg 'bare data' som din plan" },
-  { step: 8, title: 'eSIM er nå klar til bruk', subtitle: "Hva skal stå her" },
-]
+  { step: 8, title: 'eSIM er nå klar til bruk', subtitle: "Aktivering er fullført og eSIM er klar til bruk" },
+  { step: 9, title: 'eSIM er nå klar til bruk', subtitle: "Du kan nå se din eSIM fra beam sammen med ditt primære sin for tale og sms" },
+  { step: 10, title: 'eSIM er nå klar til bruk', subtitle: "Du kan>NN se din eSIM fra beam sammen med ditt primære sin for tale og sms" },
+  ]
 
   const [activeIndex, setActiveIndex] = useState(0)
 
@@ -37,129 +40,67 @@ export default function IPhoneSlider() {
 
 
 
-      <div className="relative flex py-16  overflow-l-hidden items-start  justify-end w-1/2 px-4">
-       <Zap className='text-primary absolute z-10 left-8 bottom-10  w-16 h-16' />
-        <div className='h-68  absolute -bottom-24 z-0 -left-24 w-68 bg-primary/20 rounded-full'>
-
-         
-
-
-
+      <div className="relative flex py-16    overflow-l-hidden items-start  justify-end w-1/2 px-4">
+        <Zap className='text-primary absolute z-10 left-4 bottom-6  w-16 h-16' />
+        <div className='h-68  absolute -bottom-34 z-0 -left-34 w-68 bg-primary/20 rounded-full'>
         </div>
-        {/* Bubble */}
-        <div className="absolute z-10 -right-16 bg-secondary mt-8 w-3/4 min-w-[500px]   border-2 border-secondary rounded-4xl px-16 py-16 shadow-md flex flex-col items-center justify-center">
-
-          {/* Border layer for pointer */}
-          <div
-            className="
-        absolute
-        top-1/2
-        -right-[18px]
-        -translate-y-1/2
-        w-0 h-0
-        border-t-[18px]
-        border-b-[18px]
-        border-l-[18px]
-        border-t-transparent
-        border-b-transparent
-        border-l-secondary
-      "
-          />
-
-          {/* Inner white layer for pointer */}
-          <div
-            className="
-        absolute
-        top-1/2
-        -right-[15px]
-        -translate-y-1/2
-        w-0 h-0
-        border-t-[15px]
-        border-b-[15px]
-        border-l-[15px]
-        border-t-transparent
-        border-b-transparent
-        border-l-secondary
-      "
-          />
-
-          {/* Step Circle */}
-          {/*   <div className="mb-4">
-      <div
-        className="flex absolute left-2 top-2  items-center justify-center w-10 h-10 rounded-full"
-        style={{ backgroundColor: 'var(--color-primary)' }}
-      >
-        <span
-          className="text-sm font-semibold"
-          style={{ color: 'var(--color-primary-text)' }}
-        >
-          {steps[activeIndex].step}
-        </span>
+        <div className='absolute z-10 pl-16 top-24 right-4'>
+          <SpeechBubble title={steps[activeIndex].title} description={steps[activeIndex].subtitle} />
+        </div>
       </div>
-    </div> */}
 
-          {/* Content */}
-          <div className="flex flex-col justify-center items-center gap-2 text-center">
-            <h3 className="font-heading text-xl text-primary-text">
-              {steps[activeIndex].title}
-            </h3>
+      <div className='w-1/2  relative flex items-center justify-center'>
+        <div className='h-68  absolute -top-34 z-0 -right-32 w-68 bg-primary/20 rounded-full'></div>
+        <div className='absolute top-8 right-12 z-10 text-primary font-body font-semibold text-4xl'>{steps[activeIndex].step}</div>
+        <div className=' w-[420px]  mr-18'>
 
-            <p className="font-body italic text-base text-secondary-text">
-              {steps[activeIndex].subtitle}
-            </p>
+
+          <div className="relative z-0 overflow-hidden">
+            <div
+              className="flex   transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+            >
+              {steps.map((step) => (
+                <div key={step.step} className="min-w-full h-full  py-4 flex items-center justify-center px-4">
+
+                  <IPhoneScreen step={step.step} />
+                </div>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={goToPrevious}
+              className="absolute left-0 top-1/2 -translate-y-1/2 rounded-full bg-secondary shadow-md p-2 hover:scale-105 transition"
+              aria-label="Forrige steg"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            <button
+              type="button"
+              onClick={goToNext}
+              className="absolute right-0 top-1/2 -translate-y-1/2 rounded-full bg-secondary shadow-md p-2 hover:scale-105 transition"
+              aria-label="Neste steg"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </div>
-        </div>
-      </div>
 
-
-      <div className=' w-1/2 mr-18'>
-
-
-        <div className="relative z-0 overflow-hidden">
-          <div
-            className="flex   transition-transform duration-500 ease-out"
-            style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-          >
-            {steps.map((step) => (
-              <div key={step.step} className="min-w-full py-4 flex items-center justify-center px-4">
-
-                <IPhoneScreen step={step.step} />
-              </div>
+          <div className="flex justify-center gap-2 mb-6 mt-2">
+            {steps.map((step, index) => (
+              <button
+                key={step.step}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                className={`h-2 rounded-full transition-all ${activeIndex === index
+                  ? 'w-8 bg-primary'
+                  : 'w-2 bg-secondary hover:bg-gray-400'
+                  }`}
+                aria-label={`Gå til steg ${step.step}`}
+              />
             ))}
           </div>
-
-          <button
-            type="button"
-            onClick={goToPrevious}
-            className="absolute left-28 top-1/2 -translate-y-1/2 rounded-full bg-secondary shadow-md p-2 hover:scale-105 transition"
-            aria-label="Forrige steg"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-
-          <button
-            type="button"
-            onClick={goToNext}
-            className="absolute right-28 top-1/2 -translate-y-1/2 rounded-full bg-secondary shadow-md p-2 hover:scale-105 transition"
-            aria-label="Neste steg"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
-
-        <div className="flex justify-center gap-2 mb-6 mt-2">
-          {steps.map((step, index) => (
-            <button
-              key={step.step}
-              type="button"
-              onClick={() => setActiveIndex(index)}
-              className={`h-2 rounded-full transition-all ${activeIndex === index
-                ? 'w-8 bg-primary'
-                : 'w-2 bg-secondary hover:bg-gray-400'
-                }`}
-              aria-label={`Gå til steg ${step.step}`}
-            />
-          ))}
         </div>
       </div>
     </div>
