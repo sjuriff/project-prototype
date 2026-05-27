@@ -1,4 +1,5 @@
-import { ArrowLeft, ChevronRight, Wifi, Radio, SignalHigh, QrCode, Info, Pencil, CardSim, Check, Smartphone, User } from 'lucide-react';
+import { ArrowLeft, ChevronRight, Wifi, Radio, SignalHigh,   Info, Pencil, CardSim, Check, Smartphone, User, Bluetooth, Plane, Flashlight, Sun, Volume2,
+  BellOff, RotateCw, Cast } from 'lucide-react';
 import Image from 'next/image';
 import qrCode from '@/public/images/qr-code.png'
 
@@ -6,6 +7,7 @@ import qrCode from '@/public/images/qr-code.png'
 export function PhoneFrame({ children, step, title, description }: { children: React.ReactNode; step: number; title: string; description: string }) {
 
   const isQrCode = step === 1
+  const isLastStep = step === 9
   return (
     <div className="flex flex-col items-center">
       {/* Step Label and Description */}
@@ -20,7 +22,7 @@ export function PhoneFrame({ children, step, title, description }: { children: R
       <div className={` ${isQrCode ? "bg-transparent shadow-none" : "bg-gray-800 shadow-2xl"} rounded-[40px] p-3 `}>
         <div className={` ${isQrCode ? "shadow-none bg-transparent" : "shadow-lg bg-white"} rounded-[32px] overflow-hidden  w-[320px]`}>
           {/* Status Bar */}
-          <div className={`${isQrCode ? "opacity-0" : "opacity-100"} bg-white  px-6 pt-3 pb-2 flex items-center justify-between`}>
+          <div className={`${isQrCode ? "opacity-0" : "opacity-100"}  ${isLastStep ? "bg-black/50" : "bg-white"}   px-6 pt-3 pb-2 flex items-center justify-between`}>
             <span className="text-sm">9:41</span>
             <div className="flex items-center gap-1">
               <SignalHigh className="w-4 h-4" />
@@ -463,6 +465,124 @@ export function Step8() {
             <PriorityRow label="Mobildata" value="beam eSIM" />
           </div>
         </section>
+      </div>
+    </div>
+  );
+}
+
+export function Step9() {
+  return (
+    <div className="flex flex-col h-full bg-black/50 text-white p-4 gap-3">
+      {/* SIM-status øverst */}
+      <div className="flex flex-row gap-2 items-center justify-start">
+        <span className="text-xs">Telenor</span>
+        <span className="h-1 w-1 bg-white rounded-full" />
+        <span className="text-xs text-white">beam</span>
+      </div>
+
+      {/* Avlange pills: kun WiFi + Bluetooth */}
+      <div className="grid grid-cols-2 gap-2">
+        <WidePill icon={<Wifi className="w-4 h-4" />} label="WiFi"  active />
+        <WidePill icon={<Bluetooth className="w-4 h-4" />} label="Bluetooth"  active />
+      </div>
+
+      {/* Runde ikon-knapper i felles boks */}
+      <div className="bg-white/10 rounded-3xl px-4 py-3 flex items-center justify-between">
+        <RoundIcon icon={<Plane className="w-4 h-4" />} />
+        <RoundIcon icon={<Flashlight className="w-4 h-4" />}  />
+        <RoundIcon icon={<BellOff className="w-4 h-4" />} />
+        <RoundIcon icon={<RotateCw className="w-4 h-4" />} />
+        <RoundIcon icon={<Cast className="w-4 h-4" />} />
+      </div>
+
+      {/* Lysstyrke */}
+      <div className="bg-white/10 rounded-3xl px-4 py-3 flex items-center gap-3">
+        <Sun className="w-4 h-4" />
+        <div className="flex-1 h-2 bg-white/15 rounded-full overflow-hidden">
+          <div className="h-full w-3/4 bg-white rounded-full" />
+        </div>
+      </div>
+
+      {/* Volum */}
+      <div className="bg-white/10 rounded-3xl px-4 py-3 flex items-center gap-3">
+        <Volume2 className="w-4 h-4" />
+        <div className="flex-1 h-2 bg-white/15 rounded-full overflow-hidden">
+          <div className="h-full w-1/2 bg-white rounded-full" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function WidePill({
+  icon, label, sub, active,
+}: { icon: React.ReactNode; label: string; sub?: string; active?: boolean }) {
+  return (
+    <div
+      className={`flex items-center gap-3 rounded-full px-4 py-3 ${
+        active ? 'bg-white text-black' : 'bg-white/10 text-white'
+      }`}
+    >
+      <div
+        className={`flex items-center justify-center w-8 h-8 rounded-full ${
+          active ? 'bg-black/10' : 'bg-white/10'
+        }`}
+      >
+        {icon}
+      </div>
+      <div className="flex flex-col leading-tight">
+        <span className="text-xs font-medium">{label}</span>
+        {sub && (
+          <span className={`text-[10px] ${active ? 'text-black/60' : 'text-white/60'}`}>
+            {sub}
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function RoundIcon({ icon, active }: { icon: React.ReactNode; active?: boolean }) {
+  return (
+    <div
+      className={`flex items-center justify-center w-10 h-10 rounded-full ${
+        active ? 'bg-white text-black' : 'bg-white/10 text-white'
+      }`}
+    >
+      {icon}
+    </div>
+  );
+}
+
+function QuickTile({
+  icon,
+  label,
+  sub,
+  active,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  sub?: string;
+  active?: boolean;
+}) {
+  return (
+    <div
+      className={`flex items-center gap-3 rounded-full px-3 py-2.5 ${active ? 'bg-white text-black' : 'bg-white/10 text-white'
+        }`}
+    >
+      <div
+        className={`w-8 h-8 rounded-full flex items-center justify-center ${active ? 'bg-black/10' : 'bg-white/10'
+          }`}
+      >
+        {icon}
+      </div>
+      <div className="flex flex-col leading-tight min-w-0">
+        <span className="text-xs font-medium truncate">{label}</span>
+        {sub && (
+          <span className={`text-[10px] truncate ${active ? 'text-black/60' : 'text-white/60'}`}>
+            {sub}
+          </span>
+        )}
       </div>
     </div>
   );

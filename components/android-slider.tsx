@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { ChevronLeft, ChevronRight, Zap } from 'lucide-react'
-import { PhoneFrame, Step1, Step4, Step5, Step2, Step3, Step6, Step7, Step8 } from "@/components/info/android-screen";
+import { PhoneFrame, Step1, Step4, Step5, Step2, Step3, Step6, Step7, Step8, Step9 } from "@/components/info/android-screen";
 import SpeechBubble from "./info/speech-buble";
 
 const androidSteps = [
@@ -38,7 +38,8 @@ const androidSteps = [
   { step: 5, title: 'Velg hovedlinje', description: 'Velg det som hovedlinje for mobildata', component: <Step5 /> },
   { step: 6, title: 'Aktiver eSIM', description: 'Aktiver eSIM', component: <Step6 /> },
   { step: 7, title: 'Aktiver eSIM', description: 'Aktiver eSIM', component: <Step7 /> },
-  { step: 9, title: 'Velg hovedlinje', description: 'Velg det som hovedlinje for mobildata', component: <Step8 /> },
+  { step: 8, title: 'Velg hovedlinje', description: 'Velg det som hovedlinje for mobildata', component: <Step8 /> },
+  {step: 9, title: 'Velg hovedlinje', description: 'Velg det som hovedlinje for mobildata', component: <Step9 /> },
 ]
 
 export default function AndroidSlider() {
