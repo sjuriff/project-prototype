@@ -1,4 +1,6 @@
 import type { ReactNode } from 'react';
+import Image from 'next/image';
+import qrCode from '@/public/images/qr-code.png'
 import {
   Battery,
   Check,
@@ -12,6 +14,10 @@ import {
   User,
   Wifi,
   Bell,
+  Volume2,
+  Sun,
+  Plane,
+  Bluetooth
 } from 'lucide-react';
 
 interface IPhoneScreenProps {
@@ -19,17 +25,18 @@ interface IPhoneScreenProps {
 }
 
 export default function IPhoneScreen({ step }: IPhoneScreenProps) {
+  const isQrCode = step === 1
   return (
     <div className="flex  h-[650px] flex-row">
       <div className="relative mx-auto w-full max-w-[320px]">
-        <div className="relative rounded-[3rem] bg-black p-2.5">
-          <div className="absolute top-5 left-1/2 z-20 h-6 w-20 -translate-x-1/2 rounded-full bg-black" />
+        <div className={`relative rounded-[3rem] ${isQrCode ? "bg-transparent" : "bg-black"}  p-2.5`}>
+          <div className={` ${isQrCode ? "hidden" : "absolute"} top-5 left-1/2 z-20 h-6 w-20 -translate-x-1/2 rounded-full bg-black`} />
 
           <div
-            className="relative overflow-hidden h-[620px] w-full rounded-[2.5rem] bg-white"
+            className={` ${isQrCode ? "bg-transparent" : "bg-white "}relative overflow-hidden h-[620px] w-full rounded-[2.5rem] `}
             style={{ aspectRatio: '9/19.5' }}
           >
-            <div className="absolute top-0 left-0 right-0 z-30 flex h-11 items-center justify-between px-7 text-[11px]">
+            <div className={`${isQrCode ? "hidden" : "absolute"} top-0 left-0 right-0 z-30 flex h-11 items-center justify-between px-7 text-[11px]`}>
               <span style={{ color: 'var(--color-primary-text)' }}>9:41</span>
               <div className="flex items-center gap-1">
                 <Signal className="h-3.5 w-3.5" style={{ color: 'var(--color-primary-text)' }} />
@@ -122,11 +129,11 @@ function MobilnettScreenEnd() {
         <SettingsGroup title='Simkort'>
           <SettingsItem label="Primær" value="På" showChevron />
           <SettingsItem label="beam eSIM" value="Av" highlighted showChevron />
-          <SettingsItem label="Legg til eSIM"   />
-        
-        
+          <SettingsItem label="Legg til eSIM" />
+
+
         </SettingsGroup>
-      
+
       </div>
     </div>
   );
@@ -138,132 +145,27 @@ function getStepContent(step: number): ReactNode {
   switch (step) {
     case 1:
       return (
-        <div className="flex h-full flex-col pt-11">
-          <div className="px-4 pb-2">
-            <div className="flex h-10 items-center justify-between">
-              <div />
-              <h2
-                className="absolute top-9 left-1/2 -translate-x-1/2 text-[15px]"
-                style={{ color: 'var(--color-primary-text)' }}
-              >
-                Innstillinger
-              </h2>
+        <div className="flex  items-center justify-center h-full">
+          <div className='mb-1 relative'>
+            <div className='absolute top-1/2  left-1/2 flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 h-1/3 w-1/3 bg-tertiary '>
+              <div className="flex flex-col  items-center justify-center">
+                <h1 className={`text-3xl font-logo text-primary [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]`}>beam</h1>
+                <div className="flex   items-center gap-1">
+                  <div className={`w-2  bg-primary rounded-l-lg h-1 `}></div>
+                  <div className={`w-2  bg-primary h-1  `}></div>
+                  <div className={`w-12 h-1 bg-gradient-to-r from-primary to-transparent `} ></div>
+                </div>
+
+              </div>
             </div>
+
+            <Image alt="qr code" width={300} height={300} src={qrCode} />
           </div>
 
-          <div className="flex-1 overflow-y-auto pt-3" style={{ backgroundColor: '#f2f2f7' }}>
-            <SettingsGroup>
-              <SettingsItem
-                icon={
-                  <IconBadge color="#34c759">
-                    <User className="h-4 w-4 text-white" />
-                  </IconBadge>
-                }
-                label="Apple konto, iCloud og annet"
-                showChevron
-              />
-            </SettingsGroup>
-
-            <SettingsGroup>
-              <SettingsItem
-                icon={
-                  <IconBadge color="var(--color-tertiary)">
-                    <Radio className="h-4 w-4" style={{ color: 'var(--color-tertiary-text)' }} />
-                  </IconBadge>
-                }
-                label="Mobilnett"
-                showChevron
-                highlighted
-              />
-              <SettingsItem
-                icon={
-                  <IconBadge color="#007aff">
-                    <Wifi className="h-4 w-4 text-white" />
-                  </IconBadge>
-                }
-                label="Wi-Fi"
-                value="Home Network"
-                showChevron
-              />
-              <SettingsItem
-                icon={
-                  <IconBadge color="#5856d6">
-                    <Globe className="h-4 w-4 text-white" />
-                  </IconBadge>
-                }
-                label="VPN"
-                showChevron
-              />
-            </SettingsGroup>
-
-            <SettingsGroup>
-              <SettingsItem
-                icon={
-                  <IconBadge color="#ff3b30">
-                    <Bell className="h-4 w-4 text-white" />
-                  </IconBadge>
-                }
-                label="Varslinger"
-                showChevron
-              />
-            </SettingsGroup>
-          </div>
         </div>
       );
 
     case 2:
-      return <MobilnettScreen />;
-
-    case 3:
-      return (
-        <div className="flex h-full flex-col pt-11 ">
-          <div className="px-4 pb-2">
-            <div className="flex h-10 items-center justify-between">
-              <div />
-              <h2
-                className="absolute top-9 left-1/2 -translate-x-1/2 text-[15px]"
-                style={{ color: 'var(--color-primary-text)' }}
-              >
-                Konfigurer mobildata
-              </h2>
-            </div>
-          </div>
-
-          <div className="flex flex-1 flex-col justify-center pt-3" style={{ backgroundColor: '#f2f2f7' }}>
-            <div className="pb-4">
-              <SettingsGroup>
-                <SettingsItem
-                  icon={
-                    <IconBadge color="var(--color-tertiary)">
-                      <Smartphone className="h-4 w-4" style={{ color: 'var(--color-tertiary-text)' }} />
-                    </IconBadge>
-                  }
-                  label="Overfør fra iPhone i nærheten"
-                  showChevron
-                />
-                <SettingsItem
-                  icon={
-                    <IconBadge color="#007aff">
-                      <QrCode className="h-4 w-4 text-white" />
-                    </IconBadge>
-                  }
-                  label="Bruk QR-kode"
-                  showChevron
-                  highlighted
-                />
-              </SettingsGroup>
-
-              <div className="px-6">
-                <p className="text-center text-[13px] leading-relaxed" style={{ color: '#86868b' }}>
-                  Velg 'Bruk QR-kode', og scan QR-koden med din telefon.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-
-    case 4:
       return (
         <div className="relative h-full">
           <MobilnettScreen />
@@ -309,7 +211,7 @@ function getStepContent(step: number): ReactNode {
         </div>
       );
 
-    case 5:
+    case 3:
       return (
         <div className="relative h-full">
           <MobilnettScreen />
@@ -346,7 +248,7 @@ function getStepContent(step: number): ReactNode {
         </div>
       );
 
-    case 6:
+    case 4:
       return (
         <div className="relative h-full">
           <MobilnettScreen />
@@ -385,7 +287,7 @@ function getStepContent(step: number): ReactNode {
         </div>
       );
 
-    case 7:
+    case 5:
       return (
         <div className="relative h-full">
           <MobilnettScreen />
@@ -427,7 +329,7 @@ function getStepContent(step: number): ReactNode {
         </div>
       );
 
-    case 8:
+    case 6:
       return (
         <div className="relative h-full">
           <MobilnettScreen />
@@ -464,59 +366,107 @@ function getStepContent(step: number): ReactNode {
         </div>
       );
 
-    case 9:
+    case 7:
       return (
-      
-          <MobilnettScreenEnd />
-         
+
+        <MobilnettScreenEnd />
+
       );
 
-    case 10:
+    case 8:
       return (
-    <div className="flex h-full flex-col pt-11">
+        <div className="flex h-full flex-col pt-11">
           <div className="px-4 pb-2">
             <div className="flex h-10 items-center justify-between">
-          <button
-            className="mr-2 flex items-center gap-0.5 text-sm"
-            style={{ color: 'var(--color-tertiary)' }}
-          >
-            <ChevronLeft className="h-4 w-4" />
-            <span>Mobilnett</span>
-          </button>
-          <h2
-            className="absolute top-9 left-1/2 -translate-x-1/2 text-[15px]"
-            style={{ color: 'var(--color-primary-text)' }}
-          >
-            beam eSIM
-          </h2>
-        </div>
-            
+              <button
+                className="mr-2 flex items-center gap-0.5 text-sm"
+                style={{ color: 'var(--color-tertiary)' }}
+              >
+                <ChevronLeft className="h-4 w-4" />
+                <span>Mobilnett</span>
+              </button>
+              <h2
+                className="absolute top-9 left-1/2 -translate-x-1/2 text-[15px]"
+                style={{ color: 'var(--color-primary-text)' }}
+              >
+                beam eSIM
+              </h2>
+            </div>
+
           </div>
 
           <div className="flex-1 overflow-y-auto pt-3" style={{ backgroundColor: '#f2f2f7' }}>
             <SettingsGroup>
               <SettingsItem
-                
+
                 label="Mobilabonnement"
                 value="beam eSIM"
                 showChevron
               />
-               <SettingsItem
+              <SettingsItem
                 label='Slå på denne linjen'
                 toggle
               />
             </SettingsGroup>
 
-           
 
-           <div className="mt-auto px-1 w-full">
-                <button
-                  className="w-full text-red-600 bg-white rounded-full py-3.5 text-[16px] font-semibold"
-                  
-                >
-                  Slett eSIM
-                </button>
-              </div>
+
+            <div className="mt-auto px-1 w-full">
+              <button
+                className="w-full text-red-600 bg-white rounded-full py-3.5 text-[16px] font-semibold"
+
+              >
+                Slett eSIM
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+
+    case 9:
+      return (
+        <div className=" bg-black/20  border overflow-hidden h-full rounded-xl p-4 flex flex-col gap-3 overflow-hidden">
+          {/* eSIM status øverst */}
+          <div className="flex flex-col items-start mt-4 justify-start  text-white text-[11px] font-medium px-1">
+            <div className="flex items-center justify-center gap-1 ">
+              <span>Primær sim</span>
+              <Signal className="w-3 h-3 mb-0.5" />
+            </div>
+            <div className="flex items-center  justify-center gap-1">
+              <span>beam eSIM</span>
+              <Signal className="w-3 h-3 mb-0.5" />
+            </div>
+          </div>
+
+          {/* Rad 1: Connectivity + Music */}
+          <div className="flex gap-3">
+            {/* Connectivity tile */}
+            <div className="flex-1 bg-white/15 rounded-2xl p-3 grid grid-cols-2 gap-3">
+              <ControlIcon active={false} icon={<Plane className="w-5 h-5" />} />
+              <ControlIcon active={true} icon={<Radio className="w-5 h-5" />} />
+              <ControlIcon active={true} icon={<Wifi className="w-5 h-5" />} />
+              <ControlIcon active={true} icon={<Bluetooth className="w-5 h-5" />} />
+            </div>
+
+            {/* Music tile */}
+            <div className="flex-1 bg-white/15 rounded-2xl p-3 flex flex-col justify-between">
+              <div className="text-white text-[10px]">Spilles ikke</div>
+              <div className="text-white/60 text-[9px]">AirPods</div>
+            </div>
+          </div>
+
+          {/* Rad 2: Brightness + Volume */}
+          <div className="flex gap-3 flex-1">
+            <ControlSlider icon={<Volume2 className="w-5 h-5" />} />
+            <ControlSlider icon={<Sun className="w-5 h-5" />} />
+          </div>
+
+          {/* Rad 3: quick toggles */}
+          <div className="grid grid-cols-4 gap-3">
+            <ControlIcon icon={<Bell className="w-5 h-5" />} active={false} round />
+            <ControlIcon icon={<Smartphone className="w-5 h-5" />} active={false} round />
+            <ControlIcon icon={<QrCode className="w-5 h-5" />} active={false} round />
+            <ControlIcon icon={<User className="w-5 h-5" />} active={false} round />
           </div>
         </div>
       );
@@ -568,7 +518,7 @@ function BottomSheet({
 }) {
   return (
     <div
-      className="absolute inset-x-0 bottom-0 z-20 flex flex-col overflow-hidden rounded-t-[18px] shadow-2xl"
+      className="absolute inset-x-0  bottom-0 z-20 flex flex-col overflow-hidden rounded-t-[18px] shadow-2xl"
       style={{ height: `${heightPct}%`, backgroundColor: '#f2f2f7' }}
     >
       <div className="flex justify-center pt-2 pb-1">
@@ -665,7 +615,7 @@ function SettingsItem({
 }: SettingsItemProps) {
   return (
     <div
-      className="flex items-center px-4 py-2.5 border-b last:border-b-0"
+      className="flex items-center px-4 py-2.5 gap-2 border-b last:border-b-0"
       style={{
         borderColor: '#c6c6c8',
         backgroundColor: highlighted ? 'var(--color-secondary)' : 'transparent',
@@ -677,7 +627,7 @@ function SettingsItem({
       </span>
       <div className="ml-auto flex items-center gap-2">
         {value && (
-          <span className="text-[15px]" style={{ color: '#86868b' }}>
+          <span className="text-sm text-nowrap" style={{ color: '#86868b' }}>
             {value}
           </span>
         )}
@@ -692,6 +642,30 @@ function SettingsItem({
           </div>
         )}
       </div>
+    </div>
+  );
+}
+
+function ControlIcon({
+  icon,
+  active,
+  round,
+}: { icon: ReactNode; active?: boolean; round?: boolean }) {
+  return (
+    <div
+      className={`${round ? 'w-11 h-11' : 'w-9 h-9'} rounded-full flex items-center justify-center ${active ? 'bg-white text-black' : 'bg-white/20 text-white'
+        }`}
+    >
+      {icon}
+    </div>
+  );
+}
+
+function ControlSlider({ icon }: { icon: ReactNode }) {
+  return (
+    <div className="flex-1 bg-white/15 rounded-4xl flex flex-col items-center justify-end p-2 relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-white/80 rounded-b-2xl" />
+      <div className="relative z-10 text-lg mb-1">{icon}</div>
     </div>
   );
 }

@@ -5,22 +5,21 @@ import SpeechBubble from './info/speech-buble'
 
 
 export default function IPhoneSlider() {
-  const steps = [{ step: 1, title: " Åpne innstillinger", subtitle: "Gå til Innstillinger på telefonen din og velg 'Mobilnett'" },
-  { step: 2, title: "Gå til mobilnett", subtitle: "Inne på mobilnett velger du 'Legg til eSIM'" },
-  { step: 3, title: 'Legg til eSIM', subtitle: "Velg Bruk 'QR-kode', og scan QR-koden med din telefon" },
-  { step: 4, title: 'Aktiver eSIM', subtitle: "Velg aktiver for å starte aktiveringen av din eSIM" },
-  { step: 5, title: 'Aktiver eSIM', subtitle: "Trykk forsett for neste steg" },
-  { step: 6, title: 'Hvor skal eSIM brukes', subtitle: "Velg om du skal bruke eSIM i utlandet eller i Norge" },
-  { step: 7, title: 'Velg plan', subtitle: "Velg 'bare data' som din plan" },
-  { step: 8, title: 'eSIM er nå klar til bruk', subtitle: "Aktivering er fullført og eSIM er klar til bruk" },
-  { step: 9, title: 'eSIM er nå klar til bruk', subtitle: "Du kan nå se din eSIM fra beam sammen med ditt primære sin for tale og sms" },
-  { step: 10, title: 'eSIM er nå klar til bruk', subtitle: "Du kan>NN se din eSIM fra beam sammen med ditt primære sin for tale og sms" },
+  const steps = [{ step: 1, title: " Scan QR-koden", subtitle: "Scan QR-koden du har motatt på mail med kamera på telefonen din" },
+  { step: 2, title: "Start aktivering", subtitle: "En pop-up skal dukke opp, velg 'Start aktivering'" },
+  { step: 3, title: 'Aktiver eSIM', subtitle: "Aktiveringen av din eSIM starter, trykk forsett for neste steg" },
+  { step: 4, title: 'Hvor skal eSIM brukes', subtitle: "Velg om du skal bruke eSIM i utlandet eller i Norge" },
+  { step: 5, title: 'Abonnomentsvalg', subtitle: "Velg 'bare data' som din plan" },
+  { step: 6, title: 'Aktivering er fullført', subtitle: "Aktivering er fullført og eSIM er klar til bruk" },
+  { step: 7, title: 'Oversikt', subtitle: "Inne på Innstillinger -> Mobilnett har du oversikt over din primære SIM og din nye beam eSIM, samt hvilken sim som bruker for data, og hvilken som brukes for tale og meldinger " },
+  { step: 8, title: 'beam eSIM', subtitle: "Hvis du trykker inn på ditt beam eSIM, vil du se en oversikt over din eSIM. DU kan skru av og på linjen" },
+  { step: 9, title: 'Kontrollsenter', subtitle: "Hvis du drar ned kontrollsenteret på din iphone vil du nå se ditt beam eSIM sammen med ditt primære SIM-kort øverst i venstre hjørnet" }
+
   ]
 
   const [activeIndex, setActiveIndex] = useState(0)
 
-  const [title, setTitle] = useState('')
-  const [subtitle, setSubtitle] = useState('')
+
 
 
   const goToPrevious = () => {
