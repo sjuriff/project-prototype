@@ -119,7 +119,7 @@ export default function ESimInfoHero() {
 
   }, [iPhoneHovered, androidHovered])
   return (
-    <div ref={containerRef} className="min-h-screen relative  mx-5 rounded-t-2xl overflow-hidden bg-background flex items-center justify-center md:mt-16 md:px-6 py-16">
+    <div ref={containerRef} className="min-h-screen relative  mx-5 rounded-t-2xl overflow-hidden bg-background flex items-center  justify-center md:mt-16 md:px-6 py-16">
         <div ref={iconRef} className="hidden  absolute md:block z-0 top-8 md:-top-52 -right-48 items-center h-[500px] w-[500px] flex justify-center gap-3  bg-tertiary/40 rounded-full">
           <Lightbulb className="h-12 w-12 absolute top-60 left-24  md:w-38 md:h-38 z-0 text-primary   " />
         </div>

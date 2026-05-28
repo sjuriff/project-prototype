@@ -40,7 +40,7 @@ export default async function Home() {
 
       <ProductSection popularProducts={popularProducts} regionProducts={regionProducts} />
 
-      <section className="w-full mt-8 ">
+      <section className="w-full  mt-8 ">
         <ESimInfoHero />
 
       </section>

@@ -133,7 +133,7 @@ export default function DatePicker({ value, onChange, className }: Props) {
     : "Velg dagene du reiser";
 
   return (
-    <div ref={rootRef} className={"font-roboto"} style={{ position: "relative", display: "inline-block"}}>
+    <div ref={rootRef} className={"font-roboto z-10"} style={{ position: "relative", display: "inline-block"}}>
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
