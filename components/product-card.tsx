@@ -14,6 +14,7 @@ import { Tier } from '@/types/product';
 import { FaEarthAmericas, FaEarthEurope, FaEarthAsia, FaEarthAfrica, FaGlobe } from "react-icons/fa6"
 import GhostButton from './buttons/ghost-button';
 import { useCart } from '@/hooks/use-cart';
+import DatePicker from './date-picker';
 
 
 
@@ -70,6 +71,7 @@ export function ProductCard({
   let isRegion = sort === 'region'
 
   const [selectedTier, setSelectedTier] = useState<Tier>(tirers[1]);
+  const [productOption, setProductOptionsOpen] = useState<"fast" | "dayflex">("fast");
 
   const { persistProduct } = usePersistedProduct();
 
@@ -106,6 +108,41 @@ export function ProductCard({
   }
 
 
+  let paymentContent: React.ReactNode = null;
+
+  if (productOption === "fast") {
+    paymentContent = (<>
+
+      <div className="flex font-body  items-center justify-around mb-4">
+        <div className="flex flex-col items-center justify-center">
+          <div className="flex items-center gap-2 mb-3">
+            <Globe className="w-4 h-4 text-primary" />
+            <span className="text-secondary-text text-sm">Data</span>
+          </div>
+          <CustomDropdown options={tirers} value={selectedTier.data} onChange={(value) => setSelectedTier(tirers.find((tier) => tier.data === value) || tirers[0])} placeholder={selectedTier.data} className='' />
+        </div>
+
+        <div className="flex flex-col font-body items-center">
+          <div className="flex items-center gap-2 mb-3">
+            <Zap className="w-4 h-4 text-primary" />
+            <span className="text-secondary-text text-sm">Gyldig i</span>
+          </div>
+          <p className="text-secondary-text">{selectedTier.validity}</p>
+        </div>
+      </div>
+    </>)
+  } else if (productOption === "dayflex") {
+    paymentContent = (<>
+      <div className="flex flex-col font-body items-center">
+
+        <DatePicker />
+      </div>
+    </>)
+  }
+
+
+
+
 
 
 
@@ -117,7 +154,7 @@ export function ProductCard({
   console.log(isRegion)
 
   return (
-    <div className="product-card opacity-0  w-[300px] relative col-span-12  z-0 lg:col-span-4  xl:col-span-3 2xl:col-span-3 bg-secondary rounded-2xl overflow-hidden shadow-lg">
+    <div className="product-card opacity-0  w-[300px] relative col-span-12  z-0 lg:col-span-4  xl:col-span-3 2xl:col-span-3 bg-secondary rounded-2xl  shadow-lg">
       {/* Product Image Section */}
       <div className="">
         <div className={`${isRegion ? 'bg-secondary' : 'bg-secondary border-b border-surface'}  flex items-center justify-center relative rounded-t-2xl overflow-hidden aspect-[4/3] `}>
@@ -157,23 +194,23 @@ export function ProductCard({
       {/* Product Details Section */}
       <div className="p-6 relative z-0 w-full   pt-6">
 
+        <div className='flex flex-col'>
 
-        <div className="flex font-body  items-center justify-around mb-4">
-          <div className="flex flex-col items-center justify-center">
-            <div className="flex items-center gap-2 mb-3">
-              <Globe className="w-4 h-4 text-primary" />
-              <span className="text-secondary-text text-sm">Data</span>
-            </div>
-            <CustomDropdown options={tirers} value={selectedTier.data} onChange={(value) => setSelectedTier(tirers.find((tier) => tier.data === value) || tirers[0])} placeholder={selectedTier.data} className='' />
-          </div>
 
-          <div className="flex flex-col font-body items-center">
-            <div className="flex items-center gap-2 mb-3">
-              <Zap className="w-4 h-4 text-primary" />
-              <span className="text-secondary-text text-sm">Gyldig i</span>
+          <div className="flex font-body  items-center justify-around mb-4">
+            <div>
+              <button className={`font-heading rounded-3xl py-1 px-4 ${productOption === "fast" ? "font-bold bg-tertiary  text-secondary  py-1 pointer-events-none shadow-lg" : "text-secondary-text hover:cursor-pointer"}`} onClick={() => setProductOptionsOpen("fast")}>Fast</button>
+
             </div>
-            <p className="text-secondary-text">{selectedTier.validity}</p>
+            <div>
+
+              <button  className={`font-heading px-4  py-1 rounded-3xl ${productOption === "dayflex" ? "font-bold bg-tertiary  text-secondary  py-1 pointer-events-none shadow-lg" : "text-secondary-text hover:cursor-pointer"}`} onClick={() => setProductOptionsOpen("dayflex")}>DayFlex</button>
+
+            </div>
+
+
           </div>
+          {paymentContent}
         </div>
 
         <div className="pt-4 border-t font-body border-tertiary-text/20">
