@@ -62,12 +62,12 @@ export default function ProductSortBar({ sort, onSortChange }: SortSelectorProps
   //${sort === key ? "border-b-2 border-tertiary text-primary-text" : " hover:text-tertiary hover:cursor-pointer"}
 
   return (
-    <div className="inline-flex px-4 md:px-0  justify-center overflow-hidden bg-surface  ">
+    <div className="inline-flex px-4 md:px-0 shadow-sm  bg-surface-dim justify-center overflow-hidden rounded-lg  ">
       {tabs.map(({ key, label }) => (
         <button
           key={key}
           onClick={() => onSortChange(key)}
-          className={`md:px-4 px-2 py-2 text-sm flex gap-1 flex-col ${sort === key ? "font-bold pointer-events-none" : "font-medium"} items-center justify-center  text-primary-text transition hover:text-tertiary hover:cursor-pointer
+          className={`md:px-4 px-2 py-2 text-sm flex gap-1 flex-col ${sort === key ? "font-bold bg-secondary pointer-events-none" : "font-medium"} items-center rounded-lg justify-center  text-primary-text transition hover:text-tertiary hover:cursor-pointer
             `}
         >
           {label}
