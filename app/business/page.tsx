@@ -7,6 +7,7 @@ import PlanCardWrapper from "@/components/business/plan-card-wrapper"
 import DashboatdPhone from "@/components/business/dashboard-phone"
 import PrimaryButton from "@/components/buttons/primary-button"
 import { ArrowRight } from "lucide-react"
+import SecuritySection from "@/components/business/security"
 
 
 export default function BusinessPage() {
@@ -30,6 +31,9 @@ export default function BusinessPage() {
 
       <section className="min-h-screen pt-16 bg-secondary">
         <WhyBeam />
+      </section>
+      <section className="  bg-secondary">
+        <SecuritySection />
       </section>
     </main>
   )

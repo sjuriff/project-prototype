@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useRef } from "react";
 import { FaPaperPlane } from "react-icons/fa";
-import { FaGlobeEurope } from "react-icons/fa";
+import { FaGlobeEurope, FaGlobeAmericas } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
@@ -18,6 +18,7 @@ export default function PartnerBanner() {
   const imageRef = useRef(null);
   const headingRef = useRef(null);
   const iconRef = useRef(null);
+  const iconRef2 = useRef(null);
 
   useGSAP(
     () => {
@@ -41,12 +42,23 @@ export default function PartnerBanner() {
           scale: 0,
           ease: "linear"
         }, "-=0.2")
-        .from(iconRef.current, {
-          scale: 0.5,
-          x: '-185%',
+        .fromTo(iconRef.current, {
+          x: '0',
           ease: "linear"
 
+        }, {
+          x: '100%',
+          ease: "linear",
+         
         })
+        .fromTo(iconRef2.current, {
+          x: '-100%',
+          ease: "linear"
+        }, {
+          x: '0',
+          ease: "linear",
+          duration: 1
+        }, "-=1")
     },
     { scope: containerRef }
   );
@@ -71,11 +83,12 @@ export default function PartnerBanner() {
           </div>
 
 
-          <div ref={imageRef} className="relative w-60 h-60  bg-primary rounded-full flex items-center justify-center">
-
-            <FaGlobeEurope className="w-68 h-68  z-0 absolute  text-light-yellow" />
-            <div ref={iconRef}>
-              <FaPaperPlane className="w-24 z-10 h-24 text-secondary-text" />
+          <div ref={imageRef} className="relative overflow-hidden w-62 h-62  bg-primary rounded-full flex items-center justify-center">
+            < div ref={iconRef} className=" ">
+              <FaGlobeEurope className="w-68 h-68  z-0   text-light-yellow" />
+            </div>
+            <div ref={iconRef2} className="absolute z-10" >
+              <FaGlobeAmericas className="w-68 h-68    text-light-yellow" />
             </div>
           </div>
         </div>
