@@ -63,28 +63,7 @@ export default function PartnerCoBrandSection({
           </p>
         </div>
 
-        {/* Co-brand lockup */}
-  {/*       <div className="mt-10 flex items-center justify-center gap-6">
-          <div className="flex h-14 bg-secondary min-w-32 items-center justify-center rounded-lg border border-border bg-card px-5">
-            {partnerLogoUrl ? (
-              <img
-                src={partnerLogoUrl}
-                alt={`${partnerName} logo`}
-                className="max-h-8 w-auto"
-              />
-            ) : (
-              <span className="text-sm font-semibold  ">
-                {partnerName}
-              </span>
-            )}
-          </div>
-          <span className="text-2xl font-light text-tertiary-text">×</span>
-          <div className="flex h-14 min-w-32 items-center justify-center rounded-lg bg-primary px-5">
-            <span className="text-sm font-semibold text-primary-foreground">
-              Beam eSIM
-            </span>
-          </div>
-        </div> */}
+    
 
         {/* Benefits grid */}
         <div className="mt-14 grid gap-4 sm:grid-cols-2">
