@@ -180,14 +180,14 @@ export default function ProductDetailV2({
 
 
   return (
-    <div className="md:h-[800px] flex items-center justify-center  ">
+    <div className="md:h-[800px]  flex items-center justify-center  ">
       <div className="max-w-6xl h-full ">
         <div className="bg-surface h-full rounded-2xl  shadow-lg ">
-          <div className="grid   h-full md:grid-cols-16">
+          <div className="grid    h-full md:grid-cols-16">
             {/* Left side - Polaroid Image */}
 
             <div className="flex  h-full min-h-0 relative col-span-9    flex-col  items-center md:rounded-2xl   bg-secondary">
-              <div className='md:h-10  h-8 w-8 z-10 md:w-10 absolute left-4 top-4'>
+              <div className='md:h-10   h-8 w-8 z-10 md:w-10 absolute left-4 top-4'>
                 {!isRegion &&
                   <Image
                     src={flagImage}
@@ -223,7 +223,7 @@ export default function ProductDetailV2({
                   </div>
 
                 </div>
-              ) : (<div className=" relative bg-secondary-heading rounded-t-2xl md:rounded-t-none md:rounded-l-2xl    flex items-center justify-center   h-[250px]   w-full md:h-1/2 ">
+              ) : (<div className="relative bg-secondary-heading rounded-t-2xl md:rounded-t-none md:rounded-l-2xl    flex items-center justify-center   h-[250px]   w-full md:h-1/2 ">
                 {/*   <div className="flex absolute w-full -bottom-1 z-10  items-center gap-4">
                   <div className="w-25    h-4 bg-secondary"></div>
                   <div className="w-25  h-4 bg-secondary"></div>
@@ -249,13 +249,13 @@ export default function ProductDetailV2({
                 }
 
               </div>)}
-              <div className='w-full flex flex-col items-center gap-2 md:gap-4  justify-center  md:py-0 md:h-1/2'>
-                <h1 className='font-heading mt-4 md:mt-0 text-2xl md:text-3xl text-tertiary '>Velg et abonnement</h1>
-                <div className=' gap-4  text-base gap-16 md:text-base font-heading flex'>
-                  <div className='flex flex-col w-20 items-center justify-center gap-1'>
+              <div className='w-full  flex flex-col items-center gap-2 md:gap-4  justify-center  md:py-0 md:h-1/2'>
+                <h1 className='font-heading mt-4  md:mt-0 text-2xl md:text-3xl text-tertiary '>Velg et abonnement</h1>
+                <div className='  bg-surface-blue    rounded-lg shadow-lg  text-base  md:text-base font-heading flex'>
+                  <div className={`flex p-2  ${plan === "set" ? "bg-surface" : "bg-transparent"}  h-full bg-surface rounded-l-lg  flex-col w-30 items-center justify-center gap-1`}>
                     <p onClick={() => setPlan("set")} className='hover:cursor-pointer'>Fast</p>
                     <div
-                      className={`flex items-center gap-1 w-full transition-opacity duration-200 ${plan === "set" ? "opacity-100" : "opacity-0"} `}
+                      className={`flex items-center  gap-1 w-full transition-opacity duration-200 ${plan === "set" ? "opacity-100" : "opacity-0"} `}
                     >
                       <div
                         ref={(el) => {
@@ -277,8 +277,8 @@ export default function ProductDetailV2({
                       />
                     </div>
                   </div>
-                  <div className='flex flex-col w-20 items-center justify-center gap-1'>
-                    <p className='hover:cursor-pointer' onClick={() => setPlan("unlimited")}>Ubegrenset</p>
+                  <div className={`flex ${plan === "unlimited" ? "bg-surface" : "bg-transparent"} p-2  rounded-r-lg h-full flex-col w-30 items-center justify-center gap-1`}>
+                    <p className='hover:cursor-pointer' onClick={() => setPlan("unlimited")}>DayFlex</p>
                     <div className={`flex items-center  gap-1 w-full transition-opacity duration-200 ${plan === "unlimited" ? "opacity-100" : "opacity-0"} `}
                     >
                       <div

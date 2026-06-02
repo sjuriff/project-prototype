@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image';
-import { Globe, Zap } from 'lucide-react';
+import { Globe, PlaneLanding, Zap, Plane } from 'lucide-react';
 import { StaticImageData } from 'next/image';
 import PrimaryButton from './buttons/primary-button';
 import primaryLine from '@/public/images/primary-line.png';
@@ -14,7 +14,7 @@ import { Tier } from '@/types/product';
 import { FaEarthAmericas, FaEarthEurope, FaEarthAsia, FaEarthAfrica, FaGlobe } from "react-icons/fa6"
 import GhostButton from './buttons/ghost-button';
 import { useCart } from '@/hooks/use-cart';
-import DatePicker from './date-picker';
+import DatePicker from './date-picker-small';
 
 
 
@@ -72,6 +72,9 @@ export function ProductCard({
 
   const [selectedTier, setSelectedTier] = useState<Tier>(tirers[1]);
   const [productOption, setProductOptionsOpen] = useState<"fast" | "dayflex">("fast");
+  const [days, setDays] = useState(0);
+
+  const dayPrice =  39;
 
   const { persistProduct } = usePersistedProduct();
 
@@ -113,18 +116,18 @@ export function ProductCard({
   if (productOption === "fast") {
     paymentContent = (<>
 
-      <div className="flex font-body  items-center justify-around mb-4">
+      <div className="flex font-body  h-18  items-center justify-around mb-4">
         <div className="flex flex-col items-center justify-center">
           <div className="flex items-center gap-2 mb-3">
-            <Globe className="w-4 h-4 text-primary" />
+            <Globe className="w-4 h-4 text-tertiary" />
             <span className="text-secondary-text text-sm">Data</span>
           </div>
           <CustomDropdown options={tirers} value={selectedTier.data} onChange={(value) => setSelectedTier(tirers.find((tier) => tier.data === value) || tirers[0])} placeholder={selectedTier.data} className='' />
         </div>
 
-        <div className="flex flex-col font-body items-center">
+        <div className="flex flex-col h-full font-body justify-center items-center">
           <div className="flex items-center gap-2 mb-3">
-            <Zap className="w-4 h-4 text-primary" />
+            <Zap className="w-4 h-4 text-tertiary" />
             <span className="text-secondary-text text-sm">Gyldig i</span>
           </div>
           <p className="text-secondary-text">{selectedTier.validity}</p>
@@ -133,9 +136,17 @@ export function ProductCard({
     </>)
   } else if (productOption === "dayflex") {
     paymentContent = (<>
-      <div className="flex flex-col font-body items-center">
+      <div className="flex z-10  h-18 mb-4 flex-col font-body items-center">
 
-        <DatePicker />
+        <DatePicker   setDays={setDays} />
+        <div className="flex items-center gap-2 mt-8">
+          <Plane className="w-4 h-4 text-tertiary" />
+               <p className="text-secondary-text">{days}</p>
+          <span className="text-secondary-text text-sm">dagers reise</span>
+     
+        </div>
+
+
       </div>
     </>)
   }
@@ -204,7 +215,7 @@ export function ProductCard({
             </div>
             <div>
 
-              <button  className={`font-heading px-4  py-1 rounded-3xl ${productOption === "dayflex" ? "font-bold bg-tertiary  text-secondary  py-1 pointer-events-none shadow-lg" : "text-secondary-text hover:cursor-pointer"}`} onClick={() => setProductOptionsOpen("dayflex")}>DayFlex</button>
+              <button className={`font-heading px-4  py-1 rounded-3xl ${productOption === "dayflex" ? "font-bold bg-tertiary  text-secondary  py-1 pointer-events-none shadow-lg" : "text-secondary-text hover:cursor-pointer"}`} onClick={() => setProductOptionsOpen("dayflex")}>DayFlex</button>
 
             </div>
 
@@ -217,7 +228,7 @@ export function ProductCard({
           <div className="flex items-end justify-between">
             <span className="text-secondary-text text-sm">Pris</span>
             <div className="flex items-baseline gap-1">
-              <span className="text-secondary-text text-2xl"><span className='text-xl'>{currency}</span> {Number(selectedTier.price)}</span>
+              <span className="text-secondary-text text-2xl"><span className='text-xl'>{currency}</span> { days ? (dayPrice * days).toFixed(0) : Number(selectedTier.price)}</span>
 
             </div>
           </div>

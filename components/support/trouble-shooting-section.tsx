@@ -57,7 +57,7 @@ export default function TroubleShootingSection() {
     { scope: containerRef }
   )
   return (
-    <div ref={containerRef} className="bg-surface relative py-16 px-6 overflow-hidden">
+    <div ref={containerRef} className="bg-secondary relative py-16 px-6 overflow-hidden">
       <div ref={iconRef} className="hidden   absolute md:block z-0 top-8 md:-top-52 -left-48 items-center h-[450px] w-[450px] flex justify-center gap-3  bg-primary/40 rounded-full" >
         <SearchX className="h-12 w-12 absolute top-60 right-24  md:w-30 md:h-30 z-0 text-tertiary opacity-75    " />
       </div>

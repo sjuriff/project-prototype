@@ -14,7 +14,7 @@ export default function SupportHero() {
   const iconRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-   useGSAP(() => {
+  useGSAP(() => {
 
     if (!iconRef.current) return
     gsap.fromTo(iconRef.current, {
@@ -32,12 +32,12 @@ export default function SupportHero() {
 
   return (
     <div ref={containerRef} className="bg-secondary relative text-white py-20 px-6">
-       <div ref={iconRef} className="hidden  absolute md:block z-0 top-8 md:-top-52 -right-48 items-center h-[500px] w-[500px] flex justify-center gap-3  bg-primary/40 rounded-full">
-            <HeartHandshake className="h-12 w-12 absolute top-60 left-28  md:w-38 md:h-38 z-0 text-tertiary opacity-75   " />
-          </div>
+      <div ref={iconRef} className="hidden  absolute md:block z-0 top-8 md:-top-52 -right-48 items-center h-[500px] w-[500px] flex justify-center gap-3  bg-primary/40 rounded-full">
+        <HeartHandshake className="h-12 w-12 absolute top-60 left-28  md:w-38 md:h-38 z-0 text-tertiary opacity-75   " />
+      </div>
       <div className="max-w-3xl mx-auto text-center">
         <div className='relative w-fit mx-auto '>
-         
+
           <h1 className=" text-primary-text relative z-10 [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-4xl md:text-5xl font-heading">Support </h1>
 
         </div>

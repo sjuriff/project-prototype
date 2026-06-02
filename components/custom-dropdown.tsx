@@ -119,7 +119,7 @@ export function CustomDropdown({
                 <span
                   className={
                     option.data === value
-                      ? 'text-indigo-600'
+                      ? 'text-tertiary'
                       : 'text-gray-700 group-hover:text-gray-900'
                   }
                 >
@@ -127,7 +127,7 @@ export function CustomDropdown({
                 </span>
                 {option.data === value && (
                   <div>
-                    <Check className="size-5 text-indigo-600" strokeWidth={2.5} />
+                    <Check className="size-5 text-tertiary" strokeWidth={2.5} />
                   </div>
                 )}
               </button>

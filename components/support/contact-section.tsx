@@ -38,7 +38,7 @@ export default function ContactSection() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {contactMethods.map((method, index) => (
-          <div key={index} className=" p-8 rounded-lg bg-surface-dim shadow text-center hover:border-tertiary transition-colors">
+          <div key={index} className=" p-8 rounded-lg bg-surface-blue shadow text-center hover:border-tertiary transition-colors">
             <div className="flex justify-center mb-4">
               <div className="w-14 h-14 bg-[#f9f871] rounded-full flex items-center justify-center">
                 <method.icon className="w-6 h-6 text-[#1d1d1d]" />
