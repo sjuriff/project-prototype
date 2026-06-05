@@ -71,10 +71,10 @@ export function ProductCard({
   let isRegion = sort === 'region'
 
   const [selectedTier, setSelectedTier] = useState<Tier>(tirers[1]);
-  const [productOption, setProductOptionsOpen] = useState<"fast" | "dayflex">("fast");
+  const [productOption, setProductOptionsOpen] = useState<"fast" | "dayflex">("dayflex");
   const [days, setDays] = useState(0);
 
-  const dayPrice =  39;
+  const dayPrice = 39;
 
   const { persistProduct } = usePersistedProduct();
 
@@ -138,12 +138,12 @@ export function ProductCard({
     paymentContent = (<>
       <div className="flex z-10  h-18 mb-4 flex-col font-body items-center">
 
-        <DatePicker   setDays={setDays} />
+        <DatePicker setDays={setDays} />
         <div className="flex items-center gap-2 mt-8">
           <Plane className="w-4 h-4 text-tertiary" />
-               <p className="text-secondary-text">{days}</p>
+          <p className="text-secondary-text">{days}</p>
           <span className="text-secondary-text text-sm">dagers reise</span>
-     
+
         </div>
 
 
@@ -210,14 +210,15 @@ export function ProductCard({
 
           <div className="flex font-body  items-center justify-around mb-4">
             <div>
-              <button className={`font-heading rounded-3xl py-1 px-4 ${productOption === "fast" ? "font-bold bg-tertiary  text-secondary  py-1 pointer-events-none shadow-lg" : "text-secondary-text hover:cursor-pointer"}`} onClick={() => setProductOptionsOpen("fast")}>Fast</button>
-
-            </div>
-            <div>
 
               <button className={`font-heading px-4  py-1 rounded-3xl ${productOption === "dayflex" ? "font-bold bg-tertiary  text-secondary  py-1 pointer-events-none shadow-lg" : "text-secondary-text hover:cursor-pointer"}`} onClick={() => setProductOptionsOpen("dayflex")}>DayFlex</button>
 
             </div>
+            <div>
+              <button className={`font-heading rounded-3xl py-1 px-4 ${productOption === "fast" ? "font-bold bg-tertiary  text-secondary  py-1 pointer-events-none shadow-lg" : "text-secondary-text hover:cursor-pointer"}`} onClick={() => setProductOptionsOpen("fast")}>Fast</button>
+
+            </div>
+
 
 
           </div>
@@ -228,7 +229,7 @@ export function ProductCard({
           <div className="flex items-end justify-between">
             <span className="text-secondary-text text-sm">Pris</span>
             <div className="flex items-baseline gap-1">
-              <span className="text-secondary-text text-2xl"><span className='text-xl'>{currency}</span> { days ? (dayPrice * days).toFixed(0) : Number(selectedTier.price)}</span>
+              <span className="text-secondary-text text-2xl"><span className='text-xl'>{currency}</span> {days ? (dayPrice * days).toFixed(0) : Number(selectedTier.price)}</span>
 
             </div>
           </div>

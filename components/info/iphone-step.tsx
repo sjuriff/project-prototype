@@ -27,13 +27,13 @@ interface IPhoneScreenProps {
 export default function IPhoneScreen({ step }: IPhoneScreenProps) {
   const isQrCode = step === 1
   return (
-    <div className="flex  h-[650px] flex-row">
+    <div className="flex h-[520px]  md:h-[650px] flex-row">
       <div className="relative mx-auto w-full max-w-[320px]">
         <div className={`relative rounded-[3rem] ${isQrCode ? "bg-transparent" : "bg-black"}  p-2.5`}>
           <div className={` ${isQrCode ? "hidden" : "absolute"} top-5 left-1/2 z-20 h-6 w-20 -translate-x-1/2 rounded-full bg-black`} />
 
           <div
-            className={` ${isQrCode ? "bg-transparent" : "bg-white "}relative overflow-hidden h-[620px] w-full rounded-[2.5rem] `}
+            className={` ${isQrCode ? "bg-transparent" : "bg-white "}relative overflow-hidden h-[500px] md:h-[620px] w-full rounded-[2.5rem] `}
             style={{ aspectRatio: '9/19.5' }}
           >
             <div className={`${isQrCode ? "hidden" : "absolute"} top-0 left-0 right-0 z-30 flex h-11 items-center justify-between px-7 text-[11px]`}>

@@ -91,7 +91,7 @@ export default function ProductDetailV2({
 
   const days = [{ number: "7", price: 155 }, { number: "14", price: 255 }, { number: "30", price: 355 }, { number: "90", price: 655 }]
 
-  const [plan, setPlan] = useState<"set" | "unlimited">("set")
+  const [plan, setPlan] = useState<"set" | "unlimited">("unlimited")
 
 
   const isRegion: boolean = REGION_CODES.includes(countryCode)
@@ -252,7 +252,32 @@ export default function ProductDetailV2({
               <div className='w-full  flex flex-col items-center gap-2 md:gap-4  justify-center  md:py-0 md:h-1/2'>
                 <h1 className='font-heading mt-4  md:mt-0 text-2xl md:text-3xl text-tertiary '>Velg et abonnement</h1>
                 <div className='  bg-surface-blue    rounded-lg shadow-lg  text-base  md:text-base font-heading flex'>
-                  <div className={`flex p-2  ${plan === "set" ? "bg-surface" : "bg-transparent"}  h-full bg-surface rounded-l-lg  flex-col w-30 items-center justify-center gap-1`}>
+                  
+                  <div className={`flex ${plan === "unlimited" ? "bg-surface" : "bg-transparent"} p-2  rounded-l-lg h-full flex-col w-30 items-center justify-center gap-1`}>
+                    <p className='hover:cursor-pointer' onClick={() => setPlan("unlimited")}>DayFlex</p>
+                    <div className={`flex items-center  gap-1 w-full transition-opacity duration-200 ${plan === "unlimited" ? "opacity-100" : "opacity-0"} `}
+                    >
+                      <div
+                        ref={(el) => {
+                          indicatorRefs.current["unlimited"].dotOne = el;
+                        }}
+                        className="w-2 h-1 rounded-l-lg bg-tertiary"
+                      />
+                      <div
+                        ref={(el) => {
+                          indicatorRefs.current["unlimited"].dotTwo = el;
+                        }}
+                        className="w-2 h-1 bg-tertiary"
+                      />
+                      <div
+                        ref={(el) => {
+                          indicatorRefs.current["unlimited"].line = el;
+                        }}
+                        className="w-full h-1 bg-gradient-to-r from-tertiary via-tertiary to-transparent"
+                      />
+                    </div>
+                  </div>
+                  <div className={`flex p-2  ${plan === "set" ? "bg-surface" : "bg-transparent"}  h-full bg-surface rounded-r-lg  flex-col w-30 items-center justify-center gap-1`}>
                     <p onClick={() => setPlan("set")} className='hover:cursor-pointer'>Fast</p>
                     <div
                       className={`flex items-center  gap-1 w-full transition-opacity duration-200 ${plan === "set" ? "opacity-100" : "opacity-0"} `}
@@ -274,30 +299,6 @@ export default function ProductDetailV2({
                           indicatorRefs.current["set"].line = el;
                         }}
                         className="w-full  h-1 bg-gradient-to-r from-tertiary via-tertiary to-transparent"
-                      />
-                    </div>
-                  </div>
-                  <div className={`flex ${plan === "unlimited" ? "bg-surface" : "bg-transparent"} p-2  rounded-r-lg h-full flex-col w-30 items-center justify-center gap-1`}>
-                    <p className='hover:cursor-pointer' onClick={() => setPlan("unlimited")}>DayFlex</p>
-                    <div className={`flex items-center  gap-1 w-full transition-opacity duration-200 ${plan === "unlimited" ? "opacity-100" : "opacity-0"} `}
-                    >
-                      <div
-                        ref={(el) => {
-                          indicatorRefs.current["unlimited"].dotOne = el;
-                        }}
-                        className="w-2 h-1 rounded-l-lg bg-tertiary"
-                      />
-                      <div
-                        ref={(el) => {
-                          indicatorRefs.current["unlimited"].dotTwo = el;
-                        }}
-                        className="w-2 h-1 bg-tertiary"
-                      />
-                      <div
-                        ref={(el) => {
-                          indicatorRefs.current["unlimited"].line = el;
-                        }}
-                        className="w-full h-1 bg-gradient-to-r from-tertiary via-tertiary to-transparent"
                       />
                     </div>
                   </div>
