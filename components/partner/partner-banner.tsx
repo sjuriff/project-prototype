@@ -41,23 +41,28 @@ export default function PartnerBanner() {
         .from(imageRef.current, {
           scale: 0,
           ease: "linear"
-        }, "-=0.2")
+        }, "")
         .fromTo(iconRef.current, {
           x: '0',
+          scale: 1,
           ease: "linear"
 
         }, {
+          scale: 1.8,
           x: '100%',
           ease: "linear",
          
         })
         .fromTo(iconRef2.current, {
-          x: '-100%',
-          ease: "linear"
+          x: '-165%',
+          ease: "linear",
+          scale: 1.8
         }, {
           x: '0',
           ease: "linear",
+          scale: 1,
           duration: 1
+
         }, "-=1")
     },
     { scope: containerRef }

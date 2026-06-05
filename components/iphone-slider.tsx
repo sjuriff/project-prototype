@@ -2,6 +2,7 @@ import { useState } from 'react'
 import IPhoneScreen from "../components/info/iphone-step"
 import { ChevronLeft, ChevronRight, Zap } from 'lucide-react'
 import SpeechBubble from './info/speech-buble'
+import SpeechBubbleMobile from './info/speech-bubble-mobile'
 
 
 export default function IPhoneSlider() {
@@ -35,11 +36,11 @@ export default function IPhoneSlider() {
   }
 
   return (
-    <div className="w-full bg-tertiary overflow-hidden   rounded-3xl  h-full flex">
+    <div className="w-full bg-tertiary overflow-hidden h-screen   rounded-3xl  md:h-full flex">
 
 
 
-      <div className="relative flex py-16    overflow-l-hidden items-start  justify-end w-1/2 px-4">
+      <div className="relative hidden  md:flex py-16    overflow-l-hidden items-start  justify-end md:w-1/2 px-4">
         <Zap className='text-primary absolute z-10 left-4 bottom-6  w-16 h-16' />
         <div className='h-68  absolute -bottom-34 z-0 -left-34 w-68 bg-primary/20 rounded-full'>
         </div>
@@ -48,10 +49,13 @@ export default function IPhoneSlider() {
         </div>
       </div>
 
-      <div className='w-1/2  relative flex items-center justify-center'>
-        <div className='h-68  absolute -top-34 z-0 -right-32 w-68 bg-primary/20 rounded-full'></div>
-        <div className='absolute top-8 right-12 z-10 text-primary font-body font-semibold text-4xl'>{steps[activeIndex].step}</div>
-        <div className=' w-[420px]  mr-18'>
+      <div className='md:w-1/2 w-full  relative flex items-end md:items-center md:justify-center'>
+        <div className='absolute z-10 visible md:invisible top-0 left-0'>
+          <SpeechBubbleMobile step={steps[activeIndex].step} title={steps[activeIndex].title} description={steps[activeIndex].subtitle} />
+        </div>
+        <div className='h-68 hidden md:block  absolute -top-34 z-0 -right-32 w-68 bg-primary/20 rounded-full'></div>
+        <div className='absolute hidden md:block top-8 right-12 z-10 text-primary font-body font-semibold text-4xl'>{steps[activeIndex].step}</div>
+        <div className=' w-full md:w-[420px]  md:mr-18'>
 
 
           <div className="relative z-0 overflow-hidden">
@@ -70,7 +74,7 @@ export default function IPhoneSlider() {
             <button
               type="button"
               onClick={goToPrevious}
-              className="absolute left-0 top-1/2 -translate-y-1/2 rounded-full bg-secondary shadow-md p-2 hover:scale-105 transition"
+              className="absolute left-3 md:left-0 top-1/2 -translate-y-1/2 rounded-full bg-secondary shadow-md p-2 hover:scale-105 transition"
               aria-label="Forrige steg"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -79,7 +83,7 @@ export default function IPhoneSlider() {
             <button
               type="button"
               onClick={goToNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 rounded-full bg-secondary shadow-md p-2 hover:scale-105 transition"
+              className="absolute right-3 md:right-0 top-1/2 -translate-y-1/2 rounded-full bg-secondary shadow-md p-2 hover:scale-105 transition"
               aria-label="Neste steg"
             >
               <ChevronRight className="w-5 h-5" />

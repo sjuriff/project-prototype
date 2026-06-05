@@ -9,7 +9,7 @@ interface SpeechBubbleProps {
 
 export default function SpeechBubble({ title, description, className }: SpeechBubbleProps) {
   return (
-    <div className="relative inline-block min-w-[500px] drop-shadow-xl">
+    <div className="relative inline-block w-1/2 min-w-[200px] md:w-auto md:min-w-[500px] drop-shadow-xl">
       <div
         className="
       relative
@@ -18,9 +18,9 @@ export default function SpeechBubble({ title, description, className }: SpeechBu
       rounded-2xl rounded-br-none
     "
       >
-        <h3 className="text-xl font-semibold font-heading leading-tight">{title}</h3>
+        <h3 className="md:text-xl text-lg font-semibold font-heading leading-tight">{title}</h3>
 
-        <p className="mt-1 text-base font-body leading-snug text-primary-foreground/90">
+        <p className="mt-1 md:text-base text-sm font-body leading-snug text-primary-foreground/90">
           {description}
         </p>
 
