@@ -36,7 +36,7 @@ export default function IPhoneSlider() {
   }
 
   return (
-    <div className="w-full bg-tertiary overflow-hidden h-screen   rounded-3xl  md:h-full flex">
+    <div className="w-full bg-tertiary overflow-hidden h-[750px]   rounded-3xl  md:h-full flex">
 
 
 
@@ -64,7 +64,7 @@ export default function IPhoneSlider() {
               style={{ transform: `translateX(-${activeIndex * 100}%)` }}
             >
               {steps.map((step) => (
-                <div key={step.step} className="min-w-full h-full  py-4 flex items-center justify-center px-4">
+                <div key={step.step} className="min-w-full mb-12 md:mb-0  h-full  py-4 flex items-center justify-center px-4">
 
                   <IPhoneScreen step={step.step} />
                 </div>

@@ -53,6 +53,7 @@ export default function DatePicker({ value, onChange, className, setDays }: Prop
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const night = range.from && range.to ? diffDays(range.from, range.to!) : 0;
+  const daysAreSet = range.from && range.to
 
   console.log('nights,', night)
 
@@ -197,9 +198,10 @@ export default function DatePicker({ value, onChange, className, setDays }: Prop
               ›
             </button>
           </div>
-          <div >
+          <div className="relative" >
             {renderMonth(view)}
             {/*   {renderMonth(nextMonth)} */}
+            <button onClick={() => setOpen(false)} disabled={!daysAreSet} className={` ${!daysAreSet ? "opacity-50" : "opacity-100"} absolute text-xs font-body px-2 py-1 bg-tertiary text-tertiary-text rounded-full right-0 bottom-0`}>Velg datoer</button>
           </div>
 
         </div>

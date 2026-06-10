@@ -25,8 +25,8 @@ export default function PartnerBanner() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "30% bottom",
-          end: "70% bottom",
+          start: "40% bottom",
+          end: "80% bottom",
           scrub: true,
 
           markers: false
@@ -51,6 +51,7 @@ export default function PartnerBanner() {
           scale: 1.8,
           x: '100%',
           ease: "linear",
+          delay: 0.5
          
         })
         .fromTo(iconRef2.current, {
@@ -70,12 +71,12 @@ export default function PartnerBanner() {
 
 
   return (
-    <section ref={containerRef} className="relative overflow-hidden px-16 bg-secondary-text py-16 sm:py-20">
+    <section ref={containerRef} className="relative overflow-hidden pb-16  px-16 bg-secondary-text md:py-16 sm:py-20">
       <div className="container relative">
         <div className="flex flex-col lg:flex-row items-center gap-8  justify-around lg:gap-16">
 
           <div ref={headingRef} className="">
-            <h2 className="font-heading text-5xl flex flex-col text-center md:text-left leading-[1.05] text-secondary tracking-tight sm:text-5xl">
+            <h2 className="font-heading text-4xl flex flex-col text-center md:text-left leading-[1.05] text-secondary tracking-tight sm:text-5xl">
               Gi kundene dine{" "}
               <span className="text-primary [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">
                 mobildekning over hele verden

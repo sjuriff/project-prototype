@@ -52,7 +52,7 @@ export default function CTASection() {
               </div>
             </div>
 
-            <div className=" px-48">
+            <div className=" md:px-48">
               <Link className=" h-none flex items-center justify-center" href={paths.produkter}>
 
                 <PrimaryButton Icon={ArrowRight} iconRight fullWidth >
