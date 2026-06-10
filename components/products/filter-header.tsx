@@ -68,7 +68,7 @@ export default function FilterHeader({
 
 
   return (
-    <section ref={containerRef} className="bg-gradient-to-b z-10 max-h-[375px]  from-surface to-secondary px-6 relative pt-20 pb-10 ">
+    <section ref={containerRef} className="bg-gradient-to-b z-10 max-h-[375px]  mx-auto overflow-hidden 3xl:max-w-3xl  from-surface to-secondary 3xl:from-secondary px-6 relative pt-20 pb-10 ">
       <div ref={iconRef}  className="hidden  absolute md:block z-0 top-8 md:-top-52 -right-48 items-center h-[500px] w-[500px] flex justify-center gap-3  bg-primary/40 rounded-full">
         <Earth className="h-12 w-12 absolute top-60 left-28  md:w-38 md:h-38 z-0 text-tertiary opacity-75   " />
       </div>

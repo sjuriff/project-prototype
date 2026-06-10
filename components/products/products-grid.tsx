@@ -38,7 +38,7 @@ const ProductGrid = ({ products }: { products: Product[] }) => {
   return (
     <div
       ref={containerRef}
-      className="grid grid-cols-12 gap-x-6 justify-items-center gap-y-12"
+      className="grid grid-cols-12  gap-x-6 justify-items-center gap-y-12"
     >
       {products.map((product) => (
         isMobile ?

@@ -47,13 +47,13 @@ export default function PartnerHero() {
   );
   return (
 
-    <div ref={containerRef} className="flex-1 w-full mx-auto overflow-hidden  xl:min-h-[700px]    xl:h-[calc(100dvh-5rem)] xl:max-h-[950px]    grid lg:grid-cols-12  items-center">
-      <div className="lg:col-span-6 order-2 lg:order-1 col-span-1 flex flex-col px-8 pt-4 lg:pt-0 lg:px-0 justify-center items-start lg:pl-16 bg-secondary-text  h-full w-full  space-y-8">
+    <div ref={containerRef} className="flex-1 max-w-3xl w-full mx-auto overflow-hidden  xl:min-h-[700px]    xl:h-[calc(100dvh-5rem)] xl:max-h-[950px] 3xl:rounded-b-3xl     grid lg:grid-cols-12  items-center">
+      <div className="lg:col-span-6  order-2 lg:order-1 col-span-1 flex flex-col px-8 pt-4 lg:pt-8 xl:pt-0 lg:px-0 justify-center items-start lg:pl-16 bg-secondary-text  h-full w-full  space-y-8">
 
 
-        <h1 className="partner-heading font-heading text-secondary text-center lg:text-left text-5xl md:text-6xl lg:text-7xl leading-[1.05] text-balance">
-          <span className="inline-block">Bli partner</span>
-          <span className=" [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] inline-block text-primary">med <span className="font-logo">beam</span></span>
+        <h1 className="partner-heading font-heading text-secondary text-center lg:text-left text-5xl  xl:text-7xl leading-[1.05] text-balance">
+          <span className="inline-block">Bli partner</span><br className="hidden md:block"/>
+          <span className=" [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] inline-block text-primary"> med <span className="font-logo">beam</span></span>
         </h1>
 
         <p className="partner-subheading text-center lg:text-left text-lg font-body text-tertiary-text max-w-xl leading-relaxed text-pretty">

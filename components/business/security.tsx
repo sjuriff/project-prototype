@@ -27,8 +27,8 @@ export default function SecuritySection() {
   return (
     <section className="relative overflow-hidden bg-background py-5 sm:py-32">
   
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto max-w-2xl text-center">
+      <div className="mx-auto max-w-6xl fhd:max-w-fhd px-6">
+        <div className="mx-auto max-w-5xl text-center">
          
           <h2 className="mt-5 [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-balance text-4xl text-secondary-text  font-heading tracking-tight text-foreground sm:text-5xl">
             Sikkerhet i verdensklasse — bygget for bedrifter

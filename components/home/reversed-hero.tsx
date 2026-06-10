@@ -8,7 +8,7 @@ import Link from 'next/link';
 export default function ReversedHero() {
   return (
     <section
-      className="relative bg-tertiary flex items-center min-h-screen w-full xl:rounded-none 2xl:rounded-3xl 2xl:min-h-[50vh] overflow-hidden"
+      className="relative bg-tertiary max-w-fhd flex items-center min-h-screen w-full xl:rounded-none 2xl:rounded-3xl 2xl:min-h-[50vh] overflow-hidden"
 
     >
       <div className="container relative mx-auto px-6 py-20 z-10">
@@ -83,17 +83,6 @@ export default function ReversedHero() {
             src={heroImg}
             alt="Mobile phone connectivity"
             className="absolute inset-0 w-full translate-x-[1.4%] -translate-y-2 h-full rotate-[-3deg] scale-[1.08]  object-[75%_80%] object-cover"
-          />
-        </div>
-      </div>
-
-      {/* Mobile image (unchanged) */}
-      <div className="lg:hidden mt-12 px-6">
-        <div className="rounded-3xl overflow-hidden">
-          <Image
-            src={heroImg}
-            alt="Mobile phone connectivity"
-            className="w-full h-[400px] object-cover"
           />
         </div>
       </div>

@@ -60,7 +60,7 @@ export default function ProductsSection({ products }: ProductSectionsProps) {
         resultCount={destinationsList.length}
       />
       <div className=" mx-auto px-4 md:px-10 fhd:px-48 ">
-        <div className="bg-surface relative z-0  rounded-xl p-8 ">
+        <div className="bg-surface mx-auto 3xl:max-w-3xl max-w-fhd relative z-0  rounded-3xl p-8 ">
           <ProductGrid products={destinationsList} />
         </div>
       </div>

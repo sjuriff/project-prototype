@@ -103,13 +103,13 @@ export default function ImageHero(props: HeroProps) {
   }
 
   return (
-    <div className="relative w-full h-[600px] xl:min-h-[700px] bg-tertiary  xl:h-[calc(100dvh-5rem)] xl:max-h-[950px] 2xl:w-full 2xl:h-[750px] fhd:rounded-b-2xl    w-full ">
-      <div className="absolute  left-0 right-0 bottom-0  h-[80%] w-full  md:h-full z-0">
+    <div className="relative w-full h-[600px] xl:min-h-[700px] bg-tertiary 3xl:rounded-b-3xl xl:h-[calc(100dvh-5rem)] xl:max-h-[950px] 2xl:w-full 2xl:h-[750px] 3xl:max-w-3xl  overflow-hidden    w-full ">
+      <div className="absolute     left-0 right-0 bottom-0  h-[80%] w-full  md:h-full z-0">
         <Image
           src={props.imgData}
           alt={props.imgAlt}
           fill
-          className="-scale-x-100 object-[25%_center] hidden md:block   md:object-top object-cover"
+          className="-scale-x-100 object-[25%_center] hidden md:block 3xl:rounded-b-3xl   md:object-top object-cover"
         />
         <span className="bg-gradient-to-b from-tertiary to-tertiary/50 md:hidden w-full rounded-b-3xl   h-[28%] absolute top-0 left-0 z-10"></span>
 
@@ -125,7 +125,7 @@ export default function ImageHero(props: HeroProps) {
       {/* Text Card */}
       <div
         ref={textContainerRef}
-        className="lg:pt-0  z-30 relative w-full ml-0 pl-0 lg:ml-0 xl:ml-0 xl:pt-0 2xl:pt-28 flex    -translate-x-[120%] md:w-1/2 md:h-full  justify-center items-center"
+        className="lg:pt-0  z-30 3xl:rounded-b-3xl relative w-full ml-0 pl-0 lg:ml-0 xl:ml-0 xl:pt-0  flex    -translate-x-[120%] md:w-1/2 md:h-full  justify-center items-center"
       >
         <div className=" bg-transparent w-full md:h-full  justify-center md:justify-start  flex flex-col gap-4 pl-2 md:px-12 pt-6 md:shadow-md pb-8 md:bg-secondary/90 py-4 md:rounded-none rounded-xl">
           <h1 className="text-4xl text-center md:text-left md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] md:mt-20 lg:text-6xl xl:text-7xl font-heading text-balance text-primary md:text-primary-text  leading-tight">

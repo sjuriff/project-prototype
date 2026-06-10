@@ -38,7 +38,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-16">
+    <div className="max-w-3xl mx-auto max-w-fhd px-6 py-16 md:px-24 xl:px-28">
       <div className="relative mb-8   w-fit mx-auto">
         <h1 className="text-4xl md:text-5xl relative z-10 text-center font-heading [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-primary-text">Frequently Asked Questions</h1>
       </div>

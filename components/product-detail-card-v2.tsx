@@ -89,7 +89,7 @@ export default function ProductDetailV2({
   })
 
 
-  const days = [{ number: "7", price: 155 }, { number: "14", price: 255 }, { number: "30", price: 355 }, { number: "90", price: 655 }]
+
 
   const [plan, setPlan] = useState<"set" | "unlimited">("unlimited")
 
@@ -184,8 +184,6 @@ export default function ProductDetailV2({
       <div className="max-w-6xl h-full ">
         <div className="bg-surface h-full rounded-2xl  shadow-lg ">
           <div className="grid    h-full md:grid-cols-16">
-            {/* Left side - Polaroid Image */}
-
             <div className="flex  h-full min-h-0 relative col-span-9    flex-col  items-center md:rounded-2xl   bg-secondary">
               <div className='md:h-10   h-8 w-8 z-10 md:w-10 absolute left-4 top-4'>
                 {!isRegion &&
@@ -200,7 +198,7 @@ export default function ProductDetailV2({
                 }
               </div>
               {image ? (
-                <div className=" z-0 rounded-t-2xl md:rounded-l-2xl overflow-hidden relative h-[250px]  w-full md:h-1/2   "
+                <div className=" z-0 rounded-t-2xl md:rounded-tl-2xl overflow-hidden relative h-[250px]  w-full md:h-1/2   "
                 >
                   {/*    <div className="flex absolute w-full -bottom-1 z-10  items-center gap-4">
                     <div className="w-25   h-4 bg-secondary"></div>
@@ -223,7 +221,7 @@ export default function ProductDetailV2({
                   </div>
 
                 </div>
-              ) : (<div className="relative bg-secondary-heading rounded-t-2xl md:rounded-t-none md:rounded-l-2xl    flex items-center justify-center   h-[250px]   w-full md:h-1/2 ">
+              ) : (<div className="relative bg-secondary-heading rounded-t-2xl md:rounded-t-none md:rounded-tl-2xl    flex items-center justify-center   h-[250px]   w-full md:h-1/2 ">
                 {/*   <div className="flex absolute w-full -bottom-1 z-10  items-center gap-4">
                   <div className="w-25    h-4 bg-secondary"></div>
                   <div className="w-25  h-4 bg-secondary"></div>
@@ -337,7 +335,7 @@ export default function ProductDetailV2({
             </div>
 
             {/* Right side - Product Details */}
-            <div className=" p-4 md:p-8 col-span-7 md:p-12  bg-white">
+            <div className=" p-4 rounded-b-3xl md:rounded-r-3xl md:p-8 col-span-7 md:p-12  bg-white">
               <h1 className="mb-2 text-2xl text-primary-text font-semibold  font-heading " >{title} eSIM Data Plan</h1>
               <p className="mb-6 text-secondary-text font-body" >
                 Hold deg tilkoblet gjennom hele reisen din i med vårt høyhastighets eSIM-dataabonnement
