@@ -86,7 +86,7 @@ export default function PartnerCoBrandSection({
         </div>
 
         {/* What's included + CTA */}
-        <div className="mt-14 grid items-center gap-8 rounded-2xl border border-border bg-tertiary p-8 sm:p-10 md:grid-cols-2">
+        <div className="mt-14 grid items-center gap-8 rounded-2xl  bg-tertiary p-8 sm:p-10 md:grid-cols-2">
           <div>
             <h3 className="text-2xl font-semibold tracking-tight text-tertiary-text font-heading">
               Dette får du som partner

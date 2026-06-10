@@ -49,6 +49,7 @@ export default function DatePicker({ value, onChange, className }: Props) {
   const [view, setView] = useState(() => new Date(today.getFullYear(), today.getMonth(), 1));
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+  const daysAreSet = range.from && range.to
 
   useEffect(() => {
     function onClick(e: MouseEvent) {
@@ -190,10 +191,11 @@ export default function DatePicker({ value, onChange, className }: Props) {
           {/*   {renderMonth(nextMonth)} */}
           </div>
           {nights > 0 && (
-            <div className="text-primary-text mt-4  font-body" style={{  textAlign: "center" }}>
+            <div className="text-primary-text mt-4 text-sm  font-heading" style={{  textAlign: "center" }}>
               {nights} {nights === 1 ? "dag" : "dager"} 
             </div>
           )}
+          <button onClick={() => setOpen(false)} disabled={!daysAreSet} className={` ${!daysAreSet ? "opacity-50" : "opacity-100"} absolute text-xs font-body px-2 py-1 bg-tertiary text-tertiary-text rounded-full right-2 bottom-3`}>Velg datoer</button>
         </div>
       )}
     </div>

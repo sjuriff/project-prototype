@@ -33,7 +33,7 @@ export default function IPhoneScreen({ step }: IPhoneScreenProps) {
           <div className={` ${isQrCode ? "hidden" : "absolute"} top-5 left-1/2 z-20 h-6 w-20 -translate-x-1/2 rounded-full bg-black`} />
 
           <div
-            className={` ${isQrCode ? "bg-transparent" : "bg-white "}relative overflow-hidden h-[500px] md:h-[620px] w-full rounded-[2.5rem] `}
+            className={` ${isQrCode ? "bg-transparent" : "bg-white "}relative overflow-hidden h-[550px] w-[270px] md:h-[620px] md:w-full rounded-[2.5rem] `}
             style={{ aspectRatio: '9/19.5' }}
           >
             <div className={`${isQrCode ? "hidden" : "absolute"} top-0 left-0 right-0 z-30 flex h-11 items-center justify-between px-7 text-[11px]`}>
@@ -58,10 +58,10 @@ export default function IPhoneScreen({ step }: IPhoneScreenProps) {
 function MobilnettScreen() {
   return (
     <div className="flex h-full flex-col pt-11">
-      <div className="px-4 pb-2">
+      <div className="px-2 pb-2">
         <div className="flex h-10 items-center justify-between">
           <button
-            className="mr-2 flex items-center gap-0.5 text-sm"
+            className=" flex items-center gap-0.5 text-sm"
             style={{ color: 'var(--color-tertiary)' }}
           >
             <ChevronLeft className="h-4 w-4" />
@@ -100,10 +100,10 @@ function MobilnettScreen() {
 function MobilnettScreenEnd() {
   return (
     <div className=" h-full pt-11 border flex-col ">
-      <div className="px-4 pb-2">
+      <div className="px-2 pb-2">
         <div className="flex h-10 items-center justify-between">
           <button
-            className="mr-2 flex items-center gap-0.5 text-sm"
+            className="mr-0 flex items-center gap-0.5 text-sm"
             style={{ color: 'var(--color-tertiary)' }}
           >
             <ChevronLeft className="h-4 w-4" />
@@ -223,12 +223,12 @@ function getStepContent(step: number): ReactNode {
                 <Radio className="h-8 w-8" style={{ color: 'var(--color-tertiary-text)' }} />
               </div>
               <h2
-                className="mt-6 text-[24px] font-bold"
+                className="mt-6 text-[18px] md:text-[24px] font-bold"
                 style={{ color: 'var(--color-primary-text)' }}
               >
                 Aktiver eSIM
               </h2>
-              <p className="mt-3 text-[15px]" style={{ color: '#6d6d72' }}>
+              <p className="mt-3 text-[13px] md:text-[15px]" style={{ color: '#6d6d72' }}>
                 Ditt nye eSIM fra beam mobile er klar for å aktiveres.
               </p>
 
@@ -257,12 +257,12 @@ function getStepContent(step: number): ReactNode {
           <BottomSheet heightPct={92} showHeader={false}>
             <div className="flex h-full flex-col px-6 pt-8 pb-8">
               <h2
-                className="text-[22px] font-bold leading-tight"
+                className=" text-[18px] md:text-[22px] font-bold leading-tight"
                 style={{ color: 'var(--color-primary-text)' }}
               >
                 Hvor vil du bruke denne eSIMen?
               </h2>
-              <p className="mt-2 text-[14px]" style={{ color: '#6d6d72' }}>
+              <p className="mt-2 text-[13px] md:text-[14px]" style={{ color: '#6d6d72' }}>
                 Velg hvor du planlegger å bruke eSIMen.
               </p>
 
@@ -299,12 +299,12 @@ function getStepContent(step: number): ReactNode {
                 <Radio className="h-8 w-8" style={{ color: 'var(--color-tertiary-text)' }} />
               </div>
               <h2
-                className="mt-6 text-[24px] font-bold"
+                className="mt-6 text-[18px] md:text-[24px] font-bold"
                 style={{ color: 'var(--color-primary-text)' }}
               >
                 Hvilken type plan har du?
               </h2>
-              <p className="mt-3 text-[15px]" style={{ color: '#6d6d72' }}>
+              <p className="mt-3 text-[13px] md:text-[15px]" style={{ color: '#6d6d72' }}>
                 Velg hvilken type dataplan du har får ditt reise-eSIM
               </p>
 
@@ -341,12 +341,12 @@ function getStepContent(step: number): ReactNode {
                 <Radio className="h-8 w-8" style={{ color: 'var(--color-tertiary-text)' }} />
               </div>
               <h2
-                className="mt-6 text-[24px] font-bold"
+                className="mt-6 text-[18px] md:text-[24px] font-bold"
                 style={{ color: 'var(--color-primary-text)' }}
               >
                 Reise eSIM oppsett er fullført
               </h2>
-              <p className="mt-3 text-[15px]" style={{ color: '#6d6d72' }}>
+              <p className="mt-3 text-[13px] md:text-[15px]" style={{ color: '#6d6d72' }}>
                 beam mobile eSIM er klar for bruk. iPhonen vil oppdage når du er utenlands og påminne deg om å skru på planen hvis det ikke allerede er gjort
               </p>
 
@@ -429,12 +429,14 @@ function getStepContent(step: number): ReactNode {
           {/* eSIM status øverst */}
           <div className="flex flex-col items-start mt-4 justify-start  text-white text-[11px] font-medium px-1">
             <div className="flex items-center justify-center gap-1 ">
+               <Signal className="w-3 h-3 mb-0.5" />
               <span>Primær sim</span>
-              <Signal className="w-3 h-3 mb-0.5" />
+             
             </div>
             <div className="flex items-center  justify-center gap-1">
+               <Signal className="w-3 h-3 mb-0.5" />
               <span>beam eSIM</span>
-              <Signal className="w-3 h-3 mb-0.5" />
+             
             </div>
           </div>
 
@@ -622,12 +624,12 @@ function SettingsItem({
       }}
     >
       {icon && <div className="mr-3 flex-shrink-0">{icon}</div>}
-      <span className="text-[15px]" style={{ color: 'var(--color-primary-text)' }}>
+      <span className="text-[14px] md:text-[15px]" style={{ color: 'var(--color-primary-text)' }}>
         {label}
       </span>
-      <div className="ml-auto flex items-center gap-2">
+      <div className="ml-auto flex items-center gap-2 md:gap-2">
         {value && (
-          <span className="text-sm text-nowrap" style={{ color: '#86868b' }}>
+          <span className=" text-xs md:text-sm text-nowrap" style={{ color: '#86868b' }}>
             {value}
           </span>
         )}
