@@ -93,7 +93,7 @@ export default function HowToStart() {
         </p>
       </div>
 
-      <div className="mt-16 grid px-4 md:px-16  grid-cols-6 w-full gap-8 lg:gap-16 ">
+      <div className="mt-16 grid px-4 md:px-16 max-w-fhd mx-auto  grid-cols-6 w-full gap-8 lg:gap-16 ">
         {steps.map(({ number, icon: Icon, title, description }) => {
 
           return (

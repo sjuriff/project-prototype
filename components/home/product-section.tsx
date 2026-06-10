@@ -83,8 +83,8 @@ export default function ProductSection({ popularProducts, regionProducts }: Prod
 
 
   return (
-    <section className="w-full z-20 relative 2xl:min-h-[30vh]   xl:px-8  2xl:px-16  bg-gradient-to-b from-secondary to-surface-dim gap-8    min-h-screen  flex flex-col items-center justify-center">
-      <div className=" mt-8 relative bg-surface rounded-t-3xl fhd:w-[90%] overflow-hidden   w-full h-full flex flex-col items-center justify-center  ">
+    <section className="w-full z-20 relative 2xl:min-h-[30vh]   xl:px-8  2xl:px-16  fhd:px-78 bg-gradient-to-b from-secondary to-surface gap-8    min-h-screen   flex flex-col items-center justify-center">
+      <div className=" mt-8 relative bg-surface rounded-t-3xl  overflow-hidden max-w-fhd    w-full h-full flex flex-col items-center justify-center  ">
         <div className="flex  flex-col items-center gap-2 p-4">
           {/*  <div className="bg-primary h-16 w-16 flex items-center justify-center rounded-full">
             <Earth className="w-8 h-8 text-primary-text" />
@@ -94,9 +94,7 @@ export default function ProductSection({ popularProducts, regionProducts }: Prod
             <Earth className="h-12 w-12 absolute top-60 right-28  md:w-38 md:h-38 z-0 text-tertiary opacity-75   " />
           </div>
           <div className=" relative">
-            <div className="bg-primary md:hidden z-0 absolute -top-7 md:-top-8 -right-5 md:-right-8 h-12 w-12 md:h-16 md:w-16 flex items-center justify-center rounded-full">
-              <Earth className="md:w-8 md:h-8 h-8 w-8 text-primary-text" />
-            </div>
+          
             <h1 className="md:text-5xl text-3xl relative text-center font-heading z-10   text-primary-text [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]">Dekning over hele verden</h1>
           </div>
           <p className="text-lg md:text-xl font-body text-secondary-text">Velg din destinasjon</p>

@@ -51,7 +51,8 @@
   --color-light-yellow: #fff9cc;
   --color-extra-light-yellow: #fffce6;
 
-  --color-old-teal: #008093 --color-test: #5b3fdc;
+  --color-old-teal: #008093;
+  --color-test: #5b3fdc;
 
   /* fonts - connected to `next/font` variables */
   --font-body: var(--font-inter);
@@ -61,6 +62,12 @@
   /*breakpoints*/
   --breakpoint-fhd: 1920px;
   --breakpoint-3xl: 2000px;
+
+  /*container sizes*/
+ 
+
+  --container-fhd: 1600px;
+  --container-3xl: 1800px;
 }
 
 :root {

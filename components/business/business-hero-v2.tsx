@@ -46,18 +46,18 @@ export default function BusinessHero() {
   return (
     <div
       ref={containerRef}
-      className="h-[800px] xl:h-[calc(100dvh-5rem)]  flex flex-col lg:flex-row items-center  xl:min-h-[700px] xl:max-h-[950px] bg-tertiary z-10 overflow-hidden"
+      className="h-[800px] xl:h-[calc(100dvh-5rem)] 3xl:max-w-3xl md:mx-auto 3xl:rounded-b-3xl  flex flex-col lg:flex-row items-center  xl:min-h-[700px] xl:max-h-[950px] bg-tertiary z-10 overflow-hidden"
     >
      
         {/* Left: copy */}
-        <div className=" md:order-1 order-2 md:h-full w-full h-1/2 xl:pl-8 text-center  md:text-left md:pb-32 md:pt-16 lg:pt-16 md:w-1/2 ">
-          <h1 className="bh-headline mt-8 font-heading  [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]  text-4xl text-secondary leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+        <div className=" md:order-1 order-2 md:h-full w-full h-1/2 xl:pl-8 2xl:pl-16 fhd:pl-32 text-center  md:text-left md:pb-32 md:pt-16 lg:pt-16   fhd:pr-4 md:w-1/2 ">
+          <h1 className=" mt-8 font-heading fhd:ml-8 fhd:mt-28 [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)]  text-4xl text-secondary leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
             <span className="inline-block"><span className="text-primary">Smart</span> mobildata</span>{" "}
             <span className="inline-block">for bedrifter</span>{" "}
             <span className="inline-block">på reise.</span>
           </h1>
 
-          <div className="md:mt-10 mt-4 max-w-xl space-y-4 md:space-y-5 font-body text-[15px] leading-relaxed text-tertiary-text">
+          <div className="md:mt-10 fhd:ml-8 mt-4 max-w-xl space-y-4 md:space-y-5 font-body text-[15px] leading-relaxed text-tertiary-text">
             <p className="bh-paragraph text-balance">
               Rimelig, sikkert og forutsigbart for ansatte på tjenestereise.
               Kutt kostnader på mobildata utenfor Europa og gi ansatte trygg,
@@ -69,7 +69,7 @@ export default function BusinessHero() {
             </p>
           </div>
 
-          <div className="bh-cta mt-4 md:mt-12 flex flex-row md:flex-row items-center justify-center md:justify-start gap-4">
+          <div className="bh-cta fhd:ml-8 mt-4 md:mt-12 flex flex-row md:flex-row items-center justify-center md:justify-start gap-4">
             <PrimaryButton>
               Kontakt oss
               <ArrowRight className="ml-2 h-4 w-4 transition-transform  group-hover:translate-x-0.5" />

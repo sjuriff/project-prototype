@@ -9,7 +9,7 @@ export default function PartnerPage(){
 
   return(
     <main className="bg-surface overflow-hidden">
-      <section>
+      <section className="bg-tertiary">
         <PartnerHero />
       </section>
       <section>

@@ -82,7 +82,7 @@ export default function Faq() {
   }, { scope: containerRef })
 
   return (
-    <div ref={containerRef} className=" z-10 relative min-h-[50vh]  w-full py-16 px-4 sm:px-6 lg:px-8">
+    <div ref={containerRef} className=" z-10 relative min-h-[50vh] max-w-fhd  w-full py-16 px-4 sm:px-6 lg:px-8">
       <div className="relative mb-8   w-fit   md:w-fit mx-auto">
         <h1 className="md:text-5xl text-3xl relative z-10 text-center font-heading [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] text-primary-text">Frequently Asked Questions</h1>
         {/*   <span className="md:h-16 h-12 absolute -top-8 right-8 md:-right-8 z-0 w-12 md:w-16 bg-primary flex items-center justify-center rounded-full">

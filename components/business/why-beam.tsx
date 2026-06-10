@@ -111,7 +111,7 @@ export default function WhyBeam() {
       {/* Half-circle entering from the right */}
       <div
         ref={orbRef}
-        className="pointer-events-none absolute right-0 top-24 z-0 translate-x-1/2"
+        className="pointer-events-none hidden md:block absolute right-0 top-24 z-0 translate-x-1/2"
         aria-hidden
       >
         <div className="relative h-[250px] w-[250px] md:h-[620px] md:w-[620px]">
@@ -143,7 +143,7 @@ export default function WhyBeam() {
         {/* Cards grid */}
         <div
           ref={cardsRef}
-          className="mt-20 grid gap-6 px-6 md:grid-cols-2 lg:grid-cols-3"
+          className="mt-20 max-w-fhd mx-auto grid gap-6 px-6 md:grid-cols-2 lg:grid-cols-3"
         >
           {reasons.map(({ icon: Icon, title, desc }, i) => (
             <article

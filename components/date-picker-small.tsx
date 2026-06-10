@@ -145,21 +145,21 @@ export default function DatePicker({ value, onChange, className, setDays }: Prop
     : "Velg dagene du reiser";
 
   return (
-    <div ref={rootRef} className={"font-roboto z-50 h-8"} style={{ position: "relative", display: "inline-block" }}>
+    <div ref={rootRef} className={"font-roboto z-50  h-8"} style={{ position: "relative", display: "inline-block" }}>
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="flex items-center font-heading justify-center"
+        className="flex bg-surface-dim text-primary-text  items-center font-heading justify-center"
         style={{
           padding: "10px 14px",
           border: "1px solid #d1d5db",
           borderRadius: 8,
-          background: "#fff",
+        
           cursor: "pointer",
           minWidth: 280,
           textAlign: "left",
           fontSize: 14,
-          color: range.from ? "#111827" : "#6b7280",
+        
         }}
       >
         <Calendar className="text-tertiary" /> &nbsp; {label}

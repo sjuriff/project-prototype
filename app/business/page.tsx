@@ -22,7 +22,7 @@ export default function BusinessPage() {
       <section className="min-h-[700px] md:py-0 relative px-4  md:px-16 gap-4 flex flex-col items-center justify-center" >
 
         <StepsHeader />
-        <div className="flex flex-col mt-0 md:mt-6   md:flex-row justify-around w-full">
+        <div className="flex flex-col mt-0 md:mt-6 max-w-fhd  md:flex-row justify-around w-full">
           <BusinessSteps />
           <DashboatdPhone />
         </div>

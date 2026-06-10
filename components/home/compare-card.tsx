@@ -53,7 +53,7 @@ export default function CompareCard() {
 
 
   return (
-    <div ref={cointainerRef} className="max-h-screen   bg-surface-dim w-full py-10 flex items-center justify-center  md:py-12 lg:py-8">
+    <div ref={cointainerRef} className="max-h-screen   bg-surface-dim w-full py-10 flex items-center justify-center max-w-fhd px-4 2xl:px-8  md:py-12 lg:py-8">
       <div className="w-full  ">
         {/* Header */}
         <div className="text-center  px-4 md:px-0 flex flex-col items-center gap-2 mb-8 ">

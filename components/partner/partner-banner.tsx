@@ -72,7 +72,7 @@ export default function PartnerBanner() {
 
   return (
     <section ref={containerRef} className="relative overflow-hidden pb-16  px-16 bg-secondary-text md:py-16 sm:py-20">
-      <div className="container relative">
+      <div className="container mx-auto max-w-7xl relative">
         <div className="flex flex-col lg:flex-row items-center gap-8  justify-around lg:gap-16">
 
           <div ref={headingRef} className="">

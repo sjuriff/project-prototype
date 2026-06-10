@@ -6,17 +6,8 @@ import PrimaryButton from '@/components/buttons/primary-button';
 
 export function CreativeHero() {
   return (
-    <section className="relative flex flex-col md:flex-row  md:justify-start md:items-start min-h-screen w-full  xl:rounded-none 2xl:rounded-3xl  2xl:min-h-[50vh] " style={{ backgroundColor: 'var(--color-secondary)' }}>
-      {/* Mobile image */}
-     {/*  <div className="lg:hidden mt-4   px-6">
-        <div className="rounded-3xl overflow-hidden">
-          <Image
-            src={heroMobileImage}
-            alt="Mobile phone connectivity"
-            className="w-full h-[400px] object-cover"
-          />
-        </div>
-      </div> */}
+    <section className="relative max-w-fhd flex flex-col md:flex-row  md:justify-start md:items-start min-h-screen w-full  xl:rounded-none 2xl:rounded-3xl  2xl:min-h-[50vh] " style={{ backgroundColor: 'var(--color-secondary)' }}>
+
       <div className="container  relative mx-auto px-6 py-20 md:py-20  z-10 relative">
         <div className="lg:grid   lg:grid-cols-2 gap-20 items-center">
           {/* Left Content */}
@@ -73,7 +64,7 @@ export function CreativeHero() {
 
       {/* Image with diagonal clip-path splitting from middle */}
       <div
-        className="absolute border border-black top-0 right-0 w-1/2 h-full overflow-hidden hidden lg:block"
+        className="absolute 2xl:rounded-r-3xl  top-0 right-0 w-1/2 h-full overflow-hidden hidden lg:block"
         style={{
           clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)',
         }}

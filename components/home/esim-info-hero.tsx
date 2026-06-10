@@ -119,7 +119,7 @@ export default function ESimInfoHero() {
 
   }, [iPhoneHovered, androidHovered])
   return (
-    <div ref={containerRef} className="min-h-screen relative  mx-5 rounded-t-2xl overflow-hidden bg-background flex items-center  justify-center md:mt-16 md:px-6 py-16">
+    <div ref={containerRef} className="min-h-screen  mx-auto relative max-w-fhd   rounded-t-2xl overflow-hidden bg-background flex items-center  justify-center md:mt-16 md:px-6 py-16">
         <div ref={iconRef} className="hidden  absolute md:block z-0 top-8 md:-top-52 -right-48 items-center h-[500px] w-[500px] flex justify-center gap-3  bg-tertiary/40 rounded-full">
           <Lightbulb className="h-12 w-12 absolute top-60 left-24  md:w-38 md:h-38 z-0 text-primary   " />
         </div>
@@ -129,9 +129,7 @@ export default function ESimInfoHero() {
           {/* Header Section */}
           <div className=" space-y-8  px-6 md:px-0 text-center mb-16">
             <div className="  relative w-fit mx-auto " >
-              <div className="absolute z-0 md:hidden -top-8 md:-top-11 -right-8 items-center flex justify-center gap-3 p-4 bg-primary rounded-full">
-                <Lightbulb className="h-6 w-6 md:w-8 md:h-8 z-0 text-secondary-foreground" />
-              </div>
+             
               <h1 className="md:text-5xl text-4xl z-10 relative font-heading md:text-5xl [text-shadow:2px_2px_6px_rgba(0,0,0,0.25)] tracking-tight text-primary-text">
                 Hva er eSIM?
               </h1>
@@ -144,14 +142,14 @@ export default function ESimInfoHero() {
           <HowItWorksSection />
 
           {/* Visual Cards Grid */}
-          <div className="grid mt-16 md:grid-cols-12 gap-6">
+          <div className=" px-2   md:mt-16 ">
             {/* Traditional SIM Card */}
 
 
 
 
             {/* eSIM */}
-            <div className="p-8 relative col-span-12 bg-tertiary  flex flex-col items-center   md:rounded-2xl shadow-lg  space-y-4 relative overflow-hidden">
+            <div className="p-8  relative col-span-12 bg-tertiary  flex flex-col items-center rounded-2xl   md:rounded-2xl shadow-lg  space-y-4 relative overflow-hidden">
               <div
                 className="absolute  top-0 right-0 h-54 w-54 md:w-64 md:h-64 rounded-full bg-primary/20 -translate-y-1/2 translate-x-1/2"
 

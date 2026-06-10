@@ -23,7 +23,7 @@ import ESimInfoHero from "@/components/home/esim-info-hero";
 
 export default async function Home() {
   const popularProducts: Product[] = products.popular;
-  const regionProducts : Product[] = products.regions;
+  const regionProducts: Product[] = products.regions;
   const countries: Product[] = products.countries;
 
 
@@ -32,7 +32,7 @@ export default async function Home() {
 
   return (
     <main className="bg-surface    md:w-full overflow-hidden  flex flex-col  2xl:gap-0">
-      <section className="w-full h-full bg-gradient-to-b from-surface to-secondary fhd:px-38   flex items-center justify-center">
+      <section className="w-full h-full bg-gradient-to-b from-surface to-secondary fhd:px-0   flex items-center justify-center">
         {/*  <Hero /> */}
         <ImageHero popular={popularProducts} counrties={countries} imgData={heroImage} imgAlt="hero" title="Dekning over hele verden" />
 
@@ -40,7 +40,7 @@ export default async function Home() {
 
       <ProductSection popularProducts={popularProducts} regionProducts={regionProducts} />
 
-      <section className="w-full  mt-8 ">
+      <section className="w-full    xl:px-10 2xl:px-16  mt-8 ">
         <ESimInfoHero />
 
       </section>
@@ -62,7 +62,7 @@ export default async function Home() {
       </section> */}
 
 
-      <section className="w-full relative bg-surface xl:px-8 2xl:px-28 2xl:py-28   flex items-center justify-center">
+      <section className="w-full relative bg-surface xl:px-8 2xl:px-28 2xl:py-16   flex items-center justify-center">
         <CompareCard />
       </section>
 
